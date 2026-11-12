@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: ${FILE_DB_URL:jdbc:mysql://mysql:3306/file_db?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&connectTimeout=3000&socketTimeout=5000}
+    username: ${FILE_DB_USER:file_user}
+    password: ${FILE_DB_PASSWORD}
+    hikari:
+      connection-timeout: 3000
+      initialization-fail-timeout: -1
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_BYTES:104857600}B
+      max-request-size: ${MAX_REQUEST_SIZE:106954752B}
+      resolve-lazily: true
+file-service:
+  quota: ${DEFAULT_QUOTA_BYTES:10737418240}
+  max-file: ${MAX_FILE_BYTES:104857600}
+  minio-endpoint: ${MINIO_ENDPOINT:http://minio:9000}
+  minio-user: ${MINIO_ROOT_USER}
+  minio-password: ${MINIO_ROOT_PASSWORD}
+  jwt-secret: ${JWT_SECRET}
+  jwt-issuer: ${JWT_ISSUER}
+  jwt-audience: ${JWT_AUDIENCE}
+  internal-token: ${INTERNAL_API_TOKEN}

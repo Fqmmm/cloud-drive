@@ -1,0 +1,40 @@
+include:
+  - ../mysql/compose.yaml
+  - ../minio/compose.yaml
+
+services:
+  file-service:
+    build:
+      context: ../..
+      dockerfile: file-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      FILE_DB_PASSWORD: ${FILE_DB_PASSWORD:?set FILE_DB_PASSWORD}
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?set MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?set MINIO_ROOT_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}
+      JWT_ISSUER: ${JWT_ISSUER:?set JWT_ISSUER}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:?set JWT_AUDIENCE}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:?set INTERNAL_API_TOKEN}
+      DEFAULT_QUOTA_BYTES: ${DEFAULT_QUOTA_BYTES:-10737418240}
+      MAX_FILE_BYTES: ${MAX_FILE_BYTES:-104857600}
+      MAX_REQUEST_SIZE: ${MAX_REQUEST_SIZE:-106954752B}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - bash
+        - -ec
+        - |
+          exec 3<>/dev/tcp/127.0.0.1/8080
+          printf 'GET /health/ready HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3
+          read -r protocol status rest <&3
+          test "$$status" = 200
+      interval: 10s
+      timeout: 8s
+      retries: 6
+      start_period: 20s
