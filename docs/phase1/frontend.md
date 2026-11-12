@@ -1,6 +1,6 @@
 # frontend 需求文档
 
-主责：A。C 协助 Dockerfile 与 Nginx，D 负责端到端验收。关联：[总体方案](../plan.md)、[认证](auth-service.md)、[文件](file-service.md)、[分享](share-service.md)。
+主责：肖国扬。范骐鸣 协助 Dockerfile 与 Nginx，刘骐语 负责端到端验收。关联：[总体方案](../plan.md)、[认证](auth-service.md)、[文件](file-service.md)、[分享](share-service.md)。
 
 ## 1. 页面范围与使用流程
 
@@ -31,7 +31,7 @@
 | 分享管理 | `/api/v1/shares`、`DELETE /api/v1/shares/{id}` |
 | 匿名分享 | `GET /api/v1/s/{token}`、`POST /api/v1/s/{token}/verify`、`POST /api/v1/s/{token}/download` |
 
-表中新增和调整的路径由 A、B 同步实现。JSON 使用 `{code, msg, data}`；上传字段为 `file`，查询参数 `parentId=0` 表示根目录。前端路由模式沿用项目已有配置：hash 模式分享链接包含 `/#/`；history 模式配置 `try_files`，且分享 URL 生成方式与之保持一致。
+表中新增和调整的路径由 肖国扬、狄东琛 同步实现。JSON 使用 `{code, msg, data}`；上传字段为 `file`，查询参数 `parentId=0` 表示根目录。前端路由模式沿用项目已有配置：hash 模式分享链接包含 `/#/`；history 模式配置 `try_files`，且分享 URL 生成方式与之保持一致。
 
 Nginx 使用总体方案的路由表，精确覆盖集合路径和子路径，转发时保留 `/api/v1` 前缀和 Authorization 请求头。`/internal/` 与后台健康接口不转发；未知 `/api/` 路径返回 404，避免被 SPA 回退误判为成功页面。Nginx 自身的 404/413/502/504 可以保留默认响应体，由前端按状态兜底，无需统一配置 JSON 错误页。
 
@@ -48,7 +48,7 @@ Nginx 使用总体方案的路由表，精确覆盖集合路径和子路径，�
 | 页面健康探测 | `GET /healthz` 返回静态 200 |
 | 分享页面 | 设置 Referrer-Policy，避免分享凭证随外部跳转泄露 |
 
-C 验证后端容器重建后的域名解析和 Nginx 恢复方式。基础方案允许更新后显式 reload Nginx，并把该步骤写入部署脚本；双副本实验另行验证请求分发。访问日志不记录请求体、Authorization 和提取码。
+范骐鸣 验证后端容器重建后的域名解析和 Nginx 恢复方式。基础方案允许更新后显式 reload Nginx，并把该步骤写入部署脚本；双副本实验另行验证请求分发。访问日志不记录请求体、Authorization 和提取码。
 
 ## 5. 验收
 
@@ -61,4 +61,4 @@ C 验证后端容器重建后的域名解析和 Nginx 恢复方式。基础方�
 | 范围精简 | 页面无旧功能入口，网络面板无团队、会员、私密空间请求 |
 | 网络边界 | 浏览器只访问 frontend，内部路由被拒绝，未知 API 不回退为 SPA 成功页，网关错误正文不直接展示给用户 |
 
-交付页面源码、API 类型定义、Dockerfile、Nginx 配置、页面与 API 对照表、构建命令及浏览器验收记录。A 对整体前端结果负责，C 提交部署部分，D 保存业务操作证据。
+交付页面源码、API 类型定义、Dockerfile、Nginx 配置、页面与 API 对照表、构建命令及浏览器验收记录。肖国扬 对整体前端结果负责，范骐鸣 提交部署部分，刘骐语 保存业务操作证据。

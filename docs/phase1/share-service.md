@@ -1,6 +1,6 @@
 # share-service 需求文档
 
-负责人：A，与 B 联调文件内部接口。关联：[总体方案](../plan.md)、[文件服务](file-service.md)、[前端](frontend.md)。
+负责人：肖国扬，与 狄东琛 联调文件内部接口。关联：[总体方案](../plan.md)、[文件服务](file-service.md)、[前端](frontend.md)。
 
 ## 1. 分享生命周期
 
@@ -62,7 +62,7 @@ share_db 只保存分享记录，不保存文件正文，不直接访问 file_db
 
 分享业务不依赖认证服务的实时连接。就绪检查确认 share_db 可用；文件服务健康作为依赖指标单独记录，由具体业务请求决定是否返回降级错误。文件服务停止时，本人分享列表与取消仍可工作，创建、详情验证和下载受影响。存活检查只检测进程。实例中不保存决定分享有效性的必要会话状态，各副本共享数据库和配置。日志记录请求 ID、结果类别、下游耗时及实例 ID，过滤完整分享 token、提取码和鉴权头。
 
-实验三需要一个受控的主进程异常退出入口。A 实现 `POST /internal/test/exit`，仅在 `EXPERIMENT_FAULTS_ENABLED=true` 时启用，校验内部凭证后记录事件并以非零码终止 JVM。默认关闭，Nginx 拒绝转发；具体注入与收尾见[故障实验](../phase2/03-failure-recovery.md)。
+实验三需要一个受控的主进程异常退出入口。肖国扬 实现 `POST /internal/test/exit`，仅在 `EXPERIMENT_FAULTS_ENABLED=true` 时启用，校验内部凭证后记录事件并以非零码终止 JVM。默认关闭，Nginx 拒绝转发；具体注入与收尾见[故障实验](../phase2/03-failure-recovery.md)。
 
 ## 6. 验收
 

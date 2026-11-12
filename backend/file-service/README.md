@@ -10,7 +10,7 @@
 docker compose -f backend/docker/file-service/compose.yaml up --build -d --wait
 ```
 
-此配置供 B 独立联调。C 接入根编排时复用三个服务片段及两个命名卷。默认均使用容器网络。调试覆盖文件可绑定文件服务端口和 MinIO 控制台至本机回环地址。文件大小上限修改时同步调整 `MAX_REQUEST_SIZE` 与 Nginx 限制。
+此配置供 狄东琛 独立联调。范骐鸣 接入根编排时复用三个服务片段及两个命名卷。默认均使用容器网络。调试覆盖文件可绑定文件服务端口和 MinIO 控制台至本机回环地址。文件大小上限修改时同步调整 `MAX_REQUEST_SIZE` 与 Nginx 限制。
 
 ## MinIO 管理和恢复
 
