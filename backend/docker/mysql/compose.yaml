@@ -1,0 +1,24 @@
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:-mysql:8.0.29}
+    restart: unless-stopped
+    command: ["--default-time-zone=+00:00"]
+    environment:
+      TZ: UTC
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:?set AUTH_DB_PASSWORD}
+      FILE_DB_PASSWORD: ${FILE_DB_PASSWORD:?set FILE_DB_PASSWORD}
+      SHARE_DB_PASSWORD: ${SHARE_DB_PASSWORD:?set SHARE_DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ../../sql/course-mysql/init:/docker-entrypoint-initdb.d:ro
+      - ../../sql/course-mysql/schema:/opt/course-schema:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$FILE_DB_PASSWORD\" mysql --protocol=TCP -h 127.0.0.1 -u file_user -Nse 'SELECT 1 FROM file_db.schema_version WHERE version = 1' | grep -qx 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  mysql_data:
