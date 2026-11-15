@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: ${AUTH_DB_URL:jdbc:mysql://mysql:3306/auth_db?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&connectTimeout=3000&socketTimeout=5000}
+    username: ${AUTH_DB_USER:auth_user}
+    password: ${AUTH_DB_PASSWORD}
+    hikari:
+      connection-timeout: 3000
+      validation-timeout: 1000
+      initialization-fail-timeout: -1
+      maximum-pool-size: 5
+      minimum-idle: 0
+  jdbc:
+    template:
+      query-timeout: 5s
+
+# Pool exceptions can contain JDBC URLs. Health responses remain the diagnostic surface.
+logging:
+  level:
+    com.zaxxer.hikari: OFF

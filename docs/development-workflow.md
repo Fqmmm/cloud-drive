@@ -58,7 +58,7 @@ B 的两个功能提交采用英文描述，未使用前端配置的 `type(scope
 ## 4. Git 管理
 
 1. 开始每轮先查看 `git status --short --branch`、近期提交和当前差异。历史课程基线为 `eef0ad1`，本轮接收 B 交付的阅读基线为 `dde9c6f`。
-2. 实施阶段使用 `course/a-services` 或同类清楚命名的开发分支；先检查分支是否已存在。分支创建成功后才记录实际名称和起点。
+2. 新开发分支按用户要求使用“类型/简短改动说明”，例如 `feat/auth-service-bootstrap`、`fix/frontend-download-errors`。Git 分支名不支持空格，说明部分使用连字符。历史 `course/a-services` 保留；新分支先检查是否存在，创建成功后才记录实际名称和起点。
 3. 每个提交完成一个可审阅功能。按 `plan.md` 第 2.5 节拆分到注册、登录、文件浏览、文件操作、分享管理、匿名下载等功能；各服务的构建骨架可单独提交。对应验证、SQL 和文档随功能提交。
 4. 提交消息采用 `type(scope): 描述`，例如 `feat(auth): implement personal account login`、`fix(frontend): preserve string file identifiers`、`docs(ab): record integration results`。
 5. 使用明确文件路径暂存，提交前查看差异和 `git diff --cached --check`。确认未夹带他人改动、临时产物或真实凭证。

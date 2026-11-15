@@ -19,41 +19,39 @@
 
 ## 2. Git 实际状态
 
-| 项目 | 本次核对结果 |
+- 当前开发分支：`feat/auth-service-bootstrap`，从已推送的 `20e8b7f` 创建。
+- `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
+- 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
+- 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
+- 后续新分支按用户要求使用类型与简短说明，如 `feat/auth-service-bootstrap`、`fix/download-errors`。Git 名称不支持空格，说明用连字符。
+
+## 3. 当前阶段及实际验证
+
+plan 第 2.5 节第 1 项（auth-service 独立构建、配置与健康接口）：自测通过。
+
+| 检查 | 实际执行与结果 |
 |---|---|
-| 当前分支 | `course/a-services` |
-| 当前 HEAD | `5f66bab` |
-| HEAD 提交标题 | `docs(ab): establish development workflow and incremental delivery plan` |
-| main 与本地 origin/main | `dde9c6f` |
-| B 的数据库交付 | `4dbc492` |
-| B 的文件与 MinIO 交付 | `be3e3f1` |
-| 原方案基线 | `eef0ad1` |
-| 远端 | `https://github.com/Fqmmm/cloud-drive.git` |
-| 分支上游 | `origin/course/a-services`，2026-11-15 设置成功 |
-| 首个文档提交的推送 | 用户接受协作者邀请后，2026-11-15 推送 `5f66bab` 成功 |
+| 独立构建 | 仓库根目录以 Docker 挂载服务目录，在 Maven 3.9.9 / Temurin 17.0.15 下执行 `mvn -B -f auth-service/pom.xml verify`，BUILD SUCCESS |
+| 自动化测试 | `HealthControllerTest` 3 项，0 失败、0 错误、0 跳过；验证 live 不访问数据库、ready 失败后恢复、异常时资源释放 |
+| 真实 MySQL 开发自测 | `pwsh -NoProfile -File backend/auth-service/tests/health-smoke.ps1` 通过。数据库未启动时 live=200，ready=503（3.06 秒）；数据库启动后 ready=200；停止后 live=200，ready=503（2.97 秒）；恢复后 ready=200，认证容器重启次数为 0 |
+| 源码镜像 | `docker build -f backend/auth-service/Dockerfile -t cloud-drive-auth:bootstrap backend` 成功，构建阶段执行 verify，基础镜像固定为已验证 digest；运行镜像只带 jar 和 JRE |
+| 镜像运行 | 使用 `health-smoke.ps1 -ApplicationImage cloud-drive-auth:bootstrap` 通过，默认 ENTRYPOINT 可运行；ready 从 503（3.02 秒）恢复 200，停库后 503（3.00 秒），再次恢复 200，应用无重启 |
+| 旧规范检查 | 原命令缺 javalang；安装到宿主临时目录后，通过 Python 导入仓库检查器并仅固定 `_discover_project_root` 为 auth-service 路径，保留原规则配置。明确扫描 3 个 Java 文件，No problems found，无解析跳过。直接执行旧 CLI 会向上选中 backend/src，不能将该范围的通过作为新服务通过 |
+| 文档与差异 | Git 空白检查通过；相对 Markdown 文件引用存在；暂存仅含本功能的 11 个文件 |
 
-本轮开始时唯一工作区变更为未跟踪的本文。用户接受仓库协作者邀请后，已有文档提交推送成功。本文作为下一项独立文档提交；提交号及最终工作区状态请用 Git 核对。
+详细构建、配置、健康响应和可重复自测命令见 [auth-service README](../backend/auth-service/README.md)。
+ready 当前确认数据库可连接，不检查尚未实现的业务表映射。服务扫描仅覆盖自身包，不加载原单体。
+注册、登录、JWT、基础资料、前端适配及 share-service 均待开始；尚未开展真实 JWT 与 B 的互操作验证。
 
-`5f66bab` 包含根 `AGENTS.md`、`docs/development-workflow.md`、更新后的 `docs/plan.md` V3.3 和 B 文件服务 README 中构建约定的同步说明。该提交只有文档。
+下一项为 plan 第 2.5 节第 2 项个人账户注册，须在本功能提交推送成功后开始；校验字段、密码散列、重复账户/邮箱、并发唯一性与本地事务，核对 B 的 auth_db 初版 SQL。
 
-## 3. 已完成及尚未开始
+## 4. 环境与已解决故障
 
-已阅读课程要求、原项目主要调用关系、B 新增实现及规范工具。已制定工作规范并把独立工程与逐功能提交推送的决定写入计划。
-
-A 的课程服务尚未开始编码。`backend/auth-service/` 和 `backend/share-service/` 当前不存在。前端仍是原完整网盘实现，本轮尚未修改。未执行应用构建、镜像构建、数据库初始化或业务联调，B 的实现也尚未经本对话运行验证。
-
-## 4. 推送与运行环境阻塞
-
-2026-11-15 本轮实际诊断：
-
-- 普通受限执行中的 `git push -u origin course/a-services` 再现 `getaddrinfo() thread failed to start`。在受限环境外执行后可连接 GitHub，但远端返回 `remote rejected ... (permission denied)`；使用 `git -c http.version=HTTP/1.1 push -u origin course/a-services` 重试得到相同拒绝。网络已可达，写入权限或凭证授权仍受阻，不能报告推送成功。
-- `git ls-remote --heads origin` 成功，仅返回 `main`，指向 `dde9c6f55429e033cac3fcf62152ab902cca96a1`；远端尚无开发分支。凭证 helper 为 Git Credential Manager，`git credential-manager github list` 列出的账户为 `Scoyn-X`；没有输出令牌，也未清除或替换既有凭证。需核对该账户对 `Fqmmm/cloud-drive` 的写权限及凭证仓库授权。GitHub CLI 未安装。
-- Docker 普通受限执行报管道访问被拒绝；受限环境外 `docker version` 成功。实际 context 为 `desktop-linux`，Docker Desktop 4.50.0，客户端和 Linux Engine 均为 28.5.1。无需重启引擎，也未启动、停止或删除容器/卷。
-- Maven 3.9.9 默认使用 Temurin Java 25.0.3；已发现 JDK 21.0.7，常见安装目录未发现 JDK 17。本机 Docker 镜像列表没有 Java/Maven 构建镜像。Java 17 构建与运行仍待验证，未执行应用构建。Node、pnpm 及前端依赖尚未验证。
-
-恢复结果：用户接受仓库邀请后，`git push -u origin course/a-services` 成功，既有文档 `5f66bab` 已推送并设置上游。此前拒绝记录保留用于诊断追溯。下一步单独提交推送本文，再开展 plan 第 2.5 节第 1 项；尚未开始业务功能。
-
-用户本轮要求后续分支采用“类型 + 简短改动说明”。Git 分支名不支持空格，后续使用 `feat/short-description`、`fix/short-description`、`docs/short-description` 等形式；当前 `course/a-services` 保留以恢复已有提交推送，未重写历史或合并 main。
+- 受限执行推送仍报 DNS 线程错误；受限环境外可连接。此前远端 permission denied 在用户接受仓库邀请后解决，两个文档提交均已推送。Git Credential Manager 列出的账户为 `Scoyn-X`，未输出或更换凭证。
+- Docker Desktop 4.50.0，context=`desktop-linux`，客户端及 Linux Engine 28.5.1；需在受限环境外访问引擎管道。原有 trek、MinIO 容器和已有卷保持不动。
+- 健康自测使用随机命名网络和容器、临时 MySQL 内存文件系统、随机凭证、回环随机 HTTP 端口。结束仅移除本次临时容器和网络，不操作课程卷。
+- 宿主 Maven 3.9.9 默认 Temurin 25.0.3；本次使用容器 Java 17 完成构建和运行验证，没有修改系统 JAVA_HOME。运行 JRE 为 17.0.21，MySQL 为 8.0.29。镜像 digest 见服务 README。
+- Docker 命名卷 `course-a-maven-cache` 只作 Maven 依赖缓存保留，无业务数据。javalang 0.13.0/six 1.17.0 安装在宿主临时目录 `cloud-drive-check-deps`，未改全局 Python 环境。Node/pnpm 留待前端阶段验证。
 
 ## 5. 接手阅读顺序
 
@@ -80,12 +78,12 @@ A 的课程服务尚未开始编码。`backend/auth-service/` 和 `backend/share
 
 ## 7. 推荐继续步骤
 
-先恢复文档提交的推送，再将本交接记录作为单独文档提交并推送。每步只暂存对应文件，检查差异，不把交接文件混入后续功能提交。
+既有文档和初次交接记录均已分别推送。当前从 auth-service 最小骨架开始逐功能交付，每步只暂存对应文件并检查差异。
 
 ```powershell
 git status --short --branch
 git log -4 --oneline
-git push -u origin course/a-services
+git push -u origin feat/auth-service-bootstrap
 ```
 
 推送成功后，按 plan 第 2.5 节顺序执行。
