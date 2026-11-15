@@ -60,7 +60,7 @@ class Environment:
         assert jar.exists(), "Build " + kind + "-service first"
         args = ["run", "-d", "--name", name, "--network", self.network, "--network-alias", kind + "-service",
                 "-p", "127.0.0.1::8080", "-e", kind.upper() + "_DB_PASSWORD"]
-        for variable in ("JWT_SECRET", "JWT_ISSUER", "JWT_AUDIENCE", "INTERNAL_API_TOKEN"):
+        for variable in ("JWT_SECRET", "JWT_ISSUER", "JWT_AUDIENCE", "INTERNAL_API_TOKEN", "MINIO_ROOT_USER", "MINIO_ROOT_PASSWORD"):
             args += ["-e", variable]
         args += list(extra)
         args += ["--mount", f"type=bind,source={jar},target=/app/app.jar,readonly",
@@ -76,6 +76,14 @@ class Environment:
                 pass
             time.sleep(1)
         raise AssertionError(kind + " service not ready")
+
+    def start_files(self):
+        name = self.prefix + "-minio"
+        self.containers.append(name)
+        self.docker("run", "-d", "--name", name, "--network", self.network, "--network-alias", "minio",
+                    "--tmpfs", "/data:rw", "-e", "MINIO_ROOT_USER", "-e", "MINIO_ROOT_PASSWORD",
+                    "minio/minio:latest", "server", "/data")
+        self.files = self.service("file", ("-e", "DEFAULT_QUOTA_BYTES=1048576", "-e", "MAX_FILE_BYTES=524288"))
 
     def sql(self, query, user="root", database=None):
         password_variable = {"root": "MYSQL_ROOT_PASSWORD", "auth_user": "AUTH_DB_PASSWORD"}[user]
@@ -140,10 +148,38 @@ def registration(env):
     print("PASS registration: validation, normalization, salted hash, duplicate email/account, concurrent rollback, DB isolation")
 
 
+def authentication(env):
+    status, _, result = request(env.auth, "/api/v1/auth/login", dict(accountName="ALICE", password="test-Pass-123"))
+    assert status == 200
+    env.token = result["data"]["token"]
+    assert isinstance(result["data"]["userId"], str)
+    status, _, result = request(env.auth, "/api/v1/users/me", token=env.token)
+    assert status == 200 and result["data"]["accountName"] == "alice"
+    assert set(result["data"]) == {"userId", "accountId", "nickname", "accountName", "email"}
+    for name, password in (("alice", "incorrect-pass"), ("missing_user", "test-Pass-123")):
+        status, _, result = request(env.auth, "/api/v1/auth/login", dict(accountName=name, password=password))
+        assert status == 401 and result["code"] == "INVALID_CREDENTIALS"
+    assert request(env.auth, "/api/v1/users/me")[0] == 401
+    assert request(env.auth, "/api/v1/users/me", token=env.token + "x")[0] == 401
+    env.sql("UPDATE auth_db.sys_account SET status=0 WHERE account_name='alice'")
+    assert request(env.auth, "/api/v1/auth/login", dict(accountName="alice", password="test-Pass-123"))[0] == 401
+    env.sql("UPDATE auth_db.sys_account SET status=1 WHERE account_name='alice'")
+    env.start_files()
+    status, _, result = request(env.files, "/api/v1/quota", token=env.token)
+    assert status == 200 and result["data"]["usedBytes"] == 0
+    assert request(env.files, "/api/v1/quota", token=env.token + "x")[0] == 401
+    env.docker("stop", env.prefix + "-auth")
+    assert request(env.files, "/api/v1/quota", token=env.token)[0] == 200
+    env.docker("start", env.prefix + "-auth")
+    print("PASS login/JWT/profile: normalized login, credential/disabled checks, minimal profile, real JWT accepted by B without auth process")
+
+
 if __name__ == "__main__":
     environment = Environment()
     try:
         environment.start()
         registration(environment)
+        if "--auth" in sys.argv:
+            authentication(environment)
     finally:
         environment.close()

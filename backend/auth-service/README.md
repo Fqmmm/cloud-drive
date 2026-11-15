@@ -2,7 +2,7 @@
 
 独立 Maven 工程，构建目标 Java 17，Spring Boot 3.5.11 与 file-service 保持一致。
 当前完成 plan 第 2.5 节第 1 项：独立构建、数据库配置、健康接口。
-注册已实现；登录、JWT 和基础资料将在下一功能提交中实现。
+注册、登录、JWT 与基础资料已实现。
 服务只扫描 `com.jiayuan.drive.auth`，不加载原单体、Redis、MinIO 或其他课程服务。
 
 ## 构建和运行
@@ -90,3 +90,20 @@ accountType 缺省为 personal，显式值只接受 personal。账户名和邮�
 测试结束清理其专用容器/网络，不操作既有课程卷。2026-11-15 上述真实 MySQL 自测通过。
 旧规范检查可在提供 javalang 的 Python 环境运行 `python backend/tests/check_course_style.py auth-service`；
 本次明确覆盖 11 个 Java 文件，其中 2 个 record 被旧解析器跳过，其余无问题；record 由 Java 17 编译验证。
+
+## 登录、JWT 与基础资料
+
+`POST /api/v1/auth/login` 接收 `accountName,password`，成功返回 `token,userId,accountId,nickname,accountName`；
+错误账户、密码、禁用账户统一 401 / INVALID_CREDENTIALS。`GET /api/v1/users/me` 需要 Bearer JWT，
+只返回 `userId,accountId,nickname,accountName,email`，ID 为十进制字符串。非法 JWT 为 401 / UNAUTHORIZED。
+
+JWT 配置 `JWT_SECRET`（必填，至少 32 个 UTF-8 字节）、`JWT_ISSUER`、`JWT_AUDIENCE`（均必填非空），
+`JWT_TTL_SECONDS`（正整数秒，默认 7200）。HS256 签发 sub、accountId、iat、exp、iss、aud；
+接受时钟偏差 0 秒，拒绝未来 iat、过期、缺失字段、错误签名/算法/发行者/受众。各服务本地验证，
+退出由浏览器清除凭证，不提供即时吊销；B 文件服务在认证进程停止后仍接受未过期 JWT。
+用户或账户 status=1 且 is_deleted=false 才允许新登录及资料读取；B 的本地 JWT 不实时查询禁用状态。
+新账号密码散列格式同上，三个服务独立构建，不依赖共享 Maven 模块。
+
+`python backend/tests/course_smoke.py --auth` 在注册回归后启动独立 B 文件服务/MinIO，
+验证真实 JWT 访问 quota、错误凭证、最小资料、禁用账户，以及认证服务停止后的已有 JWT。
+JWT 单测另覆盖篡改、过期、未来 iat、缺少 accountId/iat、错误 issuer/audience 和大整数 ID。

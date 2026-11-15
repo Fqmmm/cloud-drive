@@ -14,6 +14,7 @@ $application = $prefix + '-app'
 $oldPassword = $env:AUTH_DB_PASSWORD
 $oldMysqlPassword = $env:MYSQL_PASSWORD
 $oldRootPassword = $env:MYSQL_ROOT_PASSWORD
+$oldJwtSecret = $env:JWT_SECRET
 
 function Invoke-Docker {
     param([string[]]$Arguments)
@@ -50,9 +51,11 @@ try {
     $env:AUTH_DB_PASSWORD = [guid]::NewGuid().ToString('N')
     $env:MYSQL_PASSWORD = $env:AUTH_DB_PASSWORD
     $env:MYSQL_ROOT_PASSWORD = [guid]::NewGuid().ToString('N')
+    $env:JWT_SECRET = [guid]::NewGuid().ToString('N')
     Invoke-Docker -Arguments @('network', 'create', $network) | Out-Null
     $runArguments = @('run', '-d', '--name', $application, '--network', $network,
-        '-p', '127.0.0.1::8080', '-e', 'AUTH_DB_PASSWORD',
+        '-p', '127.0.0.1::8080', '-e', 'AUTH_DB_PASSWORD', '-e', 'JWT_SECRET',
+        '-e', 'JWT_ISSUER=course-drive', '-e', 'JWT_AUDIENCE=course-drive-api',
         '-e', "AUTH_DB_URL=jdbc:mysql://${database}:3306/auth_db?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&connectTimeout=3000&socketTimeout=5000")
     if ($ApplicationImage) {
         $runArguments += $ApplicationImage
@@ -96,4 +99,5 @@ try {
     $env:AUTH_DB_PASSWORD = $oldPassword
     $env:MYSQL_PASSWORD = $oldMysqlPassword
     $env:MYSQL_ROOT_PASSWORD = $oldRootPassword
+    $env:JWT_SECRET = $oldJwtSecret
 }

@@ -67,5 +67,5 @@ Dockerfile 使用 Java 17 的已验证镜像版本，支持从源码构建，运
 
 2026-11-15 已实现独立构建、配置和健康接口，运行及自测命令见
 [auth-service README](../../backend/auth-service/README.md)。健康接口返回简要 `status`，
-ready 当前验证数据库连接，live 不访问数据库。注册已实现并通过真实 MySQL 并发/事务自测；登录、JWT 与基础资料待后续功能提交，
-本次未修改 B 的 SQL 或接口，未进行 JWT 互操作联调。
+ready 当前验证数据库连接，live 不访问数据库。注册、登录、JWT 与基础资料已实现，具体错误码和配置见 README。沿用 B 的 SQL 与内部契约，
+JWT 默认两小时、时钟偏差 0 秒，强制 HS256 和完整身份/时间/发行者/受众字段。

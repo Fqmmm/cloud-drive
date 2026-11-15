@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/personal-account-registration`，从已推送的 `87aee11` 创建。
+- 当前开发分支：`feat/login-jwt-profile`，从已推送的 `8fd5c7f` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -41,7 +41,7 @@ plan 第 2.5 节第 1 项（auth-service 独立构建、配置与健康接口）
 
 详细构建、配置、健康响应和可重复自测命令见 [auth-service README](../backend/auth-service/README.md)。
 ready 当前确认数据库可连接，不检查尚未实现的业务表映射。服务扫描仅覆盖自身包，不加载原单体。
-注册现已自测通过；登录、JWT、基础资料、前端适配及 share-service 待开始；尚未开展真实 JWT 与 B 的互操作验证。
+注册、登录、JWT、基础资料自测通过；真实 JWT 与 B 文件服务互操作通过。前端适配及 share-service 待开始。
 
 第 2 项注册自测通过：Java 17 verify 共 4 项测试通过；真实 MySQL 校验字段、归一、邮箱/账户冲突、4 并发注册仅一个成功、用户事务回滚、散列存储和跨库权限均通过。沿用 B 的 SQL，无迁移。旧规范扫描 11 文件，ApiResult/Registration 两个 record 跳过，其余无问题。下一项为登录/JWT/基础资料与 B 的 JWT 互操作。
 
@@ -113,3 +113,10 @@ git push -u origin feat/auth-service-bootstrap
 - A 的注册不能初始化 B 配额，用户资料不能聚合团队、会员和私密空间。原单体中的业务依赖不能直接复制到新服务。
 - 健康检查、构建成功、业务可用和 AB 联调通过分别记录。真实凭证不得提交或输出。
 - 每完成一项更新本进度文件，保留准确的分支、提交、验证结论和下一步，确保新对话可据此继续。
+
+## 连续交付记录
+
+- `8fd5c7f` 注册功能已单独推送。
+- 第 3 项登录/JWT/资料：Java 17 verify 5 项测试通过；`python backend/tests/course_smoke.py --auth` 通过，覆盖注册回归、归一登录、错误密码/未知/禁用账户、资料字段、真实 JWT 访问 B quota、篡改令牌拒绝，以及认证容器停止后 B 仍接受已有 JWT。独立测试环境已清理。
+- 旧规范扫描 14 Java 文件，AccountLogin（text block/record）、ApiResult、Registration 共 3 文件被旧解析器跳过，其余无问题；Java 17 构建覆盖全部源码。JWT 配置和错误码已同步服务 README。
+- 下一项：前端登录注册与课程导航精简，按第 2.5 节逐项提交推送。
