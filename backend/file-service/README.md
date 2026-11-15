@@ -51,3 +51,5 @@ MinIO 中断时仍可读取数据库里的文件列表，上传和下载报告�
 正常 auth-service 签发的 HS256 JWT 不受影响；非法令牌继续统一 401/UNAUTHORIZED，公共路径和 SQL 不变。
 `python -u backend/tests/jwt_contract.py` 用独立测试网络比较三个服务的正常、时间、身份、发行者、受众、算法行为，
 不输出令牌。file-service 独立 verify 本身没有单元测试，实际业务证据以这组真实接口检查为准。
+
+2026-11-15 AB 环境发现固定 MinIO 标签的远端拉取拒绝，本机同版本缓存可用。A 提供经过身份核验的本机标签与离线镜像恢复方法，见 [A 运行交付](../docker/a-services/README.md#minio-镜像来源恢复)；未修改 B 默认配置或现有数据卷。

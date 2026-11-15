@@ -85,9 +85,10 @@ class Environment:
     def start_files(self):
         name = self.prefix + "-minio"
         self.containers.append(name)
+        image = self.env.get("COURSE_TEST_MINIO_IMAGE", "cloud-drive-minio:release-2025-09-07")
         self.docker("run", "-d", "--name", name, "--network", self.network, "--network-alias", "minio",
                     "--tmpfs", "/data:rw", "-e", "MINIO_ROOT_USER", "-e", "MINIO_ROOT_PASSWORD",
-                    "minio/minio:latest", "server", "/data")
+                    image, "server", "/data")
         quota = "10737418240" if getattr(self, "runtime_images", False) else "1048576"
         maximum = "104857600" if getattr(self, "runtime_images", False) else "524288"
         self.files = self.service("file", ("-e", "DEFAULT_QUOTA_BYTES=" + quota, "-e", "MAX_FILE_BYTES=" + maximum))

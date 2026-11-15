@@ -41,6 +41,7 @@ docker/minio/config
 # Python cache files
 __pycache__/
 *.local
+/docker/a-services/artifacts/
 
 # agent
 .claude

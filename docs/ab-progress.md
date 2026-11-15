@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`fix/file-jwt-time-validation`，从已推送的 `97f3667` 创建。
+- 当前开发分支：`fix/minio-local-bootstrap`，从已推送的 `d32a17f` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -156,3 +156,7 @@ git push -u origin feat/auth-service-bootstrap
 - `97f3667` A 运行交付已推送。
 - AB 修复 1（JWT 时间）：实际复现 future-iat / exp-before-iat，auth/file/share 原响应为 [401,200,401]。仅在 B AccessConfiguration 补两项时间条件，正常 JWT 兼容，错误仍 401，无 SQL/路径变化。Java 17 file-service verify 通过（该模块无单元测试）；jwt_contract.py 的 12 组真实请求现在三服务全部一致，非法 401、合法 200。旧检查扫描 B 7 文件，3 现代语法文件跳过，改动的 AccessConfiguration 正常解析无问题。
 - 另发现 B 的 Quay MinIO 标签拉取 401，Docker Hub 同标签也拉取拒绝；本机缓存 minio/minio:latest 实际版本恰为相同 RELEASE.2025-09-07T16-13-09Z，缓存可运行。此环境恢复问题作为下一项独立处理，不改动既有数据卷。
+
+- `d32a17f` JWT 时间修复已推送。
+- AB 环境恢复 2（MinIO）：Quay 401、Docker Hub 同标签拉取拒绝仍存在；已确认本机缓存实际为相同 RELEASE.2025-09-07T16-13-09Z、固定身份 14cea493...。prepare-minio.ps1 核验后建立课程本机标签；A 示例环境覆盖 MINIO_IMAGE，开发自测同用此标签，不改 B 默认来源。已导出忽略的纯镜像 tar + sha256，提供新机器离线恢复途径，未导出任何业务数据。
+- 此项验证：脚本核验/标签/导出成功，归档 SHA-256 42de43b672a8322db7e9d69d6f3aeb93e6cc19acf761f4678075590549aca567；固定镜像真实启动、B curl readiness 和归档重载通过，Compose config --quiet 通过。远端权限本身未恢复，不能声称在线拉取通过。
