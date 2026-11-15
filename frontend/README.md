@@ -24,7 +24,7 @@ pnpm exec playwright test --config playwright.course.config.ts
 
 开发入口 `http://127.0.0.1:5173`，hash 路由。开发代理配置 `AUTH_PROXY_URL`、`FILE_PROXY_URL`、
 `SHARE_PROXY_URL`，默认分别为本机 8081/8082/8083；完整保留 `/api/v1`，页面代码不带内部服务地址。
-部署由 Nginx 同源转发，镜像与路由在 A 运行交付阶段补齐。
+部署由 Nginx 同源转发，镜像与路由已补齐，见 [A 运行交付](../backend/docker/a-services/README.md)。
 `tsconfig.json` 明确检查课程入口、课程组件、自动导入声明和 Vite 配置；不宣称旧完整网盘类型已通过。
 
 ## 验证记录
@@ -50,3 +50,5 @@ pnpm exec playwright test --config playwright.course.config.ts
 按 SHARE_* 业务码映射可读提示，失效下载后隐藏下载入口，设置 no-referrer 避免凭证外传。
 2026-11-15 全部 8 项 Chromium 替身 API 测试通过；补充错误码映射后，3 项分享测试再次通过。
 类型、构建、课程 ESLint/Prettier/Stylelint 和自定义检查通过；真实浏览器闭环在 A 镜像交付后联合核验。
+
+前端镜像固定 Node/Nginx digest，成品 Nginx 1.28.3；未知 API、内部与后台健康路径返回 404，healthz 为 200。Docker DNS 动态解析与读写超时、日志字段和独立开发配置见运行交付说明。

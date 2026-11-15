@@ -13,6 +13,7 @@ import org.springframework.http.ContentDisposition;
 /** Only the file service accesses MinIO; owner/file IDs come from verified share records. */
 @Component
 class FileClient {
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(FileClient.class);
     private final String base;
     private final String token;
     private final int connectTimeout;
@@ -40,6 +41,7 @@ class FileClient {
     }
 
     Metadata metadata(String ownerId, String fileId) {
+        long started = System.nanoTime();
         HttpURLConnection connection = null;
         try {
             connection = connect(ownerId, fileId, "", readTimeout);
@@ -66,6 +68,8 @@ class FileClient {
             throw unavailable();
         } finally {
             if (connection != null) { connection.disconnect(); }
+            LOG.info("dependency operation=metadata requestId={} durationMs={}",
+                    org.slf4j.MDC.get("requestId"), (System.nanoTime() - started) / 1000000);
         }
     }
 
@@ -82,6 +86,7 @@ class FileClient {
 
     /** Do not buffer the file or retry a partially emitted download; close upstream on disconnect. */
     void stream(String ownerId, String fileId, String filename, HttpServletResponse response) throws IOException {
+        long started = System.nanoTime();
         HttpURLConnection connection = null;
         try {
             connection = connect(ownerId, fileId, "/content", Math.max(1, contentTimeout));
@@ -102,6 +107,8 @@ class FileClient {
             throw new IOException("File transfer interrupted");
         } finally {
             if (connection != null) { connection.disconnect(); }
+            LOG.info("dependency operation=content requestId={} durationMs={}",
+                    org.slf4j.MDC.get("requestId"), (System.nanoTime() - started) / 1000000);
         }
     }
 

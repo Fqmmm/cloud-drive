@@ -7,5 +7,7 @@ RUN mvn -B verify
 FROM eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
 WORKDIR /app
 COPY --from=build /build/target/auth-service.jar app.jar
+COPY --from=build /build/target/classes/com/jiayuan/drive/auth/HealthProbe.class /app/probe/com/jiayuan/drive/auth/HealthProbe.class
 EXPOSE 8080
+HEALTHCHECK --interval=10s --timeout=6s --start-period=20s --retries=3 CMD ["java", "-cp", "/app/probe", "com.jiayuan.drive.auth.HealthProbe"]
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

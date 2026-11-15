@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/frontend-sharing`，从已推送的 `1a23d32` 创建。
+- 当前开发分支：`feat/a-service-runtime`，从已推送的 `941795f` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -147,3 +147,8 @@ git push -u origin feat/auth-service-bootstrap
 - `1a23d32` 匿名分享验证与流式下载已推送。
 - 第 10 项前端分享：类型、生产构建、课程 ESLint/Prettier/Stylelint、自定义检查通过。8 项 Chromium 替身 API 测试通过；最后补充 SHARE_* 码映射与失效后隐藏下载入口后，3 项分享测试再次通过。覆盖前导零、创建后复制、刷新不保留提取码、取消、匿名旧 JWT 不触发资料读取、每次 POST 下载重新传码、换错码后拒绝、取消原因。
 - 曾因自动审批使用额度暂时未执行最后的补跑；用户继续后以相同审批路径重试成功。没有绕过审批或将未执行检查记作通过。下一项：A 的镜像、健康命令、Nginx 与独立联调配置交付。
+
+- `941795f` 前端分享已推送。
+- 第 11 项 A 运行交付：Docker Desktop 曾停止（管道不存在），正常 docker desktop start 恢复，未重置环境。A 三个固定基础 digest 镜像均源码构建通过（Java verify、前端类型/build）；Nginx 1.28.3 -t 通过，A 独立开发 Compose config --quiet 通过。
+- `runtime_smoke.py` 成品测试通过：真实镜像健康命令、完整前缀/查询代理、内部/后台健康/未知 API 404、三个观测头、POST SHA-256、故障钩子默认 404/错误凭证 403/启用正确凭证退出 17；日志内存核对无本次密码/JWT/token/提取码。测试环境已清理。
+- 后端旧规范 auth 16 文件、share 19 文件，各有 3 文件因现代语法跳过，其余无问题。开发入口位于 backend/docker/a-services；未改根 Compose、正式实验或 B 实现。下一项：完整真实浏览器 AB 联调及逐问题修复。

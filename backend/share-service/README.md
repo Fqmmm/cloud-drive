@@ -74,3 +74,10 @@ FILE_CONTENT_TIMEOUT_MS 默认 120000 ms；连接仍默认 3000 ms，元数据�
 Java 17 verify 共 6 项测试，增加错码窗口与重置；现代语法导致旧规范 16 文件中 3 文件跳过，余下无问题。
 
 2026-11-15 完整匿名分享 AB 自测通过：错码/正确码/限流、POST 流式 SHA-256、权限替换拒绝、取消/过期/源文件失效和依赖恢复；独立测试容器不使用既有课程卷。
+
+## 成品镜像运行交付
+
+已补齐只依赖 JRE 的容器健康命令、APP_VERSION/INSTANCE_ID 与请求 ID 观测头、脱敏类别/状态/耗时日志。
+Java 构建阶段 verify，运行阶段只带 jar/JRE/独立探测 class，Java 为 PID 1。
+配置片段、镜像构建和实际成品自测见 [A 运行交付](../docker/a-services/README.md)。
+2026-11-15 三个 A 镜像、Nginx 路由边界、真实 POST 下载 SHA-256 与日志检查通过。

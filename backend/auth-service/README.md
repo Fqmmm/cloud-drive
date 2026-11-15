@@ -107,3 +107,10 @@ JWT 配置 `JWT_SECRET`（必填，至少 32 个 UTF-8 字节）、`JWT_ISSUER`�
 `python backend/tests/course_smoke.py --auth` 在注册回归后启动独立 B 文件服务/MinIO，
 验证真实 JWT 访问 quota、错误凭证、最小资料、禁用账户，以及认证服务停止后的已有 JWT。
 JWT 单测另覆盖篡改、过期、未来 iat、缺少 accountId/iat、错误 issuer/audience 和大整数 ID。
+
+## 成品镜像运行交付
+
+已补齐只依赖 JRE 的容器健康命令、APP_VERSION/INSTANCE_ID 与请求 ID 观测头、脱敏类别/状态/耗时日志。
+Java 构建阶段 verify，运行阶段只带 jar/JRE/独立探测 class，Java 为 PID 1。
+配置片段、镜像构建和实际成品自测见 [A 运行交付](../docker/a-services/README.md)。
+2026-11-15 三个 A 镜像、Nginx 路由边界、真实 POST 下载 SHA-256 与日志检查通过。

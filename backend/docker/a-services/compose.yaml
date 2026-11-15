@@ -1,0 +1,60 @@
+# A's isolated development composition. C/D maintain the formal root deployment.
+include:
+  - ../file-service/compose.yaml
+
+services:
+  auth-service:
+    build:
+      context: ../..
+      dockerfile: auth-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:?set AUTH_DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}
+      JWT_ISSUER: ${JWT_ISSUER:?set JWT_ISSUER}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:?set JWT_AUDIENCE}
+      JWT_TTL_SECONDS: ${JWT_TTL_SECONDS:-7200}
+      APP_VERSION: ${AUTH_APP_VERSION:-course-v1}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  share-service:
+    build:
+      context: ../..
+      dockerfile: share-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      SHARE_DB_PASSWORD: ${SHARE_DB_PASSWORD:?set SHARE_DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}
+      JWT_ISSUER: ${JWT_ISSUER:?set JWT_ISSUER}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:?set JWT_AUDIENCE}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:?set INTERNAL_API_TOKEN}
+      FILE_SERVICE_URL: http://file-service:8080
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:?set PUBLIC_BASE_URL to the frontend address}
+      SHARE_CODE_MAX_FAILURES: ${SHARE_CODE_MAX_FAILURES:-5}
+      SHARE_CODE_WINDOW_SECONDS: ${SHARE_CODE_WINDOW_SECONDS:-60}
+      EXPERIMENT_FAULTS_ENABLED: ${EXPERIMENT_FAULTS_ENABLED:-false}
+      APP_VERSION: ${SHARE_APP_VERSION:-course-v1}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      file-service:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ../../../frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_MAX_FILE_BYTES: ${MAX_FILE_BYTES:-104857600}
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:${A_DEV_HTTP_PORT:-8080}:80
+    depends_on:
+      auth-service:
+        condition: service_healthy
+      file-service:
+        condition: service_healthy
+      share-service:
+        condition: service_healthy

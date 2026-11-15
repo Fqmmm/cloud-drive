@@ -54,18 +54,22 @@ class Environment:
             raise AssertionError("Fresh course MySQL did not initialize")
         self.auth = self.service("auth")
 
-    def service(self, kind, extra=()):
-        name = self.prefix + "-" + kind
+    def service(self, kind, extra=(), label=None):
+        name = self.prefix + "-" + (label or kind)
         self.containers.append(name)
         jar = BACKEND / (kind + "-service") / "target" / (kind + "-service.jar")
-        assert jar.exists(), "Build " + kind + "-service first"
-        args = ["run", "-d", "--name", name, "--network", self.network, "--network-alias", kind + "-service",
+        use_image = getattr(self, "runtime_images", False) and kind in ("auth", "share")
+        assert use_image or jar.exists(), "Build " + kind + "-service first"
+        args = ["run", "-d", "--name", name, "--network", self.network, "--network-alias", (label or kind) + "-service",
                 "-p", "127.0.0.1::8080", "-e", kind.upper() + "_DB_PASSWORD"]
-        for variable in ("JWT_SECRET", "JWT_ISSUER", "JWT_AUDIENCE", "INTERNAL_API_TOKEN", "MINIO_ROOT_USER", "MINIO_ROOT_PASSWORD"):
+        for variable in ("JWT_SECRET", "JWT_ISSUER", "JWT_AUDIENCE", "INTERNAL_API_TOKEN", "MINIO_ROOT_USER", "MINIO_ROOT_PASSWORD", "PUBLIC_BASE_URL", "APP_VERSION"):
             args += ["-e", variable]
         args += list(extra)
-        args += ["--mount", f"type=bind,source={jar},target=/app/app.jar,readonly",
-                 "eclipse-temurin:17-jre", "java", "-jar", "/app/app.jar"]
+        if use_image:
+            args += ["cloud-drive-" + kind + ":course"]
+        else:
+            args += ["--mount", f"type=bind,source={jar},target=/app/app.jar,readonly",
+                     "eclipse-temurin:17-jre", "java", "-jar", "/app/app.jar"]
         self.docker(*args)
         base = "http://" + self.docker("port", name, "8080/tcp").splitlines()[0]
         deadline = time.monotonic() + 60
@@ -84,7 +88,9 @@ class Environment:
         self.docker("run", "-d", "--name", name, "--network", self.network, "--network-alias", "minio",
                     "--tmpfs", "/data:rw", "-e", "MINIO_ROOT_USER", "-e", "MINIO_ROOT_PASSWORD",
                     "minio/minio:latest", "server", "/data")
-        self.files = self.service("file", ("-e", "DEFAULT_QUOTA_BYTES=1048576", "-e", "MAX_FILE_BYTES=524288"))
+        quota = "10737418240" if getattr(self, "runtime_images", False) else "1048576"
+        maximum = "104857600" if getattr(self, "runtime_images", False) else "524288"
+        self.files = self.service("file", ("-e", "DEFAULT_QUOTA_BYTES=" + quota, "-e", "MAX_FILE_BYTES=" + maximum))
 
     def sql(self, query, user="root", database=None):
         password_variable = {"root": "MYSQL_ROOT_PASSWORD", "auth_user": "AUTH_DB_PASSWORD"}[user]
