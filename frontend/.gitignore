@@ -14,10 +14,10 @@ dist-ssr
 *.local
 
 stats.html
-pnpm-lock.yaml
 package-lock.json
 .stylelintcache
 .eslintcache
+tests/course-results/
 
 # ai agent
 .claude

@@ -1,86 +1,37 @@
-# 前端项目文档
+# 课程版前端
 
-## 项目启动
+复用原 Vue 3 / Element Plus / UnoCSS 项目，`src/main.ts` 只加载 `src/course/` 的课程入口。
+原完整网盘源码通过 Git 与旧目录保留，不在课程路由和类型检查范围加载。
+当前支持个人注册、登录、基础资料、刷新登录状态、退出和课程导航；文件/分享将在后续提交接入。
+不加载旧插件、动态权限菜单、团队、会员、私密空间、回收站或 SSE。
 
-- **环境准备**
+## 开发
 
-  | 环境类型     | 名称                                                                  |
-  | ------------ | --------------------------------------------------------------------- |
-  | **开发工具** | [Visual Studio Code](https://code.visualstudio.com/Download)          |
-  | **运行环境** | Node 18 + (推荐[22.9.0](https://npmmirror.com/mirrors/node/v22.9.0/)) |
-  > ⚠️ 注意：Node.js 20.6.0 版本存在兼容性问题，请勿使用
+已验证 Node 24.11.0 / pnpm 10.32.1，要求 Node ^20.19.0 或 >=22.12.0。
+依赖按 `pnpm-lock.yaml` 固定；首次安装使用 `pnpm install --frozen-lockfile --ignore-scripts`。
+此次未启用 Husky，也未将现有钩子配置视为已运行；格式与检查显式执行。
 
-- **快速开始**
-
-  ```bash
-  # 克隆代码
-  git clone <repo_url>
-
-  # 切换目录
-  cd frontend
-
-  # 安装 pnpm
-  npm install pnpm -g
-
-  # 设置镜像源（可选）
-  pnpm config set registry https://registry.npmmirror.com
-
-  # 安装依赖
-  pnpm install
-
-  # 启动运行
-  pnpm run dev
-  ```
-
-## 项目部署
-
-执行 `pnpm run build` 命令后，项目将被打包并生成 `dist` 目录。接下来，将 `dist` 目录下的文件上传到服务器 `/usr/share/nginx/html` 目录下，并配置 Nginx 进行反向代理。
-
-```bash
-pnpm run build
+```powershell
+pnpm dev
+pnpm exec vue-tsc --noEmit
+pnpm exec vite build
+pnpm exec eslint src/main.ts src/course vite.config.ts
+pnpm exec prettier --check src/main.ts src/course vite.config.ts tsconfig.json package.json
+pnpm exec stylelint src/course/course.css
+python script/code_check.py -d src
+pnpm exec playwright test --config playwright.course.config.ts
 ```
 
-以下是 Nginx 的配置示例：
+开发入口 `http://127.0.0.1:5173`，hash 路由。开发代理配置 `AUTH_PROXY_URL`、`FILE_PROXY_URL`、
+`SHARE_PROXY_URL`，默认分别为本机 8081/8082/8083；完整保留 `/api/v1`，页面代码不带内部服务地址。
+部署由 Nginx 同源转发，镜像与路由在 A 运行交付阶段补齐。
+`tsconfig.json` 明确检查课程入口、课程组件、自动导入声明和 Vite 配置；不宣称旧完整网盘类型已通过。
 
-```nginx
-server {
-    listen      80;
-    server_name localhost;
+## 验证记录
 
-    location / {
-        root   /usr/share/nginx/html;
-        index  index.html index.htm;
-    }
-
-    # 反向代理配置
-    location /prod-api/ {
-        # 请将 api.demo.com 替换为您的后端 API 地址，并注意保留后面的斜杠 /
-        proxy_pass http://api.demo.com/;
-    }
-}
-```
-
-更多详细信息，请参考这篇文章：[Nginx 安装和配置](https://blog.csdn.net/u013737132/article/details/145667694)。
-
-## 代码提交规范
-
-暂存更改后，在终端执行 `pnpm run commit` 命令唤起 git commit 交互，根据提示完成信息的输入和选择。
-
-## 系统功能介绍
-
-1. **文件管理**
-   - 支持文件的上传、下载、删除和列表展示。
-   - 文件信息包括文件名、大小、类型、上传时间等。
-   - 文件操作界面友好，支持批量操作。
-
-2. **访问计数器**
-   - 展示系统被访问的总次数。
-   - 用户可主动点击按钮增加访问次数，实时查看计数变化。
-
-3. **页面与导航**
-   - 顶部导航栏可切换“文件管理”、“访问计数”等主要功能页面。
-   - 提供 404 错误页面，访问不存在的路由时自动跳转。
-
-4. **权限与路由守卫**
-   - 未登录用户访问受限页面会自动跳转到登录页。
-   - 路由守卫实现页面访问控制和页面标题动态设置。
+2026-11-15 类型与构建通过，课程改动 ESLint/Prettier/Stylelint、课程目录自定义检查通过。
+生产包包含整个 Element Plus，Vite 提示大于 500 kB 的 chunk，为体积提示，不影响运行。
+全量自定义检查有 11 项原有问题，位于 BpmnViewer、旧 share、config、invitation、team 页面；
+新增课程目录没有这些问题，未为通过检查改动旧页面或添加忽略规则。
+2 项 Chromium 开发测试通过：以明确的 API 替身验证表单/导航、刷新退出、过期凭证和网关错误。
+这些浏览器测试不代替真实 API 与最终 AB 联调。既有 tests/e2e 含移出课程范围的旧用例，保留但本轮不作为课程验收。

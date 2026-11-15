@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/login-jwt-profile`，从已推送的 `8fd5c7f` 创建。
+- 当前开发分支：`feat/course-login-navigation`，从已推送的 `f09076a` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -120,3 +120,7 @@ git push -u origin feat/auth-service-bootstrap
 - 第 3 项登录/JWT/资料：Java 17 verify 5 项测试通过；`python backend/tests/course_smoke.py --auth` 通过，覆盖注册回归、归一登录、错误密码/未知/禁用账户、资料字段、真实 JWT 访问 B quota、篡改令牌拒绝，以及认证容器停止后 B 仍接受已有 JWT。独立测试环境已清理。
 - 旧规范扫描 14 Java 文件，AccountLogin（text block/record）、ApiResult、Registration 共 3 文件被旧解析器跳过，其余无问题；Java 17 构建覆盖全部源码。JWT 配置和错误码已同步服务 README。
 - 下一项：前端登录注册与课程导航精简，按第 2.5 节逐项提交推送。
+
+- `f09076a` 登录/JWT/资料已推送。
+- 第 4 项前端登录/导航：Node 24.11.0、pnpm 10.32.1；锁文件提交，保留原依赖范围。课程入口仅加载 src/course，原源码留在旧目录。类型检查、生产构建通过（Element Plus 大 chunk 提示）；相关 ESLint/Prettier/Stylelint 和课程自定义检查通过。全量 src 检查 11 项遗留错误，均非本轮新增。2 项 Chromium 替身 API 测试通过；实际服务 API 已在上一项通过，最终浏览器真实闭环留待 AB 联调。
+- 开发/浏览器测试使用 5173，避开已有 3000 端口服务。下一项：个人文件列表、目录和容量。
