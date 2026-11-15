@@ -2,7 +2,7 @@
 
 独立 Maven 工程，构建目标 Java 17，Spring Boot 3.5.11 与 file-service 保持一致。
 当前完成 plan 第 2.5 节第 1 项：独立构建、数据库配置、健康接口。
-注册、登录、JWT 和基础资料将在后续功能提交中实现；目前没有业务 API。
+注册已实现；登录、JWT 和基础资料将在下一功能提交中实现。
 服务只扫描 `com.jiayuan.drive.auth`，不加载原单体、Redis、MinIO 或其他课程服务。
 
 ## 构建和运行
@@ -72,3 +72,21 @@ pwsh -NoProfile -File backend/auth-service/tests/health-smoke.ps1 -ApplicationIm
 MySQL 8.0.29；3 项测试通过，真实 MySQL 故障与恢复自测通过。
 构建镜像 digest：`sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc`；
 运行镜像 digest：`sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a`。
+
+## 个人账户注册
+
+`POST /api/v1/auth/register` 接收 `accountName,password,nickname,email,accountType?`。
+账户名 3–32 位英文字母数字下划线，密码 8–64 字符，昵称 1–32 字符，邮箱必填且最长 254 字符；
+accountType 缺省为 personal，显式值只接受 personal。账户名和邮箱按小写保存。
+成功为 HTTP 200 / `00000` / 空 data，格式错误 400 / `INVALID_REQUEST`，
+账户重复 409 / `ACCOUNT_EXISTS`，邮箱重复 409 / `EMAIL_EXISTS`，数据库不可用 503 / `DEPENDENCY_UNAVAILABLE`。
+密码先 SHA-256/Base64，再 BCrypt(12) 加随机盐，保存为 `{bcrypt-sha256}` 前缀的散列，
+避免 BCrypt 72 字节上限截断 Unicode 密码；不兼容直接导入旧单体的 BCrypt 密码，本课程使用新 auth_db。
+用户/账户同事务插入，唯一约束兜底并发冲突，不创建文件配额，不改 B 的建表 SQL。
+
+开发自测：先执行 Maven verify，再在仓库根目录执行 `python backend/tests/course_smoke.py`。
+脚本以随机凭证、独立网络和 tmpfs MySQL 初始化 B 的三库，运行 auth jar，完成字段校验、
+账户名归一、邮箱重复、四并发同名注册、失败事务无孤立用户、强散列存储、跨库权限拒绝。
+测试结束清理其专用容器/网络，不操作既有课程卷。2026-11-15 上述真实 MySQL 自测通过。
+旧规范检查可在提供 javalang 的 Python 环境运行 `python backend/tests/check_course_style.py auth-service`；
+本次明确覆盖 11 个 Java 文件，其中 2 个 record 被旧解析器跳过，其余无问题；record 由 Java 17 编译验证。

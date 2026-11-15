@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/auth-service-bootstrap`，从已推送的 `20e8b7f` 创建。
+- 当前开发分支：`feat/personal-account-registration`，从已推送的 `87aee11` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -41,9 +41,9 @@ plan 第 2.5 节第 1 项（auth-service 独立构建、配置与健康接口）
 
 详细构建、配置、健康响应和可重复自测命令见 [auth-service README](../backend/auth-service/README.md)。
 ready 当前确认数据库可连接，不检查尚未实现的业务表映射。服务扫描仅覆盖自身包，不加载原单体。
-注册、登录、JWT、基础资料、前端适配及 share-service 均待开始；尚未开展真实 JWT 与 B 的互操作验证。
+注册现已自测通过；登录、JWT、基础资料、前端适配及 share-service 待开始；尚未开展真实 JWT 与 B 的互操作验证。
 
-下一项为 plan 第 2.5 节第 2 项个人账户注册，须在本功能提交推送成功后开始；校验字段、密码散列、重复账户/邮箱、并发唯一性与本地事务，核对 B 的 auth_db 初版 SQL。
+第 2 项注册自测通过：Java 17 verify 共 4 项测试通过；真实 MySQL 校验字段、归一、邮箱/账户冲突、4 并发注册仅一个成功、用户事务回滚、散列存储和跨库权限均通过。沿用 B 的 SQL，无迁移。旧规范扫描 11 文件，ApiResult/Registration 两个 record 跳过，其余无问题。下一项为登录/JWT/基础资料与 B 的 JWT 互操作。
 
 ## 4. 环境与已解决故障
 
