@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/share-management`，从已推送的 `f02c0bb` 创建。
+- 当前开发分支：`feat/anonymous-share-download`，从已推送的 `6f9e368` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -139,3 +139,7 @@ git push -u origin feat/auth-service-bootstrap
 - `f02c0bb` 分享独立骨架已推送。
 - 第 8 项分享管理：Java 17 verify 5 项回归通过；`course_smoke.py --share-management` 真实 AB 自测通过，包含前序认证和文件回归、两个账户隔离、拒绝目录/越权、六位提取码与 BCrypt 存储、128 位 token、文件名快照、过期、取消幂等、文件服务停机时列表/取消/ready 可用而创建 503。沿用 B SQL，无迁移。
 - 旧规范扫描 12 Java 文件，ApiResult/ShareStore 两文件因 record/text block 跳过，其余无问题，全部源码由 Java 17 构建覆盖。下一项：匿名分享验证、错误码与流式下载。
+
+- `6f9e368` 分享管理已推送。
+- 第 9 项匿名分享：Java 17 verify 6 项通过；真实 `course_smoke.py --shares` 完整 API 回归通过。匿名检查包括提取码前不泄露详情、verify/download 共用 5 次错码计数后 429、正确码仍可用、verify 后错码下载拒绝、公开和保护下载 SHA-256 一致、忽略浏览器 ownerId/fileId 替换、POST 下载、重命名、取消优先于过期、过期优先于提取码、源文件删除和文件依赖恢复。
+- 正文通过 HttpURLConnection/流转发，有限连接/读取超时，不缓存整文件、不重放已输出下载、不在二进制尾部附 JSON。旧规范 16 Java 文件中 3 文件因现代语法跳过，其余无问题。下一项：前端分享管理与匿名访问。

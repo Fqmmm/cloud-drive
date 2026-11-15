@@ -313,17 +313,71 @@ def share_management(env):
     print("PASS share management: ownership, directory rejection, code hash, snapshot, expiry, own list, idempotent cancel, file-outage isolation")
 
 
+def anonymous_shares(env):
+    public = "/api/v1/s/" + env.public_share["shareToken"]
+    protected = "/api/v1/s/" + env.protected_share["shareToken"]
+    code = env.protected_share["extractCode"]
+    wrong = "000000" if code != "000000" else "999999"
+    assert request(env.shares, "/api/v1/s/missing")[0] == 404
+    details = request(env.shares, protected)[2]["data"]
+    assert details["requiresCode"] is True and details["fileName"] is None and details["fileSize"] is None
+    assert request(env.shares, public)[2]["data"]["fileName"] == "分享后 重命名.txt"
+    # verify and download share the same wrong-code counter. A prior verify grants no capability.
+    for endpoint in ("/verify", "/download"):
+        assert request(env.shares, protected + endpoint, {"extractCode": wrong})[0] == 403
+    assert request(env.shares, protected + "/verify", {"extractCode": code})[0] == 200
+    for _ in range(3):
+        assert request(env.shares, protected + "/download", {"extractCode": wrong})[0] == 403
+    assert request(env.shares, protected + "/verify", {"extractCode": wrong})[0] == 429
+    assert request(env.shares, protected + "/verify", {"extractCode": code})[0] == 200
+    for path, payload in ((public, {}), (protected, {"extractCode": code, "ownerId": "999", "fileId": "999"})):
+        status, headers, content = raw_request(env.shares, path + "/download", json.dumps(payload).encode(), "application/json")
+        assert status == 200 and hashlib.sha256(content).digest() == hashlib.sha256(env.content).digest()
+        assert "Content-Disposition" in headers and "minio" not in str(headers).lower()
+    assert request(env.shares, public + "/download")[0] == 405
+    # Expiry is checked before code/file state; cancellation wins over expiry.
+    env.sql("UPDATE share_db.sys_share SET expire_time=UTC_TIMESTAMP()-INTERVAL 1 SECOND WHERE id=" + env.protected_share["id"])
+    assert request(env.shares, protected + "/verify", {"extractCode": wrong})[2]["code"] == "SHARE_EXPIRED"
+    env.sql("UPDATE share_db.sys_share SET expire_time=UTC_TIMESTAMP()+INTERVAL 7 DAY WHERE id=" + env.protected_share["id"])
+    cancelled = request(env.shares, "/api/v1/shares", {"fileId": env.file_id, "accessType": 0, "expireDays": 1}, env.token)[2]["data"]
+    request(env.shares, "/api/v1/shares/" + cancelled["id"], token=env.token, method="DELETE")
+    env.sql("UPDATE share_db.sys_share SET expire_time=UTC_TIMESTAMP()-INTERVAL 1 SECOND WHERE id=" + cancelled["id"])
+    assert request(env.shares, "/api/v1/s/" + cancelled["shareToken"])[2]["code"] == "SHARE_CANCELLED"
+    env.docker("stop", env.prefix + "-file")
+    assert request(env.shares, public)[0] == 503
+    assert request(env.shares, protected)[0] == 200
+    assert request(env.shares, protected + "/verify", {"extractCode": code})[0] == 503
+    assert request(env.shares, "/api/v1/shares", token=env.token)[0] == 200
+    env.docker("start", env.prefix + "-file")
+    env.files = "http://" + env.docker("port", env.prefix + "-file", "8080/tcp").splitlines()[0]
+    for _ in range(60):
+        try:
+            if request(env.files, "/health/ready")[0] == 200: break
+        except OSError: pass
+        time.sleep(1)
+    assert request(env.shares, protected + "/verify", {"extractCode": code})[0] == 200
+    assert request(env.files, "/internal/v1/files/" + env.file_id + "?ownerId=1")[0] == 403
+    assert raw_request(env.files, "/internal/v1/files/" + env.file_id + "?ownerId=999", internal=env.env["INTERNAL_API_TOKEN"])[0] == 404
+    assert request(env.files, "/api/v1/files/" + env.file_id, token=env.token, method="DELETE")[0] == 200
+    assert request(env.shares, public)[2]["code"] == "SHARE_FILE_UNAVAILABLE"
+    assert request(env.shares, protected + "/verify", {"extractCode": code})[2]["code"] == "SHARE_FILE_UNAVAILABLE"
+    assert request(env.shares, protected + "/verify", {"extractCode": wrong})[0] in (403, 429)
+    print("PASS anonymous shares: code privacy, shared wrong-code limit, correct bypass, POST streaming SHA-256, expiry/cancel/source order, dependency recovery")
+
+
 if __name__ == "__main__":
     environment = Environment()
     try:
         environment.start()
         registration(environment)
-        if any(flag in sys.argv for flag in ("--auth", "--files", "--share-management")):
+        if any(flag in sys.argv for flag in ("--auth", "--files", "--share-management", "--shares")):
             authentication(environment)
-        if any(flag in sys.argv for flag in ("--files", "--share-management")):
+        if any(flag in sys.argv for flag in ("--files", "--share-management", "--shares")):
             directories(environment)
             file_operations(environment)
-        if "--share-management" in sys.argv:
+        if "--share-management" in sys.argv or "--shares" in sys.argv:
             share_management(environment)
+        if "--shares" in sys.argv:
+            anonymous_shares(environment)
     finally:
         environment.close()

@@ -1,7 +1,7 @@
 # 课程版分享服务
 
 独立 Java 17 / Spring Boot 3.5.11 Maven 工程，只加载 com.jiayuan.drive.shares。
-当前完成独立构建、配置、健康接口和文件元数据客户端；分享创建、本人列表和取消已实现，匿名访问将在下一功能接入。
+当前完成独立构建、配置、健康接口和文件元数据客户端；分享创建、本人列表和取消已实现，匿名访问与流式下载已实现。
 
 ```powershell
 mvn -f backend/share-service/pom.xml verify
@@ -27,7 +27,7 @@ SERVER_PORT 默认 8080。live 为 200/UP，ready 在本库 SELECT 1 成功时 2
 元数据读取只调用内部文件 HTTP 接口，限定 ownerId/fileId 为正数十进制 BIGINT，
 复核响应 ID/归属/类型/大小，限制 JSON 为 64 KiB。下游 404 映射 SHARE_FILE_UNAVAILABLE，
 其他失败、错凭证、错误结构、连接故障映射 503/DEPENDENCY_UNAVAILABLE；不返回下游原始正文。
-本阶段不进行自动重试；传输与提取码功能将在后续提交接入。
+不进行自动重试；文件正文采用有界读取超时的流式转发，不将整文件装入 Java 堆。
 
 2026-11-15 Java 17 verify 的 5 项测试通过：健康独立、恢复与连接释放，内部凭证传递、归属复核、
 404/503 映射及不可达依赖有界失败。旧规范明确扫描 8 Java 文件，ApiResult record 跳过，其余无问题。
@@ -54,3 +54,23 @@ JWT 验证与 auth-service 对齐（HS256、UTF-8 原始密钥、sub/accountId/i
 `python -u backend/tests/course_smoke.py --share-management` 执行真实 AB 开发自测，包含前序认证/文件回归。
 
 2026-11-15 分享管理真实 AB 自测通过，涵盖归属、目录拒绝、快照、散列、过期、本人列表、重复取消及下游停机隔离；旧规范 12 文件中 2 文件因现代语法跳过，其余无问题。
+
+## 匿名分享和下载
+
+`GET /api/v1/s/{token}`：公开分享返回详情；提取码分享只返回 requiresCode=true、到期时间和空文件详情。
+`POST /api/v1/s/{token}/verify`：请求体 extractCode 为字符串，公开分享允许空体；成功返回 fileName/fileSize/expireTime/requiresCode。
+`POST /api/v1/s/{token}/download`：自身重新执行全部检查，不认可先前 verify 为长期授权，成功为二进制。
+检查顺序固定为不存在、取消、过期、提取码、文件；错误码按 docs/phase1/share-service.md，不使用 401 表示错码。
+
+提取码错误仅在当前实例、当前分享 token 计数；SHARE_CODE_MAX_FAILURES 默认 5，
+SHARE_CODE_WINDOW_SECONDS 默认 60 秒（1–86400）。verify/download 共用计数，前 5 次错码 403，随后 429；
+窗口结束重置；正确码和公开请求不受错误次数限制。多副本不提供全局累计锁定。
+FILE_CONTENT_TIMEOUT_MS 默认 120000 ms；连接仍默认 3000 ms，元数据默认 5000 ms。
+下载前核对文件活动状态；正文通过受信内部凭证转发，保留受控下载文件名，不暴露私有地址。
+浏览器断开时关闭下游连接；输出开始后中断连接，不把 JSON 拼到二进制末尾，不自动重放。
+取消/删除阻止后续请求，已开始传输按当前连接结束。
+
+`python -u backend/tests/course_smoke.py --shares` 验证完整 API 开发闭环。
+Java 17 verify 共 6 项测试，增加错码窗口与重置；现代语法导致旧规范 16 文件中 3 文件跳过，余下无问题。
+
+2026-11-15 完整匿名分享 AB 自测通过：错码/正确码/限流、POST 流式 SHA-256、权限替换拒绝、取消/过期/源文件失效和依赖恢复；独立测试容器不使用既有课程卷。

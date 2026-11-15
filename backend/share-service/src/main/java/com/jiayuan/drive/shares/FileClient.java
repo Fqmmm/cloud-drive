@@ -7,6 +7,8 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.ContentDisposition;
 
 /** Only the file service accesses MinIO; owner/file IDs come from verified share records. */
 @Component
@@ -16,6 +18,8 @@ class FileClient {
     private final int connectTimeout;
     private final int readTimeout;
     private final ObjectMapper json;
+    @Value("${FILE_CONTENT_TIMEOUT_MS:120000}")
+    private int contentTimeout = 120000;
 
     FileClient(@Value("${FILE_SERVICE_URL:http://file-service:8080}") String base,
                @Value("${INTERNAL_API_TOKEN}") String token,
@@ -74,6 +78,31 @@ class FileClient {
         connection.setInstanceFollowRedirects(false);
         connection.setRequestProperty("X-Internal-Token", token);
         return connection;
+    }
+
+    /** Do not buffer the file or retry a partially emitted download; close upstream on disconnect. */
+    void stream(String ownerId, String fileId, String filename, HttpServletResponse response) throws IOException {
+        HttpURLConnection connection = null;
+        try {
+            connection = connect(ownerId, fileId, "/content", Math.max(1, contentTimeout));
+            int status = connection.getResponseCode();
+            if (status == 404) { throw missing(); }
+            if (status != 200) { throw unavailable(); }
+            try (var source = connection.getInputStream()) {
+                response.setContentType("application/octet-stream");
+                long length = connection.getContentLengthLong();
+                if (length >= 0) { response.setContentLengthLong(length); }
+                String disposition = connection.getHeaderField("Content-Disposition");
+                response.setHeader("Content-Disposition", disposition != null && !disposition.contains("\r") && !disposition.contains("\n")
+                        ? disposition : ContentDisposition.attachment().filename(filename, StandardCharsets.UTF_8).build().toString());
+                source.transferTo(response.getOutputStream());
+            }
+        } catch (IOException unavailable) {
+            if (!response.isCommitted()) { response.reset(); throw unavailable(); }
+            throw new IOException("File transfer interrupted");
+        } finally {
+            if (connection != null) { connection.disconnect(); }
+        }
     }
 
     private boolean validId(String id) {
