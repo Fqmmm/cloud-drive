@@ -6,7 +6,7 @@
         <small>个人文件与分享</small>
       </h1>
       <div
-        v-if="session.token"
+        v-if="session.token && !publicPage"
         class="flex items-center gap-4"
       >
         <span>{{ session.profile?.nickname || "个人账户" }}</span>
@@ -14,7 +14,7 @@
       </div>
     </header>
     <nav
-      v-if="session.token"
+      v-if="session.token && !publicPage"
       class="flex gap-6 mb-6"
       aria-label="课程导航"
     >
@@ -34,12 +34,14 @@
 <script setup lang="ts">
   import { clearSession, restoreProfile, session } from "./api";
   const router = useRouter();
+  const route = useRoute();
+  const publicPage = computed(() => route.path.startsWith("/s/"));
   const error = ref("");
   watch(
     () => session.token,
     async (token) => {
       error.value = "";
-      if (token) {
+      if (token && !location.hash.startsWith("#/s/")) {
         try {
           await restoreProfile();
         } catch (failure) {

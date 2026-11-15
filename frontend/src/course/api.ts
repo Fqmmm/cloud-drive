@@ -27,6 +27,15 @@ export class ApiError extends Error {
   }
 }
 
+const shareMessages: Record<string, string> = {
+  SHARE_NOT_FOUND: "分享不存在",
+  SHARE_FILE_UNAVAILABLE: "文件已失效",
+  SHARE_CANCELLED: "分享已取消",
+  SHARE_EXPIRED: "分享已过期",
+  SHARE_CODE_INVALID: "请输入正确提取码",
+  SHARE_CODE_RATE_LIMITED: "尝试过于频繁，请稍后再试",
+};
+
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers = new Headers(init.headers);
   if (session.token) headers.set("Authorization", `Bearer ${session.token}`);
@@ -49,7 +58,11 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
       clearSession();
       location.hash = "/login";
     }
-    throw new ApiError(response.status, result.code, result.msg || "请求失败，请稍后重试");
+    throw new ApiError(
+      response.status,
+      result.code,
+      shareMessages[result.code] || result.msg || "请求失败，请稍后重试"
+    );
   }
   return result.data;
 }
@@ -78,6 +91,7 @@ export async function download(path: string, filename: string, init: RequestInit
         const result = await response.json();
         message = result.msg || message;
         code = result.code || code;
+        message = shareMessages[code] || message;
       } catch {
         /* A gateway may label an invalid response JSON. Keep a readable fallback. */
       }

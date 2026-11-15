@@ -134,6 +134,13 @@
             下载
           </ElButton>
           <ElButton
+            v-if="!row.isDirectory"
+            text
+            @click="share(row as FileItem)"
+          >
+            分享
+          </ElButton>
+          <ElButton
             text
             :disabled="working"
             @click="rename(row as FileItem)"
@@ -156,6 +163,10 @@
 <script setup lang="ts">
   import { api, download } from "./api";
   import { formatBytes, type Listing, type Quota, type FileItem } from "./files";
+  const router = useRouter();
+  function share(item: FileItem) {
+    router.push({ path: "/shares", query: { fileId: item.id, fileName: item.originalName } });
+  }
   const parentId = ref("0");
   const listing = ref<Listing>({ breadcrumb: [], items: [] });
   const quota = ref<Quota | null>(null);

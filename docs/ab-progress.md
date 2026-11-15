@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/anonymous-share-download`，从已推送的 `6f9e368` 创建。
+- 当前开发分支：`feat/frontend-sharing`，从已推送的 `1a23d32` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -143,3 +143,7 @@ git push -u origin feat/auth-service-bootstrap
 - `6f9e368` 分享管理已推送。
 - 第 9 项匿名分享：Java 17 verify 6 项通过；真实 `course_smoke.py --shares` 完整 API 回归通过。匿名检查包括提取码前不泄露详情、verify/download 共用 5 次错码计数后 429、正确码仍可用、verify 后错码下载拒绝、公开和保护下载 SHA-256 一致、忽略浏览器 ownerId/fileId 替换、POST 下载、重命名、取消优先于过期、过期优先于提取码、源文件删除和文件依赖恢复。
 - 正文通过 HttpURLConnection/流转发，有限连接/读取超时，不缓存整文件、不重放已输出下载、不在二进制尾部附 JSON。旧规范 16 Java 文件中 3 文件因现代语法跳过，其余无问题。下一项：前端分享管理与匿名访问。
+
+- `1a23d32` 匿名分享验证与流式下载已推送。
+- 第 10 项前端分享：类型、生产构建、课程 ESLint/Prettier/Stylelint、自定义检查通过。8 项 Chromium 替身 API 测试通过；最后补充 SHARE_* 码映射与失效后隐藏下载入口后，3 项分享测试再次通过。覆盖前导零、创建后复制、刷新不保留提取码、取消、匿名旧 JWT 不触发资料读取、每次 POST 下载重新传码、换错码后拒绝、取消原因。
+- 曾因自动审批使用额度暂时未执行最后的补跑；用户继续后以相同审批路径重试成功。没有绕过审批或将未执行检查记作通过。下一项：A 的镜像、健康命令、Nginx 与独立联调配置交付。
