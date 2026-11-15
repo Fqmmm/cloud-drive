@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/personal-file-operations`，从已推送的 `3080ecc` 创建。
+- 当前开发分支：`feat/share-service-bootstrap`，从已推送的 `bf65a0a` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -132,3 +132,6 @@ git push -u origin feat/auth-service-bootstrap
 - `3080ecc` 文件列表/目录/容量已推送。
 - 第 6 项文件操作：类型、构建、相关 ESLint/Prettier、课程自定义检查通过；3 项文件 Chromium 测试通过（上传、重命名、下载内容和文件名、永久删除、JSON 错误不落盘）。真实 `course_smoke.py --files` 通过：两个用户归属、中文与空格、SHA-256、冲突、非空目录、413、三个并发 400000 字节上传仅两个成功，容量准确，重复删除不重复扣额。
 - 契约核对：第二次删除已失效记录返回 404（符合 B 文档统一不可见资源规则），测试不再误要求 200，容量保持不变；未修改 B 实现或业务要求。下一项：share-service 独立骨架、健康与文件 HTTP 客户端。
+
+- `bf65a0a` 文件操作已推送。
+- 第 7 项分享骨架/客户端：Java 17 verify 5 项测试通过，元数据内部凭证、归属复核、404/503 和连接失败有界验证通过。真实 MySQL 健康自测通过：未启动/中断数据库时 live 200、ready 503（3.15/3.11 秒），恢复后 200，无应用重启；无需启动 file-service。共享健康脚本提至 backend/tests，auth 原入口兼容。旧规范扫描 8 Java 文件，1 record 跳过，其余无问题。下一项：分享创建、本人列表和取消。

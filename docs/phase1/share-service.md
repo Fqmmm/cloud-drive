@@ -75,3 +75,7 @@ share_db 只保存分享记录，不保存文件正文，不直接访问 file_db
 - 使用 share_user 查询 file_db/auth_db 被拒绝；移除 Redis、Flowable 后能独立启动到预期状态。
 
 交付源码、Dockerfile、share_db SQL、HTTP 客户端及超时配置、前端分享接口适配、API 样例、权限与失效测试记录。
+
+## 7. 实施进度
+
+独立构建、数据库健康和文件元数据客户端已实现，配置及开发自测见 [share-service README](../../backend/share-service/README.md)。分享业务仍待后续逐功能提交。
