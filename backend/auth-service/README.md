@@ -1,8 +1,7 @@
 # 课程版认证服务
 
 独立 Maven 工程，构建目标 Java 17，Spring Boot 3.5.11 与 file-service 保持一致。
-当前完成 plan 第 2.5 节第 1 项：独立构建、数据库配置、健康接口。
-注册、登录、JWT 与基础资料已实现。
+已完成独立构建、数据库配置、健康接口、注册、登录、JWT、基础资料与运行交付。
 服务只扫描 `com.jiayuan.drive.auth`，不加载原单体、Redis、MinIO 或其他课程服务。
 
 ## 构建和运行
@@ -40,7 +39,7 @@ Docker 运行时用 `--env AUTH_DB_PASSWORD` 等从当前进程传递配置，�
 | ready 查询超时 | 固定 2 | 秒；当前 `SELECT 1` 查询 |
 
 覆盖 JDBC URL 时须保留有限的 `connectTimeout`、`socketTimeout` 与 UTC 配置。
-本阶段不消费 JWT、内部令牌或其他服务的配置。数据库结构沿用 B 提供的
+JWT 配置见登录章节；本服务不消费内部令牌或其他服务的配置。数据库结构沿用 B 提供的
 [auth_db.sql](../sql/course-mysql/schema/auth_db.sql)，本次未改表。
 
 ## 健康接口和开发验证
@@ -51,7 +50,7 @@ Docker 运行时用 `--env AUTH_DB_PASSWORD` 等从当前进程传递配置，�
 | `GET /health/ready` | 数据库 `SELECT 1` 成功时 HTTP 200/UP | 连接或查询失败时 HTTP 503，`{"status":"DOWN"}` |
 
 健康响应不返回连接信息、异常详情或凭证。Hikari 日志关闭以避免连接池异常输出 JDBC URL；
-数据库故障通过 ready 状态观察。ready 当前确认数据库可连接，不检查尚未实现的业务表映射。
+数据库故障通过 ready 状态观察。ready 只确认数据库可连接，不执行业务表结构或迁移版本校验。
 恢复数据库后应用自行恢复，无需重启。健康路径由容器网络直接探测，前端 Nginx 不应转发。
 
 `mvn verify` 包含 3 项 MVC 测试：live 不接触数据库；ready 在连接失败后恢复；
@@ -114,3 +113,5 @@ JWT 单测另覆盖篡改、过期、未来 iat、缺少 accountId/iat、错误 
 Java 构建阶段 verify，运行阶段只带 jar/JRE/独立探测 class，Java 为 PID 1。
 配置片段、镜像构建和实际成品自测见 [A 运行交付](../docker/a-services/README.md)。
 2026-11-15 三个 A 镜像、Nginx 路由边界、真实 POST 下载 SHA-256 与日志检查通过。
+
+完整开发验收与实际检查范围见 [AB 验收记录](../../docs/ab-validation.md)，正式实验按 C、D 原分工执行。

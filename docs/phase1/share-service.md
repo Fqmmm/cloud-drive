@@ -83,3 +83,5 @@ share_db 只保存分享记录，不保存文件正文，不直接访问 file_db
 本人列表字段与状态枚举、SQL status=0/1 含义见服务 README。前端采用 hash 路由，PUBLIC_BASE_URL 生成 /#/s/{token}；不另启用 history 模式。
 
 成品镜像已验证，默认关闭的受控退出钩子实现并通过独立开发契约检查（启用且正确内部凭证时退出码 17）；配置及日志边界见 [A 运行交付](../../backend/docker/a-services/README.md)。正式故障实验仍由原分工执行。
+
+A 的本轮功能实现、运行交付和必要 AB 开发联调均已通过，实际命令、范围和限制见 [AB 验收记录](../ab-validation.md)。正式编排及实验不在本轮执行。

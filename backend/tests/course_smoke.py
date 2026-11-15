@@ -58,7 +58,8 @@ class Environment:
         name = self.prefix + "-" + (label or kind)
         self.containers.append(name)
         jar = BACKEND / (kind + "-service") / "target" / (kind + "-service.jar")
-        use_image = getattr(self, "runtime_images", False) and kind in ("auth", "share")
+        use_image = getattr(self, "runtime_images", False) and (kind in ("auth", "share")
+                or kind == "file" and getattr(self, "file_runtime_image", False))
         assert use_image or jar.exists(), "Build " + kind + "-service first"
         args = ["run", "-d", "--name", name, "--network", self.network, "--network-alias", (label or kind) + "-service",
                 "-p", "127.0.0.1::8080", "-e", kind.upper() + "_DB_PASSWORD"]
@@ -94,7 +95,8 @@ class Environment:
         self.files = self.service("file", ("-e", "DEFAULT_QUOTA_BYTES=" + quota, "-e", "MAX_FILE_BYTES=" + maximum))
 
     def sql(self, query, user="root", database=None):
-        password_variable = {"root": "MYSQL_ROOT_PASSWORD", "auth_user": "AUTH_DB_PASSWORD"}[user]
+        password_variable = {"root": "MYSQL_ROOT_PASSWORD", "auth_user": "AUTH_DB_PASSWORD",
+                             "file_user": "FILE_DB_PASSWORD", "share_user": "SHARE_DB_PASSWORD"}[user]
         command = f'MYSQL_PWD="${password_variable}" mysql --protocol=TCP -h 127.0.0.1 -u {user} -Nse "$1"'
         return self.docker("exec", self.database, "sh", "-c", command, "sh", query)
 

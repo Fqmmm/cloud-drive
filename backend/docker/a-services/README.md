@@ -79,3 +79,5 @@ pwsh -NoProfile -File backend/docker/a-services/prepare-minio.ps1 -ArchivePath <
 归档 SHA-256 为 `42de43b672a8322db7e9d69d6f3aeb93e6cc19acf761f4678075590549aca567`。
 真实本机标签启动、B 的 curl readiness 命令和归档重载均已验证通过。
 远端拉取拒绝尚未消失；新机器可用此已验证归档恢复，不能将本机恢复描述为远端权限已恢复。
+
+完整真实浏览器验收由 `python -u backend/tests/ab_browser.py` 执行，须先构建 cloud-drive-file:course；两个用户、匿名访问、下载哈希、权限、最终配额及存储恢复已通过，详见 [AB 验收记录](../../../docs/ab-validation.md)。

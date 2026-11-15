@@ -52,3 +52,18 @@ pnpm exec playwright test --config playwright.course.config.ts
 类型、构建、课程 ESLint/Prettier/Stylelint 和自定义检查通过；真实浏览器闭环在 A 镜像交付后联合核验。
 
 前端镜像固定 Node/Nginx digest，成品 Nginx 1.28.3；未知 API、内部与后台健康路径返回 404，healthz 为 200。Docker DNS 动态解析与读写超时、日志字段和独立开发配置见运行交付说明。
+
+## 真实浏览器 AB 验收
+
+先按 A 运行交付构建三个 A 镜像、准备固定 MinIO，再构建 B 的最终文件镜像：
+
+```powershell
+# 以下在仓库根目录执行：
+docker build -f backend/file-service/Dockerfile -t cloud-drive-file:course backend
+python -u backend/tests/ab_browser.py
+```
+
+该脚本启动独立六容器开发环境，调用 playwright.live.config.ts 的真实服务用例；
+临时密码只经环境传递，控制台输出脱敏，浏览器失败产物在系统临时目录，测试结束清理自有容器/网络。
+2026-11-15 真实 Chromium 完整闭环通过，数据库收尾、三库账号隔离和 MinIO 中断恢复检查也通过。
+详见 [AB 验收记录](../docs/ab-validation.md)。
