@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/share-service-bootstrap`，从已推送的 `bf65a0a` 创建。
+- 当前开发分支：`feat/share-management`，从已推送的 `f02c0bb` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -135,3 +135,7 @@ git push -u origin feat/auth-service-bootstrap
 
 - `bf65a0a` 文件操作已推送。
 - 第 7 项分享骨架/客户端：Java 17 verify 5 项测试通过，元数据内部凭证、归属复核、404/503 和连接失败有界验证通过。真实 MySQL 健康自测通过：未启动/中断数据库时 live 200、ready 503（3.15/3.11 秒），恢复后 200，无应用重启；无需启动 file-service。共享健康脚本提至 backend/tests，auth 原入口兼容。旧规范扫描 8 Java 文件，1 record 跳过，其余无问题。下一项：分享创建、本人列表和取消。
+
+- `f02c0bb` 分享独立骨架已推送。
+- 第 8 项分享管理：Java 17 verify 5 项回归通过；`course_smoke.py --share-management` 真实 AB 自测通过，包含前序认证和文件回归、两个账户隔离、拒绝目录/越权、六位提取码与 BCrypt 存储、128 位 token、文件名快照、过期、取消幂等、文件服务停机时列表/取消/ready 可用而创建 503。沿用 B SQL，无迁移。
+- 旧规范扫描 12 Java 文件，ApiResult/ShareStore 两文件因 record/text block 跳过，其余无问题，全部源码由 Java 17 构建覆盖。下一项：匿名分享验证、错误码与流式下载。

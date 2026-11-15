@@ -263,15 +263,67 @@ def file_operations(env):
     print("PASS file operations: SHA-256, Unicode/spaces, rename/conflict, ownership, nonempty directory, size, concurrent quota, repeat deletion")
 
 
+def share_management(env):
+    env.shares = env.service("share")
+    def create(access=0, days=None, file_id=None, token=None):
+        return request(env.shares, "/api/v1/shares", {"fileId": file_id or env.file_id, "accessType": access, "expireDays": days}, token or env.token)
+    assert request(env.shares, "/api/v1/shares")[0] == 401
+    status, _, result = create()
+    assert status == 200
+    env.public_share = result["data"]
+    assert env.public_share["extractCode"] is None and env.public_share["expireTime"] is None
+    status, _, result = create(1, 7)
+    assert status == 200
+    env.protected_share = result["data"]
+    assert len(env.protected_share["extractCode"]) == 6 and env.protected_share["extractCode"].isdigit()
+    assert len(env.protected_share["shareToken"]) >= 22
+    assert env.protected_share["shareUrl"].startswith("http://localhost:8080/#/s/")
+    assert create(file_id=env.directory)[0] == 400
+    assert create(token=env.other_token)[0] == 404
+    assert create(access=2)[0] == 400 and create(days=2)[0] == 400
+    listed = request(env.shares, "/api/v1/shares", token=env.token)[2]["data"]
+    assert len(listed) == 2 and all("extractCode" not in entry and "extractCodeHash" not in entry for entry in listed)
+    assert request(env.shares, "/api/v1/shares", token=env.other_token)[2]["data"] == []
+    snapshot = listed[0]["fileName"]
+    assert request(env.files, f"/api/v1/files/{env.file_id}/rename", {"name": "分享后 重命名.txt"}, env.token, "PUT")[0] == 200
+    assert request(env.shares, "/api/v1/shares", token=env.token)[2]["data"][0]["fileName"] == snapshot
+    cancelled = create()[2]["data"]["id"]
+    path = "/api/v1/shares/" + cancelled
+    assert request(env.shares, path, token=env.other_token, method="DELETE")[0] == 404
+    assert request(env.shares, path, token=env.token, method="DELETE")[0] == 200
+    assert request(env.shares, path, token=env.token, method="DELETE")[0] == 200
+    assert any(entry["status"] == "CANCELLED" for entry in request(env.shares, "/api/v1/shares", token=env.token)[2]["data"])
+    env.sql("UPDATE share_db.sys_share SET expire_time=UTC_TIMESTAMP()-INTERVAL 1 SECOND WHERE id=" + env.protected_share["id"])
+    assert any(entry["status"] == "EXPIRED" for entry in request(env.shares, "/api/v1/shares", token=env.token)[2]["data"])
+    env.sql("UPDATE share_db.sys_share SET expire_time=UTC_TIMESTAMP()+INTERVAL 7 DAY WHERE id=" + env.protected_share["id"])
+    stored = env.sql("SELECT extract_code_hash FROM share_db.sys_share WHERE id=" + env.protected_share["id"])
+    assert stored.startswith("$2a$12$") and stored != env.protected_share["extractCode"]
+    env.docker("stop", env.prefix + "-file")
+    assert request(env.shares, "/health/ready")[0] == 200
+    assert request(env.shares, "/api/v1/shares", token=env.token)[0] == 200
+    assert request(env.shares, path, token=env.token, method="DELETE")[0] == 200
+    assert create()[0] == 503
+    env.docker("start", env.prefix + "-file")
+    env.files = "http://" + env.docker("port", env.prefix + "-file", "8080/tcp").splitlines()[0]
+    for _ in range(60):
+        try:
+            if request(env.files, "/health/ready")[0] == 200: break
+        except OSError: pass
+        time.sleep(1)
+    print("PASS share management: ownership, directory rejection, code hash, snapshot, expiry, own list, idempotent cancel, file-outage isolation")
+
+
 if __name__ == "__main__":
     environment = Environment()
     try:
         environment.start()
         registration(environment)
-        if "--auth" in sys.argv or "--files" in sys.argv:
+        if any(flag in sys.argv for flag in ("--auth", "--files", "--share-management")):
             authentication(environment)
-        if "--files" in sys.argv:
+        if any(flag in sys.argv for flag in ("--files", "--share-management")):
             directories(environment)
             file_operations(environment)
+        if "--share-management" in sys.argv:
+            share_management(environment)
     finally:
         environment.close()

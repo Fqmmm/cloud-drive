@@ -78,4 +78,6 @@ share_db 只保存分享记录，不保存文件正文，不直接访问 file_db
 
 ## 7. 实施进度
 
-独立构建、数据库健康和文件元数据客户端已实现，配置及开发自测见 [share-service README](../../backend/share-service/README.md)。分享业务仍待后续逐功能提交。
+独立构建、数据库健康和文件元数据客户端已实现，配置及开发自测见 [share-service README](../../backend/share-service/README.md)。分享创建、本人列表与取消已实现，匿名访问待下一功能提交。
+
+本人列表字段与状态枚举、SQL status=0/1 含义见服务 README。前端采用 hash 路由，PUBLIC_BASE_URL 生成 /#/s/{token}；不另启用 history 模式。

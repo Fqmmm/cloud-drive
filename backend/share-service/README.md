@@ -1,7 +1,7 @@
 # 课程版分享服务
 
 独立 Java 17 / Spring Boot 3.5.11 Maven 工程，只加载 com.jiayuan.drive.shares。
-当前完成独立构建、配置、健康接口和文件元数据客户端；分享业务随下一功能提交交付。
+当前完成独立构建、配置、健康接口和文件元数据客户端；分享创建、本人列表和取消已实现，匿名访问将在下一功能接入。
 
 ```powershell
 mvn -f backend/share-service/pom.xml verify
@@ -20,7 +20,7 @@ SERVER_PORT 默认 8080。live 为 200/UP，ready 在本库 SELECT 1 成功时 2
 |---|---|---|
 | FILE_SERVICE_URL | 默认 http://file-service:8080 | HTTP 基础地址，禁止 userinfo/query/fragment，不跟随重定向 |
 | INTERNAL_API_TOKEN | 必填非空，必须不同于 JWT_SECRET | 只经 X-Internal-Token 传递，不向浏览器暴露 |
-| JWT_SECRET | 必填 | 当前用于检查内外凭证分离，JWT 业务验证在下一功能接入 |
+| JWT_SECRET | 必填 | 至少 32 个 UTF-8 字节，与认证/文件服务相同 |
 | FILE_CONNECT_TIMEOUT_MS | 默认 3000，正整数 | ms，文件 HTTP 连接上限 |
 | FILE_METADATA_TIMEOUT_MS | 默认 5000，正整数 | ms，元数据读取上限 |
 
@@ -34,3 +34,23 @@ SERVER_PORT 默认 8080。live 为 200/UP，ready 在本库 SELECT 1 成功时 2
 共享健康自测脚本位于 backend/tests/health_smoke.ps1，原 auth 脚本改为兼容入口，命令保持可用。
 
 真实 MySQL 健康自测通过：ready 在数据库未启动和中断时分别 3.15/3.11 秒返回 503，live 不受影响，恢复后自动返回 200，应用无重启。
+
+## 分享管理
+
+`POST /api/v1/shares`（JWT）接收 fileId 字符串、accessType 0/1、expireDays 1/7/30/null。
+创建前核验文件归属和普通文件类型。返回 id/shareToken/shareUrl/extractCode/expireTime，
+提取码为固定六位数字字符串，仅在创建时返回一次；数据库保存 BCrypt(12) 随机盐散列。
+分享 token 使用 SecureRandom 的 128 位随机数和 Base64url，数据库唯一索引兜底。
+`PUBLIC_BASE_URL`（默认 http://localhost:8080，无凭证/query/fragment）生成 `/#/s/{token}` 的 hash 前端链接。
+
+`GET /api/v1/shares` 返回本人记录，包含 id/fileId/fileName/shareToken/shareUrl/accessType/expireTime/createTime/status，
+不返回提取码或散列；状态 ACTIVE/CANCELLED/EXPIRED，文件名为创建快照，源文件状态在实际访问时核验。
+`DELETE /api/v1/shares/{id}` 仅取消本人记录，重复取消 200，越权或不存在 404 / SHARE_NOT_FOUND。
+SQL status=0 表示未取消、1 表示取消，过期由 UTC expire_time 比较，不改变 B 初版表结构。
+同一文件可多次分享，取消以分享 ID 为单位。列表和取消不访问文件服务，ready 只检查 share_db。
+
+JWT 验证与 auth-service 对齐（HS256、UTF-8 原始密钥、sub/accountId/iat/exp/iss/aud、0 秒偏差、未来 iat 拒绝），
+由 JWT_SECRET/JWT_ISSUER/JWT_AUDIENCE 配置；分享服务不提供签发入口、不查询 auth_db。
+`python -u backend/tests/course_smoke.py --share-management` 执行真实 AB 开发自测，包含前序认证/文件回归。
+
+2026-11-15 分享管理真实 AB 自测通过，涵盖归属、目录拒绝、快照、散列、过期、本人列表、重复取消及下游停机隔离；旧规范 12 文件中 2 文件因现代语法跳过，其余无问题。
