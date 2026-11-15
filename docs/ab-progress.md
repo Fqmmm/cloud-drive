@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/a-service-runtime`，从已推送的 `941795f` 创建。
+- 当前开发分支：`fix/file-jwt-time-validation`，从已推送的 `97f3667` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -152,3 +152,7 @@ git push -u origin feat/auth-service-bootstrap
 - 第 11 项 A 运行交付：Docker Desktop 曾停止（管道不存在），正常 docker desktop start 恢复，未重置环境。A 三个固定基础 digest 镜像均源码构建通过（Java verify、前端类型/build）；Nginx 1.28.3 -t 通过，A 独立开发 Compose config --quiet 通过。
 - `runtime_smoke.py` 成品测试通过：真实镜像健康命令、完整前缀/查询代理、内部/后台健康/未知 API 404、三个观测头、POST SHA-256、故障钩子默认 404/错误凭证 403/启用正确凭证退出 17；日志内存核对无本次密码/JWT/token/提取码。测试环境已清理。
 - 后端旧规范 auth 16 文件、share 19 文件，各有 3 文件因现代语法跳过，其余无问题。开发入口位于 backend/docker/a-services；未改根 Compose、正式实验或 B 实现。下一项：完整真实浏览器 AB 联调及逐问题修复。
+
+- `97f3667` A 运行交付已推送。
+- AB 修复 1（JWT 时间）：实际复现 future-iat / exp-before-iat，auth/file/share 原响应为 [401,200,401]。仅在 B AccessConfiguration 补两项时间条件，正常 JWT 兼容，错误仍 401，无 SQL/路径变化。Java 17 file-service verify 通过（该模块无单元测试）；jwt_contract.py 的 12 组真实请求现在三服务全部一致，非法 401、合法 200。旧检查扫描 B 7 文件，3 现代语法文件跳过，改动的 AccessConfiguration 正常解析无问题。
+- 另发现 B 的 Quay MinIO 标签拉取 401，Docker Hub 同标签也拉取拒绝；本机缓存 minio/minio:latest 实际版本恰为相同 RELEASE.2025-09-07T16-13-09Z，缓存可运行。此环境恢复问题作为下一项独立处理，不改动既有数据卷。

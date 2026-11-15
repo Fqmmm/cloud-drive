@@ -67,6 +67,8 @@ class AccessConfiguration implements WebMvcConfigurer {
                 long owner = Long.parseLong(claims.getSubject());
                 if ("HS256".equals(signed.getHeader().getAlgorithm()) && owner > 0
                         && claims.getIssuedAt() != null && claims.getExpiration() != null
+                        && !claims.getIssuedAt().after(new java.util.Date())
+                        && claims.getExpiration().after(claims.getIssuedAt())
                         && claims.getAudience() != null && claims.getAudience().contains(audience)
                         && Long.parseLong(String.valueOf(claims.get("accountId"))) > 0) {
                     return owner;

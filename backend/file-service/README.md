@@ -43,3 +43,11 @@ UPDATE object_cleanup SET next_attempt_at = CURRENT_TIMESTAMP WHERE object_key =
 对应脚本位于 [ops 目录](../sql/course-mysql/ops)。执行重试脚本前，在同一 MySQL 会话设置 `@object_key`。
 
 MinIO 中断时仍可读取数据库里的文件列表，上传和下载报告依赖不可用，恢复后后台继续处理清理。详见 [MySQL 接入说明](../sql/course-mysql/README.md)。
+
+## AB JWT 时间契约核验
+
+2026-11-15 A 联调发现文件服务曾接受未来 iat，以及 exp 早于 iat 但尚未过期的签名令牌，
+而 auth/share 已拒绝。已最小补齐 iat 不晚于当前时刻、exp 必须晚于 iat，三者时钟偏差统一为 0 秒。
+正常 auth-service 签发的 HS256 JWT 不受影响；非法令牌继续统一 401/UNAUTHORIZED，公共路径和 SQL 不变。
+`python -u backend/tests/jwt_contract.py` 用独立测试网络比较三个服务的正常、时间、身份、发行者、受众、算法行为，
+不输出令牌。file-service 独立 verify 本身没有单元测试，实际业务证据以这组真实接口检查为准。
