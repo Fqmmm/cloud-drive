@@ -171,7 +171,36 @@ def authentication(env):
     env.docker("stop", env.prefix + "-auth")
     assert request(env.files, "/api/v1/quota", token=env.token)[0] == 200
     env.docker("start", env.prefix + "-auth")
+    # Docker may assign a new ephemeral host port when a stopped container starts.
+    env.auth = "http://" + env.docker("port", env.prefix + "-auth", "8080/tcp").splitlines()[0]
+    for _ in range(60):
+        try:
+            if request(env.auth, "/health/ready")[0] == 200:
+                break
+        except OSError:
+            pass
+        time.sleep(1)
     print("PASS login/JWT/profile: normalized login, credential/disabled checks, minimal profile, real JWT accepted by B without auth process")
+
+
+def directories(env):
+    result = request(env.auth, "/api/v1/auth/login", dict(accountName="parallel", password="test-Pass-123"))
+    env.other_token = result[2]["data"]["token"]
+    env.sql("ALTER TABLE file_db.sys_file AUTO_INCREMENT=9007199254740993")
+    status, _, result = request(env.files, "/api/v1/directories", dict(name="课程资料", parentId="0"), env.token)
+    assert status == 200
+    env.directory = result["data"]["id"]
+    assert env.directory == "9007199254740993" and result["data"]["isDirectory"] is True
+    listing = request(env.files, "/api/v1/files?parentId=0", token=env.token)[2]["data"]
+    assert listing["items"][0]["id"] == env.directory
+    assert listing["breadcrumb"] == [{"id": "0", "name": "根目录"}]
+    assert request(env.files, "/api/v1/files?parentId=" + env.directory, token=env.token)[0] == 200
+    assert request(env.files, "/api/v1/files?parentId=" + env.directory, token=env.other_token)[0] == 404
+    assert request(env.files, "/api/v1/directories", dict(name="课程资料", parentId="0"), env.token)[0] == 409
+    assert request(env.files, "/api/v1/directories", dict(name="..", parentId="0"), env.token)[0] == 400
+    quota = request(env.files, "/api/v1/quota", token=env.token)[2]["data"]
+    assert quota == {"totalBytes": 1048576, "usedBytes": 0}
+    print("PASS directories/quota: string BIGINT IDs, boolean kinds, breadcrumbs, ownership, name conflicts, fixed quota")
 
 
 if __name__ == "__main__":
@@ -179,7 +208,9 @@ if __name__ == "__main__":
     try:
         environment.start()
         registration(environment)
-        if "--auth" in sys.argv:
+        if "--auth" in sys.argv or "--files" in sys.argv:
             authentication(environment)
+        if "--files" in sys.argv:
+            directories(environment)
     finally:
         environment.close()

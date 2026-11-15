@@ -15,7 +15,11 @@ test("personal registration, login, refresh and logout only call course APIs", a
             accountName: "alice",
             email: "alice@example.test",
           }
-        : null;
+        : path.endsWith("/files")
+          ? { breadcrumb: [{ id: "0", name: "根目录" }], items: [] }
+          : path.endsWith("/quota")
+            ? { totalBytes: 10737418240, usedBytes: 0 }
+            : null;
     await route.fulfill({ json: { code: "00000", msg: "成功", data } });
   });
   await page.goto("/#/system/team");
@@ -29,17 +33,23 @@ test("personal registration, login, refresh and logout only call course APIs", a
   await expect(page.getByText("注册成功，请登录")).toBeVisible();
   await page.getByLabel("密码", { exact: true }).fill("test-Pass-123");
   await page.getByRole("button", { name: "登录", exact: true }).click();
-  await expect(page.getByRole("navigation")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "课程导航" })).toBeVisible();
   await expect(page.getByText("课程用户", { exact: true })).toBeVisible();
   await page.reload();
   await expect(page.getByText("课程用户", { exact: true })).toBeVisible();
-  await expect(page.getByRole("navigation").getByRole("link")).toHaveCount(2);
+  await expect(page.getByRole("navigation", { name: "课程导航" }).getByRole("link")).toHaveCount(2);
   await page.getByRole("button", { name: "退出登录" }).click();
   await expect(page.getByRole("heading", { name: "欢迎登录" })).toBeVisible();
   expect(await page.evaluate(() => localStorage.getItem("course-token"))).toBeNull();
   expect(
     requests.every((path) =>
-      ["/api/v1/auth/register", "/api/v1/auth/login", "/api/v1/users/me"].includes(path)
+      [
+        "/api/v1/auth/register",
+        "/api/v1/auth/login",
+        "/api/v1/users/me",
+        "/api/v1/files",
+        "/api/v1/quota",
+      ].includes(path)
     )
   ).toBeTruthy();
 });

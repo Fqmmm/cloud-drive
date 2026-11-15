@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/course-login-navigation`，从已推送的 `f09076a` 创建。
+- 当前开发分支：`feat/personal-file-browser`，从已推送的 `8cfc112` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -124,3 +124,7 @@ git push -u origin feat/auth-service-bootstrap
 - `f09076a` 登录/JWT/资料已推送。
 - 第 4 项前端登录/导航：Node 24.11.0、pnpm 10.32.1；锁文件提交，保留原依赖范围。课程入口仅加载 src/course，原源码留在旧目录。类型检查、生产构建通过（Element Plus 大 chunk 提示）；相关 ESLint/Prettier/Stylelint 和课程自定义检查通过。全量 src 检查 11 项遗留错误，均非本轮新增。2 项 Chromium 替身 API 测试通过；实际服务 API 已在上一项通过，最终浏览器真实闭环留待 AB 联调。
 - 开发/浏览器测试使用 5173，避开已有 3000 端口服务。下一项：个人文件列表、目录和容量。
+
+- `8cfc112` 前端登录导航已推送。
+- 第 5 项个人文件浏览/目录/容量：类型与构建、相关 ESLint/Prettier、课程自定义检查通过。目录浏览器测试通过，导航定位因新增面包屑产生歧义后已收窄并补跑 2 项登录测试通过。`python -u backend/tests/course_smoke.py --files` 通过，覆盖真实双用户目录归属、根面包屑、布尔目录类型、BIGINT 字符串 9007199254740993、同名/非法名称、固定配额。
+- 修复开发测试脚本：Docker 重启可能改变随机宿主端口，重启后重新读取端口；最初等待脚本已停止且其专用容器/网络已清理，修复后全套 API 回归通过。下一项：上传、下载、重命名与永久删除。
