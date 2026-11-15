@@ -56,6 +56,34 @@
       :closable="false"
       class="mb-4"
     />
+    <form
+      class="flex flex-wrap items-center gap-2 mb-4"
+      @submit.prevent="upload"
+    >
+      <input
+        type="file"
+        aria-label="选择上传文件"
+        :disabled="uploading"
+        @change="selectFile"
+      />
+      <ElButton
+        type="primary"
+        native-type="submit"
+        :loading="uploading"
+        :disabled="!selectedFile"
+      >
+        上传文件
+      </ElButton>
+      <span class="course-muted">
+        单文件上限 {{ formatBytes(maxFileBytes) }}，剩余空间以服务端为准
+      </span>
+      <span
+        v-if="uploading"
+        role="status"
+      >
+        正在上传，请稍候…
+      </span>
+    </form>
     <ElTable
       :data="listing.items"
       empty-text="当前目录为空，可以新建目录或上传文件"
@@ -92,12 +120,42 @@
       >
         <template #default="{ row }">{{ new Date(row.createTime).toLocaleString() }}</template>
       </ElTableColumn>
+      <ElTableColumn
+        label="操作"
+        min-width="240"
+      >
+        <template #default="{ row }">
+          <ElButton
+            v-if="!row.isDirectory"
+            text
+            :disabled="working"
+            @click="downloadFile(row as FileItem)"
+          >
+            下载
+          </ElButton>
+          <ElButton
+            text
+            :disabled="working"
+            @click="rename(row as FileItem)"
+          >
+            重命名
+          </ElButton>
+          <ElButton
+            text
+            type="danger"
+            :disabled="working"
+            @click="remove(row as FileItem)"
+          >
+            永久删除
+          </ElButton>
+        </template>
+      </ElTableColumn>
     </ElTable>
   </ElCard>
 </template>
 <script setup lang="ts">
-  import { api } from "./api";
-  import { formatBytes, type Listing, type Quota } from "./files";
+  import { api, download } from "./api";
+  import { formatBytes, type Listing, type Quota, type FileItem } from "./files";
   const parentId = ref("0");
   const listing = ref<Listing>({ breadcrumb: [], items: [] });
   const quota = ref<Quota | null>(null);
@@ -138,6 +196,83 @@
       error.value = (failure as Error).message;
     } finally {
       creating.value = false;
+    }
+  }
+  const uploading = ref(false);
+  const working = ref(false);
+  const selectedFile = ref<File | null>(null);
+  const maxFileBytes = Number(import.meta.env.VITE_MAX_FILE_BYTES || 104857600);
+  function selectFile(event: Event) {
+    selectedFile.value = (event.target as HTMLInputElement).files?.[0] || null;
+  }
+  async function upload() {
+    if (!selectedFile.value || uploading.value) return;
+    if (selectedFile.value.size > maxFileBytes) {
+      error.value = "文件超过单文件大小限制";
+      return;
+    }
+    uploading.value = true;
+    error.value = "";
+    try {
+      const form = new FormData();
+      form.set("file", selectedFile.value);
+      await api(`/files?parentId=${encodeURIComponent(parentId.value)}`, {
+        method: "POST",
+        body: form,
+      });
+      await load(parentId.value);
+    } catch (failure) {
+      error.value = (failure as Error).message;
+    } finally {
+      uploading.value = false;
+    }
+  }
+  async function downloadFile(item: FileItem) {
+    if (working.value) return;
+    working.value = true;
+    error.value = "";
+    try {
+      await download(`/files/${item.id}/download`, item.originalName);
+    } catch (failure) {
+      error.value = (failure as Error).message;
+    } finally {
+      working.value = false;
+    }
+  }
+  async function rename(item: FileItem) {
+    const name = window.prompt("输入新的名称", item.originalName);
+    if (name === null || working.value) return;
+    working.value = true;
+    error.value = "";
+    try {
+      await api(`/${item.isDirectory ? "directories" : "files"}/${item.id}/rename`, {
+        method: "PUT",
+        body: JSON.stringify({ name }),
+      });
+      await load(parentId.value);
+    } catch (failure) {
+      error.value = (failure as Error).message;
+    } finally {
+      working.value = false;
+    }
+  }
+  async function remove(item: FileItem) {
+    if (
+      working.value ||
+      !window.confirm(
+        `永久删除“${item.originalName}”，无法在网盘中恢复。${item.isDirectory ? "目录必须为空。" : "原分享也将失效。"}`
+      )
+    )
+      return;
+    working.value = true;
+    error.value = "";
+    try {
+      await api(`/${item.isDirectory ? "directories" : "files"}/${item.id}`, { method: "DELETE" });
+      await load(parentId.value);
+    } catch (failure) {
+      error.value = (failure as Error).message;
+    } finally {
+      working.value = false;
     }
   }
   onMounted(() => load("0"));

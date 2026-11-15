@@ -1,5 +1,6 @@
 """Disposable A/AB development checks, separate from C/D's formal experiments."""
 import concurrent.futures
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -203,6 +204,65 @@ def directories(env):
     print("PASS directories/quota: string BIGINT IDs, boolean kinds, breadcrumbs, ownership, name conflicts, fixed quota")
 
 
+def raw_request(base, path, data=None, content_type=None, token=None, method=None, internal=None):
+    headers = {}
+    if content_type: headers["Content-Type"] = content_type
+    if token: headers["Authorization"] = "Bearer " + token
+    if internal: headers["X-Internal-Token"] = internal
+    req = urllib.request.Request(base + path, data, headers, method=method)
+    try: response = urllib.request.urlopen(req, timeout=20)
+    except urllib.error.HTTPError as failure: response = failure
+    with response: return response.status, dict(response.headers), response.read()
+
+
+def upload(env, name, content, parent=None, token=None):
+    boundary = "course-" + secrets.token_hex(12)
+    body = (f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="{name}"\r\n'
+            'Content-Type: application/octet-stream\r\n\r\n').encode() + content + f"\r\n--{boundary}--\r\n".encode()
+    status, headers, result = raw_request(env.files, "/api/v1/files?parentId=" + (parent or env.directory), body,
+                                         "multipart/form-data; boundary=" + boundary, token or env.token)
+    return status, headers, json.loads(result)
+
+
+def file_operations(env):
+    content = "课程资料，中文与空格文件名\n".encode() * 20
+    status, _, result = upload(env, "课程 资料.txt", content)
+    assert status == 200
+    env.file_id = result["data"]["id"]
+    env.content = content
+    status, headers, downloaded = raw_request(env.files, f"/api/v1/files/{env.file_id}/download", token=env.token)
+    assert status == 200 and hashlib.sha256(downloaded).digest() == hashlib.sha256(content).digest()
+    assert "Content-Disposition" in headers
+    assert request(env.files, "/api/v1/quota", token=env.token)[2]["data"]["usedBytes"] == len(content)
+    assert upload(env, "课程 资料.txt", content)[0] == 409
+    assert request(env.files, "/api/v1/directories/" + env.directory, token=env.token, method="DELETE")[0] == 409
+    for path, method, body in ((f"/files/{env.file_id}/download", "GET", None),
+                               (f"/files/{env.file_id}/rename", "PUT", {"name": "stolen.txt"}),
+                               (f"/files/{env.file_id}", "DELETE", None)):
+        assert request(env.files, "/api/v1" + path, body, env.other_token, method)[0] == 404
+    assert request(env.files, f"/api/v1/files/{env.file_id}/rename", {"name": "重命名 资料.txt"}, env.token, "PUT")[0] == 200
+    request(env.files, "/api/v1/directories", {"name": "占位", "parentId": env.directory}, env.token)
+    assert request(env.files, f"/api/v1/files/{env.file_id}/rename", {"name": "占位"}, env.token, "PUT")[0] == 409
+    assert upload(env, "oversize.bin", bytes(524289))[0] == 413
+    # Concurrent uploads must not exceed the fixed 1 MiB test quota.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        results = list(pool.map(lambda i: upload(env, f"quota-{i}.bin", bytes(400000)), range(3)))
+    assert sorted(result[0] for result in results) == [200, 200, 409]
+    assert request(env.files, "/api/v1/quota", token=env.token)[2]["data"]["usedBytes"] == len(content) + 800000
+    for result in results:
+        if result[0] == 200:
+            assert request(env.files, "/api/v1/files/" + result[2]["data"]["id"], token=env.token, method="DELETE")[0] == 200
+    # Preserve the first file for share tests; use a second record to check repeat deletion.
+    status, _, result = upload(env, "delete-me.txt", b"temporary")
+    deleted = result["data"]["id"]
+    assert status == 200
+    assert request(env.files, "/api/v1/files/" + deleted, token=env.token, method="DELETE")[0] == 200
+    # B's documented invisible-resource contract returns 404 on repeat deletion.
+    assert request(env.files, "/api/v1/files/" + deleted, token=env.token, method="DELETE")[0] == 404
+    assert request(env.files, "/api/v1/quota", token=env.token)[2]["data"]["usedBytes"] == len(content)
+    print("PASS file operations: SHA-256, Unicode/spaces, rename/conflict, ownership, nonempty directory, size, concurrent quota, repeat deletion")
+
+
 if __name__ == "__main__":
     environment = Environment()
     try:
@@ -212,5 +272,6 @@ if __name__ == "__main__":
             authentication(environment)
         if "--files" in sys.argv:
             directories(environment)
+            file_operations(environment)
     finally:
         environment.close()

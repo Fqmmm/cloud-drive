@@ -19,7 +19,7 @@
 
 ## 2. Git 实际状态
 
-- 当前开发分支：`feat/personal-file-browser`，从已推送的 `8cfc112` 创建。
+- 当前开发分支：`feat/personal-file-operations`，从已推送的 `3080ecc` 创建。
 - `5f66bab`（工作规范和计划）和 `20e8b7f`（独立交接文档）已依次推送至 `origin/course/a-services`。
 - 本功能提交包含 auth-service 骨架及对应 README、接口进度、分支命名规范和本文。最终提交号和上游状态以 `git log -1`、`git status --short --branch` 核对，避免文档自引用提交号。
 - 远端：`https://github.com/Fqmmm/cloud-drive.git`。未合并 main，未重写历史，未改动 B 的 SQL 或服务。
@@ -128,3 +128,7 @@ git push -u origin feat/auth-service-bootstrap
 - `8cfc112` 前端登录导航已推送。
 - 第 5 项个人文件浏览/目录/容量：类型与构建、相关 ESLint/Prettier、课程自定义检查通过。目录浏览器测试通过，导航定位因新增面包屑产生歧义后已收窄并补跑 2 项登录测试通过。`python -u backend/tests/course_smoke.py --files` 通过，覆盖真实双用户目录归属、根面包屑、布尔目录类型、BIGINT 字符串 9007199254740993、同名/非法名称、固定配额。
 - 修复开发测试脚本：Docker 重启可能改变随机宿主端口，重启后重新读取端口；最初等待脚本已停止且其专用容器/网络已清理，修复后全套 API 回归通过。下一项：上传、下载、重命名与永久删除。
+
+- `3080ecc` 文件列表/目录/容量已推送。
+- 第 6 项文件操作：类型、构建、相关 ESLint/Prettier、课程自定义检查通过；3 项文件 Chromium 测试通过（上传、重命名、下载内容和文件名、永久删除、JSON 错误不落盘）。真实 `course_smoke.py --files` 通过：两个用户归属、中文与空格、SHA-256、冲突、非空目录、413、三个并发 400000 字节上传仅两个成功，容量准确，重复删除不重复扣额。
+- 契约核对：第二次删除已失效记录返回 404（符合 B 文档统一不可见资源规则），测试不再误要求 200，容量保持不变；未修改 B 实现或业务要求。下一项：share-service 独立骨架、健康与文件 HTTP 客户端。
