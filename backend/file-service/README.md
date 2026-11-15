@@ -1,6 +1,6 @@
 # 课程版文件服务
 
-使用 Java 17。仓库根目录执行 `mvn -f backend/file-service/pom.xml package` 单独构建。课程后端父工程和公共 JWT 模块由小组统一接入前，本模块按已定 JWT 契约独立验证，原后端的 Maven 入口仍可用。
+使用 Java 17。仓库根目录执行 `mvn -f backend/file-service/pom.xml package` 单独构建。课程后端已确认采用三个独立 Maven 工程，JWT 按统一契约实现并验证互操作。原后端的 Maven 入口保留供原单体使用，课程构建约定见 [总体方案](../../docs/plan.md#24-工程拆分与构建边界)。
 
 ## 本地联调
 
