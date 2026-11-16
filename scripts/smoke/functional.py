@@ -26,11 +26,13 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class Acceptance:
-    def __init__(self, base):
+    def __init__(self, base, env_file=None, project=None):
         self.base = base.rstrip("/")
+        self.env_file = Path(env_file or ROOT / ".env").resolve()
+        self.project = project
         self.http = requests.Session()
         self.http.trust_env = False
-        self.settings = dict(line.split("=", 1) for line in (ROOT / ".env").read_text(
+        self.settings = dict(line.split("=", 1) for line in self.env_file.read_text(
             encoding="utf-8").splitlines() if line and not line.startswith("#") and "=" in line)
         self.suffix = secrets.token_hex(5)
         self.password = secrets.token_hex(16)
@@ -60,7 +62,10 @@ class Acceptance:
         return response.json()["data"]
 
     def compose(self, *args, sql=None):
-        result = subprocess.run(["docker", "compose", *args], cwd=ROOT, input=sql,
+        context = ["--env-file", str(self.env_file)]
+        if self.project:
+            context.extend(["-p", self.project])
+        result = subprocess.run(["docker", "compose", *context, *args], cwd=ROOT, input=sql,
                                 capture_output=True, text=True, encoding="utf-8", timeout=90)
         if result.returncode:
             raise RuntimeError("Compose acceptance operation failed")
@@ -482,12 +487,14 @@ class Acceptance:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-url", default="http://localhost:8080")
+    parser.add_argument("--env-file", type=Path, default=ROOT / ".env")
+    parser.add_argument("--project-name")
     parser.add_argument("--with-outages", action="store_true")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--api-only", action="store_true")
     mode.add_argument("--browser-only", action="store_true")
     args = parser.parse_args()
-    suite = Acceptance(args.base_url)
+    suite = Acceptance(args.base_url, args.env_file, args.project_name)
     fatal = None
     try:
         if args.browser_only:
@@ -532,6 +539,7 @@ def main():
         report = dict(timestamp=timestamp, base_url=args.base_url, source_commit=subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(), with_outages=args.with_outages,
             api_only=args.api_only, browser_only=args.browser_only, results=suite.results, fatal=fatal,
+            compose_project=args.project_name or suite.settings.get("COMPOSE_PROJECT_NAME"),
             limits=["Browser upload interruption and truncated-download responses are injected faults.",
                     "This is functional acceptance, not formal E1-E4 experiment data."])
         (folder / "results.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

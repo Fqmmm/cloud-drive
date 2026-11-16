@@ -5,6 +5,8 @@ COPY share-service/src src
 RUN mvn -B verify
 
 FROM eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+ARG APP_VERSION=course-v1
+LABEL org.opencontainers.image.version=$APP_VERSION
 WORKDIR /app
 COPY --from=build /build/target/share-service.jar app.jar
 COPY --from=build /build/target/classes/com/jiayuan/drive/shares/HealthProbe.class /app/probe/com/jiayuan/drive/shares/HealthProbe.class

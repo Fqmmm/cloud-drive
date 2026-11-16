@@ -59,6 +59,10 @@ python -u scripts/smoke/functional.py --browser-only
 ```
 
 自定义入口时传 `--base-url http://localhost:<端口>`，与 PUBLIC_BASE_URL 保持一致。
+独立实验环境可同时传 `--env-file <私有环境文件> --project-name <项目名>`，SQL 和容器操作均使用该上下文。
+Nginx 重载使用 `pwsh -NoProfile -File scripts/deployment/reload-nginx.ps1 -EnvFile <环境文件> -ProjectName <项目名>`，
+先验证配置再发送 reload，任一步失败均返回非零。
+分享镜像接受 APP_VERSION 构建参数（根 Compose 使用 SHARE_APP_VERSION），写入镜像版本标签，便于独立更新核验。
 超额和到期用例只调整本次临时账号的配额与临时分享到期时间，不修改表结构；配额测试后恢复。
 临时账号与分享历史保留在本地库中，测试脚本清理其 API 样本文件；不输出密码、JWT、提取码或完整分享地址。
 上传断网及截断下载由测试注入；依赖停止/恢复为真实容器操作。结果写入 Git 忽略的 artifacts/functional/<UTC批次>/。

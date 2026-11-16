@@ -96,6 +96,8 @@ services:
     build:
       context: ./backend
       dockerfile: share-service/Dockerfile
+      args:
+        APP_VERSION: ${SHARE_APP_VERSION:-course-v1}
     restart: unless-stopped
     environment:
       SHARE_DB_PASSWORD: ${SHARE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
