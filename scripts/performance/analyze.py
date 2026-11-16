@@ -182,6 +182,9 @@ def plot(folder, results, groups):
         for extension in ["png", "svg"]:
             fig.savefig(figures / ("memory-peaks." + extension))
         plt.close(fig)
+    # Matplotlib path data contains optional trailing spaces; normalize derived SVG only.
+    for path in figures.glob("*.svg"):
+        path.write_text("\n".join(line.rstrip() for line in path.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
 
 
 def main():
