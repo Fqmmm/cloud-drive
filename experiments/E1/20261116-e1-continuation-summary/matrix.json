@@ -1,0 +1,149 @@
+{
+  "batch": "20261116-e1-continuation",
+  "pilot": false,
+  "source_commit": "5186da2ddde277930ddb3a1b6fcc8d3c6f0a8dde",
+  "matrix": [
+    {
+      "scenario": "P4",
+      "vus": 5,
+      "repeat": 1,
+      "order": 28
+    },
+    {
+      "scenario": "P4",
+      "vus": 10,
+      "repeat": 1,
+      "order": 29
+    },
+    {
+      "scenario": "P4",
+      "vus": 20,
+      "repeat": 1,
+      "order": 30
+    },
+    {
+      "scenario": "P4",
+      "vus": 10,
+      "repeat": 2,
+      "order": 31
+    },
+    {
+      "scenario": "P4",
+      "vus": 20,
+      "repeat": 2,
+      "order": 32
+    },
+    {
+      "scenario": "P4",
+      "vus": 5,
+      "repeat": 2,
+      "order": 33
+    },
+    {
+      "scenario": "P4",
+      "vus": 20,
+      "repeat": 3,
+      "order": 34
+    },
+    {
+      "scenario": "P4",
+      "vus": 5,
+      "repeat": 3,
+      "order": 35
+    },
+    {
+      "scenario": "P4",
+      "vus": 10,
+      "repeat": 3,
+      "order": 36
+    },
+    {
+      "scenario": "P5U",
+      "vus": 5,
+      "repeat": 1,
+      "order": 37
+    },
+    {
+      "scenario": "P5U",
+      "vus": 5,
+      "repeat": 2,
+      "order": 38
+    },
+    {
+      "scenario": "P5U",
+      "vus": 5,
+      "repeat": 3,
+      "order": 39
+    },
+    {
+      "scenario": "P5D",
+      "vus": 5,
+      "repeat": 1,
+      "order": 40
+    },
+    {
+      "scenario": "P5D",
+      "vus": 5,
+      "repeat": 2,
+      "order": 41
+    },
+    {
+      "scenario": "P5D",
+      "vus": 5,
+      "repeat": 3,
+      "order": 42
+    }
+  ],
+  "completed": [
+    "20261116-e1-continuation-P4-vu05-r1",
+    "20261116-e1-continuation-P4-vu10-r1",
+    "20261116-e1-continuation-P4-vu20-r1",
+    "20261116-e1-continuation-P4-vu10-r2",
+    "20261116-e1-continuation-P4-vu20-r2",
+    "20261116-e1-continuation-P4-vu05-r2",
+    "20261116-e1-continuation-P4-vu20-r3",
+    "20261116-e1-continuation-P4-vu05-r3",
+    "20261116-e1-continuation-P4-vu10-r3",
+    "20261116-e1-continuation-P5U-vu05-r1",
+    "20261116-e1-continuation-P5U-vu05-r2"
+  ],
+  "started_utc": "2026-11-16T08:05:20.196945+00:00",
+  "fixture_credentials": "Only in ignored artifacts/e1; not part of raw public data",
+  "continuation_of": "20261116-e1-formal-ipv4",
+  "previous_source_commit": "5fb0392cbf0e71ec8c8f7ce4d42d0ba46c8a4d72",
+  "previous_completed": [
+    "20261116-e1-formal-ipv4-P1-vu05-r1",
+    "20261116-e1-formal-ipv4-P1-vu10-r1",
+    "20261116-e1-formal-ipv4-P1-vu20-r1",
+    "20261116-e1-formal-ipv4-P1-vu10-r2",
+    "20261116-e1-formal-ipv4-P1-vu20-r2",
+    "20261116-e1-formal-ipv4-P1-vu05-r2",
+    "20261116-e1-formal-ipv4-P1-vu20-r3",
+    "20261116-e1-formal-ipv4-P1-vu05-r3",
+    "20261116-e1-formal-ipv4-P1-vu10-r3",
+    "20261116-e1-formal-ipv4-P2-vu05-r1",
+    "20261116-e1-formal-ipv4-P2-vu10-r1",
+    "20261116-e1-formal-ipv4-P2-vu20-r1",
+    "20261116-e1-formal-ipv4-P2-vu10-r2",
+    "20261116-e1-formal-ipv4-P2-vu20-r2",
+    "20261116-e1-formal-ipv4-P2-vu05-r2",
+    "20261116-e1-formal-ipv4-P2-vu20-r3",
+    "20261116-e1-formal-ipv4-P2-vu05-r3",
+    "20261116-e1-formal-ipv4-P2-vu10-r3",
+    "20261116-e1-formal-ipv4-P3-vu05-r1",
+    "20261116-e1-formal-ipv4-P3-vu10-r1",
+    "20261116-e1-formal-ipv4-P3-vu20-r1",
+    "20261116-e1-formal-ipv4-P3-vu10-r2",
+    "20261116-e1-formal-ipv4-P3-vu20-r2",
+    "20261116-e1-formal-ipv4-P3-vu05-r2",
+    "20261116-e1-formal-ipv4-P3-vu20-r3",
+    "20261116-e1-formal-ipv4-P3-vu05-r3",
+    "20261116-e1-formal-ipv4-P3-vu10-r3"
+  ],
+  "continuity_checks": "same images, Compose, Docker CPU/memory, measurement/cleanup code, timing, endpoint and upload cap",
+  "finished_utc": "2026-11-16T08:39:45.133641+00:00",
+  "paused": true,
+  "paused_utc": "2026-11-16T08:50:45.797979+00:00",
+  "pause_reason": "User requested stopping P5 before any further rounds; continuation2 launch command terminated before harness start",
+  "remaining_rounds": 4
+}

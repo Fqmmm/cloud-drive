@@ -1,0 +1,183 @@
+{
+  "requests": 400,
+  "successes": 400,
+  "failures": 0,
+  "success_rate": 1.0,
+  "rps": 3.316666666666667,
+  "completed_successes_in_window": 398,
+  "successful_completions_after_window": 2,
+  "bytes_per_second": 69555541.33333333,
+  "latency_ms": {
+    "mean": 490.8924004999062,
+    "p50": 432.25579999852926,
+    "p95": 830.0454800000783,
+    "p99": 1144.3005790024465
+  },
+  "successful_latency_ms": {
+    "mean": 490.8924004999062,
+    "p50": 432.25579999852926,
+    "p95": 830.0454800000783,
+    "p99": 1144.3005790024465
+  },
+  "timeouts": 0,
+  "iterations": {
+    "requests": 400,
+    "successes": 400,
+    "failures": 0,
+    "success_rate": 1.0,
+    "rps": 3.316666666666667,
+    "completed_successes_in_window": 398,
+    "successful_completions_after_window": 2,
+    "bytes_per_second": 0.0,
+    "latency_ms": {
+      "mean": 505.0362552498609,
+      "p50": 446.0114000012254,
+      "p95": 889.3646800006529,
+      "p99": 1159.2933340007942
+    },
+    "successful_latency_ms": {
+      "mean": 505.0362552498609,
+      "p50": 446.0114000012254,
+      "p95": 889.3646800006529,
+      "p99": 1159.2933340007942
+    },
+    "timeouts": 0
+  },
+  "operations": {
+    "upload": {
+      "requests": 400,
+      "successes": 400,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 3.316666666666667,
+      "completed_successes_in_window": 398,
+      "successful_completions_after_window": 2,
+      "bytes_per_second": 69555541.33333333,
+      "latency_ms": {
+        "mean": 490.8924004999062,
+        "p50": 432.25579999852926,
+        "p95": 830.0454800000783,
+        "p99": 1144.3005790024465
+      },
+      "successful_latency_ms": {
+        "mean": 490.8924004999062,
+        "p50": 432.25579999852926,
+        "p95": 830.0454800000783,
+        "p99": 1144.3005790024465
+      },
+      "timeouts": 0
+    }
+  },
+  "resources": {
+    "auth-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 0.9414386052296639,
+      "cpu_peak": 10.390563002680965,
+      "memory_mean_bytes": 165605956.26666668,
+      "memory_peak_bytes": 172552192.0,
+      "io_fields_available": true
+    },
+    "file-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 52.12071584226079,
+      "cpu_peak": 88.5379679144385,
+      "memory_mean_bytes": 347345544.53333336,
+      "memory_peak_bytes": 371908608.0,
+      "io_fields_available": true
+    },
+    "frontend": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 20.525852603735405,
+      "cpu_peak": 33.77419689119171,
+      "memory_mean_bytes": 5465600.0,
+      "memory_peak_bytes": 8175616.0,
+      "io_fields_available": true
+    },
+    "minio": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 22.895252153217953,
+      "cpu_peak": 42.14208791208791,
+      "memory_mean_bytes": 507014963.2,
+      "memory_peak_bytes": 558682112.0,
+      "io_fields_available": true
+    },
+    "mysql": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 3.2453706228806207,
+      "cpu_peak": 7.110727762803235,
+      "memory_mean_bytes": 161159987.2,
+      "memory_peak_bytes": 167636992.0,
+      "io_fields_available": true
+    },
+    "share-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 0.8352283852378048,
+      "cpu_peak": 10.555989159891599,
+      "memory_mean_bytes": 227283114.66666666,
+      "memory_peak_bytes": 231661568.0,
+      "io_fields_available": true
+    }
+  },
+  "load_generator": {
+    "generator_cpu_percent": {
+      "mean": 7.616666666666666,
+      "peak": 15.6
+    },
+    "generator_rss_bytes": {
+      "mean": 102349107.2,
+      "peak": 166834176.0
+    },
+    "collector_cpu_percent": {
+      "mean": 0.4716666666666667,
+      "peak": 4.7
+    },
+    "collector_rss_bytes": {
+      "mean": 25038028.8,
+      "peak": 25083904.0
+    },
+    "host_cpu_percent": {
+      "mean": 31.2475,
+      "peak": 44.7
+    }
+  },
+  "error_categories": {},
+  "downstream": {},
+  "run_id": "20261116-e1-continuation-P5U-vu05-r2",
+  "scenario": "P5U",
+  "vus": 5,
+  "repeat": 2,
+  "file_size_bytes": 20971520,
+  "measure_seconds": 120.0,
+  "cap_hit": false,
+  "complete": true
+}

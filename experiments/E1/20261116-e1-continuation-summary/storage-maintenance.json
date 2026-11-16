@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-11-16T08:41:44.389340+00:00",
+  "reason": "P5U r3 stopped before warmup because host C free space fell below 1.5 times capped upload bytes",
+  "completed_rounds": 11,
+  "measured_requests_in_stopped_round": 0,
+  "prior_round_objects_confirmed_absent": true,
+  "maintenance": "fstrim on verified Docker data ext4 mount /mnt/docker-desktop-disk; discard only already-free blocks; no files, images or volumes deleted; no service restart",
+  "command_exit_code": 0,
+  "host_c_free_bytes_before": 19109605376,
+  "host_c_free_bytes_after": 19109605376,
+  "stdout": "/mnt/docker-desktop-disk: 41.4 GiB (44450217984 bytes) trimmed",
+  "stderr": ""
+}

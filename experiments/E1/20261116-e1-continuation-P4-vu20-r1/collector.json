@@ -1,0 +1,82 @@
+{
+  "tool": "Docker Engine v1.56 sequential one-shot stats + psutil",
+  "psutil_version": "7.2.1",
+  "target_interval_seconds": 1,
+  "errors": [
+    {
+      "service": "auth-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:16.733442+00:00"
+    },
+    {
+      "service": "file-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:16.733469+00:00"
+    },
+    {
+      "service": "frontend",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:16.733479+00:00"
+    },
+    {
+      "service": "minio",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:16.733487+00:00"
+    },
+    {
+      "service": "mysql",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:16.733494+00:00"
+    },
+    {
+      "service": "share-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:16.733502+00:00"
+    },
+    {
+      "service": "auth-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:27.727710+00:00"
+    },
+    {
+      "service": "file-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T08:14:27.727744+00:00"
+    }
+  ],
+  "intervals": {
+    "auth-service": {
+      "samples": 185,
+      "interval_mean": 1.0109174303386523,
+      "interval_max": 2.0140175819396973
+    },
+    "file-service": {
+      "samples": 185,
+      "interval_mean": 1.0109162084434344,
+      "interval_max": 2.014270305633545
+    },
+    "frontend": {
+      "samples": 186,
+      "interval_mean": 1.0054493646363953,
+      "interval_max": 1.9910640716552734
+    },
+    "minio": {
+      "samples": 186,
+      "interval_mean": 1.0054510593414308,
+      "interval_max": 1.9903414249420166
+    },
+    "mysql": {
+      "samples": 186,
+      "interval_mean": 1.0054599207800787,
+      "interval_max": 1.9897067546844482
+    },
+    "share-service": {
+      "samples": 186,
+      "interval_mean": 1.0054427662411252,
+      "interval_max": 1.9899260997772217
+    }
+  },
+  "cpu_definition": "100% is one logical Docker CPU; system ceiling is 400% for four CPUs",
+  "memory_definition": "usage minus inactive_file/total_inactive_file (Docker CLI working-set convention)",
+  "missing_io": "empty values mean unavailable, not zero"
+}

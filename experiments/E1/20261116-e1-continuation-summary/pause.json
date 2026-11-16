@@ -1,0 +1,14 @@
+{
+  "paused_utc": "2026-11-16T08:50:45.797979+00:00",
+  "completed_this_batch": 11,
+  "completed_total": 38,
+  "planned_total": 42,
+  "p4_completed": 9,
+  "p5u_completed": 2,
+  "p5u_remaining": 1,
+  "p5d_remaining": 3,
+  "workload_process_stopped": true,
+  "continuation2_started": false,
+  "containers_kept_running": true,
+  "c_host_free_bytes": 19130580992
+}

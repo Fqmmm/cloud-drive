@@ -1,0 +1,11 @@
+2026-11-16T08:30:08.185126+00:00 20261116-e1-continuation-P4-vu10-r3: warmup: started; duration=30s; VUs=10
+2026-11-16T08:30:38.188798+00:00 20261116-e1-continuation-P4-vu10-r3: warmup: elapsed=30s requests=430 failed=0
+2026-11-16T08:30:38.838184+00:00 20261116-e1-continuation-P4-vu10-r3: warmup: finished; drain=0.403s
+2026-11-16T08:30:38.838309+00:00 20261116-e1-continuation-P4-vu10-r3: measure: started; duration=120s; VUs=10
+2026-11-16T08:31:08.842447+00:00 20261116-e1-continuation-P4-vu10-r3: measure: elapsed=30s requests=429 failed=0
+2026-11-16T08:31:38.844845+00:00 20261116-e1-continuation-P4-vu10-r3: measure: elapsed=60s requests=869 failed=0
+2026-11-16T08:32:08.847277+00:00 20261116-e1-continuation-P4-vu10-r3: measure: elapsed=90s requests=1309 failed=0
+2026-11-16T08:32:38.850881+00:00 20261116-e1-continuation-P4-vu10-r3: measure: elapsed=120s requests=1748 failed=0
+2026-11-16T08:32:39.390560+00:00 20261116-e1-continuation-P4-vu10-r3: measure: finished; drain=0.302s
+2026-11-16T08:32:39.802972+00:00 20261116-e1-continuation-P4-vu10-r3: checksum and scoped cleanup passed; cooling
+2026-11-16T08:33:09.819911+00:00 20261116-e1-continuation-P4-vu10-r3: round complete; {'seconds': 30.016372203826904, 'stable': True, 'threshold_total_cpu_percent': 80.0, 'observed_max_total_cpu_percent': 9.990107043940414}
