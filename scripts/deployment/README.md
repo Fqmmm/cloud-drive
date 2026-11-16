@@ -6,6 +6,7 @@
 python -m unittest discover -s scripts/deployment -p test_e2_support.py
 python -m unittest discover -s scripts/smoke -p test_context.py
 python -u scripts/deployment/e2.py --batch 20261116-e2-formal --project cloud-drive-e2-20261116
+python scripts/deployment/e2_analyze.py 20261116-e2-formal
 ```
 
 每次正式执行使用新的批次和项目名。默认含双副本扩展；`--basic-only` 只执行基础部分。
@@ -35,4 +36,6 @@ python -u scripts/deployment/e2.py --batch 20261116-e2-formal --project cloud-dr
 Docker 总 CPU/内存预算不变，不新增单容器配额。结束恢复一副本、重载 Nginx 并再次完整冒烟。
 
 公开记录不包含原始请求 URL、请求体、JWT、密码或提取码。失败批次原样保留，代码修正后另开批次。
+`e2_analyze.py` 从各轮原始请求、迭代和资源 CSV 重新计算指标，导出部署表、副本对照表及 PNG/SVG 图。
+论文使用的结果报告位于 [docs/exp](../../docs/exp/README.md)。
 原 Java/前端代码规范检查器不覆盖本轮 Python/PowerShell 新脚本，不能用它们证明实验脚本通过；验证见单元测试、配置解析、实际构建和实验原始记录。

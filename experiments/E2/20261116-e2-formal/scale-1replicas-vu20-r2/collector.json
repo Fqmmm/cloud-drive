@@ -1,0 +1,72 @@
+{
+  "tool": "Docker Engine v1.56 sequential one-shot stats + psutil",
+  "psutil_version": "7.2.1",
+  "target_interval_seconds": 1,
+  "errors": [
+    {
+      "service": "mysql",
+      "error_type": "OSError",
+      "time": "2026-11-16T09:35:47.118107+00:00"
+    },
+    {
+      "service": "share-service-1",
+      "error_type": "OSError",
+      "time": "2026-11-16T09:35:47.118120+00:00"
+    },
+    {
+      "service": "mysql",
+      "error_type": "OSError",
+      "time": "2026-11-16T09:35:57.107112+00:00"
+    },
+    {
+      "service": "share-service-1",
+      "error_type": "OSError",
+      "time": "2026-11-16T09:35:57.107122+00:00"
+    },
+    {
+      "service": "frontend",
+      "error_type": "OSError",
+      "time": "2026-11-16T09:36:17.113275+00:00"
+    },
+    {
+      "service": "minio",
+      "error_type": "OSError",
+      "time": "2026-11-16T09:36:17.113301+00:00"
+    }
+  ],
+  "intervals": {
+    "auth-service": {
+      "samples": 187,
+      "interval_mean": 1.0000311443882604,
+      "interval_max": 1.0157322883605957
+    },
+    "file-service": {
+      "samples": 187,
+      "interval_mean": 1.0000293344579718,
+      "interval_max": 1.0177481174468994
+    },
+    "frontend": {
+      "samples": 186,
+      "interval_mean": 1.0054313698330442,
+      "interval_max": 1.9927139282226562
+    },
+    "minio": {
+      "samples": 186,
+      "interval_mean": 1.0054387620977454,
+      "interval_max": 1.9941620826721191
+    },
+    "mysql": {
+      "samples": 185,
+      "interval_mean": 1.0109093059664187,
+      "interval_max": 1.9985477924346924
+    },
+    "share-service-1": {
+      "samples": 185,
+      "interval_mean": 1.0109086373577947,
+      "interval_max": 1.9986917972564697
+    }
+  },
+  "cpu_definition": "100% is one logical Docker CPU; system ceiling is 400% for four CPUs",
+  "memory_definition": "usage minus inactive_file/total_inactive_file (Docker CLI working-set convention)",
+  "missing_io": "empty values mean unavailable, not zero"
+}

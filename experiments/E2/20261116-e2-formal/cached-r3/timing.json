@@ -1,0 +1,13 @@
+{
+  "start_epoch": 1794820898.6919906,
+  "command_return_epoch": 1794820919.9554863,
+  "command_seconds": 21.263476610183716,
+  "all_healthy_observed_epoch": 1794820931.4736018,
+  "all_healthy_observed_seconds": 32.78161120414734,
+  "business_ready_epoch": 1794820942.8578186,
+  "business_ready_seconds": 44.16582798957825,
+  "smoke_cleanup_seconds": 0.5426743030548096,
+  "source_build": false,
+  "complete": true,
+  "observation_resolution_seconds": 0.5
+}

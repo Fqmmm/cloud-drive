@@ -1,0 +1,35 @@
+{
+  "start_epoch": 1794820943.8066986,
+  "old_version": "e2-v1",
+  "new_version": "e2-v2",
+  "build_seconds": 1.3662970066070557,
+  "replace_started_epoch": 1794820950.1752565,
+  "replace_command_seconds": 1.1088626384735107,
+  "healthy_epoch": 1794820957.5942962,
+  "nginx_reload_seconds": 0.7671778202056885,
+  "changed_services": [
+    "share-service"
+  ],
+  "new_image_identity_verified": true,
+  "complete": true,
+  "end_epoch": 1794820964.4538603,
+  "probe_summary": {
+    "login": {
+      "requests": 21,
+      "failures": 0
+    },
+    "files": {
+      "requests": 21,
+      "failures": 0
+    },
+    "share": {
+      "requests": 21,
+      "failures": 2
+    }
+  },
+  "share_failed_probe_interval": {
+    "first": 1794820950.8838768,
+    "last": 1794820951.9933915
+  },
+  "downtime_resolution": "1 s target probing, in-flight requests can span recovery; see raw probes; no failure is not proof of zero downtime"
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "CreatedAt": "2026-11-16T09:19:00Z",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "c543605c58c15f2bbb2f1a54fab057039a91c53cabcd7641818d61f3db3e8fc9",
+      "com.docker.compose.project": "cloud-drive-e2-20261116",
+      "com.docker.compose.version": "5.6.1",
+      "com.docker.compose.volume": "mysql_data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/cloud-drive-e2-20261116_mysql_data/_data",
+    "Name": "cloud-drive-e2-20261116_mysql_data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-11-16T09:19:00Z",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "b6269fed8c63b346ace95200400809ef8f42c75908feacfe08715e34ec01f287",
+      "com.docker.compose.project": "cloud-drive-e2-20261116",
+      "com.docker.compose.version": "5.6.1",
+      "com.docker.compose.volume": "minio_data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/cloud-drive-e2-20261116_minio_data/_data",
+    "Name": "cloud-drive-e2-20261116_minio_data",
+    "Options": null,
+    "Scope": "local"
+  }
+]

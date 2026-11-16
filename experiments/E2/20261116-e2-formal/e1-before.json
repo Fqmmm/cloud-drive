@@ -1,0 +1,214 @@
+[
+  {
+    "service": "auth-service",
+    "number": "1",
+    "id": "b4fe134e2ec77dab2c6443bd3962a8960135c3818e99da331a2d52724e3fec80",
+    "image_id": "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+    "image_reference": "cloud-drive-auth:local",
+    "version": "course-v1",
+    "image_version_label": "26.04",
+    "started": "2026-11-16T03:29:42.272899505Z",
+    "status": "running",
+    "health": "healthy",
+    "restart_count": 0,
+    "oom_killed": false,
+    "limits": {
+      "NanoCpus": 0,
+      "CpuQuota": 0,
+      "CpuPeriod": 0,
+      "Memory": 0,
+      "MemorySwap": 0
+    },
+    "mounts": [],
+    "networks": {
+      "cloud-drive-course_default": {
+        "ip": "172.18.0.5",
+        "aliases": [
+          "cloud-drive-course-auth-service-1",
+          "auth-service"
+        ]
+      }
+    }
+  },
+  {
+    "service": "file-service",
+    "number": "1",
+    "id": "5cf68a2055f789576033b16b2693e013be49db9aa8d804d32f2c54517ad633dc",
+    "image_id": "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+    "image_reference": "cloud-drive-file:local",
+    "version": null,
+    "image_version_label": "26.04",
+    "started": "2026-11-16T03:31:15.737620336Z",
+    "status": "running",
+    "health": "healthy",
+    "restart_count": 0,
+    "oom_killed": false,
+    "limits": {
+      "NanoCpus": 0,
+      "CpuQuota": 0,
+      "CpuPeriod": 0,
+      "Memory": 0,
+      "MemorySwap": 0
+    },
+    "mounts": [],
+    "networks": {
+      "cloud-drive-course_default": {
+        "ip": "172.18.0.4",
+        "aliases": [
+          "cloud-drive-course-file-service-1",
+          "file-service"
+        ]
+      }
+    }
+  },
+  {
+    "service": "frontend",
+    "number": "1",
+    "id": "96080b36828f43dbfefc95f969af66cc38b9370307436e9eeee3c38e7d75b307",
+    "image_id": "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+    "image_reference": "cloud-drive-frontend:local",
+    "version": null,
+    "image_version_label": null,
+    "started": "2026-11-16T03:29:53.867735113Z",
+    "status": "running",
+    "health": "healthy",
+    "restart_count": 0,
+    "oom_killed": false,
+    "limits": {
+      "NanoCpus": 0,
+      "CpuQuota": 0,
+      "CpuPeriod": 0,
+      "Memory": 0,
+      "MemorySwap": 0
+    },
+    "mounts": [],
+    "networks": {
+      "cloud-drive-course_default": {
+        "ip": "172.18.0.7",
+        "aliases": [
+          "cloud-drive-course-frontend-1",
+          "frontend"
+        ]
+      }
+    }
+  },
+  {
+    "service": "minio",
+    "number": "1",
+    "id": "325610b73d03b8bfcca42156e37d734b5e7712bb4afb66c64c85237fdcb80a91",
+    "image_id": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+    "image_reference": "dappros/minio@sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+    "version": null,
+    "image_version_label": null,
+    "started": "2026-11-16T03:31:22.425568496Z",
+    "status": "running",
+    "health": "healthy",
+    "restart_count": 0,
+    "oom_killed": false,
+    "limits": {
+      "NanoCpus": 0,
+      "CpuQuota": 0,
+      "CpuPeriod": 0,
+      "Memory": 0,
+      "MemorySwap": 0
+    },
+    "mounts": [
+      {
+        "Type": "volume",
+        "Name": "cloud-drive-course_minio_data",
+        "Source": "/var/lib/docker/volumes/cloud-drive-course_minio_data/_data",
+        "Destination": "/data"
+      }
+    ],
+    "networks": {
+      "cloud-drive-course_default": {
+        "ip": "172.18.0.3",
+        "aliases": [
+          "cloud-drive-course-minio-1",
+          "minio"
+        ]
+      }
+    }
+  },
+  {
+    "service": "mysql",
+    "number": "1",
+    "id": "102c36a0b494a057533450ed0635fc83404d93fb170c9e3ff243c2b74fdbc8f0",
+    "image_id": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+    "image_reference": "mysql:8.0.29@sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+    "version": null,
+    "image_version_label": null,
+    "started": "2026-11-16T03:29:36.09232686Z",
+    "status": "running",
+    "health": "healthy",
+    "restart_count": 0,
+    "oom_killed": false,
+    "limits": {
+      "NanoCpus": 0,
+      "CpuQuota": 0,
+      "CpuPeriod": 0,
+      "Memory": 0,
+      "MemorySwap": 0
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Name": null,
+        "Source": "/run/desktop/mnt/host/d/Jimmy/_cloud/cloud-drive/backend/sql/course-mysql/init",
+        "Destination": "/docker-entrypoint-initdb.d"
+      },
+      {
+        "Type": "bind",
+        "Name": null,
+        "Source": "/run/desktop/mnt/host/d/Jimmy/_cloud/cloud-drive/backend/sql/course-mysql/schema",
+        "Destination": "/opt/course-schema"
+      },
+      {
+        "Type": "volume",
+        "Name": "cloud-drive-course_mysql_data",
+        "Source": "/var/lib/docker/volumes/cloud-drive-course_mysql_data/_data",
+        "Destination": "/var/lib/mysql"
+      }
+    ],
+    "networks": {
+      "cloud-drive-course_default": {
+        "ip": "172.18.0.2",
+        "aliases": [
+          "cloud-drive-course-mysql-1",
+          "mysql"
+        ]
+      }
+    }
+  },
+  {
+    "service": "share-service",
+    "number": "1",
+    "id": "d428fd3fe9e7f171b3fbc17d10f61ecc8d7b9793f491ed7d73d665110a1cc025",
+    "image_id": "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d",
+    "image_reference": "cloud-drive-share:local",
+    "version": "course-v1",
+    "image_version_label": "26.04",
+    "started": "2026-11-16T03:29:47.796362373Z",
+    "status": "running",
+    "health": "healthy",
+    "restart_count": 0,
+    "oom_killed": false,
+    "limits": {
+      "NanoCpus": 0,
+      "CpuQuota": 0,
+      "CpuPeriod": 0,
+      "Memory": 0,
+      "MemorySwap": 0
+    },
+    "mounts": [],
+    "networks": {
+      "cloud-drive-course_default": {
+        "ip": "172.18.0.6",
+        "aliases": [
+          "cloud-drive-course-share-service-1",
+          "share-service"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "scenario": "P4",
+  "vus": 20,
+  "repeat": 3,
+  "replicas": 2,
+  "file_size_bytes": 1048576,
+  "request_base_url": "http://127.0.0.1:8080",
+  "warmup_seconds": 30,
+  "measure_seconds": 120,
+  "minimum_cooldown_seconds": 30,
+  "closed_model": "20 independent VUs; verify and download anonymous; 1 s think time after iteration",
+  "complete": true,
+  "upload_cap_hit_by_vu": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "jwt_remaining_seconds_before_warmup": [
+    7200.174814939499,
+    7200.993897438049,
+    7200.786348819733,
+    7200.605307102203,
+    7200.400846242905,
+    7200.220028877258,
+    7201.029137849808,
+    7200.848716259003,
+    7200.667123794556,
+    7200.485228538513,
+    7200.305425643921,
+    7200.11444234848,
+    7200.931574344635,
+    7200.738662481308,
+    7200.559197187424,
+    7200.361317157745,
+    7200.161274909973,
+    7199.979113101959,
+    7200.797623634338,
+    7200.61637711525
+  ],
+  "warmup": {
+    "start_epoch": 1794821984.6347394,
+    "end_epoch": 1794822014.6347394,
+    "actual_drain_seconds": 0.4032707214355469
+  },
+  "measurement": {
+    "start_epoch": 1794822015.2880602,
+    "end_epoch": 1794822135.2880602,
+    "actual_drain_seconds": 0.5039103031158447
+  },
+  "cooldown": {
+    "seconds": 30.017098903656006,
+    "stable": true,
+    "threshold_total_cpu_percent": 80.0,
+    "observed_max_total_cpu_percent": 12.099370837789662
+  }
+}

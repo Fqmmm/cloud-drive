@@ -1,0 +1,10 @@
+2026-11-16T09:39:44.384746+00:00 scale-2replicas-vu20-r3: warmup: started; duration=30s; VUs=20
+2026-11-16T09:40:14.390793+00:00 scale-2replicas-vu20-r3: warmup: elapsed=30s requests=626 failed=1
+2026-11-16T09:40:15.037593+00:00 scale-2replicas-vu20-r3: warmup: finished; drain=0.403s
+2026-11-16T09:40:15.038063+00:00 scale-2replicas-vu20-r3: measure: started; duration=120s; VUs=20
+2026-11-16T09:40:45.044559+00:00 scale-2replicas-vu20-r3: measure: elapsed=30s requests=638 failed=0
+2026-11-16T09:41:15.048312+00:00 scale-2replicas-vu20-r3: measure: elapsed=60s requests=1289 failed=0
+2026-11-16T09:41:45.051250+00:00 scale-2replicas-vu20-r3: measure: elapsed=90s requests=1920 failed=1
+2026-11-16T09:42:15.054652+00:00 scale-2replicas-vu20-r3: measure: elapsed=120s requests=2561 failed=1
+2026-11-16T09:42:15.791431+00:00 scale-2replicas-vu20-r3: measure: finished; drain=0.503s
+2026-11-16T09:42:46.581140+00:00 scale-2replicas-vu20-r3: round complete

@@ -1,0 +1,226 @@
+{
+  "requests": 2621,
+  "successes": 2621,
+  "failures": 0,
+  "success_rate": 1.0,
+  "rps": 21.725,
+  "completed_successes_in_window": 2607,
+  "successful_completions_after_window": 14,
+  "bytes_per_second": 11350835.2,
+  "latency_ms": {
+    "mean": 418.53706688288503,
+    "p50": 415.9352000024228,
+    "p95": 635.2584999985993,
+    "p99": 751.9199799986385
+  },
+  "successful_latency_ms": {
+    "mean": 418.53706688288503,
+    "p50": 415.9352000024228,
+    "p95": 635.2584999985993,
+    "p99": 751.9199799986385
+  },
+  "timeouts": 0,
+  "iterations": {
+    "requests": 1313,
+    "successes": 1313,
+    "failures": 0,
+    "success_rate": 1.0,
+    "rps": 10.825,
+    "completed_successes_in_window": 1299,
+    "successful_completions_after_window": 14,
+    "bytes_per_second": 0.0,
+    "latency_ms": {
+      "mean": 837.3301214774852,
+      "p50": 828.5798999968392,
+      "p95": 1194.5892200012163,
+      "p99": 1329.048236000525
+    },
+    "successful_latency_ms": {
+      "mean": 837.3301214774852,
+      "p50": 828.5798999968392,
+      "p95": 1194.5892200012163,
+      "p99": 1329.048236000525
+    },
+    "timeouts": 0
+  },
+  "operations": {
+    "share_download": {
+      "requests": 1308,
+      "successes": 1308,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 10.825,
+      "completed_successes_in_window": 1299,
+      "successful_completions_after_window": 9,
+      "bytes_per_second": 11350835.2,
+      "latency_ms": {
+        "mean": 424.1320359326861,
+        "p50": 424.34434999813675,
+        "p95": 645.5718399991379,
+        "p99": 753.1259639992279
+      },
+      "successful_latency_ms": {
+        "mean": 424.1320359326861,
+        "p50": 424.34434999813675,
+        "p95": 645.5718399991379,
+        "p99": 753.1259639992279
+      },
+      "timeouts": 0
+    },
+    "share_verify": {
+      "requests": 1313,
+      "successes": 1313,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 10.9,
+      "completed_successes_in_window": 1308,
+      "successful_completions_after_window": 5,
+      "bytes_per_second": 0.0,
+      "latency_ms": {
+        "mean": 412.9634038843018,
+        "p50": 408.9616000019305,
+        "p95": 627.4002399994057,
+        "p99": 742.3839279999081
+      },
+      "successful_latency_ms": {
+        "mean": 412.9634038843018,
+        "p50": 408.9616000019305,
+        "p95": 627.4002399994057,
+        "p99": 742.3839279999081
+      },
+      "timeouts": 0
+    }
+  },
+  "resources": {
+    "auth-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 0.805405791488192,
+      "cpu_peak": 8.42688888888889,
+      "memory_mean_bytes": 240966690.13333333,
+      "memory_peak_bytes": 258736128.0,
+      "io_fields_available": true
+    },
+    "file-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 4.700090821850634,
+      "cpu_peak": 30.181117318435753,
+      "memory_mean_bytes": 429774984.53333336,
+      "memory_peak_bytes": 433876992.0,
+      "io_fields_available": true
+    },
+    "frontend": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 2.1669979402976223,
+      "cpu_peak": 4.0017941952506595,
+      "memory_mean_bytes": 11228398.933333334,
+      "memory_peak_bytes": 15110144.0,
+      "io_fields_available": true
+    },
+    "minio": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 2.1514599282507882,
+      "cpu_peak": 9.839344262295082,
+      "memory_mean_bytes": 311393553.06666666,
+      "memory_peak_bytes": 311955456.0,
+      "io_fields_available": true
+    },
+    "mysql": {
+      "samples": 119,
+      "expected_samples": 120,
+      "cpu_samples": 119,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 1,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 1.9948058896556506,
+      "cpu_peak": 4.4981318681318685,
+      "memory_mean_bytes": 422234163.6302521,
+      "memory_peak_bytes": 422486016.0,
+      "io_fields_available": true
+    },
+    "share-service-1": {
+      "samples": 119,
+      "expected_samples": 120,
+      "cpu_samples": 119,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 1,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 412.2496735072007,
+      "cpu_peak": 431.8444817927171,
+      "memory_mean_bytes": 248824255.46218488,
+      "memory_peak_bytes": 249511936.0,
+      "io_fields_available": true
+    }
+  },
+  "load_generator": {
+    "generator_cpu_percent": {
+      "mean": 7.960833333333334,
+      "peak": 15.6
+    },
+    "generator_rss_bytes": {
+      "mean": 72803089.06666666,
+      "peak": 73469952.0
+    },
+    "collector_cpu_percent": {
+      "mean": 0.22416666666666665,
+      "peak": 3.1
+    },
+    "collector_rss_bytes": {
+      "mean": 25352430.933333334,
+      "peak": 25403392.0
+    },
+    "host_cpu_percent": {
+      "mean": 36.54749999999999,
+      "peak": 46.2
+    }
+  },
+  "error_categories": {},
+  "downstream": {
+    "content": {
+      "mean": 5.680587780355761,
+      "p50": 4.0,
+      "p95": 12.0,
+      "p99": 19.079999999999927
+    },
+    "metadata": {
+      "mean": 2.8313346228239844,
+      "p50": 2.0,
+      "p95": 9.0,
+      "p99": 15.159999999999854
+    },
+    "share_request": {
+      "mean": 374.4321083172147,
+      "p50": 372.0,
+      "p95": 568.0,
+      "p99": 673.3199999999997
+    }
+  },
+  "run_id": "scale-1replicas-vu20-r2",
+  "scenario": "P4",
+  "vus": 20,
+  "repeat": 2,
+  "file_size_bytes": 1048576,
+  "measure_seconds": 120.0,
+  "cap_hit": false,
+  "complete": true,
+  "replicas": 1
+}

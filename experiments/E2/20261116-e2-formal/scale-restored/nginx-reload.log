@@ -1,0 +1,4 @@
+Nginx configuration validated and reload requested.
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+2026/11/16 09:42:47 [notice] 844#844: signal process started

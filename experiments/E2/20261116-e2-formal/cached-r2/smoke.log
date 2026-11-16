@@ -1,0 +1,86 @@
+PASS FR-01: valid personal registration
+PASS FR-01: valid personal registration
+PASS FR-01: case-insensitive duplicate account rejected
+PASS FR-01: duplicate email rejected
+PASS FR-01: invalid registration accountName rejected
+PASS FR-01: invalid registration accountName rejected
+PASS FR-01: invalid registration accountName rejected
+PASS FR-01: invalid registration password rejected
+PASS FR-01: invalid registration password rejected
+PASS FR-01: invalid registration nickname rejected
+PASS FR-01: invalid registration nickname rejected
+PASS FR-01: invalid registration email rejected
+PASS FR-01: invalid registration accountType rejected
+PASS FR-01: missing required fields rejected
+PASS FR-02: wrong credentials rejected
+PASS FR-02: normalized login and minimal string-ID profile
+PASS FR-02: missing forged or expired credentials rejected
+PASS FR-02: missing forged or expired credentials rejected
+PASS FR-02: missing forged or expired credentials rejected
+PASS FR-01: password stored only as a strong hash
+PASS FR-03: empty directory and breadcrumb
+PASS FR-03: other user cannot browse private directory
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: case-sensitive names and 255-character boundary accepted
+PASS FR-04: case-sensitive names and 255-character boundary accepted
+PASS FR-04: case-sensitive names and 255-character boundary accepted
+PASS FR-04: directory rename keeps identity
+PASS FR-08: default total quota and zero directory usage
+PASS FR-05: upload increases usage by actual bytes
+PASS FR-05: duplicate upload rejected
+PASS FR-04: file and directory share a name space
+PASS FR-04: nonempty directory cannot be deleted
+PASS FR-06: file rename cannot conflict with a directory
+PASS FR-06: owner download SHA-256 matches
+PASS FR-06: download supplies a filename
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: other user's root contains no owner entries
+PASS FR-05: single-file limit enforced
+PASS FR-05: failed uploads leave quota unchanged
+PASS FR-08: three concurrent uploads cannot exceed quota
+PASS FR-08: delete restores usage even before physical cleanup
+PASS FR-09: directory or invalid share settings rejected
+PASS FR-09: directory or invalid share settings rejected
+PASS FR-09: directory or invalid share settings rejected
+PASS FR-09: supported share expiration
+PASS FR-09: supported share expiration
+PASS FR-09: supported share expiration
+PASS FR-09: supported share expiration
+PASS FR-09: generated six-digit code preserves leading zero
+PASS FR-09: share URL points to frontend
+PASS FR-10: protected metadata is hidden before verification
+PASS FR-10: missing numeric or malformed code rejected
+PASS FR-10: missing numeric or malformed code rejected
+PASS FR-10: missing numeric or malformed code rejected
+PASS FR-10: wrong-code rate limit applies
+PASS FR-10: correct code bypasses wrong-attempt limit
+PASS FR-10: anonymous download is restricted to shared bytes
+PASS FR-10: anonymous download is restricted to shared bytes
+PASS FR-10: download rechecks code after verify
+PASS FR-06: rename keeps file parent content and usage
+PASS FR-06: old share uses current filename
+PASS FR-11: share list retains original name and hides plaintext code
+PASS FR-11: other user's share list is isolated
+PASS FR-11: other user cannot cancel owner share
+PASS FR-11: share cancellation is idempotent
+PASS FR-11: share cancellation is idempotent
+PASS FR-12: cancelled share has distinct error
+PASS FR-11: cancelling one share leaves another usable
+PASS FR-12: expired share is rejected by server
+PASS FR-11: history lists active cancelled and expired shares
+PASS FR-12: nonexistent share has distinct error
+PASS FR-07: permanent delete succeeds
+PASS FR-07: repeated delete cannot decrement usage twice
+PASS FR-07: deleted file cannot be downloaded
+PASS FR-12: deleted source invalidates protected download
+PASS FR-07: replacement cannot revive old share
+PASS FR-04: empty directory can be deleted

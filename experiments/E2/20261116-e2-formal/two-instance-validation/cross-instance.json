@@ -1,0 +1,19 @@
+{
+  "distribution": {
+    "775e558bbe07": 58,
+    "155e0dc4c2de": 42
+  },
+  "request_count": 100,
+  "one_shot_client": "curl in existing MinIO container, stdin configuration; no extra container",
+  "created_on": "775e558bbe07",
+  "verified_on": "155e0dc4c2de",
+  "verify_status": 200,
+  "download_on": "155e0dc4c2de",
+  "download_sha256": "188c1f9720a39b1bc9df6d1a2fa0e28c7a0a6e744aaaeee807ab2ce6461ee9de",
+  "download_match": true,
+  "cancelled_on": "155e0dc4c2de",
+  "cancel_observed_on": "775e558bbe07",
+  "cancel_observed_status": 410,
+  "cancel_observed_code": "SHARE_CANCELLED",
+  "correct_code_bypasses_instance_limit": true
+}

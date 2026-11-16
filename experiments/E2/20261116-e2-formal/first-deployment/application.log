@@ -1,0 +1,470 @@
+mysql-1         | 2026-11-16 09:19:02+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.29-1.el8 started.
+mysql-1         | 2026-11-16 09:19:02+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+mysql-1         | 2026-11-16 09:19:02+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.29-1.el8 started.
+frontend-1      | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+mysql-1         | 2026-11-16 09:19:02+00:00 [Note] [Entrypoint]: Initializing database files
+file-service-1  |
+file-service-1  |   .   ____          _            __ _ _
+file-service-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+frontend-1      | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+file-service-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+mysql-1         | 2026-11-16T09:19:02.824015Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.29) initializing of server in progress as process 41
+file-service-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+file-service-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+frontend-1      | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+file-service-1  |  =========|_|==============|___/=/_/_/_/
+file-service-1  |
+frontend-1      | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+file-service-1  |  :: Spring Boot ::               (v3.5.11)
+frontend-1      | 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version
+mysql-1         | 2026-11-16T09:19:02.833502Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+file-service-1  |
+frontend-1      | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+file-service-1  | 2026-11-16T09:19:27.290Z  INFO 1 --- [           main] c.jiayuan.drive.files.FileApplication    : Starting FileApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 1 (/app/app.jar started by root in /app)
+file-service-1  | 2026-11-16T09:19:27.292Z  INFO 1 --- [           main] c.jiayuan.drive.files.FileApplication    : No active profile set, falling back to 1 default profile: "default"
+file-service-1  | 2026-11-16T09:19:28.318Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+file-service-1  | 2026-11-16T09:19:28.330Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+file-service-1  | 2026-11-16T09:19:28.331Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+file-service-1  | 2026-11-16T09:19:28.402Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+file-service-1  | 2026-11-16T09:19:28.403Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1060 ms
+file-service-1  | 2026-11-16T09:19:29.149Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+file-service-1  | 2026-11-16T09:19:29.159Z  INFO 1 --- [           main] c.jiayuan.drive.files.FileApplication    : Started FileApplication in 2.432 seconds (process running for 2.862)
+mysql-1         | 2026-11-16T09:19:03.783427Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+file-service-1  | 2026-11-16T09:19:29.329Z  INFO 1 --- [   scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+frontend-1      | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+mysql-1         | 2026-11-16T09:19:05.898677Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+mysql-1         | 2026-11-16 09:19:11+00:00 [Note] [Entrypoint]: Database files initialized
+file-service-1  | 2026-11-16T09:19:29.341Z  INFO 1 --- [   scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+mysql-1         | 2026-11-16 09:19:11+00:00 [Note] [Entrypoint]: Starting temporary server
+file-service-1  | 2026-11-16T09:19:31.360Z  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+file-service-1  | 2026-11-16T09:19:31.360Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+file-service-1  | 2026-11-16T09:19:31.361Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+mysql-1         | 2026-11-16T09:19:11.340447Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 98
+mysql-1         | 2026-11-16T09:19:11.356412Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+mysql-1         | 2026-11-16T09:19:11.497762Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysql-1         | 2026-11-16T09:19:11.684941Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+mysql-1         | 2026-11-16T09:19:11.684960Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+frontend-1      | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+mysql-1         | 2026-11-16T09:19:11.690133Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+mysql-1         | 2026-11-16T09:19:11.697858Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+mysql-1         | 2026-11-16T09:19:11.697904Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+frontend-1      | /docker-entrypoint.sh: Configuration complete; ready for start up
+mysql-1         | 2026-11-16 09:19:11+00:00 [Note] [Entrypoint]: Temporary server started.
+mysql-1         | '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+mysql-1         | Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+mysql-1         | Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+mysql-1         | Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+mysql-1         | Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+mysql-1         | Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: using the "epoll" event method
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: nginx/1.28.3
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0)
+mysql-1         |
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: OS: Linux 6.6.87.2-microsoft-standard-WSL2
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: start worker processes
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: start worker process 29
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: start worker process 30
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: start worker process 31
+frontend-1      | 2026/11/16 09:19:38 [notice] 1#1: start worker process 32
+mysql-1         | 2026-11-16 09:19:12+00:00 [Note] [Entrypoint]: /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/01-init.sh
+mysql-1         |
+mysql-1         | 2026-11-16 09:19:13+00:00 [Note] [Entrypoint]: Stopping temporary server
+mysql-1         | 2026-11-16T09:19:13.792174Z 15 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.29).
+mysql-1         | 2026-11-16T09:19:16.830382Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.29)  MySQL Community Server - GPL.
+mysql-1         | 2026-11-16 09:19:17+00:00 [Note] [Entrypoint]: Temporary server stopped
+mysql-1         |
+mysql-1         | 2026-11-16 09:19:17+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+mysql-1         |
+mysql-1         | 2026-11-16T09:19:18.038755Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 1
+mysql-1         | 2026-11-16T09:19:18.045360Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+mysql-1         | 2026-11-16T09:19:18.183368Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysql-1         | 2026-11-16T09:19:18.344063Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+mysql-1         | 2026-11-16T09:19:18.344086Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+mysql-1         | 2026-11-16T09:19:18.355665Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+mysql-1         | 2026-11-16T09:19:18.364059Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+mysql-1         | 2026-11-16T09:19:18.364075Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+frontend-1      | 01f60b33ebe5089d323a7b782bfc521e POST status=200 duration=0.265 upstream=200
+frontend-1      | c7d72fbff04c0a3acfb1c2ae73a63e00 POST status=200 duration=0.181 upstream=200
+frontend-1      | 4d01cd2f034322cb5a24b4d7dd8f1256 POST status=409 duration=0.195 upstream=409
+frontend-1      | 3fa0bab81d491f683c1fe93fdfd5def0 POST status=409 duration=0.178 upstream=409
+frontend-1      | 1e617868b7fae1366275b9d07efe615a POST status=400 duration=0.013 upstream=400
+frontend-1      | 874fdbb2d06a076c3d590aaa785904dd POST status=400 duration=0.002 upstream=400
+frontend-1      | d28c3726220bb6c164864db35d4a3b52 POST status=400 duration=0.002 upstream=400
+frontend-1      | 14943f4702650759e75c651624f1488e POST status=400 duration=0.002 upstream=400
+frontend-1      | c6a91394643de7f2074b47cea58eef76 POST status=400 duration=0.002 upstream=400
+frontend-1      | 9ad0e00ac1b5e7791a6521eb45ff2bec POST status=400 duration=0.002 upstream=400
+frontend-1      | 2952be10e30026e8956f5b2374cbacb7 POST status=400 duration=0.002 upstream=400
+frontend-1      | 64fded6df6b51837fb01d9039bcfa100 POST status=400 duration=0.002 upstream=400
+frontend-1      | c72b3894b8d578e30b8f95a567cfd994 POST status=400 duration=0.003 upstream=400
+frontend-1      | 11e7c1ca03deafa25239e60354e3a581 POST status=400 duration=0.002 upstream=400
+frontend-1      | 6708dacd08c4ff99d34841630e3ccf50 POST status=401 duration=0.172 upstream=401
+frontend-1      | 61b6831b87c1c5afe234554deb185c51 POST status=200 duration=0.176 upstream=200
+frontend-1      | ca7257edf0c10596eae6097713ffe587 POST status=200 duration=0.168 upstream=200
+frontend-1      | 29aadd3af360a2c2761207e40330b7b4 GET status=200 duration=0.012 upstream=200
+frontend-1      | 6a93749894204411c28f965670edddf9 GET status=401 duration=0.011 upstream=401
+frontend-1      | b8bf446baccc49c2b2397580cecd4fb6 GET status=401 duration=0.012 upstream=401
+frontend-1      | be6c99b4790e5b1617edc4e1ef68e196 GET status=401 duration=0.004 upstream=401
+frontend-1      | dbc48444d3503100bb1035ffcf91ad96 POST status=200 duration=0.054 upstream=200
+frontend-1      | 106df7c3a7371563755b3adc265ec275 GET status=200 duration=0.011 upstream=200
+frontend-1      | 50eee9b3c9ecc9504bd51caf61fd0348 GET status=404 duration=0.004 upstream=404
+frontend-1      | 42f83346c6a53d15ae74b9ff58dfaf7d POST status=400 duration=0.002 upstream=400
+frontend-1      | 6a3decb71aa6c73a04a94272280551ad POST status=400 duration=0.002 upstream=400
+frontend-1      | 86b71ff6fe273e4cc8936a97afe368ba POST status=400 duration=0.001 upstream=400
+frontend-1      | 69f08f1cff3ba65a2d955951655040bf POST status=400 duration=0.002 upstream=400
+frontend-1      | 959ef4061f143d7abef97078f601a25d POST status=400 duration=0.001 upstream=400
+frontend-1      | 4678640eab6b330f0ab98854ffba997d POST status=400 duration=0.002 upstream=400
+frontend-1      | 49ce763860f7be0e9267aa5325f7240e POST status=400 duration=0.001 upstream=400
+frontend-1      | 3de4c3a1abe91f72d312adade41e6d62 POST status=200 duration=0.018 upstream=200
+frontend-1      | 757d67cb1e21af2842f947fc9fcae1c7 DELETE status=200 duration=0.017 upstream=200
+frontend-1      | 1c368fa06dade122f98d8d5aafaa213c POST status=200 duration=0.022 upstream=200
+frontend-1      | f514acbb02c787be18145d8cbe686bd9 DELETE status=200 duration=0.022 upstream=200
+frontend-1      | eeb4ae79c420ac8f3ecbeba60d882587 POST status=200 duration=0.016 upstream=200
+frontend-1      | b74deb475f4646caed85dfeea0ca2f2d DELETE status=200 duration=0.016 upstream=200
+frontend-1      | e805f2238b612696dc73d9976bd82d1e PUT status=200 duration=0.018 upstream=200
+frontend-1      | 94fd98917642c62690dcc78cf6f24420 GET status=200 duration=0.004 upstream=200
+frontend-1      | bea79c2f22af8b976a5e67b92e029b09 GET status=200 duration=0.003 upstream=200
+frontend-1      | 7b8c8d9f082093e619da3323e3347ec6 POST status=200 duration=0.061 upstream=200
+frontend-1      | 7de776115004a60fc69a4656d9ff7a66 GET status=200 duration=0.003 upstream=200
+frontend-1      | 0986b696bfd8c05b6a0a109c99f479c3 POST status=409 duration=0.052 upstream=409
+frontend-1      | 459a33a306dbeca769cf8d195cb2b923 POST status=409 duration=0.012 upstream=409
+frontend-1      | 7a8374cdff154535ca14de7db65f5920 DELETE status=409 duration=0.004 upstream=409
+frontend-1      | 71c25f0e25618890b3f9f7d8166635f8 POST status=200 duration=0.016 upstream=200
+frontend-1      | 2051ae8ad2d5b373622a891cfd4b82e3 PUT status=409 duration=0.010 upstream=409
+frontend-1      | 5bde3b4801e97067fa413b54786bd06e DELETE status=200 duration=0.022 upstream=200
+frontend-1      | e87a77c2fcf213693ef20391bb8189fe GET status=200 duration=0.006 upstream=200
+frontend-1      | a9102c5f70d203c333a6509a5f280147 GET status=404 duration=0.003 upstream=404
+frontend-1      | b78fe7353679102d8ecb45b2506406c4 PUT status=404 duration=0.011 upstream=404
+frontend-1      | e2cf67d45ca5757f217a716c8e7d1e50 DELETE status=404 duration=0.017 upstream=404
+frontend-1      | b2104e3bd495d891b90a73b81be4d903 POST status=404 duration=0.077 upstream=404
+frontend-1      | b3bf912b5d0b4f2a38cf63a391afbc76 GET status=200 duration=0.006 upstream=200
+frontend-1      | 919edbdcf3e6cf73995b4d3c892fadf6 POST status=413 duration=0.580 upstream=413
+frontend-1      | 8bcfb0c214a029ef45dd033a07868eb0 GET status=200 duration=0.004 upstream=200
+frontend-1      | 5852df824f672ce24689a58ef439919d POST status=200 duration=0.063 upstream=200
+frontend-1      | e376da0b7773cf82c2fd3b33d7193315 POST status=200 duration=0.083 upstream=200
+frontend-1      | 2c2f09e48e49286a2e18d2ae75fa2330 POST status=409 duration=0.081 upstream=409
+frontend-1      | bbc43a41b05476503690ca715a34d12e DELETE status=200 duration=0.019 upstream=200
+frontend-1      | 619111b6c7789ed15b6c7357b18e8c45 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 5485b5fc9c6438b030587303708468dd GET status=200 duration=0.004 upstream=200
+frontend-1      | e11a964d942318a76c91da4ec39260e0 POST status=400 duration=0.011 upstream=400
+frontend-1      | 69aefbdc23d54a3eea19e9667df4c68f POST status=400 duration=0.010 upstream=400
+frontend-1      | 48e0ad991d87c10b2e2586ecc2e49ee7 POST status=400 duration=0.002 upstream=400
+frontend-1      | 271c6183f5730c307f3e806b1aea5288 POST status=200 duration=0.032 upstream=200
+frontend-1      | 4b2125ce5970ee88606182238a2c01b5 POST status=200 duration=0.018 upstream=200
+frontend-1      | e476185246ab93c37949c7f34cea76d0 POST status=200 duration=0.018 upstream=200
+frontend-1      | 5f9fe2fe2a6c132c2a259190f377187d POST status=200 duration=0.017 upstream=200
+frontend-1      | cac36d94a9b402e6497fa2c3f213dc20 POST status=200 duration=0.017 upstream=200
+frontend-1      | a0071cdbd0820f01076718073467e85b POST status=200 duration=0.185 upstream=200
+frontend-1      | 6eaf1d3b832f62f953e70d4b5655f9a5 POST status=200 duration=0.184 upstream=200
+frontend-1      | 70a40949360443eacfbcf2b706931e69 POST status=200 duration=0.182 upstream=200
+frontend-1      | 3d162d0a749faa0cac2c253017a890ea POST status=200 duration=0.187 upstream=200
+frontend-1      | f2a1af9263ae44e6a2406d18d5e5801b POST status=200 duration=0.186 upstream=200
+frontend-1      | 0e0a76ee8301734da15f16db2aa6ee64 POST status=200 duration=0.183 upstream=200
+frontend-1      | bb951cf016f29ee7e6448a1ff2b7bd86 POST status=200 duration=0.194 upstream=200
+frontend-1      | c32621c77214e05e31d651896479c84a POST status=200 duration=0.182 upstream=200
+frontend-1      | b9381d8b0f1ff86f0a16a03854119c8c POST status=200 duration=0.182 upstream=200
+frontend-1      | b835c8f702c34d3d348eb2e103b8d0bc POST status=200 duration=0.184 upstream=200
+frontend-1      | 59f06b53c3d9c172437a31523dfe3619 POST status=200 duration=0.183 upstream=200
+frontend-1      | baf389b40bf216d9287d375473fe8024 POST status=200 duration=0.185 upstream=200
+frontend-1      | 22aa754a08f5e3848f501e9d50894ce9 POST status=200 duration=0.185 upstream=200
+frontend-1      | e0223702d4df00156ed3f754d03ac1b1 POST status=200 duration=0.184 upstream=200
+frontend-1      | 35fc31380eaf833c27e947cd6b75b1ef POST status=200 duration=0.183 upstream=200
+frontend-1      | b811e68187c563e268df2aab95eae3e3 POST status=200 duration=0.183 upstream=200
+frontend-1      | c485ccbc6fa0a42eb9b52e00ed662c89 POST status=200 duration=0.184 upstream=200
+frontend-1      | 4da30fc646f08161d29e47080f654ea4 POST status=200 duration=0.187 upstream=200
+frontend-1      | 8e24a2b417dfa4d2396fb130ca5b779c POST status=200 duration=0.184 upstream=200
+frontend-1      | 86809431322b4b4d465af3531e25fbb4 POST status=200 duration=1.241 upstream=200
+frontend-1      | 7fb87623153f153b8b9e6c65739ba281 POST status=200 duration=1.773 upstream=200
+frontend-1      | 23c386a5b64d7de7dfa4f302e4f24722 POST status=200 duration=0.176 upstream=200
+frontend-1      | dba7bfc699182fbb541b72f94451f49f POST status=200 duration=0.177 upstream=200
+frontend-1      | 0890d453fa8d850f31afcf593b77e90d POST status=200 duration=0.176 upstream=200
+frontend-1      | 7f9c0e0351cee967f5a4400fbd4858de POST status=200 duration=0.176 upstream=200
+frontend-1      | 065034770c8b13b8066099fced8c6a49 GET status=200 duration=0.006 upstream=200
+frontend-1      | 94458b4428094bfd8a91c95b8f4a4762 POST status=403 duration=0.004 upstream=403
+frontend-1      | 0ead0e03274062a170f1ae427b02be6a POST status=403 duration=0.002 upstream=403
+frontend-1      | f72ae4edf14e5a606b2719ed591724c6 POST status=403 duration=0.002 upstream=403
+frontend-1      | de14db1efd4aa040867a42febd98d2bb POST status=403 duration=0.160 upstream=403
+frontend-1      | 0530f07fdc888aa2aae3c5d44aca606f POST status=403 duration=0.160 upstream=403
+frontend-1      | a6810876e4145ec1c99180535ca6c66b POST status=429 duration=0.161 upstream=429
+frontend-1      | 916812b38fdc6c5f89a968e0e28727bc POST status=429 duration=0.162 upstream=429
+frontend-1      | f7094c624e10e8daa810427f6eb06f82 POST status=429 duration=0.161 upstream=429
+frontend-1      | 313dedb5cec844b8bd95c902adf1cde9 POST status=429 duration=0.160 upstream=429
+frontend-1      | a2f876aa014893c7ddbf2a6c4a37b5a4 POST status=200 duration=0.164 upstream=200
+frontend-1      | 90fa8dd412f2c78ebf8e31470d2636a0 POST status=200 duration=0.019 upstream=200
+frontend-1      | 40479301f6cb3f912319972fdedec0f9 POST status=200 duration=0.169 upstream=200
+frontend-1      | a593c533e1842312b51146d3c2c77658 POST status=429 duration=0.162 upstream=429
+frontend-1      | 48c20fe6af86439e96e5bb2c2e73d663 PUT status=200 duration=0.023 upstream=200
+frontend-1      | 649e93040c604c5bd6aa2f56d82a0c38 GET status=200 duration=0.002 upstream=200
+frontend-1      | fc02765b9aeb9037a0a79bf0cb7f27eb GET status=200 duration=0.003 upstream=200
+frontend-1      | e98924fe592a503ba6138d8d9115dafd GET status=200 duration=0.007 upstream=200
+frontend-1      | 75b7b8b0740a341aa4fce934189bf539 GET status=200 duration=0.010 upstream=200
+frontend-1      | 4a3a80b45027b6d442377bbf1ccfc1cd GET status=200 duration=0.003 upstream=200
+frontend-1      | 1006d1db8194acdea3ff2c64eef756dd DELETE status=404 duration=0.005 upstream=404
+frontend-1      | eef1ff555076a64e099175dd3202dc5b DELETE status=200 duration=0.015 upstream=200
+frontend-1      | c36be2ff0c23265d55f984aa799be6cd DELETE status=200 duration=0.003 upstream=200
+frontend-1      | cd45ef04bf089a62f1f094dfcb4779ab GET status=410 duration=0.003 upstream=410
+frontend-1      | 0ef8aed347329dc6179e337ddd88507d POST status=200 duration=0.169 upstream=200
+frontend-1      | eed9337bb0b14471d83ef522108e2e6b POST status=200 duration=0.020 upstream=200
+frontend-1      | 2d8e6ac8d94d191c51ad64980186ea43 GET status=410 duration=0.005 upstream=410
+frontend-1      | 47eb143fbb9c471a6b4f966488954e89 GET status=200 duration=0.004 upstream=200
+frontend-1      | d7b7651384251a4030f03935b2e1398c GET status=404 duration=0.003 upstream=404
+frontend-1      | 408b67b0465d48d340d380e533075454 DELETE status=200 duration=0.017 upstream=200
+frontend-1      | 4b3cc3042a18a80670f64e58591c196f DELETE status=404 duration=0.004 upstream=404
+frontend-1      | d72ddfbaf628124db36988a8d37e21f3 GET status=200 duration=0.002 upstream=200
+frontend-1      | ed10aa01776a8509415aa89cf0b3dad8 GET status=404 duration=0.002 upstream=404
+frontend-1      | 57af2a8128cc8213ff6861fad58b7960 POST status=404 duration=0.174 upstream=404
+frontend-1      | 863b1e334f3c3455013ddcd35bc61561 POST status=200 duration=0.060 upstream=200
+frontend-1      | 4c04363869cde2cc24be590b9b9e5a3e POST status=404 duration=0.174 upstream=404
+frontend-1      | 2de89b30fdff4f235cadc1d8faa3c8b9 DELETE status=200 duration=0.020 upstream=200
+frontend-1      | ded93a3d5d22d83acd97afedc9094b33 DELETE status=200 duration=0.017 upstream=200
+frontend-1      | 8ee8f5d84a4dac72f9e7d723a4d00bd3 DELETE status=404 duration=0.005 upstream=404
+frontend-1      | 4830e9ea00e52a5a65937bf28d7e67a1 DELETE status=404 duration=0.004 upstream=404
+frontend-1      | 91cf5392e4e0c365f82858f24bc86aaf DELETE status=404 duration=0.004 upstream=404
+frontend-1      | a41a50617fc445b9f324b78a43c70cca DELETE status=404 duration=0.004 upstream=404
+minio-1         | INFO: Formatting 1st pool, 1 set(s), 1 drives per set.
+minio-1         | INFO: WARNING: Host local has more than 0 drives of set. A host failure will result in data becoming unavailable.
+minio-1         | MinIO Object Storage Server
+minio-1         | Copyright: 2015-2026 MinIO, Inc.
+minio-1         | License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+frontend-1      | d28e91edcd10f1b0d182bf443c37bcb4 DELETE status=200 duration=0.018 upstream=200
+frontend-1      | 84cbe088bbea33532f8018caeea32585 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 56a6655d9279442862338d38c5f1cf7c DELETE status=200 duration=0.018 upstream=200
+frontend-1      | ee9aa8509320f74f1c628d6b8a8e867e DELETE status=200 duration=0.028 upstream=200
+minio-1         | Version: RELEASE.2025-09-07T16-13-09Z (go1.24.6 linux/amd64)
+minio-1         |
+minio-1         | API: http://172.19.0.2:9000  http://127.0.0.1:9000
+minio-1         | WebUI: http://172.19.0.2:9001 http://127.0.0.1:9001
+frontend-1      | 0beab71d06dc0183a0c55067d885128d DELETE status=200 duration=0.005 upstream=200
+minio-1         |
+minio-1         | Docs: https://docs.min.io
+frontend-1      | 540b873e3624ad8809413e5a8af2adbb DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 31fdbf189d915bb1d1455a91c18f4548 DELETE status=200 duration=0.015 upstream=200
+frontend-1      | 943e3799dc3e621612472a76656d7864 DELETE status=200 duration=0.022 upstream=200
+frontend-1      | 15e276c564a10000466092adafe75611 DELETE status=200 duration=0.015 upstream=200
+frontend-1      | e0a3b989b3b1c0ff2fa1a25f62af969a DELETE status=200 duration=0.016 upstream=200
+frontend-1      | d185367817bbea24e15c6f49098958da DELETE status=200 duration=0.012 upstream=200
+frontend-1      | 8259438cc63809bf0aabfeba26446f1b DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 6df4e3a39ac5b6184608d356d626aa28 DELETE status=200 duration=0.014 upstream=200
+frontend-1      | 1eb28add2b5fa0d8e7ee332e8cff9069 DELETE status=200 duration=0.014 upstream=200
+frontend-1      | a41e2bca2b11fa9f9ec83e17c8da33f6 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | a6d5ce4ee781a93a23c3b60f1e2bcb5d DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 40a975505d6daa029eba15831f0946d7 DELETE status=200 duration=0.015 upstream=200
+frontend-1      | d23c0e3f066334748ff6c680c65a0043 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 6c80d4ece4d0e19b7e0d644ad3903e30 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 7414c6d4d58d30a407d536278dc1ad29 DELETE status=200 duration=0.017 upstream=200
+frontend-1      | 0a5490e4c36692e2df054d23acdbfde3 DELETE status=200 duration=0.013 upstream=200
+frontend-1      | d110db85d7786d1c8c4c4fd4d93d829b DELETE status=200 duration=0.017 upstream=200
+frontend-1      | af743e7e3cd1f40742f8482159420ea2 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | 0dfde89789a35acb7308f524c6c90e4f DELETE status=200 duration=0.017 upstream=200
+frontend-1      | 3336866b24a7e285bb8bfaed4163c134 DELETE status=200 duration=0.020 upstream=200
+frontend-1      | 40fbc73230408a6541b65e143dd43c44 DELETE status=200 duration=0.016 upstream=200
+frontend-1      | d919416939e3a199158244f41da2f842 DELETE status=200 duration=0.018 upstream=200
+frontend-1      | fd77247ba0a3e91cf221a800bd27b2d2 DELETE status=200 duration=0.019 upstream=200
+frontend-1      | da1b936d75dd3fbcc21d0f5fc0b06b3a DELETE status=200 duration=0.016 upstream=200
+frontend-1      | c3cc766cfbce73dfb89398150a11fba3 DELETE status=200 duration=0.018 upstream=200
+frontend-1      | a8798d2f43eb6486044f547c43e08ec2 DELETE status=200 duration=0.017 upstream=200
+frontend-1      | b3a6ed1bf27b59a0653d38b8f9a6d65c DELETE status=404 duration=0.006 upstream=404
+auth-service-1  |
+auth-service-1  |   .   ____          _            __ _ _
+auth-service-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+auth-service-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+auth-service-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+auth-service-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+auth-service-1  |  =========|_|==============|___/=/_/_/_/
+auth-service-1  |
+auth-service-1  |  :: Spring Boot ::               (v3.5.11)
+auth-service-1  |
+auth-service-1  | 2026-11-16T09:19:26.586Z  INFO 1 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : Starting AuthApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 1 (/app/app.jar started by root in /app)
+auth-service-1  | 2026-11-16T09:19:26.588Z  INFO 1 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : No active profile set, falling back to 1 default profile: "default"
+auth-service-1  | 2026-11-16T09:19:27.815Z  INFO 1 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+auth-service-1  | 2026-11-16T09:19:27.828Z  INFO 1 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+auth-service-1  | 2026-11-16T09:19:27.828Z  INFO 1 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+auth-service-1  | 2026-11-16T09:19:27.856Z  INFO 1 --- [auth-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+auth-service-1  | 2026-11-16T09:19:27.857Z  INFO 1 --- [auth-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1210 ms
+auth-service-1  | 2026-11-16T09:19:28.701Z  INFO 1 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+auth-service-1  | 2026-11-16T09:19:28.730Z  INFO 1 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : Started AuthApplication in 2.527 seconds (process running for 2.838)
+auth-service-1  | 2026-11-16T09:19:30.992Z  INFO 1 --- [auth-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+auth-service-1  | 2026-11-16T09:19:30.992Z  INFO 1 --- [auth-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+auth-service-1  | 2026-11-16T09:19:30.993Z  INFO 1 --- [auth-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+auth-service-1  | 2026-11-16T09:19:31.227Z  INFO 1 --- [auth-service] [nio-8080-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=791c76ec-e245-46b4-80c0-0e1289511fd6 category=health status=200 durationMs=231 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:41.297Z  INFO 1 --- [auth-service] [nio-8080-exec-3] c.jiayuan.drive.auth.RequestObservation  : request id=694047a0-ecbc-48ba-a412-10ca880bd7df category=health status=200 durationMs=2 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:48.772Z  INFO 1 --- [auth-service] [nio-8080-exec-5] c.jiayuan.drive.auth.RequestObservation  : request id=01f60b33ebe5089d323a7b782bfc521e category=authentication status=200 durationMs=262 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:48.954Z  INFO 1 --- [auth-service] [nio-8080-exec-6] c.jiayuan.drive.auth.RequestObservation  : request id=c7d72fbff04c0a3acfb1c2ae73a63e00 category=authentication status=200 durationMs=179 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.149Z  INFO 1 --- [auth-service] [nio-8080-exec-7] c.jiayuan.drive.auth.RequestObservation  : request id=4d01cd2f034322cb5a24b4d7dd8f1256 category=authentication status=409 durationMs=193 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.328Z  INFO 1 --- [auth-service] [nio-8080-exec-8] c.jiayuan.drive.auth.RequestObservation  : request id=3fa0bab81d491f683c1fe93fdfd5def0 category=authentication status=409 durationMs=176 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.341Z  INFO 1 --- [auth-service] [io-8080-exec-10] c.jiayuan.drive.auth.RequestObservation  : request id=1e617868b7fae1366275b9d07efe615a category=authentication status=400 durationMs=11 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.345Z  INFO 1 --- [auth-service] [nio-8080-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=874fdbb2d06a076c3d590aaa785904dd category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.348Z  INFO 1 --- [auth-service] [nio-8080-exec-2] c.jiayuan.drive.auth.RequestObservation  : request id=d28c3726220bb6c164864db35d4a3b52 category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.351Z  INFO 1 --- [auth-service] [nio-8080-exec-3] c.jiayuan.drive.auth.RequestObservation  : request id=14943f4702650759e75c651624f1488e category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.354Z  INFO 1 --- [auth-service] [nio-8080-exec-4] c.jiayuan.drive.auth.RequestObservation  : request id=c6a91394643de7f2074b47cea58eef76 category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.357Z  INFO 1 --- [auth-service] [nio-8080-exec-5] c.jiayuan.drive.auth.RequestObservation  : request id=9ad0e00ac1b5e7791a6521eb45ff2bec category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.360Z  INFO 1 --- [auth-service] [nio-8080-exec-6] c.jiayuan.drive.auth.RequestObservation  : request id=2952be10e30026e8956f5b2374cbacb7 category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.363Z  INFO 1 --- [auth-service] [nio-8080-exec-7] c.jiayuan.drive.auth.RequestObservation  : request id=64fded6df6b51837fb01d9039bcfa100 category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.366Z  INFO 1 --- [auth-service] [nio-8080-exec-8] c.jiayuan.drive.auth.RequestObservation  : request id=c72b3894b8d578e30b8f95a567cfd994 category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.369Z  INFO 1 --- [auth-service] [nio-8080-exec-9] c.jiayuan.drive.auth.RequestObservation  : request id=11e7c1ca03deafa25239e60354e3a581 category=authentication status=400 durationMs=1 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.541Z  INFO 1 --- [auth-service] [io-8080-exec-10] c.jiayuan.drive.auth.RequestObservation  : request id=6708dacd08c4ff99d34841630e3ccf50 category=authentication status=401 durationMs=170 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.719Z  INFO 1 --- [auth-service] [nio-8080-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=61b6831b87c1c5afe234554deb185c51 category=authentication status=200 durationMs=174 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.888Z  INFO 1 --- [auth-service] [nio-8080-exec-3] c.jiayuan.drive.auth.RequestObservation  : request id=ca7257edf0c10596eae6097713ffe587 category=authentication status=200 durationMs=167 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:49.901Z  INFO 1 --- [auth-service] [nio-8080-exec-4] c.jiayuan.drive.auth.RequestObservation  : request id=29aadd3af360a2c2761207e40330b7b4 category=other status=200 durationMs=10 interrupted=false instance=e5d9bb329a27
+auth-service-1  | 2026-11-16T09:19:51.371Z  INFO 1 --- [auth-service] [nio-8080-exec-6] c.jiayuan.drive.auth.RequestObservation  : request id=d1bed971-5eb6-4275-8448-2c7320382517 category=health status=200 durationMs=1 interrupted=false instance=e5d9bb329a27
+share-service-1  |
+share-service-1  |   .   ____          _            __ _ _
+share-service-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+share-service-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+share-service-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+share-service-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+share-service-1  |  =========|_|==============|___/=/_/_/_/
+share-service-1  |
+share-service-1  |  :: Spring Boot ::               (v3.5.11)
+share-service-1  |
+share-service-1  | 2026-11-16T09:19:32.391Z  INFO 1 --- [share-service] [           main] c.jiayuan.drive.shares.ShareApplication  : Starting ShareApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 1 (/app/app.jar started by root in /app)
+share-service-1  | 2026-11-16T09:19:32.393Z  INFO 1 --- [share-service] [           main] c.jiayuan.drive.shares.ShareApplication  : No active profile set, falling back to 1 default profile: "default"
+share-service-1  | 2026-11-16T09:19:33.060Z  INFO 1 --- [share-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+share-service-1  | 2026-11-16T09:19:33.067Z  INFO 1 --- [share-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+share-service-1  | 2026-11-16T09:19:33.067Z  INFO 1 --- [share-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+share-service-1  | 2026-11-16T09:19:33.085Z  INFO 1 --- [share-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+share-service-1  | 2026-11-16T09:19:33.085Z  INFO 1 --- [share-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 659 ms
+share-service-1  | 2026-11-16T09:19:33.420Z  INFO 1 --- [share-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+share-service-1  | 2026-11-16T09:19:33.428Z  INFO 1 --- [share-service] [           main] c.jiayuan.drive.shares.ShareApplication  : Started ShareApplication in 1.348 seconds (process running for 1.637)
+share-service-1  | 2026-11-16T09:19:36.889Z  INFO 1 --- [share-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+share-service-1  | 2026-11-16T09:19:36.889Z  INFO 1 --- [share-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+share-service-1  | 2026-11-16T09:19:36.890Z  INFO 1 --- [share-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+share-service-1  | 2026-11-16T09:19:37.158Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=fcd735b5-bb05-479e-ae83-849cbe818f9d category=health status=200 durationMs=265 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:47.225Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=651179a2-8cf0-4525-9e20-498f34be359d category=health status=200 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:50.651Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=b2104e3bd495d891b90a73b81be4d903 durationMs=10
+share-service-1  | 2026-11-16T09:19:50.657Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=b2104e3bd495d891b90a73b81be4d903 category=share-management status=404 durationMs=75 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.856Z  INFO 1 --- [share-service] [nio-8080-exec-6] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=e11a964d942318a76c91da4ec39260e0 durationMs=6
+share-service-1  | 2026-11-16T09:19:51.857Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=e11a964d942318a76c91da4ec39260e0 category=share-management status=400 durationMs=9 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.868Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=69aefbdc23d54a3eea19e9667df4c68f category=share-management status=400 durationMs=8 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.871Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=48e0ad991d87c10b2e2586ecc2e49ee7 category=share-management status=400 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.877Z  INFO 1 --- [share-service] [nio-8080-exec-9] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=271c6183f5730c307f3e806b1aea5288 durationMs=3
+share-service-1  | 2026-11-16T09:19:51.904Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=271c6183f5730c307f3e806b1aea5288 category=share-management status=200 durationMs=31 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.910Z  INFO 1 --- [share-service] [nio-8080-exec-1] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=4b2125ce5970ee88606182238a2c01b5 durationMs=3
+share-service-1  | 2026-11-16T09:19:51.922Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=4b2125ce5970ee88606182238a2c01b5 category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.929Z  INFO 1 --- [share-service] [nio-8080-exec-3] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=e476185246ab93c37949c7f34cea76d0 durationMs=3
+share-service-1  | 2026-11-16T09:19:51.942Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=e476185246ab93c37949c7f34cea76d0 category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.948Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=5f9fe2fe2a6c132c2a259190f377187d durationMs=3
+share-service-1  | 2026-11-16T09:19:51.959Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=5f9fe2fe2a6c132c2a259190f377187d category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.966Z  INFO 1 --- [share-service] [nio-8080-exec-6] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=cac36d94a9b402e6497fa2c3f213dc20 durationMs=2
+share-service-1  | 2026-11-16T09:19:51.978Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=cac36d94a9b402e6497fa2c3f213dc20 category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:51.984Z  INFO 1 --- [share-service] [nio-8080-exec-7] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=a0071cdbd0820f01076718073467e85b durationMs=3
+share-service-1  | 2026-11-16T09:19:52.164Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=a0071cdbd0820f01076718073467e85b category=share-management status=200 durationMs=184 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:52.170Z  INFO 1 --- [share-service] [nio-8080-exec-8] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=6eaf1d3b832f62f953e70d4b5655f9a5 durationMs=2
+share-service-1  | 2026-11-16T09:19:52.349Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=6eaf1d3b832f62f953e70d4b5655f9a5 category=share-management status=200 durationMs=182 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:52.355Z  INFO 1 --- [share-service] [io-8080-exec-10] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=70a40949360443eacfbcf2b706931e69 durationMs=2
+share-service-1  | 2026-11-16T09:19:52.532Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=70a40949360443eacfbcf2b706931e69 category=share-management status=200 durationMs=181 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:52.538Z  INFO 1 --- [share-service] [nio-8080-exec-2] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=3d162d0a749faa0cac2c253017a890ea durationMs=2
+share-service-1  | 2026-11-16T09:19:52.720Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=3d162d0a749faa0cac2c253017a890ea category=share-management status=200 durationMs=185 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:52.725Z  INFO 1 --- [share-service] [nio-8080-exec-3] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=f2a1af9263ae44e6a2406d18d5e5801b durationMs=2
+share-service-1  | 2026-11-16T09:19:52.907Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=f2a1af9263ae44e6a2406d18d5e5801b category=share-management status=200 durationMs=185 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:52.913Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=0e0a76ee8301734da15f16db2aa6ee64 durationMs=3
+share-service-1  | 2026-11-16T09:19:53.091Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=0e0a76ee8301734da15f16db2aa6ee64 category=share-management status=200 durationMs=182 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:53.098Z  INFO 1 --- [share-service] [nio-8080-exec-5] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=bb951cf016f29ee7e6448a1ff2b7bd86 durationMs=3
+share-service-1  | 2026-11-16T09:19:53.285Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=bb951cf016f29ee7e6448a1ff2b7bd86 category=share-management status=200 durationMs=192 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:53.292Z  INFO 1 --- [share-service] [nio-8080-exec-6] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=c32621c77214e05e31d651896479c84a durationMs=2
+share-service-1  | 2026-11-16T09:19:53.469Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=c32621c77214e05e31d651896479c84a category=share-management status=200 durationMs=181 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:53.475Z  INFO 1 --- [share-service] [nio-8080-exec-8] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=b9381d8b0f1ff86f0a16a03854119c8c durationMs=3
+share-service-1  | 2026-11-16T09:19:53.651Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=b9381d8b0f1ff86f0a16a03854119c8c category=share-management status=200 durationMs=180 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:53.660Z  INFO 1 --- [share-service] [io-8080-exec-10] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=b835c8f702c34d3d348eb2e103b8d0bc durationMs=4
+share-service-1  | 2026-11-16T09:19:53.836Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=b835c8f702c34d3d348eb2e103b8d0bc category=share-management status=200 durationMs=182 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:53.842Z  INFO 1 --- [share-service] [nio-8080-exec-1] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=59f06b53c3d9c172437a31523dfe3619 durationMs=2
+share-service-1  | 2026-11-16T09:19:54.020Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=59f06b53c3d9c172437a31523dfe3619 category=share-management status=200 durationMs=182 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:54.026Z  INFO 1 --- [share-service] [nio-8080-exec-3] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=baf389b40bf216d9287d375473fe8024 durationMs=3
+share-service-1  | 2026-11-16T09:19:54.207Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=baf389b40bf216d9287d375473fe8024 category=share-management status=200 durationMs=184 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:54.213Z  INFO 1 --- [share-service] [nio-8080-exec-5] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=22aa754a08f5e3848f501e9d50894ce9 durationMs=2
+share-service-1  | 2026-11-16T09:19:54.393Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=22aa754a08f5e3848f501e9d50894ce9 category=share-management status=200 durationMs=184 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:54.399Z  INFO 1 --- [share-service] [nio-8080-exec-6] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=e0223702d4df00156ed3f754d03ac1b1 durationMs=2
+share-service-1  | 2026-11-16T09:19:54.578Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=e0223702d4df00156ed3f754d03ac1b1 category=share-management status=200 durationMs=182 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:54.584Z  INFO 1 --- [share-service] [nio-8080-exec-8] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=35fc31380eaf833c27e947cd6b75b1ef durationMs=2
+share-service-1  | 2026-11-16T09:19:54.762Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=35fc31380eaf833c27e947cd6b75b1ef category=share-management status=200 durationMs=181 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:54.768Z  INFO 1 --- [share-service] [nio-8080-exec-9] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=b811e68187c563e268df2aab95eae3e3 durationMs=3
+share-service-1  | 2026-11-16T09:19:54.945Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=b811e68187c563e268df2aab95eae3e3 category=share-management status=200 durationMs=181 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:54.951Z  INFO 1 --- [share-service] [io-8080-exec-10] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=c485ccbc6fa0a42eb9b52e00ed662c89 durationMs=3
+share-service-1  | 2026-11-16T09:19:55.131Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=c485ccbc6fa0a42eb9b52e00ed662c89 category=share-management status=200 durationMs=183 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:55.137Z  INFO 1 --- [share-service] [nio-8080-exec-2] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=4da30fc646f08161d29e47080f654ea4 durationMs=3
+share-service-1  | 2026-11-16T09:19:55.319Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=4da30fc646f08161d29e47080f654ea4 category=share-management status=200 durationMs=185 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:55.325Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=8e24a2b417dfa4d2396fb130ca5b779c durationMs=2
+share-service-1  | 2026-11-16T09:19:55.503Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=8e24a2b417dfa4d2396fb130ca5b779c category=share-management status=200 durationMs=182 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:55.509Z  INFO 1 --- [share-service] [nio-8080-exec-5] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=86809431322b4b4d465af3531e25fbb4 durationMs=2
+share-service-1  | 2026-11-16T09:19:56.745Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=86809431322b4b4d465af3531e25fbb4 category=share-management status=200 durationMs=181 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:56.751Z  INFO 1 --- [share-service] [nio-8080-exec-7] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=7fb87623153f153b8b9e6c65739ba281 durationMs=2
+share-service-1  | 2026-11-16T09:19:58.519Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=7fb87623153f153b8b9e6c65739ba281 category=share-management status=200 durationMs=184 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:58.525Z  INFO 1 --- [share-service] [nio-8080-exec-9] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=23c386a5b64d7de7dfa4f302e4f24722 durationMs=3
+share-service-1  | 2026-11-16T09:19:58.696Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=23c386a5b64d7de7dfa4f302e4f24722 category=share-management status=200 durationMs=174 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:58.702Z  INFO 1 --- [share-service] [nio-8080-exec-1] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=dba7bfc699182fbb541b72f94451f49f durationMs=3
+share-service-1  | 2026-11-16T09:19:58.874Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=dba7bfc699182fbb541b72f94451f49f category=share-management status=200 durationMs=176 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:58.880Z  INFO 1 --- [share-service] [nio-8080-exec-3] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=0890d453fa8d850f31afcf593b77e90d durationMs=2
+share-service-1  | 2026-11-16T09:19:59.050Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=0890d453fa8d850f31afcf593b77e90d category=share-management status=200 durationMs=174 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.057Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=7f9c0e0351cee967f5a4400fbd4858de durationMs=3
+share-service-1  | 2026-11-16T09:19:59.228Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=7f9c0e0351cee967f5a4400fbd4858de category=share-management status=200 durationMs=174 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.235Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=065034770c8b13b8066099fced8c6a49 category=anonymous-share status=200 durationMs=5 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.241Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=94458b4428094bfd8a91c95b8f4a4762 category=anonymous-share status=403 durationMs=3 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.245Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=0ead0e03274062a170f1ae427b02be6a category=anonymous-share status=403 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.249Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=f72ae4edf14e5a606b2719ed591724c6 category=anonymous-share status=403 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.410Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=de14db1efd4aa040867a42febd98d2bb category=anonymous-share status=403 durationMs=159 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.571Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=0530f07fdc888aa2aae3c5d44aca606f category=anonymous-share status=403 durationMs=158 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.733Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=a6810876e4145ec1c99180535ca6c66b category=anonymous-share status=429 durationMs=159 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.896Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=916812b38fdc6c5f89a968e0e28727bc category=anonymous-share status=429 durationMs=161 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:19:59.938Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=8a5aeabf-d495-4748-be11-a908af33f17f category=health status=200 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.058Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=f7094c624e10e8daa810427f6eb06f82 category=anonymous-share status=429 durationMs=159 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.220Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=313dedb5cec844b8bd95c902adf1cde9 category=anonymous-share status=429 durationMs=159 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.384Z  INFO 1 --- [share-service] [nio-8080-exec-1] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=a2f876aa014893c7ddbf2a6c4a37b5a4 durationMs=3
+share-service-1  | 2026-11-16T09:20:00.385Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=a2f876aa014893c7ddbf2a6c4a37b5a4 category=anonymous-share status=200 durationMs=163 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.392Z  INFO 1 --- [share-service] [nio-8080-exec-2] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=90fa8dd412f2c78ebf8e31470d2636a0 durationMs=2
+share-service-1  | 2026-11-16T09:20:00.405Z  INFO 1 --- [share-service] [nio-8080-exec-2] com.jiayuan.drive.shares.FileClient      : dependency operation=content requestId=90fa8dd412f2c78ebf8e31470d2636a0 durationMs=12
+share-service-1  | 2026-11-16T09:20:00.405Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=90fa8dd412f2c78ebf8e31470d2636a0 category=anonymous-share status=200 durationMs=17 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.570Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=40479301f6cb3f912319972fdedec0f9 durationMs=3
+share-service-1  | 2026-11-16T09:20:00.574Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=content requestId=40479301f6cb3f912319972fdedec0f9 durationMs=4
+share-service-1  | 2026-11-16T09:20:00.575Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=40479301f6cb3f912319972fdedec0f9 category=anonymous-share status=200 durationMs=167 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.738Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=a593c533e1842312b51146d3c2c77658 category=anonymous-share status=429 durationMs=161 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.778Z  INFO 1 --- [share-service] [nio-8080-exec-8] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=e98924fe592a503ba6138d8d9115dafd durationMs=3
+share-service-1  | 2026-11-16T09:20:00.779Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=e98924fe592a503ba6138d8d9115dafd category=anonymous-share status=200 durationMs=5 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.790Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=75b7b8b0740a341aa4fce934189bf539 category=share-management status=200 durationMs=8 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.794Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=4a3a80b45027b6d442377bbf1ccfc1cd category=share-management status=200 durationMs=2 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.800Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=1006d1db8194acdea3ff2c64eef756dd category=share-management status=404 durationMs=3 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.816Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=eef1ff555076a64e099175dd3202dc5b category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.820Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=c36be2ff0c23265d55f984aa799be6cd category=share-management status=200 durationMs=2 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.823Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=cd45ef04bf089a62f1f094dfcb4779ab category=anonymous-share status=410 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.988Z  INFO 1 --- [share-service] [nio-8080-exec-8] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=0ef8aed347329dc6179e337ddd88507d durationMs=3
+share-service-1  | 2026-11-16T09:20:00.993Z  INFO 1 --- [share-service] [nio-8080-exec-8] com.jiayuan.drive.shares.FileClient      : dependency operation=content requestId=0ef8aed347329dc6179e337ddd88507d durationMs=4
+share-service-1  | 2026-11-16T09:20:00.993Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=0ef8aed347329dc6179e337ddd88507d category=anonymous-share status=200 durationMs=167 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:00.999Z  INFO 1 --- [share-service] [nio-8080-exec-6] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=eed9337bb0b14471d83ef522108e2e6b durationMs=2
+share-service-1  | 2026-11-16T09:20:01.013Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=eed9337bb0b14471d83ef522108e2e6b category=share-management status=200 durationMs=18 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.195Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=2d8e6ac8d94d191c51ad64980186ea43 category=anonymous-share status=410 durationMs=2 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.201Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=47eb143fbb9c471a6b4f966488954e89 category=share-management status=200 durationMs=3 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.205Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=d7b7651384251a4030f03935b2e1398c category=anonymous-share status=404 durationMs=1 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.408Z  INFO 1 --- [share-service] [nio-8080-exec-4] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=57af2a8128cc8213ff6861fad58b7960 durationMs=4
+share-service-1  | 2026-11-16T09:20:01.409Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=57af2a8128cc8213ff6861fad58b7960 category=anonymous-share status=404 durationMs=172 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.644Z  INFO 1 --- [share-service] [nio-8080-exec-5] com.jiayuan.drive.shares.FileClient      : dependency operation=metadata requestId=4c04363869cde2cc24be590b9b9e5a3e durationMs=4
+share-service-1  | 2026-11-16T09:20:01.646Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=4c04363869cde2cc24be590b9b9e5a3e category=anonymous-share status=404 durationMs=172 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.725Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=d28e91edcd10f1b0d182bf443c37bcb4 category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.741Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=84cbe088bbea33532f8018caeea32585 category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.760Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=56a6655d9279442862338d38c5f1cf7c category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.788Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=ee9aa8509320f74f1c628d6b8a8e867e category=share-management status=200 durationMs=26 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.793Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=0beab71d06dc0183a0c55067d885128d category=share-management status=200 durationMs=2 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.810Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=540b873e3624ad8809413e5a8af2adbb category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.826Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=31fdbf189d915bb1d1455a91c18f4548 category=share-management status=200 durationMs=13 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.848Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=943e3799dc3e621612472a76656d7864 category=share-management status=200 durationMs=20 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.865Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=15e276c564a10000466092adafe75611 category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.882Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=e0a3b989b3b1c0ff2fa1a25f62af969a category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.895Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=d185367817bbea24e15c6f49098958da category=share-management status=200 durationMs=11 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.911Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=8259438cc63809bf0aabfeba26446f1b category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.927Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=6df4e3a39ac5b6184608d356d626aa28 category=share-management status=200 durationMs=13 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.942Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=1eb28add2b5fa0d8e7ee332e8cff9069 category=share-management status=200 durationMs=13 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.959Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=a41e2bca2b11fa9f9ec83e17c8da33f6 category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.976Z  INFO 1 --- [share-service] [nio-8080-exec-7] c.j.drive.shares.RequestObservation      : request id=a6d5ce4ee781a93a23c3b60f1e2bcb5d category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:01.993Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=40a975505d6daa029eba15831f0946d7 category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.010Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=d23c0e3f066334748ff6c680c65a0043 category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.026Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=6c80d4ece4d0e19b7e0d644ad3903e30 category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.044Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=7414c6d4d58d30a407d536278dc1ad29 category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.059Z  INFO 1 --- [share-service] [nio-8080-exec-1] c.j.drive.shares.RequestObservation      : request id=0a5490e4c36692e2df054d23acdbfde3 category=share-management status=200 durationMs=12 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.077Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=d110db85d7786d1c8c4c4fd4d93d829b category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.094Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=af743e7e3cd1f40742f8482159420ea2 category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.112Z  INFO 1 --- [share-service] [nio-8080-exec-8] c.j.drive.shares.RequestObservation      : request id=0dfde89789a35acb7308f524c6c90e4f category=share-management status=200 durationMs=16 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.133Z  INFO 1 --- [share-service] [nio-8080-exec-6] c.j.drive.shares.RequestObservation      : request id=3336866b24a7e285bb8bfaed4163c134 category=share-management status=200 durationMs=18 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.149Z  INFO 1 --- [share-service] [nio-8080-exec-9] c.j.drive.shares.RequestObservation      : request id=40fbc73230408a6541b65e143dd43c44 category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.168Z  INFO 1 --- [share-service] [io-8080-exec-10] c.j.drive.shares.RequestObservation      : request id=d919416939e3a199158244f41da2f842 category=share-management status=200 durationMs=17 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.188Z  INFO 1 --- [share-service] [nio-8080-exec-2] c.j.drive.shares.RequestObservation      : request id=fd77247ba0a3e91cf221a800bd27b2d2 category=share-management status=200 durationMs=18 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.205Z  INFO 1 --- [share-service] [nio-8080-exec-3] c.j.drive.shares.RequestObservation      : request id=da1b936d75dd3fbcc21d0f5fc0b06b3a category=share-management status=200 durationMs=14 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.224Z  INFO 1 --- [share-service] [nio-8080-exec-4] c.j.drive.shares.RequestObservation      : request id=c3cc766cfbce73dfb89398150a11fba3 category=share-management status=200 durationMs=17 interrupted=false instance=76f077576dfb
+share-service-1  | 2026-11-16T09:20:02.242Z  INFO 1 --- [share-service] [nio-8080-exec-5] c.j.drive.shares.RequestObservation      : request id=a8798d2f43eb6486044f547c43e08ec2 category=share-management status=200 durationMs=15 interrupted=false instance=76f077576dfb

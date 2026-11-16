@@ -1,0 +1,69 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 854B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#3 DONE 0.1s
+
+#4 [internal] load metadata for docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [build 1/5] FROM docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#7 resolve docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc 0.1s done
+#7 DONE 0.1s
+
+#8 [stage-1 1/4] FROM docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#8 resolve docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a 0.1s done
+#8 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 2.65kB done
+#6 DONE 0.0s
+
+#9 [build 4/5] COPY share-service/src src
+#9 CACHED
+
+#10 [stage-1 3/4] COPY --from=build /build/target/share-service.jar app.jar
+#10 CACHED
+
+#11 [stage-1 2/4] WORKDIR /app
+#11 CACHED
+
+#12 [build 3/5] COPY share-service/pom.xml pom.xml
+#12 CACHED
+
+#13 [build 2/5] WORKDIR /build
+#13 CACHED
+
+#14 [build 5/5] RUN mvn -B verify
+#14 CACHED
+
+#15 [stage-1 4/4] COPY --from=build /build/target/classes/com/jiayuan/drive/shares/HealthProbe.class /app/probe/com/jiayuan/drive/shares/HealthProbe.class
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:c812020e3262ce3d2a6720cee604ac143dbebc8bff679d0db05beb509d04cf78 0.0s done
+#16 exporting config sha256:35ce65f09a1d5f83f4264628af4a45ae8617fcd2cb3ee2ca70f69b3b4d8099a0 0.0s done
+#16 exporting attestation manifest sha256:cac772f517b568e10aff611c577c69ddffef72c038bc9ddc2afcc684128e4a1d 0.0s done
+#16 exporting manifest list sha256:cc9b49edd17fbd7228c114fac3a450910a8c08177efdf71a867f486fc6c957fe 0.0s done
+#16 naming to docker.io/library/cloud-drive-share:20261116-e2-formal
+#16 naming to docker.io/library/cloud-drive-share:20261116-e2-formal done
+#16 unpacking to docker.io/library/cloud-drive-share:20261116-e2-formal 0.0s done
+#16 DONE 0.2s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+ Image cloud-drive-share:20261116-e2-formal Building
+ Image cloud-drive-share:20261116-e2-formal Built

@@ -1,0 +1,239 @@
+{
+  "requests": 2566,
+  "successes": 2566,
+  "failures": 0,
+  "success_rate": 1.0,
+  "rps": 21.3,
+  "completed_successes_in_window": 2556,
+  "successful_completions_after_window": 10,
+  "bytes_per_second": 11149858.133333333,
+  "latency_ms": {
+    "mean": 436.7059686672104,
+    "p50": 415.0306500014267,
+    "p95": 724.1204249994553,
+    "p99": 843.1600800004161
+  },
+  "successful_latency_ms": {
+    "mean": 436.7059686672104,
+    "p50": 415.0306500014267,
+    "p95": 724.1204249994553,
+    "p99": 843.1600800004161
+  },
+  "timeouts": 0,
+  "iterations": {
+    "requests": 1286,
+    "successes": 1286,
+    "failures": 0,
+    "success_rate": 1.0,
+    "rps": 10.633333333333333,
+    "completed_successes_in_window": 1276,
+    "successful_completions_after_window": 10,
+    "bytes_per_second": 0.0,
+    "latency_ms": {
+      "mean": 873.6096468895777,
+      "p50": 866.4305499987677,
+      "p95": 1270.1417500002208,
+      "p99": 1427.0853849991915
+    },
+    "successful_latency_ms": {
+      "mean": 873.6096468895777,
+      "p50": 866.4305499987677,
+      "p95": 1270.1417500002208,
+      "p99": 1427.0853849991915
+    },
+    "timeouts": 0
+  },
+  "operations": {
+    "share_download": {
+      "requests": 1280,
+      "successes": 1280,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 10.633333333333333,
+      "completed_successes_in_window": 1276,
+      "successful_completions_after_window": 4,
+      "bytes_per_second": 11149858.133333333,
+      "latency_ms": {
+        "mean": 447.4436682812126,
+        "p50": 425.5868999989616,
+        "p95": 730.2979050018621,
+        "p99": 847.8301579992695
+      },
+      "successful_latency_ms": {
+        "mean": 447.4436682812126,
+        "p50": 425.5868999989616,
+        "p95": 730.2979050018621,
+        "p99": 847.8301579992695
+      },
+      "timeouts": 0
+    },
+    "share_verify": {
+      "requests": 1286,
+      "successes": 1286,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 10.666666666666666,
+      "completed_successes_in_window": 1280,
+      "successful_completions_after_window": 6,
+      "bytes_per_second": 0.0,
+      "latency_ms": {
+        "mean": 426.01836718515545,
+        "p50": 403.04694999940693,
+        "p95": 712.4712750000981,
+        "p99": 829.532725000536
+      },
+      "successful_latency_ms": {
+        "mean": 426.01836718515545,
+        "p50": 403.04694999940693,
+        "p95": 712.4712750000981,
+        "p99": 829.532725000536
+      },
+      "timeouts": 0
+    }
+  },
+  "resources": {
+    "auth-service": {
+      "samples": 119,
+      "expected_samples": 120,
+      "cpu_samples": 119,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 1,
+      "reported_missed_intervals": 1,
+      "cpu_mean": 0.787977211624663,
+      "cpu_peak": 7.81254054054054,
+      "memory_mean_bytes": 240002745.00840336,
+      "memory_peak_bytes": 257052672.0,
+      "io_fields_available": true
+    },
+    "file-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 3.781493618021104,
+      "cpu_peak": 8.434426229508196,
+      "memory_mean_bytes": 425787596.8,
+      "memory_peak_bytes": 427188224.0,
+      "io_fields_available": true
+    },
+    "frontend": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 2.0802573064739502,
+      "cpu_peak": 3.7270777479892763,
+      "memory_mean_bytes": 11225975.466666667,
+      "memory_peak_bytes": 12173312.0,
+      "io_fields_available": true
+    },
+    "minio": {
+      "samples": 119,
+      "expected_samples": 120,
+      "cpu_samples": 119,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 1,
+      "reported_missed_intervals": 1,
+      "cpu_mean": 2.112668219063348,
+      "cpu_peak": 9.34544474393531,
+      "memory_mean_bytes": 311363601.210084,
+      "memory_peak_bytes": 315420672.0,
+      "io_fields_available": true
+    },
+    "mysql": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 2.08395779536614,
+      "cpu_peak": 4.381318681318682,
+      "memory_mean_bytes": 422214997.3333333,
+      "memory_peak_bytes": 422473728.0,
+      "io_fields_available": true
+    },
+    "share-service-1": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 211.09447259379328,
+      "cpu_peak": 309.2772222222222,
+      "memory_mean_bytes": 247900501.33333334,
+      "memory_peak_bytes": 276758528.0,
+      "io_fields_available": true
+    },
+    "share-service-2": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 202.7422026456569,
+      "cpu_peak": 323.84,
+      "memory_mean_bytes": 211145420.8,
+      "memory_peak_bytes": 226631680.0,
+      "io_fields_available": true
+    }
+  },
+  "load_generator": {
+    "generator_cpu_percent": {
+      "mean": 7.917500000000001,
+      "peak": 14.4
+    },
+    "generator_rss_bytes": {
+      "mean": 70682999.46666667,
+      "peak": 71000064.0
+    },
+    "collector_cpu_percent": {
+      "mean": 0.36666666666666664,
+      "peak": 3.1
+    },
+    "collector_rss_bytes": {
+      "mean": 25440017.066666666,
+      "peak": 25477120.0
+    },
+    "host_cpu_percent": {
+      "mean": 40.335,
+      "peak": 50.5
+    }
+  },
+  "error_categories": {},
+  "downstream": {
+    "content": {
+      "mean": 6.973913043478261,
+      "p50": 6.0,
+      "p95": 16.0,
+      "p99": 27.0
+    },
+    "metadata": {
+      "mean": 3.0501381760757993,
+      "p50": 1.0,
+      "p95": 11.0,
+      "p99": 17.679999999999836
+    },
+    "share_request": {
+      "mean": 391.6253454401895,
+      "p50": 370.0,
+      "p95": 651.4000000000001,
+      "p99": 763.6799999999998
+    }
+  },
+  "run_id": "scale-2replicas-vu20-r2",
+  "scenario": "P4",
+  "vus": 20,
+  "repeat": 2,
+  "file_size_bytes": 1048576,
+  "measure_seconds": 120.0,
+  "cap_hit": false,
+  "complete": true,
+  "replicas": 2
+}

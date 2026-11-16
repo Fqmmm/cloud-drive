@@ -1,0 +1,92 @@
+[
+  {
+    "Name": "cloud-drive-e2-20261116_default",
+    "Id": "ad3c55771c3b0ca95b825c1e7d29c99015fe644b60ae002f39e7230fc93e7d47",
+    "Created": "2026-11-16T09:21:40.149177203Z",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv4": true,
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": null,
+      "Config": [
+        {
+          "Subnet": "172.19.0.0/16",
+          "Gateway": "172.19.0.1"
+        }
+      ]
+    },
+    "Internal": false,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Options": {
+      "com.docker.network.enable_ipv4": "true",
+      "com.docker.network.enable_ipv6": "false"
+    },
+    "Labels": {
+      "com.docker.compose.config-hash": "1bb031c08ee640978512495e6fe8939fed890d78cc2e6e9abb18a90c08a3e25c",
+      "com.docker.compose.network": "default",
+      "com.docker.compose.project": "cloud-drive-e2-20261116",
+      "com.docker.compose.version": "5.6.1"
+    },
+    "Containers": {
+      "5648ec5f8d933fccadc27658e73010a9956a94e0f21ceb50faa186e1a50b3cfa": {
+        "Name": "cloud-drive-e2-20261116-auth-service-1",
+        "EndpointID": "09a9e75d7d683242aaca0c6bfd9be321fd2e7e7c7b3177ccad13a2a4289b81e4",
+        "MacAddress": "26:a2:dd:a2:ab:09",
+        "IPv4Address": "172.19.0.4/16",
+        "IPv6Address": ""
+      },
+      "61199e4ce6537c30cde172d7662bd8598b4c070bd234810f779c35a67b7d6d3f": {
+        "Name": "cloud-drive-e2-20261116-frontend-1",
+        "EndpointID": "77afa833fab6b54c7634fd40a0187f3c1afd815523d5b2035350d89e74b8823e",
+        "MacAddress": "02:62:1f:22:0c:d8",
+        "IPv4Address": "172.19.0.7/16",
+        "IPv6Address": ""
+      },
+      "6e6df3f9a6f05e42166bcab898336d61dc1ed823c09c8c7183ce41c614638718": {
+        "Name": "cloud-drive-e2-20261116-minio-1",
+        "EndpointID": "ab7e8155e32778e6bc3e166158ef0c3624a2140c2c36e41f48c60f2222119aa7",
+        "MacAddress": "fe:d2:06:b5:79:d1",
+        "IPv4Address": "172.19.0.3/16",
+        "IPv6Address": ""
+      },
+      "b2c3802eb0a442eabfb0970719824bb849eefb40d133b75edc9334d763de750e": {
+        "Name": "cloud-drive-e2-20261116-mysql-1",
+        "EndpointID": "773c6be0881dbcecd8694b243ca242394335a43190d5be126bfe07b58e434a91",
+        "MacAddress": "36:1c:74:5a:d0:af",
+        "IPv4Address": "172.19.0.2/16",
+        "IPv6Address": ""
+      },
+      "b5f462e1432bfc7445f795900de0cc0731d9b5f80cece9f1c7984f65b1de156b": {
+        "Name": "cloud-drive-e2-20261116-share-service-1",
+        "EndpointID": "f9d0597f78c184aa88535b0fe71e24d65222363e0d3147abe0722a5155267013",
+        "MacAddress": "e2:88:72:04:7f:6f",
+        "IPv4Address": "172.19.0.6/16",
+        "IPv6Address": ""
+      },
+      "d6f2b2eef6397833269261058fb92e275f395e8565c15597d14be12f7b0bd356": {
+        "Name": "cloud-drive-e2-20261116-file-service-1",
+        "EndpointID": "67ed25325288957e781c6f2794cb5d76c6c6fcc588c33b2cce2659e834bcd055",
+        "MacAddress": "1e:3f:20:50:fa:9d",
+        "IPv4Address": "172.19.0.5/16",
+        "IPv6Address": ""
+      }
+    },
+    "Status": {
+      "IPAM": {
+        "Subnets": {
+          "172.19.0.0/16": {
+            "IPsInUse": 9,
+            "DynamicIPsAvailable": 65527
+          }
+        }
+      }
+    }
+  }
+]

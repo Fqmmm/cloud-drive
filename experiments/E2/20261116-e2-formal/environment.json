@@ -1,0 +1,34 @@
+{
+  "captured_utc": "2026-11-16T09:18:52.244751+00:00",
+  "source_commit": "3321e73fceaed49a8e0252304daf01d68770c390",
+  "git_status": "?? experiments/E2/",
+  "branch": "feat/e2-orchestration",
+  "project": "cloud-drive-e2-20261116",
+  "request_base_url": "http://127.0.0.1:8080",
+  "os": "Windows-11-10.0.26200-SP0",
+  "logical_host_cpus": 16,
+  "host_memory_bytes": 33820106752,
+  "disk_free_bytes": {
+    "C:/": 19100856320,
+    "D:/": 128228388864
+  },
+  "docker": {
+    "ServerVersion": "29.9.2",
+    "NCPU": 4,
+    "MemTotal": 4107522048,
+    "OperatingSystem": "Docker Desktop",
+    "Driver": "overlayfs"
+  },
+  "compose_version": "Docker Compose version v5.6.1",
+  "tool": "Python orchestration controller, API smoke; Windows host",
+  "first_deployment_cache": "Existing base images and BuildKit cache; no forced pull/no-cache; fresh project and empty volumes",
+  "storage": "WSL2 Docker named volumes on unchanged Docker data disk; repository bind mounts on Windows D:",
+  "extension_budget": "Same Docker CPU/memory budget in both replica conditions; no per-service CPU caps added",
+  "harness_sha256": {
+    "e2.py": "8c259ef9070a4e826503781de1b4c7871837e8a594ef6ffb3a5979b1ccc28978",
+    "e2_basic.py": "cd1a99f372b0d9208c3dee1f7d5f7edd8f7502e70fd33098ea7e0684399deff3",
+    "e2_scale.py": "ad102a934dc57dec0134ac9e60871292a48aa3f2e51e26f8f307cd26ec624dcc",
+    "e2_support.py": "5c724e2cd8a94756d01300c8a0b70d9c0752ea001f1971f3ba2f11b5fd3adbd5",
+    "test_e2_support.py": "d054a8b3e1668cad81c4e2b5da196726e63d7836b033324301b6cd0e8bf48978"
+  }
+}
