@@ -151,8 +151,17 @@ def round_run(args, batch, spec, fixtures, snapshot, config, containers_file):
     active = fixtures[:spec["vus"]]
     large = spec["scenario"].startswith("P5")
     worst_bytes = spec["vus"] * args.max_uploads * (20 * MIB if large else MIB)
-    if spec["scenario"] in ("P2", "P5U") and min(shutil.disk_usage(drive).free for drive in ["C:/", "D:/"]) < worst_bytes * 1.5:
-        raise RuntimeError("Insufficient host disk headroom for capped uploads")
+    if spec["scenario"] in ("P2", "P5U"):
+        # The bound includes all warmup/formal uploads. Reserve additional space for
+        # concurrent multipart temporary files and the host; do not count VHDX reuse.
+        required_free = max(worst_bytes * 1.1, worst_bytes + 2 * 1024 ** 3)
+        free = {drive: shutil.disk_usage(drive).free for drive in ["C:/", "D:/"]}
+        save(folder / "storage-headroom.json", dict(captured_utc=utc(), host_free_bytes=free,
+            capped_upload_bytes=worst_bytes, required_free_bytes=required_free,
+            reserve_policy="at least 2 GiB and at least 10% beyond the complete upload cap",
+            preallocated_vhdx_free_space_counted=False))
+        if min(free.values()) < required_free:
+            raise RuntimeError("Insufficient host disk headroom for capped uploads")
     checksums = dict(before=checksum(args.base_url, active, large))
     for fixture in active:
         client = Client(args.base_url)

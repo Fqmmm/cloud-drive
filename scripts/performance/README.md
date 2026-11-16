@@ -33,6 +33,9 @@ python -u scripts/performance/run.py --batch 20261116-e1-continuation --continue
 ```
 
 续跑只选择原矩阵未完成的规格，保留原始顺序、并发和重复数；要求复用原私有 fixtures。
+上传前检查 C/D 盘可用空间：覆盖含预热的完整上传上限，额外至少保留 2 GiB 且不少于上限的 10%，
+保存 `storage-headroom.json`；不将 WSL 虚拟磁盘内部空闲或预分配空间作为宿主可用空间额度。
+早期检查使用上限的 1.5 倍，曾在第三轮 20 MiB 上传开始前停止，相关记录保留；调整只影响准备检查。
 开始前校验原轮次完整性、预热/测量/冷却参数、入口与上传上限，以及镜像、脱敏 Compose、Docker CPU/内存预算和测量/清理脚本哈希。
 新批次重新记录环境与空闲样本，每轮重新登录；旧批次保持原暂停状态，后续汇总须注明两个批次的边界。
 测试命令为 `python -m unittest discover -s scripts/performance -p 'test_*.py'`。
