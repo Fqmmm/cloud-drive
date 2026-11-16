@@ -1,0 +1,6 @@
+2026-11-16T11:11:18.791256+00:00 20261116-e1-native-pilot3-P4-vu02-r0: warmup: started; duration=3s; VUs=2
+2026-11-16T11:11:22.042825+00:00 20261116-e1-native-pilot3-P4-vu02-r0: warmup: finished; drain=0.002s
+2026-11-16T11:11:22.043747+00:00 20261116-e1-native-pilot3-P4-vu02-r0: measure: started; duration=5s; VUs=2
+2026-11-16T11:11:27.906736+00:00 20261116-e1-native-pilot3-P4-vu02-r0: measure: finished; drain=0.613s
+2026-11-16T11:11:31.051727+00:00 20261116-e1-native-pilot3-P4-vu02-r0: cooldown: waiting for resource stability
+2026-11-16T11:11:41.071044+00:00 20261116-e1-native-pilot3-P4-vu02-r0: round complete

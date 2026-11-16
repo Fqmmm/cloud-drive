@@ -4,12 +4,12 @@
 
 | 报告 | 当前完成情况 | 汇总数据 |
 | --- | --- | --- |
-| [E1：性能与资源开销](E1-results.md) | P1—P4 基础矩阵 36/36 轮完成；P5 上传 2/3 轮、下载 0/3 轮，保持暂停 | [逐轮表](../../experiments/E1/20261116-e1-combined-summary/per-round.csv)、[重复汇总](../../experiments/E1/20261116-e1-combined-summary/aggregate.csv) |
+| [E1：性能与资源开销](E1-results.md) | 容器与非容器 P1—P4 各 36/36 轮完成；P5 本轮排除，保留历史两轮上传 | [两侧对照](../../experiments/E1/20261116-e1-native-formal-summary/comparison.csv)、[原生逐轮表](../../experiments/E1/20261116-e1-native-formal-summary/per-round.csv)、[容器逐轮表](../../experiments/E1/20261116-e1-combined-summary/per-round.csv) |
 | [E2：编排与独立部署](E2-results.md) | 首次部署、三次已有镜像启动、独立更新、双副本验证及六轮性能对照完成 | [部署表](../../experiments/E2/20261116-e2-formal/deployment-summary.csv)、[副本对照表](../../experiments/E2/20261116-e2-formal/replica-summary.csv) |
 
-论文引用数值时应同时写明场景、并发数、重复次数和指标口径。报告中的三次重复汇总采用中位数与最小—最大范围；原始请求记录保留在 `experiments/`，可以通过报告末尾的命令复算。E1 当前提供六容器方案的业务性能基线，容器与非容器部署对照尚未执行。
+论文引用数值时应同时写明场景、并发数、重复次数和指标口径。报告中的三次重复汇总采用中位数与最小—最大范围；原始请求记录保留在 `experiments/`，可以通过报告末尾的命令复算。E1 对比同一六服务应用的 Docker Compose 部署与 WSL2 直接进程部署；数据盘、网络路径、历史数据和执行时间的差异在报告中说明。
 
-原始批次中的阶段报告保留当时的执行状态。本目录是后续论文整理和结果引用的统一入口，暂停场景补齐后再更新对应报告。
+原始批次中的阶段报告保留当时的执行状态。本目录是后续论文整理和结果引用的统一入口；P5 的历史暂停记录不作为本轮待完成项。
 
 ## 写作处理记录
 

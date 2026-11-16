@@ -1,0 +1,41 @@
+{
+  "tool": "Direct-process cgroup-v2 Java sampler + Windows psutil",
+  "target_interval_seconds": 1,
+  "cpu_definition": "delta cgroup usage_usec / monotonic elapsed seconds; 100%=one core",
+  "memory_definition": "memory.current minus memory.stat inactive_file; RSS/PSS additionally recorded",
+  "timestamp_definition": "Windows receipt epoch for request-window alignment; Linux source timestamp retained",
+  "network_definition": "No per-service namespace counters in direct-process mode; unavailable fields left empty",
+  "errors": [],
+  "intervals": {
+    "auth-service": {
+      "samples": 183,
+      "interval_mean": 0.9998575095291976,
+      "interval_max": 1.003922462463379
+    },
+    "file-service": {
+      "samples": 183,
+      "interval_mean": 0.9998516040843922,
+      "interval_max": 1.0058188438415527
+    },
+    "frontend": {
+      "samples": 183,
+      "interval_mean": 0.9998408503584809,
+      "interval_max": 1.0060460567474365
+    },
+    "minio": {
+      "samples": 183,
+      "interval_mean": 0.99983687715216,
+      "interval_max": 1.0094962120056152
+    },
+    "mysql": {
+      "samples": 183,
+      "interval_mean": 0.9998260474467016,
+      "interval_max": 1.0127613544464111
+    },
+    "share-service": {
+      "samples": 183,
+      "interval_mean": 0.9998192905069707,
+      "interval_max": 1.0127084255218506
+    }
+  }
+}

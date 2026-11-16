@@ -1,0 +1,41 @@
+{
+  "batch": "20261116-e1-native-pilot3",
+  "pilot": true,
+  "mode": "native",
+  "started_utc": "2026-11-16T11:09:54.078345+00:00",
+  "completed": [
+    "20261116-e1-native-pilot3-P1-vu02-r0",
+    "20261116-e1-native-pilot3-P2-vu02-r0",
+    "20261116-e1-native-pilot3-P3-vu02-r0",
+    "20261116-e1-native-pilot3-P4-vu02-r0"
+  ],
+  "source_commit": "66550e4bf6c977fee056ed3edf2cd4cbbdb583ab",
+  "matrix": [
+    {
+      "scenario": "P1",
+      "vus": 2,
+      "repeat": 0,
+      "order": 1
+    },
+    {
+      "scenario": "P2",
+      "vus": 2,
+      "repeat": 0,
+      "order": 2
+    },
+    {
+      "scenario": "P3",
+      "vus": 2,
+      "repeat": 0,
+      "order": 3
+    },
+    {
+      "scenario": "P4",
+      "vus": 2,
+      "repeat": 0,
+      "order": 4
+    }
+  ],
+  "complete": true,
+  "finished_utc": "2026-11-16T11:12:00.701252+00:00"
+}

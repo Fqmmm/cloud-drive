@@ -1,0 +1,22 @@
+{
+  "captured_utc": "2026-11-16T13:24:28.601034+00:00",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "requests": "2.32.4",
+  "numpy": "2.3.3",
+  "matplotlib": "3.10.8",
+  "psutil": "7.2.1",
+  "windows": "Windows-11-10.0.26200-SP0",
+  "native_service_cgroup_pids": {
+    "mysql": [],
+    "minio": [],
+    "auth-service": [],
+    "file-service": [],
+    "share-service": [],
+    "frontend": []
+  },
+  "native_services_stopped": true,
+  "disk_free_bytes": {
+    "C:/": 19389390848,
+    "D:/": 115484090368
+  }
+}

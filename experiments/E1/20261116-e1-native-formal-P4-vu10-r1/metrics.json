@@ -1,0 +1,225 @@
+{
+  "requests": 1655,
+  "successes": 1655,
+  "failures": 0,
+  "success_rate": 1.0,
+  "rps": 13.766666666666667,
+  "completed_successes_in_window": 1652,
+  "successful_completions_after_window": 3,
+  "bytes_per_second": 7208960.0,
+  "latency_ms": {
+    "mean": 224.83105371593464,
+    "p50": 198.93669999873964,
+    "p95": 380.6080099988321,
+    "p99": 616.4165220005093
+  },
+  "successful_latency_ms": {
+    "mean": 224.83105371593464,
+    "p50": 198.93669999873964,
+    "p95": 380.6080099988321,
+    "p99": 616.4165220005093
+  },
+  "timeouts": 0,
+  "iterations": {
+    "requests": 828,
+    "successes": 828,
+    "failures": 0,
+    "success_rate": 1.0,
+    "rps": 6.875,
+    "completed_successes_in_window": 825,
+    "successful_completions_after_window": 3,
+    "bytes_per_second": 0.0,
+    "latency_ms": {
+      "mean": 450.4668048309086,
+      "p50": 394.26875000208383,
+      "p95": 732.506085001296,
+      "p99": 1058.1213929961086
+    },
+    "successful_latency_ms": {
+      "mean": 450.4668048309086,
+      "p50": 394.26875000208383,
+      "p95": 732.506085001296,
+      "p99": 1058.1213929961086
+    },
+    "timeouts": 0
+  },
+  "operations": {
+    "share_download": {
+      "requests": 827,
+      "successes": 827,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 6.875,
+      "completed_successes_in_window": 825,
+      "successful_completions_after_window": 2,
+      "bytes_per_second": 7208960.0,
+      "latency_ms": {
+        "mean": 232.62879746063072,
+        "p50": 205.47369999985676,
+        "p95": 383.8014499960987,
+        "p99": 561.9474160000391
+      },
+      "successful_latency_ms": {
+        "mean": 232.62879746063072,
+        "p50": 205.47369999985676,
+        "p95": 383.8014499960987,
+        "p99": 561.9474160000391
+      },
+      "timeouts": 0
+    },
+    "share_verify": {
+      "requests": 828,
+      "successes": 828,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 6.891666666666667,
+      "completed_successes_in_window": 827,
+      "successful_completions_after_window": 1,
+      "bytes_per_second": 0.0,
+      "latency_ms": {
+        "mean": 217.04272753614765,
+        "p50": 186.0725000005914,
+        "p95": 379.14988499760506,
+        "p99": 683.0911519983061
+      },
+      "successful_latency_ms": {
+        "mean": 217.04272753614765,
+        "p50": 186.0725000005914,
+        "p95": 379.14988499760506,
+        "p99": 683.0911519983061
+      },
+      "timeouts": 0
+    }
+  },
+  "resources": {
+    "auth-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 0.5900130961528943,
+      "cpu_peak": 5.9051696492851615,
+      "memory_mean_bytes": 213346986.66666666,
+      "memory_peak_bytes": 232366080.0,
+      "io_fields_available": true
+    },
+    "file-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 3,
+      "cpu_mean": 2.9257242040049025,
+      "cpu_peak": 9.61552094358521,
+      "memory_mean_bytes": 408845380.26666665,
+      "memory_peak_bytes": 409415680.0,
+      "io_fields_available": true
+    },
+    "frontend": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 3,
+      "cpu_mean": 1.6003746552604439,
+      "cpu_peak": 2.698286297749982,
+      "memory_mean_bytes": 9501525.333333334,
+      "memory_peak_bytes": 10584064.0,
+      "io_fields_available": true
+    },
+    "minio": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 3,
+      "cpu_mean": 1.4471646331126353,
+      "cpu_peak": 7.29025772299677,
+      "memory_mean_bytes": 404809966.93333334,
+      "memory_peak_bytes": 406319104.0,
+      "io_fields_available": true
+    },
+    "mysql": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 3,
+      "cpu_mean": 1.2265602707480128,
+      "cpu_peak": 2.1427244188121017,
+      "memory_mean_bytes": 355380667.73333335,
+      "memory_peak_bytes": 355831808.0,
+      "io_fields_available": true
+    },
+    "share-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 3,
+      "cpu_mean": 245.76175409655903,
+      "cpu_peak": 339.1276182009293,
+      "memory_mean_bytes": 249556582.4,
+      "memory_peak_bytes": 251641856.0,
+      "io_fields_available": true
+    }
+  },
+  "load_generator": {
+    "generator_cpu_percent": {
+      "mean": 5.933628318584072,
+      "peak": 12.5
+    },
+    "generator_rss_bytes": {
+      "mean": 60677310.300884955,
+      "peak": 62095360.0
+    },
+    "collector_cpu_percent": {
+      "mean": 1.5486377434991234,
+      "peak": 3.0010489986711915
+    },
+    "collector_rss_bytes": {
+      "mean": 53923042.548672564,
+      "peak": 54050816.0
+    },
+    "host_cpu_percent": {
+      "mean": 28.354867256637167,
+      "peak": 42.8
+    }
+  },
+  "error_categories": {},
+  "downstream": {
+    "content": {
+      "mean": 12.712727272727273,
+      "p50": 11.0,
+      "p95": 19.0,
+      "p99": 25.75999999999999
+    },
+    "metadata": {
+      "mean": 3.3159806295399514,
+      "p50": 2.0,
+      "p95": 8.0,
+      "p99": 11.0
+    },
+    "share_request": {
+      "mean": 208.32627118644066,
+      "p50": 189.0,
+      "p95": 333.0,
+      "p99": 448.9000000000001
+    }
+  },
+  "run_id": "20261116-e1-native-formal-P4-vu10-r1",
+  "scenario": "P4",
+  "vus": 10,
+  "repeat": 1,
+  "file_size_bytes": 1048576,
+  "measure_seconds": 120.0,
+  "cap_hit": false,
+  "complete": true
+}

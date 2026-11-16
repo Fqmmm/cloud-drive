@@ -1,0 +1,10 @@
+2026-11-16T12:45:30.912610+00:00 20261116-e1-native-formal-P3-vu20-r3: warmup: started; duration=30s; VUs=20
+2026-11-16T12:46:00.917820+00:00 20261116-e1-native-formal-P3-vu20-r3: warmup: elapsed=30s requests=582 failed=2
+2026-11-16T12:46:01.265891+00:00 20261116-e1-native-formal-P3-vu20-r3: warmup: finished; drain=0.103s
+2026-11-16T12:46:01.266869+00:00 20261116-e1-native-formal-P3-vu20-r3: measure: started; duration=120s; VUs=20
+2026-11-16T12:46:31.275206+00:00 20261116-e1-native-formal-P3-vu20-r3: measure: elapsed=30s requests=580 failed=0
+2026-11-16T12:47:01.279214+00:00 20261116-e1-native-formal-P3-vu20-r3: measure: elapsed=60s requests=1162 failed=0
+2026-11-16T12:47:31.281306+00:00 20261116-e1-native-formal-P3-vu20-r3: measure: elapsed=90s requests=1752 failed=0
+2026-11-16T12:48:01.285385+00:00 20261116-e1-native-formal-P3-vu20-r3: measure: elapsed=120s requests=2334 failed=1
+2026-11-16T12:48:01.519690+00:00 20261116-e1-native-formal-P3-vu20-r3: measure: finished; drain=0.003s
+2026-11-16T12:48:32.187254+00:00 20261116-e1-native-formal-P3-vu20-r3: round complete

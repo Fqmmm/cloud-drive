@@ -1,0 +1,225 @@
+{
+  "requests": 2551,
+  "successes": 2551,
+  "failures": 0,
+  "success_rate": 1.0,
+  "rps": 21.166666666666668,
+  "completed_successes_in_window": 2540,
+  "successful_completions_after_window": 11,
+  "bytes_per_second": 11079953.066666666,
+  "latency_ms": {
+    "mean": 442.42093265379305,
+    "p50": 440.8758999998099,
+    "p95": 642.8823499954888,
+    "p99": 748.3556500010309
+  },
+  "successful_latency_ms": {
+    "mean": 442.42093265379305,
+    "p50": 440.8758999998099,
+    "p95": 642.8823499954888,
+    "p99": 748.3556500010309
+  },
+  "timeouts": 0,
+  "iterations": {
+    "requests": 1279,
+    "successes": 1279,
+    "failures": 0,
+    "success_rate": 1.0,
+    "rps": 10.566666666666666,
+    "completed_successes_in_window": 1268,
+    "successful_completions_after_window": 11,
+    "bytes_per_second": 0.0,
+    "latency_ms": {
+      "mean": 886.3838996873225,
+      "p50": 878.5945999989053,
+      "p95": 1194.7796399981598,
+      "p99": 1350.1975200016752
+    },
+    "successful_latency_ms": {
+      "mean": 886.3838996873225,
+      "p50": 878.5945999989053,
+      "p95": 1194.7796399981598,
+      "p99": 1350.1975200016752
+    },
+    "timeouts": 0
+  },
+  "operations": {
+    "share_download": {
+      "requests": 1272,
+      "successes": 1272,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 10.566666666666666,
+      "completed_successes_in_window": 1268,
+      "successful_completions_after_window": 4,
+      "bytes_per_second": 11079953.066666666,
+      "latency_ms": {
+        "mean": 450.80038459108664,
+        "p50": 451.0581499962427,
+        "p95": 639.199719997123,
+        "p99": 749.5561689993332
+      },
+      "successful_latency_ms": {
+        "mean": 450.80038459108664,
+        "p50": 451.0581499962427,
+        "p95": 639.199719997123,
+        "p99": 749.5561689993332
+      },
+      "timeouts": 0
+    },
+    "share_verify": {
+      "requests": 1279,
+      "successes": 1279,
+      "failures": 0,
+      "success_rate": 1.0,
+      "rps": 10.6,
+      "completed_successes_in_window": 1272,
+      "successful_completions_after_window": 7,
+      "bytes_per_second": 0.0,
+      "latency_ms": {
+        "mean": 434.087341673154,
+        "p50": 428.84200000116834,
+        "p95": 644.2973599972902,
+        "p99": 747.6423500009697
+      },
+      "successful_latency_ms": {
+        "mean": 434.087341673154,
+        "p50": 428.84200000116834,
+        "p95": 644.2973599972902,
+        "p99": 747.6423500009697
+      },
+      "timeouts": 0
+    }
+  },
+  "resources": {
+    "auth-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 0.6629055790747763,
+      "cpu_peak": 6.912169782920041,
+      "memory_mean_bytes": 214367163.73333332,
+      "memory_peak_bytes": 229744640.0,
+      "io_fields_available": true
+    },
+    "file-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 3.912004076495471,
+      "cpu_peak": 5.817964464482514,
+      "memory_mean_bytes": 409680008.53333336,
+      "memory_peak_bytes": 410464256.0,
+      "io_fields_available": true
+    },
+    "frontend": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 2.1223535936168885,
+      "cpu_peak": 3.4734709661116825,
+      "memory_mean_bytes": 9755067.733333332,
+      "memory_peak_bytes": 10489856.0,
+      "io_fields_available": true
+    },
+    "minio": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 2.0301797425216583,
+      "cpu_peak": 8.32927140810247,
+      "memory_mean_bytes": 406213495.46666664,
+      "memory_peak_bytes": 406913024.0,
+      "io_fields_available": true
+    },
+    "mysql": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 1.5231203690689308,
+      "cpu_peak": 2.3027900431178185,
+      "memory_mean_bytes": 355513924.26666665,
+      "memory_peak_bytes": 355729408.0,
+      "io_fields_available": true
+    },
+    "share-service": {
+      "samples": 120,
+      "expected_samples": 120,
+      "cpu_samples": 120,
+      "cpu_missing_samples": 0,
+      "missing_sample_estimate": 0,
+      "reported_missed_intervals": 0,
+      "cpu_mean": 384.7343065850964,
+      "cpu_peak": 395.2826527250665,
+      "memory_mean_bytes": 258655948.8,
+      "memory_peak_bytes": 275759104.0,
+      "io_fields_available": true
+    }
+  },
+  "load_generator": {
+    "generator_cpu_percent": {
+      "mean": 8.70593220338983,
+      "peak": 15.5
+    },
+    "generator_rss_bytes": {
+      "mean": 61982997.69491526,
+      "peak": 63332352.0
+    },
+    "collector_cpu_percent": {
+      "mean": 1.6271488549617885,
+      "peak": 3.0078220970282
+    },
+    "collector_rss_bytes": {
+      "mean": 57197550.644067794,
+      "peak": 57303040.0
+    },
+    "host_cpu_percent": {
+      "mean": 42.99406779661016,
+      "peak": 56.1
+    }
+  },
+  "error_categories": {},
+  "downstream": {
+    "content": {
+      "mean": 13.962933753943217,
+      "p50": 13.0,
+      "p95": 23.0,
+      "p99": 29.329999999999927
+    },
+    "metadata": {
+      "mean": 5.311811023622047,
+      "p50": 5.0,
+      "p95": 12.0,
+      "p99": 16.0
+    },
+    "share_request": {
+      "mean": 430.81102362204723,
+      "p50": 430.0,
+      "p95": 626.0,
+      "p99": 719.6100000000001
+    }
+  },
+  "run_id": "20261116-e1-native-formal-P4-vu20-r2",
+  "scenario": "P4",
+  "vus": 20,
+  "repeat": 2,
+  "file_size_bytes": 1048576,
+  "measure_seconds": 120.0,
+  "cap_hit": false,
+  "complete": true
+}

@@ -1,0 +1,16 @@
+{
+  "public_text_files_scanned": 601,
+  "credential_findings": 0,
+  "local_links_checked": 35,
+  "broken_links": 0,
+  "reference_rounds": 36,
+  "reference_requests": 52371,
+  "reference_failures": 14,
+  "reference_checksum_checks": 840,
+  "reused_common_and_workload_hashes_match": true,
+  "original_containers_healthy": 6,
+  "original_seed_checks": 25,
+  "matched_programs": 6,
+  "matched_frontend_files": 4,
+  "performance_table_rows_verified": 12
+}

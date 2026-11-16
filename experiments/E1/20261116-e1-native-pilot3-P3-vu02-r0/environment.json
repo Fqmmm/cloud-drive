@@ -1,0 +1,72 @@
+{
+  "captured_utc": "2026-11-16T11:10:20.023654+00:00",
+  "source_commit": "66550e4bf6c977fee056ed3edf2cd4cbbdb583ab",
+  "branch": "feat/e1-native",
+  "mode": "six direct Linux processes and matching periodic health probes; no Docker business containers",
+  "distro": "CloudDrive-E1-Native",
+  "system": "Linux Jimmy 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 GNU/Linux\nPRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\nCPUS=4\nMemTotal:        4011240 kB\ncpu io memory pids\n",
+  "linux_cpus": 4,
+  "linux_memory_bytes": 4107509760,
+  "programs": {
+    "java": "VM settings:\n    Max. Heap Size (Estimated): 980.00M\n    Using VM: OpenJDK 64-Bit Server VM\n\nopenjdk version \"17.0.21\" 2026-10-20\nOpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)",
+    "minio": "minio version RELEASE.2025-09-07T16-13-09Z (commit-id=07c3a429bfed433e49018cb0f78a52145d4bedeb)\nRuntime: go1.24.6 linux/amd64\nLicense: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html\nCopyright: 2015-2025 MinIO, Inc.",
+    "mysql": "/opt/e1-native/mysql-image/usr/sbin/mysqld  Ver 8.0.29 for Linux on x86_64 (MySQL Community Server - GPL)",
+    "nginx": "nginx version: nginx/1.28.3"
+  },
+  "program_sha256": "8bcb6ce98feb2d80321a2c7450ab9e63af7f72f993eaa4610cf12657c5298035  /opt/e1-native/apps/auth-service/app.jar\n7f1b61f03bca6a8951e826ac1898cc2c00ab16ad17519a8215ff1065a06dac18  /opt/e1-native/apps/file-service/app/app.jar\n1fd6f7075ef984e16a86421ca79c798973b1753bc81b8d4add54f3c5090701c8  /opt/e1-native/apps/share-service/app.jar\n7c5bd8512c6e966455b1d198209358b2d191c77a83ab377c4073281065fb855f  /opt/e1-native/bin/minio\nbf30939947d1d9ac8dccb6477c336e612760d3ee3c43991085fd54b4c7d741d8  /opt/e1-native/nginx-image/usr/sbin/nginx\nebc126e469382608092af3562bf1ecceafabfc66cf8d8f90bc28ca792ef97dc8  /opt/e1-native/mysql-image/usr/sbin/mysqld\n",
+  "usable_memory_difference_from_reference_bytes": -12288,
+  "memory_budget_note": "Same configured 4 GiB WSL budget; up to 1 MiB usable-MemTotal boot-reservation variation accepted and recorded",
+  "provenance": {
+    "distro": "CloudDrive-E1-Native",
+    "install_location": "D:\\CloudDriveLab\\E1Native\\wsl",
+    "image_ids": {
+      "auth-service": "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+      "file-service": "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+      "frontend": "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+      "minio": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "mysql": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "share-service": "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d"
+    },
+    "method": "Export immutable filesystem from newly-created, never-started helper containers; WSL direct processes during measurement",
+    "export_sha256": {
+      "auth-service.tar": "15bd796752bb33b1e4bcbcac9eb9d3485a6227b41a12dc58eebb06a818a984e6",
+      "file-service.tar": "bbaad6dee8c5af8b871a1d98831a2163dc2cf6d1940c1cee611c2046804d52c8",
+      "frontend.tar": "fd315d4c40e40cc5bae377fa200573c9ab20582ac966db624fa3af62f10fa165",
+      "mc": "01f866e9c5f9b87c2b09116fa5d7c06695b106242d829a8bb32990c00312e891",
+      "minio": "7c5bd8512c6e966455b1d198209358b2d191c77a83ab377c4073281065fb855f",
+      "mysql.tar": "dccacfc09dd8fdf09e403365433d0ccee368a53db36c3b10c2feae6ef8531bca",
+      "share-service.jar": "1fd6f7075ef984e16a86421ca79c798973b1753bc81b8d4add54f3c5090701c8"
+    }
+  },
+  "request_base_url": "http://127.0.0.1:18080",
+  "storage": "Native WSL ext4 VHDX on Windows D, container reference VHDX on C; both partitions on physical disk 0",
+  "cgroup": "Dedicated child groups for accounting, no service CPU/memory hard limits",
+  "cpu_definition": "cgroup usage_usec / monotonic wall time; container reference uses Engine system-CPU normalization",
+  "memory_definition": "memory.current minus inactive_file, same working-set convention as reference; RSS/PSS additionally recorded",
+  "load_tool": "Same Windows Python/requests closed-VU generator, 1 s think time",
+  "host_os": "Windows-11-10.0.26200-SP0",
+  "disk_free_bytes": {
+    "C:/": 19739787264,
+    "D:/": 125129580544
+  },
+  "initial_database_records": "580",
+  "harness_sha256": {
+    "scripts\\native\\experiment.py": "e5ecc96f5777b221b4e3580f6745b405261c30488954acbb3cc689be47128e3a",
+    "scripts\\native\\prepare.py": "f811f9c9c026b5928ab3d44ac61545302b1976dd06d25c1379c3512f44b36767",
+    "scripts\\native\\runtime.py": "6109881e7f38c69dfef2e784b9bd70b9b379d2242ad4f67821ac92324d97a874",
+    "scripts\\native\\sampling.py": "7c0c5a5135957cbfaca8e8af4394786f7cc537729aab2021f9c5e704a96d82e6",
+    "scripts\\native\\test_runtime.py": "c2586a42fba4b20c87af23a5f998fd9be88a9610d6439b0c44a31d5bc82b121e",
+    "scripts\\native\\mysql-client.sh": "46fb98b63ba016fd010bae3a87d021e7e3171843c1be7ac99a035e70693cbc59",
+    "scripts\\native\\service.sh": "f1c77530ee4bc34d3377a6b407d3e94835a3e814db0c094e3cf01dfa42ac5091",
+    "scripts\\native\\NativeSampler.java": "cb1f19bf454f05dc22733b02b5511183269c53bd994c83e099af90bfe5698900",
+    "scripts\\performance\\workload.py": "c4fbf5fa573635db1ac39b04f4890c6cbd5875f2d042ee32d2bf1d0f4c08b746",
+    "scripts\\performance\\common.py": "24a0d7fbe16e91e9e9428cef2d1d6bfcd0e265b1b966a961b83d88e083a3fb80"
+  },
+  "dataset": {
+    "vus": 5,
+    "list_entries_per_vu": 100,
+    "one_mib_seed_files": 5,
+    "unused_twenty_mib_seed_files": 5,
+    "total_file_records_after_setup": 1100
+  }
+}

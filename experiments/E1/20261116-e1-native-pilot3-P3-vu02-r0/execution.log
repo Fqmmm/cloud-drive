@@ -1,0 +1,5 @@
+2026-11-16T11:11:05.353426+00:00 20261116-e1-native-pilot3-P3-vu02-r0: warmup: started; duration=3s; VUs=2
+2026-11-16T11:11:08.604926+00:00 20261116-e1-native-pilot3-P3-vu02-r0: warmup: finished; drain=0.001s
+2026-11-16T11:11:08.606333+00:00 20261116-e1-native-pilot3-P3-vu02-r0: measure: started; duration=5s; VUs=2
+2026-11-16T11:11:13.857984+00:00 20261116-e1-native-pilot3-P3-vu02-r0: measure: finished; drain=0.002s
+2026-11-16T11:11:16.987371+00:00 20261116-e1-native-pilot3-P3-vu02-r0: round complete

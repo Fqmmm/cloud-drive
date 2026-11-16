@@ -1,0 +1,52 @@
+{
+  "scenario": "P2",
+  "vus": 5,
+  "repeat": 3,
+  "order": 17,
+  "run_id": "20261116-e1-native-formal-P2-vu05-r3",
+  "batch": "20261116-e1-native-formal",
+  "file_size_bytes": 1048576,
+  "request_base_url": "http://127.0.0.1:18080",
+  "warmup_seconds": 30,
+  "measure_seconds": 120,
+  "minimum_cooldown_seconds": 30,
+  "max_uploads_per_vu_including_warmup": 150,
+  "complete": true,
+  "upload_cap_hit_by_vu": [
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "jwt_remaining_seconds_before_warmup": [
+    7199.160617589951,
+    7199.960144996643,
+    7199.757821321487,
+    7199.555850744247,
+    7199.373606443405
+  ],
+  "warmup": {
+    "start_epoch": 1794831607.8776543,
+    "end_epoch": 1794831637.8776543,
+    "actual_drain_seconds": 0.10210609436035156
+  },
+  "measurement": {
+    "start_epoch": 1794831638.2298017,
+    "end_epoch": 1794831758.2298017,
+    "actual_drain_seconds": 0.1023566722869873
+  },
+  "upload_requests_by_vu_including_warmup": [
+    142,
+    139,
+    139,
+    139,
+    139
+  ],
+  "cooldown": {
+    "seconds": 30.029560565948486,
+    "stable": true,
+    "threshold_total_cpu_percent": 80.0,
+    "observed_max_total_cpu_percent": 14.761667601656221
+  }
+}
