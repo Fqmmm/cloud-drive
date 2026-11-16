@@ -126,4 +126,3 @@ if __name__ == "__main__":
     parser.add_argument("parent_pid", type=int)
     arguments = parser.parse_args()
     collect(arguments.folder, json.loads(arguments.containers.read_text()), arguments.parent_pid)
-

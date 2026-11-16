@@ -1,0 +1,23 @@
+{
+  "distro": "CloudDrive-E1-Native",
+  "install_location": "D:\\CloudDriveLab\\E1Native\\wsl",
+  "image_ids": {
+    "auth-service": "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+    "file-service": "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+    "frontend": "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+    "minio": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+    "mysql": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+    "share-service": "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d"
+  },
+  "method": "Export immutable filesystem from newly-created, never-started helper containers; WSL direct processes during measurement",
+  "export_sha256": {
+    "auth-service.tar": "15bd796752bb33b1e4bcbcac9eb9d3485a6227b41a12dc58eebb06a818a984e6",
+    "file-service.tar": "bbaad6dee8c5af8b871a1d98831a2163dc2cf6d1940c1cee611c2046804d52c8",
+    "frontend.tar": "fd315d4c40e40cc5bae377fa200573c9ab20582ac966db624fa3af62f10fa165",
+    "mc": "01f866e9c5f9b87c2b09116fa5d7c06695b106242d829a8bb32990c00312e891",
+    "minio": "7c5bd8512c6e966455b1d198209358b2d191c77a83ab377c4073281065fb855f",
+    "mysql.tar": "dccacfc09dd8fdf09e403365433d0ccee368a53db36c3b10c2feae6ef8531bca",
+    "share-service.jar": "1fd6f7075ef984e16a86421ca79c798973b1753bc81b8d4add54f3c5090701c8",
+    "ShareHealthProbe.class": "f1f07d5bd8b229fb8c81cda6a2d7f2c007af2c6c92773f26463e9ee1b1a587cc"
+  }
+}

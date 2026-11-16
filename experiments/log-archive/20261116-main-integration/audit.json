@@ -1,0 +1,11 @@
+{
+  "verified_utc": "2026-11-16T14:15:39.375742+00:00",
+  "source_files_unchanged": 55,
+  "archive_hashes_verified": 55,
+  "log_line_counts_preserved": 42,
+  "original_git_records_verified": 1698,
+  "private_text_sources_covered": 46,
+  "credential_findings": 0,
+  "local_links_verified": 16,
+  "empty_archived_logs": 8
+}

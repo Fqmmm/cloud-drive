@@ -1,0 +1,30 @@
+[
+  {
+    "base": "http://localhost:8080",
+    "connection": 1,
+    "elapsed_ms": 3040.511000001061,
+    "status": 200,
+    "utc_epoch": 1794804289.7549965
+  },
+  {
+    "base": "http://localhost:8080",
+    "connection": 2,
+    "elapsed_ms": 2.2404999999707798,
+    "status": 200,
+    "utc_epoch": 1794804289.7572408
+  },
+  {
+    "base": "http://127.0.0.1:8080",
+    "connection": 1,
+    "elapsed_ms": 3.3186999989993637,
+    "status": 200,
+    "utc_epoch": 1794804289.760651
+  },
+  {
+    "base": "http://127.0.0.1:8080",
+    "connection": 2,
+    "elapsed_ms": 1.4527999992424157,
+    "status": 200,
+    "utc_epoch": 1794804289.7621064
+  }
+]

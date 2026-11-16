@@ -1,0 +1,45 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.11)
+
+2026-11-16T11:05:15.789Z  INFO 120 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : Starting AuthApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 120 (/opt/e1-native/apps/auth-service/app.jar started by root in /mnt/d/Jimmy/_cloud/cloud-drive)
+2026-11-16T11:05:15.792Z  INFO 120 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T11:05:18.389Z  INFO 120 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 18081 (http)
+2026-11-16T11:05:18.424Z  INFO 120 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T11:05:18.425Z  INFO 120 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-11-16T11:05:18.477Z  INFO 120 --- [auth-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T11:05:18.478Z  INFO 120 --- [auth-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2573 ms
+2026-11-16T11:05:20.112Z  INFO 120 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 18081 (http) with context path '/'
+2026-11-16T11:05:20.160Z  INFO 120 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : Started AuthApplication in 5.49 seconds (process running for 6.472)
+2026-11-16T11:05:20.281Z  INFO 120 --- [auth-service] [io-18081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T11:05:20.281Z  INFO 120 --- [auth-service] [io-18081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T11:05:20.282Z  INFO 120 --- [auth-service] [io-18081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-11-16T11:05:20.882Z  INFO 120 --- [auth-service] [io-18081-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=5a6327e3-fd1a-4860-a0b3-251c3f157c0e category=health status=200 durationMs=591 interrupted=false instance=local
+2026-11-16T11:05:21.944Z  INFO 120 --- [auth-service] [io-18081-exec-2] c.jiayuan.drive.auth.RequestObservation  : request id=91f87f88b104c2d5768a86eb543228cc category=authentication status=200 durationMs=356 interrupted=false instance=local
+2026-11-16T11:05:22.174Z  INFO 120 --- [auth-service] [io-18081-exec-4] c.jiayuan.drive.auth.RequestObservation  : request id=6bbbad2e200f518968ab2464acc76564 category=authentication status=200 durationMs=223 interrupted=false instance=local
+2026-11-16T11:05:22.409Z  INFO 120 --- [auth-service] [io-18081-exec-6] c.jiayuan.drive.auth.RequestObservation  : request id=aebb78d6268a3d830e564edfb091ed64 category=authentication status=409 durationMs=229 interrupted=false instance=local
+2026-11-16T11:05:22.617Z  INFO 120 --- [auth-service] [io-18081-exec-7] c.jiayuan.drive.auth.RequestObservation  : request id=ab7173c56e42673b6266f388a8e137a2 category=authentication status=409 durationMs=202 interrupted=false instance=local
+2026-11-16T11:05:22.634Z  INFO 120 --- [auth-service] [io-18081-exec-9] c.jiayuan.drive.auth.RequestObservation  : request id=e14d85b954337e02aa08c428968d7641 category=authentication status=400 durationMs=13 interrupted=false instance=local
+2026-11-16T11:05:22.641Z  INFO 120 --- [auth-service] [o-18081-exec-10] c.jiayuan.drive.auth.RequestObservation  : request id=b4e50754b50a7b903cd664ceee76df4b category=authentication status=400 durationMs=2 interrupted=false instance=local
+2026-11-16T11:05:22.647Z  INFO 120 --- [auth-service] [io-18081-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=a46c52bbb85303d0ae4a2e7f69cca5d1 category=authentication status=400 durationMs=1 interrupted=false instance=local
+2026-11-16T11:05:22.653Z  INFO 120 --- [auth-service] [io-18081-exec-2] c.jiayuan.drive.auth.RequestObservation  : request id=4ac3c83d49b48c87f9013e733b117fc2 category=authentication status=400 durationMs=2 interrupted=false instance=local
+2026-11-16T11:05:22.659Z  INFO 120 --- [auth-service] [io-18081-exec-3] c.jiayuan.drive.auth.RequestObservation  : request id=138c2f010d33ff1767a0ecae352ae204 category=authentication status=400 durationMs=2 interrupted=false instance=local
+2026-11-16T11:05:22.665Z  INFO 120 --- [auth-service] [io-18081-exec-4] c.jiayuan.drive.auth.RequestObservation  : request id=02099e031c8269960ce966bc38a6416e category=authentication status=400 durationMs=2 interrupted=false instance=local
+2026-11-16T11:05:22.669Z  INFO 120 --- [auth-service] [io-18081-exec-5] c.jiayuan.drive.auth.RequestObservation  : request id=f7219227bc87b69fce8442e82b471115 category=authentication status=400 durationMs=1 interrupted=false instance=local
+2026-11-16T11:05:22.674Z  INFO 120 --- [auth-service] [io-18081-exec-6] c.jiayuan.drive.auth.RequestObservation  : request id=a60fa26bdcef673a8151921bcb82a37a category=authentication status=400 durationMs=2 interrupted=false instance=local
+2026-11-16T11:05:22.679Z  INFO 120 --- [auth-service] [io-18081-exec-7] c.jiayuan.drive.auth.RequestObservation  : request id=b733e4bc38def40fda73fa7ba75de273 category=authentication status=400 durationMs=1 interrupted=false instance=local
+2026-11-16T11:05:22.684Z  INFO 120 --- [auth-service] [io-18081-exec-8] c.jiayuan.drive.auth.RequestObservation  : request id=b6528073b25da100db0820b739dc0119 category=authentication status=400 durationMs=2 interrupted=false instance=local
+2026-11-16T11:05:22.881Z  INFO 120 --- [auth-service] [io-18081-exec-9] c.jiayuan.drive.auth.RequestObservation  : request id=2eb6e5d44e644c6f9be3021e6af3222b category=authentication status=401 durationMs=194 interrupted=false instance=local
+2026-11-16T11:05:23.087Z  INFO 120 --- [auth-service] [io-18081-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=448c716beecb2c715fe52609a70f7676 category=authentication status=200 durationMs=201 interrupted=false instance=local
+2026-11-16T11:05:23.281Z  INFO 120 --- [auth-service] [io-18081-exec-3] c.jiayuan.drive.auth.RequestObservation  : request id=8c5ec980747300eec992c6e26b5cd9c0 category=authentication status=200 durationMs=188 interrupted=false instance=local
+2026-11-16T11:05:23.304Z  INFO 120 --- [auth-service] [io-18081-exec-5] c.jiayuan.drive.auth.RequestObservation  : request id=537c8d1c5c0ddc78b7f99d8239d63ee2 category=other status=200 durationMs=17 interrupted=false instance=local
+2026-11-16T11:05:23.724Z  INFO 120 --- [auth-service] [io-18081-exec-7] c.jiayuan.drive.auth.RequestObservation  : request id=6f495c83-8b10-4d0f-868d-6803a6bb0e81 category=health status=200 durationMs=3 interrupted=false instance=local
+2026-11-16T11:05:33.790Z  INFO 120 --- [auth-service] [io-18081-exec-9] c.jiayuan.drive.auth.RequestObservation  : request id=f68a7b7b-e213-450c-9f74-164f040110b8 category=health status=200 durationMs=3 interrupted=false instance=local
+2026-11-16T11:05:33.947Z  INFO 120 --- [auth-service] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-16T11:05:33.949Z  INFO 120 --- [auth-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

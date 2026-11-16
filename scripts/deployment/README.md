@@ -39,3 +39,16 @@ Docker 总 CPU/内存预算不变，不新增单容器配额。结束恢复一�
 `e2_analyze.py` 从各轮原始请求、迭代和资源 CSV 重新计算指标，导出部署表、副本对照表及 PNG/SVG 图。
 论文使用的结果报告位于 [docs/exp](../../docs/exp/README.md)。
 原 Java/前端代码规范检查器不覆盖本轮 Python/PowerShell 新脚本，不能用它们证明实验脚本通过；验证见单元测试、配置解析、实际构建和实验原始记录。
+
+## 论文日志归档
+
+`archive_experiment_logs.py` 索引已提交的 `experiments/` 文件，脱敏归档本机实验日志、诊断 JSON/CSV，
+并只读保存原六容器截至固定时刻仍保留的日志。`--native-wsl` 另采集已停止的专用原生环境内的文件日志，
+发现活跃实验会拒绝操作。源文保留，输出附 SHA-256、原文/归档行数和来源路径；已移除或轮转的日志按实际覆盖情况说明。
+
+```powershell
+python -m unittest discover -s scripts/deployment -p test_archive_experiment_logs.py
+python scripts/deployment/archive_experiment_logs.py --name <新的唯一归档名> --native-wsl
+```
+
+先提交已有实验目录，再创建新归档。当前完整索引见 [日志归档](../../experiments/log-archive/20261116-main-integration/README.md)。

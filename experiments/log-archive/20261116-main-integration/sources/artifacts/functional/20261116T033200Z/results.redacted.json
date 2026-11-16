@@ -1,0 +1,534 @@
+{
+  "timestamp": "20261116T033200Z",
+  "base_url": "http://localhost:8080",
+  "source_commit": "e2c2f048c31a8bb45272c1a95ba1d1a440aba64f",
+  "with_outages": true,
+  "api_only": false,
+  "results": [
+    {
+      "requirement": "FR-01",
+      "case": "valid personal registration",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "valid personal registration",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "case-insensitive duplicate account rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "duplicate email rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration accountName rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration accountName rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration accountName rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration password rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration password rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration nickname rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration nickname rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration email rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "invalid registration accountType rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "missing required fields rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "wrong credentials rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "normalized login and minimal string-ID profile",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "missing forged or expired credentials rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "missing forged or expired credentials rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "missing forged or expired credentials rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "password stored only as a strong hash",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "empty directory and breadcrumb",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "other user cannot browse private directory",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "invalid directory name rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "case-sensitive names and 255-character boundary accepted",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "case-sensitive names and 255-character boundary accepted",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "case-sensitive names and 255-character boundary accepted",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "directory rename keeps identity",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-08",
+      "case": "default total quota and zero directory usage",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "upload increases usage by actual bytes",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "duplicate upload rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "file and directory share a name space",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "nonempty directory cannot be deleted",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "file rename cannot conflict with a directory",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "owner download SHA-256 matches",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "download supplies a filename",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "cross-user file operation rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "cross-user file operation rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "cross-user file operation rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "cross-user file operation rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "other user's root contains no owner entries",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "single-file limit enforced",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "failed uploads leave quota unchanged",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-08",
+      "case": "three concurrent uploads cannot exceed quota",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-08",
+      "case": "delete restores usage even before physical cleanup",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "directory or invalid share settings rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "directory or invalid share settings rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "directory or invalid share settings rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "supported share expiration",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "supported share expiration",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "supported share expiration",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "supported share expiration",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "generated six-digit code preserves leading zero",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "share URL points to frontend",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "protected metadata is hidden before verification",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "missing numeric or malformed code rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "missing numeric or malformed code rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "missing numeric or malformed code rejected",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "wrong-code rate limit applies",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "correct code bypasses wrong-attempt limit",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "anonymous download is restricted to shared bytes",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "anonymous download is restricted to shared bytes",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "download rechecks code after verify",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "rename keeps file parent content and usage",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "old share uses current filename",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "share list retains original name and hides plaintext code",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "other user's share list is isolated",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "other user cannot cancel owner share",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "share cancellation is idempotent",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "share cancellation is idempotent",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "cancelled share has distinct error",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "cancelling one share leaves another usable",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "expired share is rejected by server",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-11",
+      "case": "history lists active cancelled and expired shares",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "nonexistent share has distinct error",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "file-service outage returns dependency error",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "file-service recovery restores original link",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "storage outage rejects upload",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "storage outage preserves usage and list",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "minio outage returns dependency error",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "minio recovery restores original link",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-07",
+      "case": "permanent delete succeeds",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-07",
+      "case": "repeated delete cannot decrement usage twice",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-07",
+      "case": "deleted file cannot be downloaded",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "deleted source invalidates protected download",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-07",
+      "case": "replacement cannot revive old share",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "empty directory can be deleted",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser password input is masked",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser successful registration clears password",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser duplicate registration retains non-sensitive fields",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser registration enters personal files",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "browser refresh preserves login and profile",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "browser empty state directory navigation and breadcrumb",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "browser upload shows progress and blocks duplicate click",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-08",
+      "case": "browser upload refreshes used and available capacity",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "browser upload failure is visible and retry succeeds",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser download filename and SHA-256",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser failed download can be retried",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "browser clipboard contains public URL",
+      "status": "PASS"
+    }
+  ],
+  "fatal": "TimeoutError: Locator.select_option: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_label(\"访问方式\", exact=True)\n",
+  "limits": [
+    "Browser network interruption is injected before transfer; mid-stream interruption is not verified.",
+    "This is functional acceptance, not formal E1-E4 experiment data."
+  ]
+}

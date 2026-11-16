@@ -1,0 +1,2 @@
+Added `e1` successfully.
+{"status":"error","error":{"message":"Unable to list folder.","cause":{"message":"Access Denied.","error":{"Code":"AccessDenied","Message":"Access Denied.","BucketName":"cloud-drive","Key":"","Resource":"/cloud-drive/","RequestID":"18E881621CADE790","HostID":"470a0afc0f6fdbebb6a8e14ece29122784c0656e19563387135a7c8e02feb163","Region":"","Server":"MinIO"}},"type":"error"}}

@@ -1,0 +1,155 @@
+{
+  "timestamp": "20261116T033426Z",
+  "base_url": "http://localhost:8080",
+  "source_commit": "e2c2f048c31a8bb45272c1a95ba1d1a440aba64f",
+  "with_outages": false,
+  "api_only": false,
+  "browser_only": true,
+  "results": [
+    {
+      "requirement": "FR-01",
+      "case": "browser password input is masked",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser successful registration clears password",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser duplicate registration retains non-sensitive fields",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser registration enters personal files",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "browser refresh preserves login and profile",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "browser empty state directory navigation and breadcrumb",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "browser upload shows progress and blocks duplicate click",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-08",
+      "case": "browser upload refreshes used and available capacity",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-05",
+      "case": "browser upload failure is visible and retry succeeds",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser detects a truncated transfer and discards it",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser download filename and SHA-256",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser failed download can be retried",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "browser clipboard contains public URL",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "browser failed creation clears stale success URL",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-09",
+      "case": "browser clipboard preserves protected URL and code",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser password input is masked",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser successful registration clears password",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-01",
+      "case": "browser duplicate registration retains non-sensitive fields",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-03",
+      "case": "second browser user has separate empty space",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser download filename and SHA-256",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-10",
+      "case": "browser wrong code stays on anonymous page without details",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-06",
+      "case": "browser download filename and SHA-256",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "browser distinguishes cancelled expired and missing links",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-07",
+      "case": "browser permanent-delete confirmation includes filename and recovery warning",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-12",
+      "case": "browser deleted-source page removes download",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-04",
+      "case": "browser directory rename and empty delete",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "browser logout clears credential and profile",
+      "status": "PASS"
+    },
+    {
+      "requirement": "FR-02",
+      "case": "browser expired credential redirects to login",
+      "status": "FAIL"
+    }
+  ],
+  "fatal": "AssertionError: FR-02: browser expired credential redirects to login",
+  "limits": [
+    "Browser upload interruption and truncated-download responses are injected faults.",
+    "This is functional acceptance, not formal E1-E4 experiment data."
+  ]
+}

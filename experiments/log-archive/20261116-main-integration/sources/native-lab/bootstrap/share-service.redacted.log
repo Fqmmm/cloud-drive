@@ -1,0 +1,32 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.11)
+
+2026-11-16T19:02:51.005+08:00  INFO 140 --- [share-service] [           main] c.jiayuan.drive.shares.ShareApplication  : Starting ShareApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 140 (/opt/e1-native/apps/share-service/app.jar started by root in /mnt/d/Jimmy/_cloud/cloud-drive)
+2026-11-16T19:02:51.007+08:00  INFO 140 --- [share-service] [           main] c.jiayuan.drive.shares.ShareApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T19:02:53.643+08:00  INFO 140 --- [share-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 18083 (http)
+2026-11-16T19:02:53.678+08:00  INFO 140 --- [share-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T19:02:53.679+08:00  INFO 140 --- [share-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-11-16T19:02:53.727+08:00  INFO 140 --- [share-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T19:02:53.736+08:00  INFO 140 --- [share-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2619 ms
+2026-11-16T19:02:55.129+08:00  INFO 140 --- [share-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 18083 (http) with context path '/'
+2026-11-16T19:02:55.180+08:00  INFO 140 --- [share-service] [           main] c.jiayuan.drive.shares.ShareApplication  : Started ShareApplication in 5.358 seconds (process running for 6.276)
+2026-11-16T19:02:56.509+08:00  INFO 140 --- [share-service] [io-18083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T19:02:56.509+08:00  INFO 140 --- [share-service] [io-18083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T19:02:56.510+08:00  INFO 140 --- [share-service] [io-18083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-16T19:02:56.862+08:00  INFO 140 --- [share-service] [io-18083-exec-1] c.j.drive.shares.RequestObservation      : request id=3eef763f-ee1d-4727-844d-fefc5b6cff26 category=health status=200 durationMs=347 interrupted=false instance=local
+2026-11-16T19:02:58.349+08:00  INFO 140 --- [share-service] [io-18083-exec-3] c.j.drive.shares.RequestObservation      : request id=a398f199dd86f0348fa02592454d968c category=share-management status=200 durationMs=83 interrupted=false instance=local
+2026-11-16T19:02:58.978+08:00  INFO 140 --- [share-service] [io-18083-exec-5] c.j.drive.shares.RequestObservation      : request id=29ebf7f8-f246-47f4-8bed-dcfc5c310976 category=health status=200 durationMs=4 interrupted=false instance=local
+2026-11-16T19:03:01.227+08:00  INFO 140 --- [share-service] [io-18083-exec-7] c.j.drive.shares.RequestObservation      : request id=ab9bcf604096e64ec58fda885d2fb9cc category=share-management status=200 durationMs=21 interrupted=false instance=local
+2026-11-16T19:03:03.972+08:00  INFO 140 --- [share-service] [io-18083-exec-9] c.j.drive.shares.RequestObservation      : request id=7bc9c21d4f657cc2cc8af6a7358e0d0e category=share-management status=200 durationMs=18 interrupted=false instance=local
+2026-11-16T19:03:06.548+08:00  INFO 140 --- [share-service] [io-18083-exec-1] c.j.drive.shares.RequestObservation      : request id=db854d8ca90416d85ed172e365db157f category=share-management status=200 durationMs=27 interrupted=false instance=local
+2026-11-16T19:03:09.062+08:00  INFO 140 --- [share-service] [io-18083-exec-3] c.j.drive.shares.RequestObservation      : request id=97ad1541-409c-453c-afb8-713f196f048b category=health status=200 durationMs=4 interrupted=false instance=local
+2026-11-16T19:03:09.114+08:00  INFO 140 --- [share-service] [io-18083-exec-5] c.j.drive.shares.RequestObservation      : request id=9b15c1a58e72c7bacfcfbaa31c78e2eb category=share-management status=200 durationMs=19 interrupted=false instance=local
+2026-11-16T19:03:12.444+08:00  INFO 140 --- [share-service] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-16T19:03:12.447+08:00  INFO 140 --- [share-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

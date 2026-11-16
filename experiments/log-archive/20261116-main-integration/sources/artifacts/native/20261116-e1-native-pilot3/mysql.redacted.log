@@ -1,0 +1,10 @@
+2026-11-16T11:09:57.388776Z 0 [Warning] [MY-010101] [Server] Insecure configuration for --secure-file-priv: Location is accessible to all OS users. Consider choosing a different directory.
+2026-11-16T11:09:57.389497Z 0 [System] [MY-010116] [Server] /opt/e1-native/mysql-image/usr/sbin/mysqld (mysqld 8.0.29) starting as process 63
+2026-11-16T11:09:57.426791Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-11-16T11:09:57.662169Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-11-16T11:09:57.945290Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-11-16T11:09:57.945326Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-11-16T11:09:57.984211Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '127.0.0.1' port: 13360, socket: /opt/e1-native/data/mysql/mysqlx.sock
+2026-11-16T11:09:57.984279Z 0 [System] [MY-010931] [Server] /opt/e1-native/mysql-image/usr/sbin/mysqld: ready for connections. Version: '8.0.29'  socket: '/opt/e1-native/data/mysql/mysql.sock'  port: 13306  MySQL Community Server - GPL.
+2026-11-16T11:11:57.268059Z 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.29).
+2026-11-16T11:11:59.731918Z 0 [System] [MY-010910] [Server] /opt/e1-native/mysql-image/usr/sbin/mysqld: Shutdown complete (mysqld 8.0.29)  MySQL Community Server - GPL.

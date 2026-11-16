@@ -1,0 +1,28 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.11)
+
+2026-11-16T11:10:00.471Z  INFO 131 --- [           main] c.jiayuan.drive.files.FileApplication    : Starting FileApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 131 (/opt/e1-native/apps/file-service/app/app.jar started by root in /mnt/d/Jimmy/_cloud/cloud-drive)
+2026-11-16T11:10:00.480Z  INFO 131 --- [           main] c.jiayuan.drive.files.FileApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T11:10:02.962Z  INFO 131 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 18082 (http)
+2026-11-16T11:10:02.987Z  INFO 131 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T11:10:02.988Z  INFO 131 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-11-16T11:10:03.048Z  INFO 131 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T11:10:03.055Z  INFO 131 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2425 ms
+2026-11-16T11:10:04.817Z  INFO 131 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 18082 (http) with context path '/'
+2026-11-16T11:10:04.854Z  INFO 131 --- [           main] c.jiayuan.drive.files.FileApplication    : Started FileApplication in 5.642 seconds (process running for 6.535)
+2026-11-16T11:10:05.115Z  INFO 131 --- [   scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-16T11:10:05.137Z  INFO 131 --- [   scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-16T11:10:05.396Z  INFO 131 --- [.1-18082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T11:10:05.397Z  INFO 131 --- [.1-18082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T11:10:05.397Z  INFO 131 --- [.1-18082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-11-16T11:11:56.849Z  INFO 131 --- [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-16T11:11:56.852Z  INFO 131 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-11-16T11:11:56.855Z  INFO 131 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-16T11:11:56.863Z  INFO 131 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
