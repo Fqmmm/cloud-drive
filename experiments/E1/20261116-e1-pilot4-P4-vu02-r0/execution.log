@@ -1,0 +1,6 @@
+2026-11-16T04:21:11.441933+00:00 20261116-e1-pilot4-P4-vu02-r0: warmup: started; duration=3s; VUs=2
+2026-11-16T04:21:14.893742+00:00 20261116-e1-pilot4-P4-vu02-r0: warmup: finished; drain=0.202s
+2026-11-16T04:21:14.893817+00:00 20261116-e1-pilot4-P4-vu02-r0: measure: started; duration=5s; VUs=2
+2026-11-16T04:21:20.245885+00:00 20261116-e1-pilot4-P4-vu02-r0: measure: finished; drain=0.102s
+2026-11-16T04:21:26.386919+00:00 20261116-e1-pilot4-P4-vu02-r0: checksum and scoped cleanup passed; cooling
+2026-11-16T04:21:29.404907+00:00 20261116-e1-pilot4-P4-vu02-r0: round complete; {'seconds': 3.017341375350952, 'stable': True, 'threshold_total_cpu_percent': 80.0, 'observed_max_total_cpu_percent': 59.816075001831095}

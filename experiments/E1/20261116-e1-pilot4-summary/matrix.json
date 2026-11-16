@@ -1,0 +1,47 @@
+{
+  "batch": "20261116-e1-pilot4",
+  "pilot": true,
+  "source_commit": "7f55913fcd586447714e5345ea721a88f1a72298",
+  "matrix": [
+    {
+      "scenario": "P2",
+      "vus": 2,
+      "repeat": 0,
+      "order": 1
+    },
+    {
+      "scenario": "P3",
+      "vus": 2,
+      "repeat": 0,
+      "order": 2
+    },
+    {
+      "scenario": "P4",
+      "vus": 2,
+      "repeat": 0,
+      "order": 3
+    },
+    {
+      "scenario": "P5U",
+      "vus": 2,
+      "repeat": 0,
+      "order": 4
+    },
+    {
+      "scenario": "P5D",
+      "vus": 2,
+      "repeat": 0,
+      "order": 5
+    }
+  ],
+  "completed": [
+    "20261116-e1-pilot4-P2-vu02-r0",
+    "20261116-e1-pilot4-P3-vu02-r0",
+    "20261116-e1-pilot4-P4-vu02-r0",
+    "20261116-e1-pilot4-P5U-vu02-r0",
+    "20261116-e1-pilot4-P5D-vu02-r0"
+  ],
+  "started_utc": "2026-11-16T04:19:30.811363+00:00",
+  "fixture_credentials": "Only in ignored artifacts/e1; not part of raw public data",
+  "finished_utc": "2026-11-16T04:22:53.415579+00:00"
+}

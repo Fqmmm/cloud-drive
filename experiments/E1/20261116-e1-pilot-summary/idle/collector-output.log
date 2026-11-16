@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "D:\D\miniconda\Lib\site-packages\psutil\_pswindows.py", line 666, in wrapper
+    return fun(self, *args, **kwargs)
+  File "D:\D\miniconda\Lib\site-packages\psutil\_pswindows.py", line 940, in cpu_times
+    user, system, _created = cext.proc_times(self.pid)
+                             ~~~~~~~~~~~~~~~^^^^^^^^^^
+ProcessLookupError: [Errno 3] force no such process (originated from OpenProcess -> ERROR_INVALID_PARAMETER)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Jimmy\_cloud\cloud-drive\scripts\performance\resources.py", line 141, in <module>
+    collect(arguments.folder, json.loads(arguments.containers.read_text()), arguments.parent_pid)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Jimmy\_cloud\cloud-drive\scripts\performance\resources.py", line 120, in collect
+    generator_cpu_percent=generator.cpu_percent(), generator_rss_bytes=generator.memory_info().rss,
+                          ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\D\miniconda\Lib\site-packages\psutil\__init__.py", line 1079, in cpu_percent
+    pt2 = self._proc.cpu_times()
+  File "D:\D\miniconda\Lib\site-packages\psutil\_pswindows.py", line 668, in wrapper
+    raise convert_oserror(err, pid=self.pid, name=self._name) from err
+psutil.NoSuchProcess: process no longer exists (pid=35384)
