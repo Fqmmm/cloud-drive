@@ -1,0 +1,138 @@
+name: ${COMPOSE_PROJECT_NAME:-cloud-drive-course}
+
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:-mysql:8.0.29@sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75}
+    restart: unless-stopped
+    command: ["--default-time-zone=+00:00"]
+    environment:
+      TZ: UTC
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?run scripts/deployment/start.ps1 first}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
+      FILE_DB_PASSWORD: ${FILE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
+      SHARE_DB_PASSWORD: ${SHARE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/sql/course-mysql/init:/docker-entrypoint-initdb.d:ro
+      - ./backend/sql/course-mysql/schema:/opt/course-schema:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$FILE_DB_PASSWORD\" mysql --protocol=TCP -h 127.0.0.1 -u file_user -Nse 'SELECT 1 FROM file_db.schema_version WHERE version = 1' | grep -qx 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
+      start_period: 30s
+
+  minio:
+    image: ${MINIO_IMAGE:-dappros/minio@sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0}
+    restart: unless-stopped
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?run scripts/deployment/start.ps1 first}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?run scripts/deployment/start.ps1 first}
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "--max-time", "2", "http://127.0.0.1:9000/minio/health/ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
+
+  auth-service:
+    image: cloud-drive-auth:${APP_IMAGE_TAG:-local}
+    build:
+      context: ./backend
+      dockerfile: auth-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
+      JWT_SECRET: ${JWT_SECRET:?run scripts/deployment/start.ps1 first}
+      JWT_ISSUER: ${JWT_ISSUER:-course-drive}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-course-drive-api}
+      JWT_TTL_SECONDS: ${JWT_TTL_SECONDS:-7200}
+      APP_VERSION: ${AUTH_APP_VERSION:-course-v1}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  file-service:
+    image: cloud-drive-file:${APP_IMAGE_TAG:-local}
+    build:
+      context: ./backend
+      dockerfile: file-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      FILE_DB_PASSWORD: ${FILE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?run scripts/deployment/start.ps1 first}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?run scripts/deployment/start.ps1 first}
+      JWT_SECRET: ${JWT_SECRET:?run scripts/deployment/start.ps1 first}
+      JWT_ISSUER: ${JWT_ISSUER:-course-drive}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-course-drive-api}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:?run scripts/deployment/start.ps1 first}
+      DEFAULT_QUOTA_BYTES: ${DEFAULT_QUOTA_BYTES:-10737418240}
+      MAX_FILE_BYTES: ${MAX_FILE_BYTES:-104857600}
+      MAX_REQUEST_SIZE: ${MAX_REQUEST_SIZE:-106954752B}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - bash
+        - -ec
+        - |
+          exec 3<>/dev/tcp/127.0.0.1/8080
+          printf 'GET /health/ready HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3
+          read -r protocol status rest <&3
+          test "$$status" = 200
+      interval: 10s
+      timeout: 8s
+      retries: 12
+      start_period: 30s
+
+  share-service:
+    image: cloud-drive-share:${APP_IMAGE_TAG:-local}
+    build:
+      context: ./backend
+      dockerfile: share-service/Dockerfile
+    restart: unless-stopped
+    environment:
+      SHARE_DB_PASSWORD: ${SHARE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
+      JWT_SECRET: ${JWT_SECRET:?run scripts/deployment/start.ps1 first}
+      JWT_ISSUER: ${JWT_ISSUER:-course-drive}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-course-drive-api}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:?run scripts/deployment/start.ps1 first}
+      FILE_SERVICE_URL: http://file-service:8080
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:8080}
+      SHARE_CODE_MAX_FAILURES: ${SHARE_CODE_MAX_FAILURES:-5}
+      SHARE_CODE_WINDOW_SECONDS: ${SHARE_CODE_WINDOW_SECONDS:-60}
+      EXPERIMENT_FAULTS_ENABLED: ${EXPERIMENT_FAULTS_ENABLED:-false}
+      APP_VERSION: ${SHARE_APP_VERSION:-course-v1}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      file-service:
+        condition: service_healthy
+
+  frontend:
+    image: cloud-drive-frontend:${APP_IMAGE_TAG:-local}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_MAX_FILE_BYTES: ${MAX_FILE_BYTES:-104857600}
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-8080}:80"
+    depends_on:
+      auth-service:
+        condition: service_healthy
+      file-service:
+        condition: service_healthy
+      share-service:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+  minio_data:

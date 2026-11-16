@@ -1,0 +1,5 @@
+# Local deployment credentials and generated acceptance output.
+/.env
+/.env.local
+/artifacts/
+__pycache__/

@@ -1,5 +1,9 @@
 # Web Drive
 
+课程版六容器入口：在仓库根目录执行 `pwsh -NoProfile -File scripts/deployment/start.ps1`，
+打开 <http://localhost:8080>。配置、停止及数据卷说明见 [本地部署指南](docs/local-deployment.md)。
+课程版只运行个人文件、认证与分享；下文保留原完整项目说明。
+
 协作网盘系统，支持个人空间、团队空间、RBAC 权限控制、文件分享与回收站。
 
 ## 技术栈
