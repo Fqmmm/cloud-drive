@@ -43,5 +43,24 @@ docker compose logs --tail 80 auth-service file-service share-service
 默认单文件 100 MiB、每用户 10 GiB。调大 MAX_FILE_BYTES 时须同时调整 MAX_REQUEST_SIZE、
 frontend/nginx/default.conf 的 client_max_body_size 并重建前端；前端显示限制由构建参数自动同步。
 
-此入口用于本地功能核验，FR-01—FR-12 以 [功能需求](functional-requirements.md)为准。
-本轮运行结果和环境记录在 [本地验收记录](local-validation.md)，正式 E1—E4 实验另行执行。
+## 功能验证
+
+FR-01—FR-12 以 [功能需求](functional-requirements.md)为准。测试在当前根 Compose 上创建随机测试账号，
+通过同源前端访问 API，并使用两个已登录浏览器和一个匿名浏览器。需要 Python、requests、Playwright 和 Chromium；
+本机这些依赖已经具备。其他开发机如需准备测试依赖，可执行 `python -m pip install requests playwright` 和
+`python -m playwright install chromium`。运行服务本身不需要这些测试依赖。
+
+```powershell
+# API 与真实页面流程；会短暂停止本项目的文件服务和 MinIO，并在 finally 中恢复
+python -u scripts/smoke/functional.py --with-outages
+# 仅 API 或仅浏览器复验
+python -u scripts/smoke/functional.py --api-only --with-outages
+python -u scripts/smoke/functional.py --browser-only
+```
+
+自定义入口时传 `--base-url http://localhost:<端口>`，与 PUBLIC_BASE_URL 保持一致。
+超额和到期用例只调整本次临时账号的配额与临时分享到期时间，不修改表结构；配额测试后恢复。
+临时账号与分享历史保留在本地库中，测试脚本清理其 API 样本文件；不输出密码、JWT、提取码或完整分享地址。
+上传断网及截断下载由测试注入；依赖停止/恢复为真实容器操作。结果写入 Git 忽略的 artifacts/functional/<UTC批次>/。
+
+本轮结果和环境记录在 [本地验收记录](local-validation.md)，正式 E1—E4 实验另行执行。
