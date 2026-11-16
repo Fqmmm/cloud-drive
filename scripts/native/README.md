@@ -11,3 +11,18 @@ python scripts/native/prepare.py
 参照 [Microsoft 自定义 WSL 导入流程](https://learn.microsoft.com/en-us/windows/wsl/use-custom-distro)。
 
 本轮不运行 P5。最终报告与对照解释放在 docs/exp，原始请求和资源记录放在 experiments/E1。
+
+```powershell
+python -m unittest discover -s scripts/native -p test_runtime.py
+python scripts/native/experiment.py --pilot --batch <新的短试跑名>
+python scripts/native/experiment.py --batch <新的正式批次名>
+python scripts/performance/analyze.py <正式批次名>
+```
+
+运行前原 Docker 项目停止，正式测量期间 Docker Desktop 不运行。恢复原环境由正式控制器收尾执行，
+使用 `docker compose start` 保留原容器 ID、镜像和卷，最后验证原 25 份文件。
+原生凭证保存在 D 盘专用目录和忽略的 artifacts/native 中，不用于根 Compose。
+Windows 通过 --exec 调用 WSL，避免变量被外层 shell 展开；专用清理验证账号身份、配额和对象作用域。
+CPU 为 cgroup 用量增量/单调时钟，内存为 memory.current 减 inactive_file，另存 RSS/PSS；
+采样器本身的 CPU/内存、Windows 负载端资源和供电状态单独记录。
+原 Java/前端规则检查器不覆盖本轮 Python/shell/Java 采样工具，验证以 Java 17 编译、shell 解析、实际功能与采样试跑及相关回归为准。

@@ -46,7 +46,7 @@ def main():
     command(["wsl.exe", "--import", DISTRO, str(LAB / "wsl"), str(exports / "auth-service.tar"), "--version", "2"])
     provenance["export_sha256"] = {p.name: hashlib.file_digest(p.open("rb"), "sha256").hexdigest() for p in exports.iterdir()}
     (LAB / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n", encoding="utf-8")
-    command(["wsl.exe", "-d", DISTRO, "-u", "root", "--", "bash", "-c",
+    command(["wsl.exe", "-d", DISTRO, "-u", "root", "--exec", "bash", "-c",
         "mkdir -p /opt/e1-native/{bin,apps,pids,logs,mysql-image,nginx-image}; /opt/java/openjdk/bin/java -version"])
     print("Dedicated native WSL environment imported on D; existing distributions unchanged.", flush=True)
 
