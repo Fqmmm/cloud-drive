@@ -1,0 +1,299 @@
+{
+  "batch": "20261116-e1-formal-ipv4",
+  "pilot": false,
+  "source_commit": "5fb0392cbf0e71ec8c8f7ce4d42d0ba46c8a4d72",
+  "matrix": [
+    {
+      "scenario": "P1",
+      "vus": 5,
+      "repeat": 1,
+      "order": 1
+    },
+    {
+      "scenario": "P1",
+      "vus": 10,
+      "repeat": 1,
+      "order": 2
+    },
+    {
+      "scenario": "P1",
+      "vus": 20,
+      "repeat": 1,
+      "order": 3
+    },
+    {
+      "scenario": "P1",
+      "vus": 10,
+      "repeat": 2,
+      "order": 4
+    },
+    {
+      "scenario": "P1",
+      "vus": 20,
+      "repeat": 2,
+      "order": 5
+    },
+    {
+      "scenario": "P1",
+      "vus": 5,
+      "repeat": 2,
+      "order": 6
+    },
+    {
+      "scenario": "P1",
+      "vus": 20,
+      "repeat": 3,
+      "order": 7
+    },
+    {
+      "scenario": "P1",
+      "vus": 5,
+      "repeat": 3,
+      "order": 8
+    },
+    {
+      "scenario": "P1",
+      "vus": 10,
+      "repeat": 3,
+      "order": 9
+    },
+    {
+      "scenario": "P2",
+      "vus": 5,
+      "repeat": 1,
+      "order": 10
+    },
+    {
+      "scenario": "P2",
+      "vus": 10,
+      "repeat": 1,
+      "order": 11
+    },
+    {
+      "scenario": "P2",
+      "vus": 20,
+      "repeat": 1,
+      "order": 12
+    },
+    {
+      "scenario": "P2",
+      "vus": 10,
+      "repeat": 2,
+      "order": 13
+    },
+    {
+      "scenario": "P2",
+      "vus": 20,
+      "repeat": 2,
+      "order": 14
+    },
+    {
+      "scenario": "P2",
+      "vus": 5,
+      "repeat": 2,
+      "order": 15
+    },
+    {
+      "scenario": "P2",
+      "vus": 20,
+      "repeat": 3,
+      "order": 16
+    },
+    {
+      "scenario": "P2",
+      "vus": 5,
+      "repeat": 3,
+      "order": 17
+    },
+    {
+      "scenario": "P2",
+      "vus": 10,
+      "repeat": 3,
+      "order": 18
+    },
+    {
+      "scenario": "P3",
+      "vus": 5,
+      "repeat": 1,
+      "order": 19
+    },
+    {
+      "scenario": "P3",
+      "vus": 10,
+      "repeat": 1,
+      "order": 20
+    },
+    {
+      "scenario": "P3",
+      "vus": 20,
+      "repeat": 1,
+      "order": 21
+    },
+    {
+      "scenario": "P3",
+      "vus": 10,
+      "repeat": 2,
+      "order": 22
+    },
+    {
+      "scenario": "P3",
+      "vus": 20,
+      "repeat": 2,
+      "order": 23
+    },
+    {
+      "scenario": "P3",
+      "vus": 5,
+      "repeat": 2,
+      "order": 24
+    },
+    {
+      "scenario": "P3",
+      "vus": 20,
+      "repeat": 3,
+      "order": 25
+    },
+    {
+      "scenario": "P3",
+      "vus": 5,
+      "repeat": 3,
+      "order": 26
+    },
+    {
+      "scenario": "P3",
+      "vus": 10,
+      "repeat": 3,
+      "order": 27
+    },
+    {
+      "scenario": "P4",
+      "vus": 5,
+      "repeat": 1,
+      "order": 28
+    },
+    {
+      "scenario": "P4",
+      "vus": 10,
+      "repeat": 1,
+      "order": 29
+    },
+    {
+      "scenario": "P4",
+      "vus": 20,
+      "repeat": 1,
+      "order": 30
+    },
+    {
+      "scenario": "P4",
+      "vus": 10,
+      "repeat": 2,
+      "order": 31
+    },
+    {
+      "scenario": "P4",
+      "vus": 20,
+      "repeat": 2,
+      "order": 32
+    },
+    {
+      "scenario": "P4",
+      "vus": 5,
+      "repeat": 2,
+      "order": 33
+    },
+    {
+      "scenario": "P4",
+      "vus": 20,
+      "repeat": 3,
+      "order": 34
+    },
+    {
+      "scenario": "P4",
+      "vus": 5,
+      "repeat": 3,
+      "order": 35
+    },
+    {
+      "scenario": "P4",
+      "vus": 10,
+      "repeat": 3,
+      "order": 36
+    },
+    {
+      "scenario": "P5U",
+      "vus": 5,
+      "repeat": 1,
+      "order": 37
+    },
+    {
+      "scenario": "P5U",
+      "vus": 5,
+      "repeat": 2,
+      "order": 38
+    },
+    {
+      "scenario": "P5U",
+      "vus": 5,
+      "repeat": 3,
+      "order": 39
+    },
+    {
+      "scenario": "P5D",
+      "vus": 5,
+      "repeat": 1,
+      "order": 40
+    },
+    {
+      "scenario": "P5D",
+      "vus": 5,
+      "repeat": 2,
+      "order": 41
+    },
+    {
+      "scenario": "P5D",
+      "vus": 5,
+      "repeat": 3,
+      "order": 42
+    }
+  ],
+  "completed": [
+    "20261116-e1-formal-ipv4-P1-vu05-r1",
+    "20261116-e1-formal-ipv4-P1-vu10-r1",
+    "20261116-e1-formal-ipv4-P1-vu20-r1",
+    "20261116-e1-formal-ipv4-P1-vu10-r2",
+    "20261116-e1-formal-ipv4-P1-vu20-r2",
+    "20261116-e1-formal-ipv4-P1-vu05-r2",
+    "20261116-e1-formal-ipv4-P1-vu20-r3",
+    "20261116-e1-formal-ipv4-P1-vu05-r3",
+    "20261116-e1-formal-ipv4-P1-vu10-r3",
+    "20261116-e1-formal-ipv4-P2-vu05-r1",
+    "20261116-e1-formal-ipv4-P2-vu10-r1",
+    "20261116-e1-formal-ipv4-P2-vu20-r1",
+    "20261116-e1-formal-ipv4-P2-vu10-r2",
+    "20261116-e1-formal-ipv4-P2-vu20-r2",
+    "20261116-e1-formal-ipv4-P2-vu05-r2",
+    "20261116-e1-formal-ipv4-P2-vu20-r3",
+    "20261116-e1-formal-ipv4-P2-vu05-r3",
+    "20261116-e1-formal-ipv4-P2-vu10-r3",
+    "20261116-e1-formal-ipv4-P3-vu05-r1",
+    "20261116-e1-formal-ipv4-P3-vu10-r1",
+    "20261116-e1-formal-ipv4-P3-vu20-r1",
+    "20261116-e1-formal-ipv4-P3-vu10-r2",
+    "20261116-e1-formal-ipv4-P3-vu20-r2",
+    "20261116-e1-formal-ipv4-P3-vu05-r2",
+    "20261116-e1-formal-ipv4-P3-vu20-r3",
+    "20261116-e1-formal-ipv4-P3-vu05-r3",
+    "20261116-e1-formal-ipv4-P3-vu10-r3"
+  ],
+  "started_utc": "2026-11-16T04:54:58.246302+00:00",
+  "fixture_credentials": "Only in ignored artifacts/e1; not part of raw public data",
+  "paused": true,
+  "paused_after": "P3",
+  "paused_utc": "2026-11-16T06:23:08.643321+00:00",
+  "pause_reason": "User requested a pause after P3 before moving the computer",
+  "remaining_scenarios": [
+    "P4",
+    "P5U",
+    "P5D"
+  ]
+}

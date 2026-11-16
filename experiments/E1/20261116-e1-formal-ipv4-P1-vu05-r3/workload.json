@@ -1,0 +1,62 @@
+{
+  "scenario": "P1",
+  "vus": 5,
+  "repeat": 3,
+  "order": 8,
+  "run_id": "20261116-e1-formal-ipv4-P1-vu05-r3",
+  "batch": "20261116-e1-formal-ipv4",
+  "file_size_bytes": 1048576,
+  "request_base_url": "http://127.0.0.1:8080",
+  "model": "closed constant VUs; stagger first request by VU/VUs seconds; sleep 1 second after each business iteration",
+  "warmup_seconds": 30,
+  "measure_seconds": 120,
+  "minimum_cooldown_seconds": 30,
+  "max_uploads_per_vu_including_warmup": 150,
+  "maximum_upload_bytes": 786432000,
+  "entries_per_vu": 100,
+  "request_timeout": {
+    "connect_seconds": 3,
+    "read_seconds": 30
+  },
+  "p4": "one iteration = anonymous protected-share verify then download; no bearer token; operations tagged separately",
+  "measurement": {
+    "start_epoch": 1794806224.7929568,
+    "end_epoch": 1794806344.7929568,
+    "actual_drain_seconds": 0.10191726684570312
+  },
+  "hash_seed": 20261116,
+  "sha256": "188c1f9720a39b1bc9df6d1a2fa0e28c7a0a6e744aaaeee807ab2ce6461ee9de",
+  "jwt_remaining_seconds_before_warmup": [
+    7199.596404075623,
+    7199.402987718582,
+    7199.195920467377,
+    7199.012615680695,
+    7199.810383796692
+  ],
+  "warmup": {
+    "start_epoch": 1794806194.440744,
+    "end_epoch": 1794806224.440744,
+    "actual_drain_seconds": 0.10213375091552734
+  },
+  "upload_cap_hit_by_vu": [
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "upload_requests_by_vu_including_warmup": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "cooldown": {
+    "seconds": 30.017837285995483,
+    "stable": true,
+    "threshold_total_cpu_percent": 80.0,
+    "observed_max_total_cpu_percent": 19.279688763856317
+  },
+  "complete": true
+}

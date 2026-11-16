@@ -1,0 +1,41 @@
+{
+  "tool": "Docker Engine v1.56 sequential one-shot stats + psutil",
+  "psutil_version": "7.2.1",
+  "target_interval_seconds": 1,
+  "errors": [],
+  "intervals": {
+    "auth-service": {
+      "samples": 186,
+      "interval_mean": 1.0000363478789458,
+      "interval_max": 1.0139834880828857
+    },
+    "file-service": {
+      "samples": 186,
+      "interval_mean": 1.0000443832294361,
+      "interval_max": 1.0160558223724365
+    },
+    "frontend": {
+      "samples": 186,
+      "interval_mean": 1.000043990160968,
+      "interval_max": 1.0180654525756836
+    },
+    "minio": {
+      "samples": 186,
+      "interval_mean": 1.0000478151682262,
+      "interval_max": 1.016967535018921
+    },
+    "mysql": {
+      "samples": 186,
+      "interval_mean": 1.0000473048235918,
+      "interval_max": 1.016937017440796
+    },
+    "share-service": {
+      "samples": 186,
+      "interval_mean": 1.0000441177471264,
+      "interval_max": 1.0170114040374756
+    }
+  },
+  "cpu_definition": "100% is one logical Docker CPU; system ceiling is 400% for four CPUs",
+  "memory_definition": "usage minus inactive_file/total_inactive_file (Docker CLI working-set convention)",
+  "missing_io": "empty values mean unavailable, not zero"
+}

@@ -1,0 +1,53 @@
+{
+  "captured_utc": "2026-11-16T06:32:53.127208+00:00",
+  "services": [
+    {
+      "service": "auth-service",
+      "image_id": "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+      "restart_count": 0,
+      "status": "running",
+      "health": "healthy",
+      "oom_killed": false
+    },
+    {
+      "service": "file-service",
+      "image_id": "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+      "restart_count": 0,
+      "status": "running",
+      "health": "healthy",
+      "oom_killed": false
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+      "restart_count": 0,
+      "status": "running",
+      "health": "healthy",
+      "oom_killed": false
+    },
+    {
+      "service": "minio",
+      "image_id": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "restart_count": 0,
+      "status": "running",
+      "health": "healthy",
+      "oom_killed": false
+    },
+    {
+      "service": "mysql",
+      "image_id": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "restart_count": 0,
+      "status": "running",
+      "health": "healthy",
+      "oom_killed": false
+    },
+    {
+      "service": "share-service",
+      "image_id": "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d",
+      "restart_count": 0,
+      "status": "running",
+      "health": "healthy",
+      "oom_killed": false
+    }
+  ]
+}

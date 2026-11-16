@@ -1,0 +1,72 @@
+{
+  "tool": "Docker Engine v1.56 sequential one-shot stats + psutil",
+  "psutil_version": "7.2.1",
+  "target_interval_seconds": 1,
+  "errors": [
+    {
+      "service": "auth-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T05:52:51.979643+00:00"
+    },
+    {
+      "service": "file-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T05:52:51.979664+00:00"
+    },
+    {
+      "service": "frontend",
+      "error_type": "OSError",
+      "time": "2026-11-16T05:52:51.979671+00:00"
+    },
+    {
+      "service": "minio",
+      "error_type": "OSError",
+      "time": "2026-11-16T05:52:51.979676+00:00"
+    },
+    {
+      "service": "mysql",
+      "error_type": "OSError",
+      "time": "2026-11-16T05:52:51.979682+00:00"
+    },
+    {
+      "service": "share-service",
+      "error_type": "OSError",
+      "time": "2026-11-16T05:52:51.979687+00:00"
+    }
+  ],
+  "intervals": {
+    "auth-service": {
+      "samples": 211,
+      "interval_mean": 1.004800384385245,
+      "interval_max": 1.9971449375152588
+    },
+    "file-service": {
+      "samples": 211,
+      "interval_mean": 1.0048055228732882,
+      "interval_max": 2.002230644226074
+    },
+    "frontend": {
+      "samples": 211,
+      "interval_mean": 1.004806037176223,
+      "interval_max": 2.0030429363250732
+    },
+    "minio": {
+      "samples": 211,
+      "interval_mean": 1.0048042002178375,
+      "interval_max": 2.0041720867156982
+    },
+    "mysql": {
+      "samples": 211,
+      "interval_mean": 1.0048033123924618,
+      "interval_max": 2.0039141178131104
+    },
+    "share-service": {
+      "samples": 211,
+      "interval_mean": 1.0048056488945372,
+      "interval_max": 2.004063129425049
+    }
+  },
+  "cpu_definition": "100% is one logical Docker CPU; system ceiling is 400% for four CPUs",
+  "memory_definition": "usage minus inactive_file/total_inactive_file (Docker CLI working-set convention)",
+  "missing_io": "empty values mean unavailable, not zero"
+}

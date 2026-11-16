@@ -1,0 +1,11 @@
+2026-11-16T05:13:30.820372+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: warmup: started; duration=30s; VUs=20
+2026-11-16T05:14:00.824751+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: warmup: elapsed=30s requests=592 failed=0
+2026-11-16T05:14:01.172220+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: warmup: finished; drain=0.102s
+2026-11-16T05:14:01.172321+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: measure: started; duration=120s; VUs=20
+2026-11-16T05:14:31.177448+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: measure: elapsed=30s requests=592 failed=0
+2026-11-16T05:15:01.180232+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: measure: elapsed=60s requests=1188 failed=0
+2026-11-16T05:15:31.181712+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: measure: elapsed=90s requests=1786 failed=0
+2026-11-16T05:16:01.191571+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: measure: elapsed=120s requests=2380 failed=0
+2026-11-16T05:16:01.525553+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: measure: finished; drain=0.103s
+2026-11-16T05:16:02.212393+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: checksum and scoped cleanup passed; cooling
+2026-11-16T05:16:32.237023+00:00 20261116-e1-formal-ipv4-P1-vu20-r3: round complete; {'seconds': 30.024062633514404, 'stable': True, 'threshold_total_cpu_percent': 80.0, 'observed_max_total_cpu_percent': 10.018389491709307}

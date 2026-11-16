@@ -1,0 +1,11 @@
+{
+  "paused_utc": "2026-11-16T06:23:08.643321+00:00",
+  "completed_rounds": 27,
+  "planned_rounds": 42,
+  "p3_rounds_completed": 9,
+  "containers_kept_running": true,
+  "workload_process_stopped": true,
+  "guard_elapsed_seconds": 2742.510475873947,
+  "guard_cpu_seconds": 10.46875,
+  "guard_rss_bytes": 20971520
+}
