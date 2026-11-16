@@ -26,6 +26,17 @@ python -u scripts/performance/run.py --batch <唯一批次名>
 python scripts/performance/analyze.py <同一批次名>
 ```
 
+暂停后的正式矩阵使用新批次继续，保留原批次与已完成轮次。例：
+
+```powershell
+python -u scripts/performance/run.py --batch 20261116-e1-continuation --continue-from 20261116-e1-formal-ipv4 --fixtures artifacts/e1/20261116-e1-formal/fixtures.local
+```
+
+续跑只选择原矩阵未完成的规格，保留原始顺序、并发和重复数；要求复用原私有 fixtures。
+开始前校验原轮次完整性、预热/测量/冷却参数、入口与上传上限，以及镜像、脱敏 Compose、Docker CPU/内存预算和测量/清理脚本哈希。
+新批次重新记录环境与空闲样本，每轮重新登录；旧批次保持原暂停状态，后续汇总须注明两个批次的边界。
+测试命令为 `python -m unittest discover -s scripts/performance -p 'test_*.py'`。
+
 数据准备和清理也有独立入口，凭证路径必须在忽略目录中：
 
 ```powershell

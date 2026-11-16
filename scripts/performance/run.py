@@ -210,15 +210,65 @@ def round_run(args, batch, spec, fixtures, snapshot, config, containers_file):
     return run_id
 
 
+def pending_rounds(manifest):
+    """Return uncompleted specifications without changing the previous batch."""
+    expected = {manifest["batch"] + f"-{spec['scenario']}-vu{spec['vus']:02}-r{spec['repeat']}": spec
+                for spec in manifest["matrix"]}
+    completed = manifest["completed"]
+    if len(expected) != len(manifest["matrix"]) or len(set(completed)) != len(completed):
+        raise ValueError("Duplicate matrix or completion records")
+    if not set(completed).issubset(expected):
+        raise ValueError("Completion record does not belong to the original matrix")
+    pending = [spec for name, spec in expected.items() if name not in completed]
+    if not pending:
+        raise ValueError("Original matrix is already complete")
+    return pending
+
+
+def verify_continuity(previous, snapshot, config):
+    """Continuations preserve measured application inputs and measurement code."""
+    before = json.loads((previous / "environment.json").read_text(encoding="utf-8"))
+    if json.loads((previous / "compose.redacted.json").read_text(encoding="utf-8")) != config:
+        raise ValueError("Compose configuration changed since the previous batch")
+    for key in ["NCPU", "MemTotal"]:
+        if before["docker"][key] != snapshot["docker"][key]:
+            raise ValueError("Docker resource budget changed since the previous batch")
+    images = lambda env: {entry["service"]: entry["image_id"] for entry in env["containers"]}
+    if images(before) != images(snapshot):
+        raise ValueError("Application or infrastructure images changed since the previous batch")
+    for name in ["common.py", "resources.py", "workload.py"]:
+        if before["harness_sha256"][name] != snapshot["harness_sha256"][name]:
+            raise ValueError("Measurement or cleanup implementation changed since the previous batch")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-url", default="http://127.0.0.1:8080")
     parser.add_argument("--pilot", action="store_true")
     parser.add_argument("--fixtures", type=Path)
     parser.add_argument("--batch")
+    parser.add_argument("--continue-from", help="Original formal batch; run unfinished specifications in a new batch")
     parser.add_argument("--max-uploads", type=int, default=150)
     parser.add_argument("--pilot-scenarios", default="P1,P2,P3,P4,P5U,P5D")
     args = parser.parse_args()
+    previous = None
+    prior_manifest = None
+    if args.continue_from:
+        if args.pilot or not args.fixtures or not args.fixtures.exists():
+            raise ValueError("Continuation requires existing private fixtures and formal mode")
+        if not re.fullmatch(r"[A-Za-z0-9_-]+", args.continue_from):
+            raise ValueError("Invalid previous batch identifier")
+        previous = ROOT / "experiments" / "E1" / (args.continue_from + "-summary")
+        prior_manifest = json.loads((previous / "matrix.json").read_text(encoding="utf-8"))
+        if prior_manifest["pilot"]:
+            raise ValueError("Cannot continue a pilot as a formal batch")
+        pending_rounds(prior_manifest)
+        for name in prior_manifest["completed"]:
+            work = json.loads((previous.parent / name / "workload.json").read_text(encoding="utf-8"))
+            if not work.get("complete") or (work["warmup_seconds"], work["measure_seconds"], work["minimum_cooldown_seconds"]) != (30, 120, 30):
+                raise ValueError("Previous completion is incomplete or uses different timing")
+            if work["request_base_url"] != args.base_url or work["max_uploads_per_vu_including_warmup"] != args.max_uploads:
+                raise ValueError("Continuation request endpoint or upload cap differs")
     args.warmup, args.duration, args.cooldown = (3, 5, 3) if args.pilot else (30, 120, 30)
     batch = args.batch or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + ("-pilot" if args.pilot else "-formal")
     summary = ROOT / "experiments" / "E1" / (batch + "-summary")
@@ -228,6 +278,9 @@ def main():
     secret_path = args.fixtures or secret_dir / "fixtures.local"
     snapshot, config, containers = environment()
     snapshot["tool"]["request_base_url"] = args.base_url
+    if previous:
+        verify_continuity(previous, snapshot, config)
+        snapshot["continuation_of"] = args.continue_from
     save(summary / "environment.json", snapshot)
     save(summary / "compose.redacted.json", config)
     containers_file = summary / "containers.json"
@@ -267,10 +320,16 @@ def main():
                 matrix.append(dict(scenario=scenario, vus=5, repeat=repeat, order=len(matrix) + 1))
     manifest = dict(batch=batch, pilot=args.pilot, source_commit=snapshot["source_commit"], matrix=matrix,
                     completed=[], started_utc=utc(), fixture_credentials="Only in ignored artifacts/e1; not part of raw public data")
+    if prior_manifest:
+        matrix = pending_rounds(prior_manifest)
+        manifest.update(matrix=matrix, continuation_of=args.continue_from,
+            previous_source_commit=prior_manifest["source_commit"],
+            previous_completed=prior_manifest["completed"],
+            continuity_checks="same images, Compose, Docker CPU/memory, measurement/cleanup code, timing, endpoint and upload cap")
     save(summary / "matrix.json", manifest)
     try:
-        for spec in matrix:
-            print(f"MATRIX {spec['order']}/{len(matrix)} {spec['scenario']} VU={spec['vus']} repeat={spec['repeat']}", flush=True)
+        for position, spec in enumerate(matrix, 1):
+            print(f"MATRIX {position}/{len(matrix)} {spec['scenario']} VU={spec['vus']} repeat={spec['repeat']}", flush=True)
             run_id = round_run(args, batch, spec, fixtures, snapshot, config, containers_file)
             manifest["completed"].append(run_id)
             save(summary / "matrix.json", manifest)
