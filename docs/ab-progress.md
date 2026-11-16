@@ -1,17 +1,17 @@
 # A 开发与 AB 联调交接记录
 
-更新：2026-11-15。A 的 frontend、auth-service、share-service 已实现并完成开发自测，必要 AB 联调通过。
+更新：2026-11-16。A 的 frontend、auth-service、share-service 已实现并完成开发自测，必要 AB 联调通过。
 具体命令、环境、样本和限制见 [AB 验收记录](ab-validation.md)。
 
 ## 1. 范围和 Git
 
 - 仓库：`D:\Secret\Courses\Sem5\CCVT\PJ\cloud-drive`，远端 `https://github.com/Fqmmm/cloud-drive.git`。
 - 用户为 A（肖国扬）；B（狄东琛）的文件/MySQL/MinIO 为联调依据。仅在 B 的 JWT 验证补齐两项时间检查，未改 B SQL。
-- 最新交付分支：`test/ab-browser-acceptance`，从已推送的 `0972227` 创建，包含此前全部功能提交。
-- 本验收记录/脚本作为最后一项独立提交，准确 HEAD、上游和推送状态用 `git log -1`、`git status --short --branch` 核对。
-- 按功能验证、文档、单独 commit 和单独 push 后进入下一项；没有合并 main、强推或重写共享历史。
+- 当前主分支：`main`；2026-11-16 按用户明确授权，已从 `test/ab-browser-acceptance` 快进合入至 `984858c`，完整保留 16 个功能/文档提交。原交付分支保留。
+- `984858c` 为原开发验收提交；本次另以独立文档提交记录合并，准确 HEAD、上游和推送状态用 `git log -1`、`git status --short --branch` 核对。
+- 开发阶段按功能验证、文档、单独 commit 和单独 push；本次在用户授权后合入 main，没有强推或重写共享历史。
 - 新分支采用 `feat/简述`、`fix/简述`、`test/简述` 等 Git 支持的格式，说明用连字符。
-- C、D 的正式整体编排、实验脚本、原始数据、报告与主分支合并不在本轮执行。
+- C、D 的正式整体编排、实验脚本、原始数据和报告仍按原分工执行。
 
 ## 2. 逐功能交付索引
 
@@ -67,4 +67,12 @@
 本机/离线准备、三个 A 镜像、独立开发 Compose 和实际命令见 [A 运行交付](../backend/docker/a-services/README.md)。
 
 下一阶段为 B/C/D 结合实际部署环境联合验收及正式编排/实验；A 已交付本轮实现和开发验证。
-如要合并 main，仍需用户另行授权。不要重跑正式实验、删除数据卷或擅自合并来代替交接。
+本次 main 合并按用户 2026-11-16 的明确授权执行。正式实验和数据卷管理仍按原职责与已确认规范执行。
+
+## 6. 主分支合并记录（2026-11-16）
+
+- 合并前 fetch 成功：本地 main 与 origin/main 均为 dde9c6f，交付分支及其远端均为 984858c。
+- main 是交付分支祖先，执行 fast-forward 合并，无冲突，保留所有原提交和开发分支。
+- 合并后的业务文件树与已验收的 test/ab-browser-acceptance 完全一致（git diff --exit-code 通过）。
+- 本次仅补充交接文档，通过 Git 空白及引用检查；业务源码未变，沿用 ab-validation.md 的实际构建/联调结果，不重复启动服务或正式实验。
+- 完成文档提交后正常推送 main；推送结果及准确 HEAD 以本轮最终 Git 输出为准。
