@@ -17,7 +17,15 @@ python -m unittest discover -s scripts/native -p test_runtime.py
 python scripts/native/experiment.py --pilot --batch <新的短试跑名>
 python scripts/native/experiment.py --batch <新的正式批次名>
 python scripts/performance/analyze.py <正式批次名>
+python scripts/native/analyze_compare.py --native <正式批次名>
+python scripts/native/capture_evidence.py <正式批次名>
 ```
+
+对比工具要求两侧各有完整的 P1—P4 × 5/10/20 VU × 三次重复，检查 120 秒窗口、1 MiB 参数、
+840 次种子校验和上传清理，再生成逐轮表、资源表、三次重复范围与 PNG/SVG 图表。
+默认容器参照为 `20261116-e1-combined`，其中 P5 自动排除。完整的单轮均值、P50、P95/P99 保留在 metrics.json。
+证据采集在正式矩阵完成且原 Docker 服务恢复后执行，脱敏配置并核对六个程序及全部前端文件的 SHA-256；
+Docker 二进制通过只读复制流计算哈希，兼容没有 shell/校验工具的最小镜像。私有配置不参与指标复算。
 
 运行前原 Docker 项目停止，正式测量期间 Docker Desktop 不运行。恢复原环境由正式控制器收尾执行，
 使用 `docker compose start` 保留原容器 ID、镜像和卷，最后验证原 25 份文件。
