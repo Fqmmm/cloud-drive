@@ -1,0 +1,26 @@
+{
+  "batch": "20261116-e1-ipv4-pilot",
+  "pilot": true,
+  "source_commit": "d0e338e5299104ff4ee9c349a9fd3377c0291eb5",
+  "matrix": [
+    {
+      "scenario": "P1",
+      "vus": 2,
+      "repeat": 0,
+      "order": 1
+    },
+    {
+      "scenario": "P5U",
+      "vus": 2,
+      "repeat": 0,
+      "order": 2
+    }
+  ],
+  "completed": [
+    "20261116-e1-ipv4-pilot-P1-vu02-r0",
+    "20261116-e1-ipv4-pilot-P5U-vu02-r0"
+  ],
+  "started_utc": "2026-11-16T04:46:38.397384+00:00",
+  "fixture_credentials": "Only in ignored artifacts/e1; not part of raw public data",
+  "finished_utc": "2026-11-16T04:47:07.337760+00:00"
+}

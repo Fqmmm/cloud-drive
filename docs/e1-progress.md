@@ -14,7 +14,13 @@
 - 正式环境：Docker 4 CPU、4107522048 字节内存，Windows 主机 Intel Core Ultra 9 285H、16 逻辑 CPU、约 31.50 GiB 内存。
   业务使用 WSL2 命名卷，只有初始化脚本绑定 Windows 路径。应用镜像沿用本地部署已验证版本，不重建镜像。
 
-下一步：冻结工具提交并推送后，执行 `python -u scripts/performance/run.py --batch 20261116-e1-formal`。
-实际进度持久保存在 experiments/E1/20261116-e1-formal-summary/matrix.json，逐轮 execution.log 可查当前阶段。
+首个正式部分批次 20261116-e1-formal 完成 P1 的 5/10 VU 两轮后，在第三轮测量外准备阶段停止。
+诊断显示本机 localhost 新建连接约 3040 ms、复用约 2 ms；127.0.0.1 新建约 3 ms。
+此前额外等待主要在登录和校验，不混入复用连接后的正式窗口。为避免无意义等待，改用同一 Nginx 的 IPv4 回环，
+旧部分批次完整保留、不与新完整批次混算。IPv4 的 P1/P5U 两轮短试跑全部通过，校验及配额清理正常。
+Git 系统代理曾导致 TLS 失败，本次请求直连且保留证书验证后已推送；未修改全局代理或 Git 安全设置。
+
+下一步：冻结修正后的工具提交并推送后，执行 `python -u scripts/performance/run.py --batch 20261116-e1-formal-ipv4 --fixtures artifacts/e1/20261116-e1-formal/fixtures.local`。
+实际进度持久保存在 experiments/E1/20261116-e1-formal-ipv4-summary/matrix.json，逐轮 execution.log 可查当前阶段。
 凭证仅保存在被忽略的 artifacts/e1/<batch>/fixtures.local；公开原始数据不包含密码、JWT、分享 token/提取码。
 正式矩阵完成后复算、绘图、检查缺样/错误/清理，再提交实验结果与报告。

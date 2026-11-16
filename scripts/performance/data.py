@@ -57,7 +57,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("action", choices=["prepare", "cleanup-uploads", "cleanup-all"])
     parser.add_argument("--credentials", required=True, type=Path)
-    parser.add_argument("--base-url", default="http://localhost:8080")
+    parser.add_argument("--base-url", default="http://127.0.0.1:8080")
     parser.add_argument("--users", type=int, default=20)
     parser.add_argument("--result", type=Path)
     args = parser.parse_args()

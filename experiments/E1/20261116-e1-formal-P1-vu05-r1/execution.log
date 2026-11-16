@@ -1,0 +1,10 @@
+2026-11-16T04:35:47.530237+00:00 20261116-e1-formal-P1-vu05-r1: warmup: started; duration=30s; VUs=5
+2026-11-16T04:36:17.534953+00:00 20261116-e1-formal-P1-vu05-r1: warmup: elapsed=30s requests=148 failed=0
+2026-11-16T04:36:17.881995+00:00 20261116-e1-formal-P1-vu05-r1: warmup: finished; drain=0.102s
+2026-11-16T04:36:17.882145+00:00 20261116-e1-formal-P1-vu05-r1: measure: started; duration=120s; VUs=5
+2026-11-16T04:36:47.886108+00:00 20261116-e1-formal-P1-vu05-r1: measure: elapsed=30s requests=145 failed=0
+2026-11-16T04:37:17.887972+00:00 20261116-e1-formal-P1-vu05-r1: measure: elapsed=60s requests=289 failed=0
+2026-11-16T04:37:48.285496+00:00 20261116-e1-formal-P1-vu05-r1: measure: elapsed=90s requests=430 failed=0
+2026-11-16T04:38:18.233656+00:00 20261116-e1-formal-P1-vu05-r1: measure: finished; drain=0.102s
+2026-11-16T04:38:33.459905+00:00 20261116-e1-formal-P1-vu05-r1: checksum and scoped cleanup passed; cooling
+2026-11-16T04:39:03.480782+00:00 20261116-e1-formal-P1-vu05-r1: round complete; {'seconds': 30.02028250694275, 'stable': True, 'threshold_total_cpu_percent': 80.0, 'observed_max_total_cpu_percent': 9.365826733673916}

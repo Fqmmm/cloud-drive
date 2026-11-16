@@ -2,6 +2,9 @@
 
 按 [实验一要求](../../docs/phase2/01-performance.md)执行，入口为当前根 Compose 的同源 Nginx。
 本工具使用 Python 封闭负载模型，输出与要求等价的逐请求延迟、HTTP/业务成功率、RPS、迭代吞吐及字节吞吐。
+默认负载入口为 http://127.0.0.1:8080，仍经过同一 Nginx；PUBLIC_BASE_URL 的浏览器分享地址保持 localhost。
+本机 localhost 新建连接存在约 3 秒等待，IPv4 回环约 3 毫秒，故正式完整批次显式固定 IPv4。
+请求入口写入 environment/workload；更换入口后的数据另开批次，不与旧部分批次混算。
 依赖已在本机具备：Python 3.13.5、requests 2.32.4、psutil 7.2.1、NumPy 2.3.3、Matplotlib。
 资源采集器面向 Windows Docker Desktop 的 desktop-linux 命名管道，Docker Engine API v1.56。
 

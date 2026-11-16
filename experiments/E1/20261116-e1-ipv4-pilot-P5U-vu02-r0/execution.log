@@ -1,0 +1,6 @@
+2026-11-16T04:46:52.845820+00:00 20261116-e1-ipv4-pilot-P5U-vu02-r0: warmup: started; duration=3s; VUs=2
+2026-11-16T04:46:56.096711+00:00 20261116-e1-ipv4-pilot-P5U-vu02-r0: warmup: finished; drain=0.001s
+2026-11-16T04:46:56.096835+00:00 20261116-e1-ipv4-pilot-P5U-vu02-r0: measure: started; duration=5s; VUs=2
+2026-11-16T04:47:01.449099+00:00 20261116-e1-ipv4-pilot-P5U-vu02-r0: measure: finished; drain=0.102s
+2026-11-16T04:47:03.393221+00:00 20261116-e1-ipv4-pilot-P5U-vu02-r0: checksum and scoped cleanup passed; cooling
+2026-11-16T04:47:06.408253+00:00 20261116-e1-ipv4-pilot-P5U-vu02-r0: round complete; {'seconds': 3.0141243934631348, 'stable': True, 'threshold_total_cpu_percent': 80.0, 'observed_max_total_cpu_percent': 64.58741481852316}

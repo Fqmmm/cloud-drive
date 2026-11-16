@@ -162,6 +162,7 @@ def round_run(args, batch, spec, fixtures, snapshot, config, containers_file):
         if quota["totalBytes"] - quota["usedBytes"] < per_user_bound:
             raise RuntimeError("Insufficient quota for capped experiment round")
     work = dict(**spec, run_id=run_id, batch=batch, file_size_bytes=20 * MIB if large else MIB,
+        request_base_url=args.base_url,
         model="closed constant VUs; stagger first request by VU/VUs seconds; sleep 1 second after each business iteration",
         warmup_seconds=args.warmup, measure_seconds=args.duration, minimum_cooldown_seconds=args.cooldown,
         max_uploads_per_vu_including_warmup=args.max_uploads, maximum_upload_bytes=worst_bytes,
@@ -211,7 +212,7 @@ def round_run(args, batch, spec, fixtures, snapshot, config, containers_file):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--base-url", default="http://localhost:8080")
+    parser.add_argument("--base-url", default="http://127.0.0.1:8080")
     parser.add_argument("--pilot", action="store_true")
     parser.add_argument("--fixtures", type=Path)
     parser.add_argument("--batch")
@@ -226,6 +227,7 @@ def main():
     secret_dir.mkdir(parents=True, exist_ok=True)
     secret_path = args.fixtures or secret_dir / "fixtures.local"
     snapshot, config, containers = environment()
+    snapshot["tool"]["request_base_url"] = args.base_url
     save(summary / "environment.json", snapshot)
     save(summary / "compose.redacted.json", config)
     containers_file = summary / "containers.json"
