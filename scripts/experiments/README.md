@@ -75,6 +75,8 @@ python -m unittest discover -s scripts/experiments -p test_experiments.py -v
 
 故障前基线异常时，可以用 `diagnose.py --env-file <原私有环境> --run-id <新诊断编号> --seconds 180 --rebuild` 重建带诊断日志的文件/分享服务，并执行相同的并行探测。该入口不注入故障，首次异常或到达时限后保存探测、相关请求 ID、容器快照和服务日志到 `experiments/diagnostics/`；结果不能替代 E3/E4。请求 ID 不含用户身份和分享能力，异常日志只保留固定类别、状态和阶段。
 
+收尾工具格式兼容问题导致中断、但应用和探针未变时，可用 `continue.py --source-run-id <原编号> --run-id <新编号> --restore` 续跑。入口重新验证原项目、六个镜像 ID、探针源码哈希和样本；只继承明确完成的轮次，文件逐项核对 SHA-256，失败轮次重新执行。原批状态保持不变，新目录记录 `continued_from`、`inherited_rounds` 与来源文件索引，再运行 E4 和报告。复算使用 `analyze.py --run-id <新编号> --context-run-id <原编号>`，显式关联原验收、样本和私有环境。
+
 ## 验证范围
 
 离线回归验证项目隔离、凭证保留、日志脱敏、私有备份隔离、容器与卷判断、Unicode CSV、内容损坏识别、绝对超时、独立调度和连续恢复统计。它不代替六容器实测。实际完成状态见 [交接记录](../../docs/liu-progress.md)。

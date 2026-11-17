@@ -1,6 +1,7 @@
 """E3: stop/start faults and controlled JVM halt, three independent repeats."""
 import argparse
 import json
+import shutil
 from pathlib import Path
 import sys
 import threading
@@ -8,7 +9,7 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 from probes import Scheduler, specifications
-from support import Context, ROOT, sanitize, save, utc
+from support import Context, ROOT, digest, object_is_absent, sanitize, save, utc, validate_resume_environment
 
 MATRIX = {"F1": "share-service", "F2": "auth-service", "F3": "file-service", "F4": "minio", "F5": "share-service", "F6": "mysql"}
 
@@ -166,8 +167,9 @@ def round_run(ctx, folder, fault, repetition, warmup=30, outage=30):
                 shell = ('mc alias set liu http://127.0.0.1:9000 "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD" >/dev/null && '
                          'mc stat --json liu/cloud-drive/' + extra["object_key"])
                 absent = ctx.compose("exec", "-T", "minio", "sh", "-c", shell, check=False)
-                save(folder / "cleanup.json", dict(queue_empty=remaining == "0", object_stat_exit=absent.returncode))
-                if remaining != "0" or absent.returncode == 0 or 'NoSuchKey' not in absent.stdout:
+                missing = object_is_absent(absent.returncode, absent.stdout)
+                save(folder / "cleanup.json", dict(queue_empty=remaining == "0", object_stat_exit=absent.returncode, object_absent=missing))
+                if remaining != "0" or not missing:
                     raise AssertionError("Deleted object removal not established")
             # Refresh credentials only after all timed probes stop.
         scheduler.finish()
@@ -220,6 +222,7 @@ def main():
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--include-mysql", action="store_true")
     parser.add_argument("--pilot", action="store_true", help="Short run; never counted as formal data")
+    parser.add_argument("--continue-from", help="Inherit verified completed rounds, with image/probe equality checks")
     args = parser.parse_args()
     if not __import__("re").fullmatch(r"[a-zA-Z0-9-]+", args.run_id):
         parser.error("Invalid run id")
@@ -231,10 +234,44 @@ def main():
                 completed=[], status="running")
     save(folder / "manifest.json", plan)
     try:
+        if args.continue_from:
+            if args.pilot or not __import__("re").fullmatch(r"[a-zA-Z0-9-]+", args.continue_from):
+                raise ValueError("Continuation requires formal, uniquely named source data")
+            parent = ROOT / "experiments" / "E3" / args.continue_from
+            old = json.loads((parent / "manifest.json").read_text(encoding="utf-8"))
+            if old["kind"] != "formal" or old["repeats"] != 3 or old["faults"] != faults or old["status"] != "failed":
+                raise ValueError("Source is not a compatible interrupted formal matrix")
+            ctx.ready()
+            previous = json.loads((parent / "environment/containers.json").read_text(encoding="utf-8"))
+            environment = json.loads((parent / "environment/environment.json").read_text(encoding="utf-8"))
+            source = json.loads((parent / "environment/source-sha256.json").read_text(encoding="utf-8"))
+            probe_hash = next(r["sha256"] for r in source if r["path"].replace("\\", "/") == "scripts/experiments/probes.py")
+            validate_resume_environment(environment, previous, ctx.inventory(), probe_hash,
+                digest((ROOT / "scripts/experiments/probes.py").read_bytes()), ctx.project)
+            ctx.verify(folder / "resume-verification")
+            inherited = []
+            allowed = {f"{fault}-r{repeat}" for fault in faults for repeat in range(1, 4)}
+            for name in old["completed"]:
+                result = json.loads((parent / name / "result.json").read_text(encoding="utf-8"))
+                if name not in allowed or not result["completed"]:
+                    raise ValueError("Cannot inherit an incomplete or unknown round")
+                shutil.copytree(parent / name, folder / name)
+                entries = [dict(path=str(p.relative_to(parent / name)).replace("\\", "/"), sha256=digest(p.read_bytes()))
+                           for p in sorted((parent / name).rglob("*")) if p.is_file()]
+                if any(digest((folder / name / entry["path"]).read_bytes()) != entry["sha256"] for entry in entries):
+                    raise AssertionError("Inherited evidence bytes changed")
+                inherited.append(dict(round=name, source=str((parent / name).relative_to(ROOT)), files=entries))
+                plan["completed"].append(name)
+            plan.update(continued_from=args.continue_from, inherited_rounds=list(old["completed"]),
+                        continuation_reason="mc object-not-found JSON validator corrected; app images/probe implementation unchanged")
+            save(folder / "inherited-evidence.json", inherited)
+            save(folder / "manifest.json", plan)
         ctx.snapshot(folder / "environment")
         for fault in faults:
             for repeat in range(1, plan["repeats"] + 1):
                 name = f"{fault}-r{repeat}"
+                if name in plan["completed"]:
+                    continue
                 print("E3 " + name, flush=True)
                 round_run(ctx, folder / name, fault, repeat, warmup=12 if args.pilot else 30, outage=5 if args.pilot else 30)
                 plan["completed"].append(name)

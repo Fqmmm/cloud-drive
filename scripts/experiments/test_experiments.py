@@ -16,7 +16,7 @@ import time
 import unittest
 from unittest.mock import patch
 
-from support import Context, csv_write, digest, init_env, retained_volumes, run_live, sanitize, validate_project
+from support import Context, SERVICES, csv_write, digest, init_env, object_is_absent, retained_volumes, run_live, sanitize, validate_project, validate_resume_environment
 from probes import execute, recovery, Scheduler
 from analyze import normalize_public, report_e3, report_e4, summarize_round
 
@@ -91,6 +91,32 @@ class Handler(BaseHTTPRequestHandler):
 
 
 class ContextTests(unittest.TestCase):
+    def test_mc_object_missing_accepts_the_observed_structured_error(self):
+        observed = dict(status="error", error=dict(message="Unable to stat object", cause=dict(message="Object does not exist", error={})))
+        self.assertTrue(object_is_absent(1, json.dumps(observed)))
+        observed["error"]["cause"]["error"] = {"Code": "NoSuchKey"}
+        self.assertTrue(object_is_absent(1, json.dumps(observed)))
+
+    def test_mc_network_auth_bucket_and_parse_errors_are_not_missing_objects(self):
+        for code, message in (("AccessDenied", "Object does not exist"), ("NoSuchBucket", "Object does not exist"),
+                              (None, "Connection refused"), (None, "Access denied")):
+            value = dict(status="error", error=dict(cause=dict(message=message, error={"Code": code} if code else {})))
+            self.assertFalse(object_is_absent(1, json.dumps(value)))
+        for text in ("not found", "{}", "[]", '"error"', '{"status":"error","error":null}'):
+            self.assertFalse(object_is_absent(1, text))
+        self.assertFalse(object_is_absent(0, json.dumps(dict(status="success"))))
+
+    def test_continuation_requires_original_project_images_and_probe(self):
+        rows = [dict(service=name, image="sha256:" + name) for name in SERVICES]
+        args = (dict(project="cloud-drive-liu-original"), rows, rows, "a" * 64, "a" * 64, "cloud-drive-liu-original")
+        validate_resume_environment(*args)
+        changed = [dict(row) for row in rows]
+        changed[0]["image"] = "different"
+        for current, old_hash, new_hash, project in ((changed, "a"*64, "a"*64, args[-1]),
+            (rows, "a"*64, "b"*64, args[-1]), (rows, "a"*64, "a"*64, "cloud-drive-liu-other"),
+            (rows + [rows[0]], "a"*64, "a"*64, args[-1])):
+            with self.assertRaises(ValueError):
+                validate_resume_environment(args[0], rows, current, old_hash, new_hash, project)
     def test_live_log_is_visible_before_command_exits_and_is_redacted(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder)

@@ -1,0 +1,263 @@
+ Image cloud-drive-file:liu-e3-e4 Building 
+ Image cloud-drive-share:liu-e3-e4 Building 
+ Image cloud-drive-frontend:liu-e3-e4 Building 
+ Image cloud-drive-auth:liu-e3-e4 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.80kB 0.0s done
+#1 DONE 0.0s
+#2 [share-service internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.03kB 0.0s done
+#2 DONE 0.0s
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.14kB done
+#3 DONE 0.0s
+#4 [file-service internal] load build definition from Dockerfile
+#4 transferring dockerfile: 525B done
+#4 DONE 0.1s
+#5 [auth-service internal] load build definition from Dockerfile
+#5 transferring dockerfile: 944B done
+#5 DONE 0.1s
+#6 [auth-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#6 ...
+#7 [auth] library/node:pull token for registry-1.docker.io
+#7 DONE 0.0s
+#8 [auth-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#8 ...
+#9 [auth] library/nginx:pull token for registry-1.docker.io
+#9 DONE 0.0s
+#10 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#10 DONE 0.0s
+#11 [file-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17
+#11 ...
+#12 [auth] library/maven:pull token for registry-1.docker.io
+#12 DONE 0.0s
+#13 [file-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre
+#13 ...
+#11 [file-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17
+#11 DONE 4.7s
+#6 [share-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#6 DONE 4.8s
+#14 [frontend internal] load metadata for docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236
+#14 DONE 5.2s
+#15 [frontend internal] load metadata for docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787
+#15 DONE 5.2s
+#16 [frontend internal] load .dockerignore
+#16 transferring context: 100B done
+#16 DONE 0.0s
+#17 [frontend internal] load build context
+#17 DONE 0.0s
+#13 [file-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre
+#13 DONE 5.2s
+#18 [file-service internal] load .dockerignore
+#18 transferring context: 2B done
+#18 DONE 0.0s
+#19 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236
+#19 resolve docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236
+#19 resolve docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236 0.1s done
+#19 DONE 0.1s
+#20 [frontend build 1/7] FROM docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787
+#20 resolve docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787 0.1s done
+#20 DONE 0.1s
+#21 [file-service build 1/6] FROM docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#21 resolve docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc 0.1s done
+#21 DONE 0.1s
+#22 [file-service stage-1 1/3] FROM docker.io/library/eclipse-temurin:17-jre@sha256:fb2cec8da84e3f086b59e29bf432d372e396fe0c247adcfb89303a28c2e313c0
+#22 resolve docker.io/library/eclipse-temurin:17-jre@sha256:fb2cec8da84e3f086b59e29bf432d372e396fe0c247adcfb89303a28c2e313c0 0.1s done
+#22 DONE 0.1s
+#17 [frontend internal] load build context
+#17 transferring context: 11.91kB 0.0s done
+#17 DONE 0.1s
+#23 [frontend build 2/7] WORKDIR /build
+#23 CACHED
+#24 [frontend stage-1 3/4] COPY nginx/course-proxy.conf /etc/nginx/course-proxy.conf
+#24 CACHED
+#25 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts uno.config.ts ./
+#25 CACHED
+#26 [frontend build 3/7] COPY package.json pnpm-lock.yaml ./
+#26 CACHED
+#27 [frontend build 7/7] RUN pnpm exec vue-tsc --noEmit && pnpm exec vite build
+#27 CACHED
+#28 [frontend build 4/7] RUN npm install -g pnpm@10.32.1 --registry="https://registry.npmmirror.com" --fetch-retries=5 --fetch-retry-mintimeout=10000 --fetch-retry-maxtimeout=60000     && pnpm install --frozen-lockfile --ignore-scripts --registry="https://registry.npmmirror.com" --fetch-retries=5 --fetch-retry-mintimeout=10000 --fetch-retry-maxtimeout=60000
+#28 CACHED
+#29 [frontend stage-1 2/4] COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+#29 CACHED
+#30 [frontend build 6/7] COPY src src
+#30 CACHED
+#31 [frontend stage-1 4/4] COPY --from=build /build/dist /usr/share/nginx/html
+#31 CACHED
+#32 [file-service internal] load build context
+#32 transferring context: 35.99kB 0.0s done
+#32 DONE 0.0s
+#33 [file-service build 4/6] COPY file-service/pom.xml pom.xml
+#33 CACHED
+#34 [file-service build 3/6] COPY docker/maven-build.sh /usr/local/bin/course-maven-build
+#34 CACHED
+#35 [file-service stage-1 2/3] WORKDIR /app
+#35 CACHED
+#36 [file-service build 2/6] WORKDIR /build
+#36 CACHED
+#37 [file-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build package
+#37 CACHED
+#38 [file-service build 5/6] COPY file-service/src src
+#38 CACHED
+#39 [file-service stage-1 3/3] COPY --from=build /build/target/file-service.jar app.jar
+#39 CACHED
+#40 [frontend] exporting to image
+#40 exporting layers done
+#40 exporting manifest sha256:26fcdeb851f88f831f392e9234711e645e3e06d09e2d34063941d43214f61361
+#40 exporting manifest sha256:26fcdeb851f88f831f392e9234711e645e3e06d09e2d34063941d43214f61361 0.0s done
+#40 exporting config sha256:1b7613d92ebddd8e893d6e4daa42ece196d220061d42fdacad27886b54bde231 0.0s done
+#40 ...
+#18 [auth-service internal] load .dockerignore
+#18 transferring context: 2B done
+#18 DONE 0.0s
+#21 [share-service build 1/6] FROM docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#21 resolve docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc 0.1s done
+#21 DONE 0.1s
+#8 [auth-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#8 DONE 5.5s
+#41 [share-service internal] load build context
+#41 transferring context: 13.76kB 0.0s done
+#41 DONE 0.0s
+#42 [auth-service internal] load build context
+#42 transferring context: 30.73kB 0.0s done
+#42 DONE 0.1s
+#40 [frontend] exporting to image
+#40 exporting attestation manifest sha256:a502acc8d07ce32df5e5bbe0efe978f98e925c984321fe1ea3bbea40a028e048 0.1s done
+#40 exporting manifest list sha256:7037567c1dd6d922dad0f7d08ad5bca1f5e50efe8874526c9696f6990cbc7c38
+#40 ...
+#43 [share-service stage-1 1/4] FROM docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#43 resolve docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a 0.1s done
+#43 DONE 0.2s
+#40 [frontend] exporting to image
+#40 exporting manifest list sha256:7037567c1dd6d922dad0f7d08ad5bca1f5e50efe8874526c9696f6990cbc7c38 0.1s done
+#40 naming to docker.io/library/cloud-drive-frontend:liu-e3-e4 0.0s done
+#40 unpacking to docker.io/library/cloud-drive-frontend:liu-e3-e4 0.0s done
+#40 DONE 0.4s
+#44 [auth-service stage-1 3/4] COPY --from=build /build/target/auth-service.jar app.jar
+#44 CACHED
+#45 [auth-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build verify
+#45 CACHED
+#46 [auth-service build 4/6] COPY auth-service/pom.xml pom.xml
+#46 CACHED
+#47 [auth-service build 5/6] COPY auth-service/src src
+#47 CACHED
+#48 [auth-service build 3/6] COPY docker/maven-build.sh /usr/local/bin/course-maven-build
+#48 CACHED
+#49 [auth-service stage-1 4/4] COPY --from=build /build/target/classes/com/jiayuan/drive/auth/HealthProbe.class /app/probe/com/jiayuan/drive/auth/HealthProbe.class
+#49 CACHED
+#50 [auth-service stage-1 2/4] WORKDIR /app
+#50 CACHED
+#51 [share-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build verify
+#51 CACHED
+#52 [share-service build 3/6] COPY docker/maven-build.sh /usr/local/bin/course-maven-build
+#52 CACHED
+#53 [share-service build 4/6] COPY share-service/pom.xml pom.xml
+#53 CACHED
+#54 [share-service build 5/6] COPY share-service/src src
+#54 CACHED
+#36 [auth-service build 2/6] WORKDIR /build
+#36 CACHED
+#55 [share-service stage-1 3/4] COPY --from=build /build/target/share-service.jar app.jar
+#55 CACHED
+#56 [share-service stage-1 4/4] COPY --from=build /build/target/classes/com/jiayuan/drive/shares/HealthProbe.class /app/probe/com/jiayuan/drive/shares/HealthProbe.class
+#56 CACHED
+#57 [file-service] exporting to image
+#57 exporting layers done
+#57 exporting manifest sha256:62ea7201020a0edb56ed546e9d22baa802efdf50d18d646b4e2e5d02b3041c26 0.0s done
+#57 exporting config sha256:b365871e8485e0a3562c5293436dec553a8a862d88c507ca45f80acb79fc865e 0.1s done
+#57 exporting attestation manifest sha256:8d870e2af1d3b9aa3a2deaee7ea37cc0dd2863786d93700912653b1cf9339bb5 0.1s done
+#57 exporting manifest list sha256:24d894ff44b05da008f9df1dc3597a7841444500d2dec4c2a13a8937c2575f25 0.0s done
+#57 naming to docker.io/library/cloud-drive-file:liu-e3-e4 0.0s done
+#57 unpacking to docker.io/library/cloud-drive-file:liu-e3-e4 0.0s done
+#57 DONE 0.4s
+#58 [share-service] exporting to image
+#58 exporting layers done
+#58 exporting manifest sha256:4cdafbe69bc11ebfaa1a759a00dd77562e7cfced43073e75c14180870da3f90a 0.1s done
+#58 exporting config sha256:e54af252bd59318b7a0faffc3b9d810dacc4b810d5d619d6341d293e7b96964f
+#58 exporting config sha256:e54af252bd59318b7a0faffc3b9d810dacc4b810d5d619d6341d293e7b96964f 0.1s done
+#58 exporting attestation manifest sha256:02202a835dd8147de740ff9d18f55ae5a1bbe7dff0025cb9cee8126f9da131bf
+#58 exporting attestation manifest sha256:02202a835dd8147de740ff9d18f55ae5a1bbe7dff0025cb9cee8126f9da131bf 0.1s done
+#58 exporting manifest list sha256:a33c49e73920b147d2df9fbd193c98d18b147d8ef3dbfaaf5e051d0e4f896b04 0.1s done
+#58 naming to docker.io/library/cloud-drive-share:liu-e3-e4 0.0s done
+#58 unpacking to docker.io/library/cloud-drive-share:liu-e3-e4 0.0s done
+#58 DONE 0.5s
+#59 [auth-service] exporting to image
+#59 exporting layers done
+#59 exporting manifest sha256:8bb552bafe4f3529eac462470527956231a316b36221171c3aa7c7f616c2cdb1 0.1s done
+#59 exporting config sha256:8373e3581a40f65c77ec630b64c766ef8b7dcb5c20800e2e7f3c4d9f1cebc684 0.1s done
+#59 exporting attestation manifest sha256:6b382508f093f34d490d63f0ec73c1f58282a5ff7a25ac8cab88e2bd9f0fdd7d 0.1s done
+#59 exporting manifest list sha256:c6d9eaddf2995369caad928dab353213d227d429a4f7c0ed4337577be3b4ee7c 0.0s done
+#59 naming to docker.io/library/cloud-drive-auth:liu-e3-e4 0.0s done
+#59 unpacking to docker.io/library/cloud-drive-auth:liu-e3-e4 0.0s done
+#59 DONE 0.5s
+#60 [frontend] resolving provenance for metadata file
+#60 DONE 0.2s
+#61 [file-service] resolving provenance for metadata file
+#61 DONE 0.2s
+#62 [auth-service] resolving provenance for metadata file
+#62 DONE 0.1s
+#63 [share-service] resolving provenance for metadata file
+#63 DONE 0.0s
+ Image cloud-drive-file:liu-e3-e4 Built 
+ Image cloud-drive-share:liu-e3-e4 Built 
+ Image cloud-drive-auth:liu-e3-e4 Built 
+ Image cloud-drive-frontend:liu-e3-e4 Built 
+ Network cloud-drive-liu-20261117-154613_default Creating 
+ Volume cloud-drive-liu-20261117-154613_minio_data Creating 
+ Volume cloud-drive-liu-20261117-154613_minio_data Creating 
+ Network cloud-drive-liu-20261117-154613_default Creating 
+ Volume cloud-drive-liu-20261117-154613_mysql_data Creating 
+ Volume cloud-drive-liu-20261117-154613_mysql_data Creating 
+ Volume cloud-drive-liu-20261117-154613_mysql_data Created 
+ Volume cloud-drive-liu-20261117-154613_mysql_data Created 
+ Volume cloud-drive-liu-20261117-154613_minio_data Created 
+ Volume cloud-drive-liu-20261117-154613_minio_data Created 
+ Network cloud-drive-liu-20261117-154613_default Created 
+ Network cloud-drive-liu-20261117-154613_default Created 
+ Container cloud-drive-liu-20261117-154613-minio-1 Creating 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Creating 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Created 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Creating 
+ Container cloud-drive-liu-20261117-154613-minio-1 Created 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Creating 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Created 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Creating 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Created 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Created 
+ Container cloud-drive-liu-20261117-154613-frontend-1 Creating 
+ Container cloud-drive-liu-20261117-154613-frontend-1 Created 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Starting 
+ Container cloud-drive-liu-20261117-154613-minio-1 Starting 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Started 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-minio-1 Started 
+ Container cloud-drive-liu-20261117-154613-minio-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-minio-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Starting 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Starting 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Started 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Started 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Starting 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Started 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-frontend-1 Starting 
+ Container cloud-drive-liu-20261117-154613-frontend-1 Started 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-frontend-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-minio-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Waiting 
+ Container cloud-drive-liu-20261117-154613-file-service-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-share-service-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-minio-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-mysql-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-auth-service-1 Healthy 
+ Container cloud-drive-liu-20261117-154613-frontend-1 Healthy 

@@ -105,6 +105,9 @@ def report_e3(folder, output):
         "| 故障 | 第一次/s | 第二次/s | 第三次/s | 中位数/s | 最小—最大/s |", "|---|---:|---:|---:|---:|---:|"]
     for row in aggregate:
         lines.append(f"| {row['fault']} | {row['r1']:.3f} | {row['r2']:.3f} | {row['r3']:.3f} | {row['median']:.3f} | {row['minimum']:.3f}—{row['maximum']:.3f} |")
+    if manifest.get("continued_from"):
+        lines.extend(["", f"本批续自 `{manifest['continued_from']}`，继承已完成轮次：" + ", ".join(manifest["inherited_rounds"]) +
+            "。原批因对象不存在的 CLI 返回格式被校验器误判而停止；失败轮次不纳入。续跑前核对六服务镜像 ID、探针源码哈希和原样本，继承文件逐项校验 SHA-256。原记录和续跑来源清单保留。"])
     lines.extend(["", "## 故障影响", "", "下表汇总三轮中从 t0 到共同稳定恢复 t5 的探测；调度时间决定窗口归属。原始业务码、错误类别和调度偏差见 impact.csv/probe.csv。", "",
         "| 故障 | 业务 | 窗口成功/计划请求 | 成功率 |", "|---|---|---:|---:|"])
     for fault in manifest["faults"]:
@@ -195,19 +198,23 @@ def normalize_public(paths):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--context-run-id", help="Original acceptance/dataset/private context for an E3 continuation")
     args = parser.parse_args()
     if not __import__("re").fullmatch(r"[a-z0-9-]{1,24}", args.run_id):
         parser.error("Invalid run ID")
+    context_id = args.context_run_id or args.run_id
+    if not __import__("re").fullmatch(r"[a-z0-9-]{1,24}", context_id):
+        parser.error("Invalid context run ID")
     e3, e4 = ROOT / "experiments" / "E3" / args.run_id, ROOT / "experiments" / "E4" / args.run_id
-    accepted = read(ROOT / "experiments" / "acceptance" / args.run_id / "results.json")
+    accepted = read(ROOT / "experiments" / "acceptance" / context_id / "results.json")
     if not accepted["completed"]:
         raise ValueError("Functional acceptance not complete")
     report_e3(e3, ROOT / "docs" / "exp" / "E3-results.md")
     report_e4(e4, ROOT / "docs" / "exp" / "E4-results.md")
-    paths = [e3, e4, ROOT / "experiments" / "acceptance" / args.run_id,
-             ROOT / "experiments" / "acceptance" / (args.run_id + "-deployment"), ROOT / "experiments" / "datasets" / args.run_id]
+    paths = [e3, e4, ROOT / "experiments" / "acceptance" / context_id,
+             ROOT / "experiments" / "acceptance" / (context_id + "-deployment"), ROOT / "experiments" / "datasets" / context_id]
     normalize_public(paths)
-    audit_public(paths, ROOT / "artifacts" / "liu" / args.run_id)
+    audit_public(paths, ROOT / "artifacts" / "liu" / context_id)
     files = [p for folder in paths for p in folder.rglob("*") if p.is_file() and p.name != "evidence-index.json"]
     save(e4 / "evidence-index.json", dict(generated=utc(), files=[dict(path=str(p.relative_to(ROOT)), bytes=p.stat().st_size,
          sha256=digest(p.read_bytes())) for p in sorted(files)]))

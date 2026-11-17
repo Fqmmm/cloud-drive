@@ -69,6 +69,38 @@ def retained_volumes(before, after, service):
     return left["id"] != right["id"] and bool(volumes(left)) and volumes(left) == volumes(right)
 
 
+def object_is_absent(exit_code, output):
+    """Accept explicit mc object-not-found JSON; reject auth/network/bucket errors."""
+    if exit_code == 0:
+        return False
+    try:
+        rows = [json.loads(line) for line in output.splitlines() if line.strip()]
+    except (ValueError, TypeError):
+        return False
+    if len(rows) != 1 or not isinstance(rows[0], dict) or rows[0].get("status") != "error":
+        return False
+    error = rows[0].get("error", {})
+    if not isinstance(error, dict):
+        return False
+    cause = error.get("cause", {})
+    if not isinstance(cause, dict):
+        return False
+    detail = cause.get("error", {})
+    code = detail.get("Code", detail.get("code")) if isinstance(detail, dict) else None
+    return code == "NoSuchKey" if code else cause.get("message") == "Object does not exist"
+
+
+def validate_resume_environment(parent_environment, previous, current, previous_probe_hash, current_probe_hash, project):
+    """Continuation may inherit data only for identical app images and probes."""
+    images = lambda rows: {r["service"]: r["image"] for r in rows}
+    if parent_environment["project"] != project:
+        raise ValueError("Continuation project differs from the original environment")
+    if len(previous) != len(SERVICES) or len(current) != len(SERVICES) or set(images(previous)) != set(SERVICES) or images(previous) != images(current):
+        raise ValueError("Application images changed; start a new full experiment")
+    if previous_probe_hash != current_probe_hash:
+        raise ValueError("Probe implementation changed; start a new full experiment")
+
+
 def run_live(args, public_log, raw_log, sensitive, timeout, cwd, env=None):
     """Spool child output without pipe backpressure; publish redacted lines live.
 

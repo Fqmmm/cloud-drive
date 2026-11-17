@@ -1,0 +1,121 @@
+PASS FR-01: valid personal registration
+PASS FR-01: valid personal registration
+PASS FR-01: case-insensitive duplicate account rejected
+PASS FR-01: duplicate email rejected
+PASS FR-01: invalid registration accountName rejected
+PASS FR-01: invalid registration accountName rejected
+PASS FR-01: invalid registration accountName rejected
+PASS FR-01: invalid registration password rejected
+PASS FR-01: invalid registration password rejected
+PASS FR-01: invalid registration nickname rejected
+PASS FR-01: invalid registration nickname rejected
+PASS FR-01: invalid registration email rejected
+PASS FR-01: invalid registration accountType rejected
+PASS FR-01: missing required fields rejected
+PASS FR-02: wrong credentials rejected
+PASS FR-02: normalized login and minimal string-ID profile
+PASS FR-02: missing forged or expired credentials rejected
+PASS FR-02: missing forged or expired credentials rejected
+PASS FR-02: missing forged or expired credentials rejected
+PASS FR-01: password stored only as a strong hash
+PASS FR-03: empty directory and breadcrumb
+PASS FR-03: other user cannot browse private directory
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: invalid directory name rejected
+PASS FR-04: case-sensitive names and 255-character boundary accepted
+PASS FR-04: case-sensitive names and 255-character boundary accepted
+PASS FR-04: case-sensitive names and 255-character boundary accepted
+PASS FR-04: directory rename keeps identity
+PASS FR-08: default total quota and zero directory usage
+PASS FR-05: upload increases usage by actual bytes
+PASS FR-05: duplicate upload rejected
+PASS FR-04: file and directory share a name space
+PASS FR-04: nonempty directory cannot be deleted
+PASS FR-06: file rename cannot conflict with a directory
+PASS FR-06: owner download SHA-256 matches
+PASS FR-06: download supplies a filename
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: cross-user file operation rejected
+PASS FR-03: other user's root contains no owner entries
+PASS FR-05: single-file limit enforced
+PASS FR-05: failed uploads leave quota unchanged
+PASS FR-08: three concurrent uploads cannot exceed quota
+PASS FR-08: delete restores usage even before physical cleanup
+PASS FR-09: directory or invalid share settings rejected
+PASS FR-09: directory or invalid share settings rejected
+PASS FR-09: directory or invalid share settings rejected
+PASS FR-09: supported share expiration
+PASS FR-09: supported share expiration
+PASS FR-09: supported share expiration
+PASS FR-09: supported share expiration
+PASS FR-09: generated six-digit code preserves leading zero
+PASS FR-09: share URL points to frontend
+PASS FR-10: protected metadata is hidden before verification
+PASS FR-10: missing numeric or malformed code rejected
+PASS FR-10: missing numeric or malformed code rejected
+PASS FR-10: missing numeric or malformed code rejected
+PASS FR-10: wrong-code rate limit applies
+PASS FR-10: correct code bypasses wrong-attempt limit
+PASS FR-10: anonymous download is restricted to shared bytes
+PASS FR-10: anonymous download is restricted to shared bytes
+PASS FR-10: download rechecks code after verify
+PASS FR-06: rename keeps file parent content and usage
+PASS FR-06: old share uses current filename
+PASS FR-11: share list retains original name and hides plaintext code
+PASS FR-11: other user's share list is isolated
+PASS FR-11: other user cannot cancel owner share
+PASS FR-11: share cancellation is idempotent
+PASS FR-11: share cancellation is idempotent
+PASS FR-12: cancelled share has distinct error
+PASS FR-11: cancelling one share leaves another usable
+PASS FR-12: expired share is rejected by server
+PASS FR-11: history lists active cancelled and expired shares
+PASS FR-12: nonexistent share has distinct error
+PASS FR-12: file-service outage returns dependency error
+PASS FR-10: file-service recovery restores original link
+PASS FR-05: storage outage rejects upload
+PASS FR-05: storage outage preserves usage and list
+PASS FR-12: minio outage returns dependency error
+PASS FR-10: minio recovery restores original link
+PASS FR-07: permanent delete succeeds
+PASS FR-07: repeated delete cannot decrement usage twice
+PASS FR-07: deleted file cannot be downloaded
+PASS FR-12: deleted source invalidates protected download
+PASS FR-07: replacement cannot revive old share
+PASS FR-04: empty directory can be deleted
+PASS FR-01: browser password input is masked
+PASS FR-01: browser successful registration clears password
+PASS FR-01: browser duplicate registration retains non-sensitive fields
+PASS FR-01: browser registration enters personal files
+PASS FR-02: browser refresh preserves login and profile
+PASS FR-03: browser empty state directory navigation and breadcrumb
+PASS FR-05: browser upload shows progress and blocks duplicate click
+PASS FR-08: browser upload refreshes used and available capacity
+PASS FR-05: browser upload failure is visible and retry succeeds
+PASS FR-06: browser detects a truncated transfer and discards it
+PASS FR-06: browser download filename and SHA-256
+PASS FR-06: browser failed download can be retried
+PASS FR-09: browser clipboard contains public URL
+PASS FR-09: browser failed creation clears stale success URL
+PASS FR-09: browser clipboard preserves protected URL and code
+PASS FR-01: browser password input is masked
+PASS FR-01: browser successful registration clears password
+PASS FR-01: browser duplicate registration retains non-sensitive fields
+PASS FR-03: second browser user has separate empty space
+PASS FR-06: browser download filename and SHA-256
+PASS FR-10: browser wrong code stays on anonymous page without details
+PASS FR-06: browser download filename and SHA-256
+PASS FR-12: browser distinguishes cancelled expired and missing links
+PASS FR-07: browser permanent-delete confirmation includes filename and recovery warning
+PASS FR-12: browser deleted-source page removes download
+PASS FR-04: browser directory rename and empty delete
+PASS FR-02: browser logout clears credential and profile
+PASS FR-02: browser expired credential redirects to login
+PASS FR-10: all browser API calls use one origin

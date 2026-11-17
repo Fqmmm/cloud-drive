@@ -1,0 +1,9 @@
+{
+  "evaluated_utc": "2026-11-17T08:14:58.278558+00:00",
+  "original_result_unchanged": true,
+  "adopted_as_formal_round": false,
+  "corrected_object_absent": true,
+  "queue_empty": true,
+  "source_execution_sha256": "493c70184efed5635c97f524307acd8190e9cc136c45a5c032c8d31ff0da97fc",
+  "explanation": "Tool returned structured Object does not exist; original validator required NoSuchKey. Failed round remains excluded; fresh repeats will be collected."
+}

@@ -1,0 +1,8 @@
+{
+  "fault": "F4",
+  "repeat": 1,
+  "completed": false,
+  "fatal": "AssertionError: Deleted object removal not established",
+  "cleanup_errors": [],
+  "ended": "2026-11-17T08:03:21.026899+00:00"
+}

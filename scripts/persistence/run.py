@@ -7,7 +7,7 @@ import sys
 import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
-from support import Context, ROOT, digest, retained_volumes, sanitize, save, utc
+from support import Context, ROOT, digest, object_is_absent, retained_volumes, sanitize, save, utc
 
 
 def object_identity(path):
@@ -90,7 +90,7 @@ def deletion(ctx, folder):
     result = dict(file_id=file["id"], object_key=key, first_delete_http=first, repeated_delete_http=second,
         quota_before=before, quota_uploaded=uploaded, quota_after=after, old_share_http=response.status_code,
         old_share_business=response.json().get("code"), active_list_absent=file["id"] not in {v["id"] for v in listing},
-        object_stat_exit=stat.returncode, object_absent=stat.returncode != 0 and "NoSuchKey" in stat.stdout)
+        object_stat_exit=stat.returncode, object_absent=object_is_absent(stat.returncode, stat.stdout))
     result["passed"] = (first == 200 and second == 404 and after == before and uploaded == before + len(b"extra-delete")
         and result["active_list_absent"] and result["object_absent"] and response.status_code == 404
         and result["old_share_business"] == "SHARE_FILE_UNAVAILABLE")
