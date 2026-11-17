@@ -1,0 +1,8 @@
+{
+  "fault": "F2",
+  "repeat": 3,
+  "completed": false,
+  "fatal": "AssertionError: Baseline contains failures",
+  "cleanup_errors": [],
+  "ended": "2026-11-17T07:00:50.040406+00:00"
+}

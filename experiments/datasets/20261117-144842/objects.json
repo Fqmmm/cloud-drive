@@ -1,0 +1,68 @@
+[
+  {
+    "status": "success",
+    "type": "file",
+    "lastModified": "2026-11-17T06:52:27.562Z",
+    "size": 1048576,
+    "key": "08ed267e-a264-4c75-8dfe-d9564f79c137",
+    "etag": "fa31f8bc28995ffc6e443e14aeb0ce40",
+    "url": "http://127.0.0.1:9000/cloud-drive/",
+    "versionOrdinal": 1,
+    "storageClass": "STANDARD"
+  },
+  {
+    "status": "success",
+    "type": "file",
+    "lastModified": "2026-11-17T06:52:26.158Z",
+    "size": 20971520,
+    "key": "5544c30f-95ab-486a-ab3f-52fe50040889",
+    "etag": "6c62375544c05c5fa1a3903a504b9f9d-4",
+    "url": "http://127.0.0.1:9000/cloud-drive/",
+    "versionOrdinal": 1,
+    "storageClass": "STANDARD"
+  },
+  {
+    "status": "success",
+    "type": "file",
+    "lastModified": "2026-11-17T06:52:25.293Z",
+    "size": 1048576,
+    "key": "7e590756-a755-4f51-82c4-5503bd8865f6",
+    "etag": "fa31f8bc28995ffc6e443e14aeb0ce40",
+    "url": "http://127.0.0.1:9000/cloud-drive/",
+    "versionOrdinal": 1,
+    "storageClass": "STANDARD"
+  },
+  {
+    "status": "success",
+    "type": "file",
+    "lastModified": "2026-11-17T06:52:28.249Z",
+    "size": 20971520,
+    "key": "b63cfc98-4a3e-4547-b9b7-a144bc1fa9a2",
+    "etag": "6c62375544c05c5fa1a3903a504b9f9d-4",
+    "url": "http://127.0.0.1:9000/cloud-drive/",
+    "versionOrdinal": 1,
+    "storageClass": "STANDARD"
+  },
+  {
+    "status": "success",
+    "type": "file",
+    "lastModified": "2026-11-17T06:52:27.141Z",
+    "size": 1024,
+    "key": "c40a8339-15d9-42e3-a90c-a7e3e120c931",
+    "etag": "bf318ba8a075d293870d5ecd33500043",
+    "url": "http://127.0.0.1:9000/cloud-drive/",
+    "versionOrdinal": 1,
+    "storageClass": "STANDARD"
+  },
+  {
+    "status": "success",
+    "type": "file",
+    "lastModified": "2026-11-17T06:52:24.885Z",
+    "size": 1024,
+    "key": "eff22c63-7cc7-4186-9723-8e3668ac9f89",
+    "etag": "bf318ba8a075d293870d5ecd33500043",
+    "url": "http://127.0.0.1:9000/cloud-drive/",
+    "versionOrdinal": 1,
+    "storageClass": "STANDARD"
+  }
+]

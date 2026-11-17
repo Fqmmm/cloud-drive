@@ -1,0 +1,838 @@
+ Image cloud-drive-file:liu-e3-e4 Building 
+ Image cloud-drive-share:liu-e3-e4 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.46kB 0.1s done
+#1 DONE 0.1s
+#2 [share-service internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.03kB done
+#2 DONE 0.0s
+#3 [file-service internal] load build definition from Dockerfile
+#3 transferring dockerfile: 525B done
+#3 DONE 0.0s
+#4 [file-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre
+#4 ...
+#5 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#5 DONE 0.0s
+#6 [auth] library/maven:pull token for registry-1.docker.io
+#6 DONE 0.0s
+#7 [file-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17
+#7 ...
+#8 [share-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#8 DONE 2.8s
+#9 [share-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#9 DONE 2.8s
+#7 [file-service internal] load metadata for docker.io/library/maven:3.9.9-eclipse-temurin-17
+#7 DONE 2.8s
+#4 [file-service internal] load metadata for docker.io/library/eclipse-temurin:17-jre
+#4 DONE 2.8s
+#10 [share-service internal] load .dockerignore
+#10 transferring context: 2B done
+#10 DONE 0.0s
+#11 [share-service internal] load build context
+#11 DONE 0.0s
+#12 [file-service internal] load build context
+#12 DONE 0.0s
+#13 [file-service build 1/6] FROM docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc
+#13 resolve docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc 0.1s done
+#13 resolve docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc 0.1s done
+#13 DONE 0.1s
+#14 [file-service stage-1 1/3] FROM docker.io/library/eclipse-temurin:17-jre@sha256:fb2cec8da84e3f086b59e29bf432d372e396fe0c247adcfb89303a28c2e313c0
+#14 resolve docker.io/library/eclipse-temurin:17-jre@sha256:fb2cec8da84e3f086b59e29bf432d372e396fe0c247adcfb89303a28c2e313c0 0.1s done
+#14 DONE 0.1s
+#15 [share-service stage-1 1/4] FROM docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a
+#15 resolve docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a 0.1s done
+#15 DONE 0.1s
+#12 [file-service internal] load build context
+#12 transferring context: 31.52kB 0.0s done
+#12 DONE 0.1s
+#11 [share-service internal] load build context
+#11 transferring context: 45.79kB 0.0s done
+#11 DONE 0.1s
+#16 [file-service build 3/6] COPY docker/maven-build.sh /usr/local/bin/course-maven-build
+#16 CACHED
+#17 [file-service build 4/6] COPY file-service/pom.xml pom.xml
+#17 CACHED
+#18 [share-service build 3/6] COPY docker/maven-build.sh /usr/local/bin/course-maven-build
+#18 CACHED
+#19 [share-service build 2/6] WORKDIR /build
+#19 CACHED
+#20 [share-service build 4/6] COPY share-service/pom.xml pom.xml
+#20 CACHED
+#21 [file-service build 5/6] COPY file-service/src src
+#21 DONE 0.1s
+#22 [share-service build 5/6] COPY share-service/src src
+#22 DONE 0.1s
+#23 [share-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build verify
+#23 ...
+#24 [file-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build package
+#24 0.466 Preparing Maven dependencies: attempt 1/3
+#24 1.940 [INFO] Scanning for projects...
+#24 2.257 [INFO] 
+#24 2.257 [INFO] ----------------------< com.jiayuan:file-service >----------------------
+#24 2.257 [INFO] Building file-service 0.0.1-SNAPSHOT
+#24 2.258 [INFO]   from pom.xml
+#24 2.258 [INFO] --------------------------------[ jar ]---------------------------------
+#24 2.264 [INFO] 
+#24 2.264 [INFO] --- dependency:3.8.1:go-offline (default-cli) @ file-service ---
+#24 4.059 [INFO] Resolved plugin: jetty-servlet-9.4.46.v20220331.jar
+#24 4.059 [INFO] Resolved plugin: maven-install-plugin-3.1.4.jar
+#24 4.059 [INFO] Resolved plugin: asm-9.7.jar
+#24 4.060 [INFO] Resolved plugin: doxia-module-twiki-1.11.1.jar
+#24 4.060 [INFO] Resolved plugin: velocity-tools-2.0.jar
+#24 4.060 [INFO] Resolved plugin: spring-boot-buildpack-platform-3.5.11.jar
+#24 4.060 [INFO] Resolved plugin: flexmark-ext-gfm-tasklist-0.42.14.jar
+#24 4.061 [INFO] Resolved plugin: maven-resolver-api-1.9.22.jar
+#24 4.061 [INFO] Resolved plugin: flexmark-ext-admonition-0.42.14.jar
+#24 4.061 [INFO] Resolved plugin: maven-core-3.2.5.jar
+#24 4.061 [INFO] Resolved plugin: flexmark-ext-footnotes-0.42.14.jar
+#24 4.061 [INFO] Resolved plugin: flexmark-ext-gfm-strikethrough-0.42.14.jar
+#24 4.062 [INFO] Resolved plugin: flexmark-ext-media-tags-0.42.14.jar
+#24 4.062 [INFO] Resolved plugin: doxia-module-xhtml-1.11.1.jar
+#24 4.062 [INFO] Resolved plugin: flexmark-util-0.42.14.jar
+#24 4.062 [INFO] Resolved plugin: flexmark-ext-anchorlink-0.42.14.jar
+#24 4.063 [INFO] Resolved plugin: maven-resolver-util-1.9.22.jar
+#24 4.063 [INFO] Resolved plugin: aether-api-1.0.0.v20140518.jar
+#24 4.063 [INFO] Resolved plugin: autolink-0.6.0.jar
+#24 4.063 [INFO] Resolved plugin: maven-filtering-3.3.1.jar
+#24 4.064 [INFO] Resolved plugin: asm-commons-9.7.jar
+#24 4.064 [INFO] Resolved plugin: maven-archiver-3.6.2.jar
+#24 4.065 [INFO] Resolved plugin: doxia-skin-model-1.11.1.jar
+#24 4.065 [INFO] Resolved plugin: dom4j-1.1.jar
+#24 4.065 [INFO] Resolved plugin: plexus-compiler-api-2.15.0.jar
+#24 4.065 [INFO] Resolved plugin: commons-io-2.16.1.jar
+#24 4.065 [INFO] Resolved plugin: flexmark-youtrack-converter-0.42.14.jar
+#24 4.065 [INFO] Resolved plugin: surefire-extensions-api-3.5.4.jar
+#24 4.065 [INFO] Resolved plugin: tomlj-1.0.0.jar
+#24 4.065 [INFO] Resolved plugin: httpclient-4.5.13.jar
+#24 4.065 [INFO] Resolved plugin: flexmark-ext-toc-0.42.14.jar
+#24 4.065 [INFO] Resolved plugin: surefire-api-3.5.4.jar
+#24 4.065 [INFO] Resolved plugin: asm-9.8.jar
+#24 4.065 [INFO] Resolved plugin: jetty-http-9.4.46.v20220331.jar
+#24 4.065 [INFO] Resolved plugin: flexmark-jira-converter-0.42.14.jar
+#24 4.065 [INFO] Resolved plugin: maven-reporting-api-3.1.1.jar
+#24 4.065 [INFO] Resolved plugin: maven-plugin-api-3.2.5.jar
+#24 4.065 [INFO] Resolved plugin: sisu-guice-3.2.3-no_aop.jar
+#24 4.065 [INFO] Resolved plugin: commons-codec-1.17.1.jar
+#24 4.065 [INFO] Resolved plugin: flexmark-ext-attributes-0.42.14.jar
+#24 4.066 [INFO] Resolved plugin: micrometer-observation-1.15.9.jar
+#24 4.066 [INFO] Resolved plugin: commons-lang3-3.8.1.jar
+#24 4.066 [INFO] Resolved plugin: maven-aether-provider-3.2.5.jar
+#24 4.066 [INFO] Resolved plugin: aether-util-1.0.0.v20140518.jar
+#24 4.066 [INFO] Resolved plugin: jetty-security-9.4.46.v20220331.jar
+#24 4.066 [INFO] Resolved plugin: httpclient5-5.5.2.jar
+#24 4.066 [INFO] Resolved plugin: maven-common-artifact-filters-3.4.0.jar
+#24 4.066 [INFO] Resolved plugin: org.eclipse.sisu.plexus-0.3.5.jar
+#24 4.066 [INFO] Resolved plugin: doxia-core-1.11.1.jar
+#24 4.066 [INFO] Resolved plugin: flexmark-ext-ins-0.42.14.jar
+#24 4.066 [INFO] Resolved plugin: google-collections-1.0.jar
+#24 4.067 [INFO] Resolved plugin: flexmark-ext-emoji-0.42.14.jar
+#24 4.067 [INFO] Resolved plugin: maven-resolver-api-1.4.1.jar
+#24 4.067 [INFO] Resolved plugin: doxia-integration-tools-1.11.1.jar
+#24 4.067 [INFO] Resolved plugin: plexus-compiler-manager-2.15.0.jar
+#24 4.067 [INFO] Resolved plugin: maven-repository-metadata-3.2.5.jar
+#24 4.068 [INFO] Resolved plugin: flexmark-ext-jekyll-front-matter-0.42.14.jar
+#24 4.068 [INFO] Resolved plugin: doxia-decoration-model-1.11.1.jar
+#24 4.068 [INFO] Resolved plugin: flexmark-all-0.42.14.jar
+#24 4.068 [INFO] Resolved plugin: spring-boot-loader-tools-3.5.11.jar
+#24 4.068 [INFO] Resolved plugin: maven-shared-incremental-1.1.jar
+#24 4.068 [INFO] Resolved plugin: file-management-3.1.0.jar
+#24 4.068 [INFO] Resolved plugin: commons-compress-1.26.1.jar
+#24 4.068 [INFO] Resolved plugin: jetty-webapp-9.4.46.v20220331.jar
+#24 4.068 [INFO] Resolved plugin: plexus-io-3.2.0.jar
+#24 4.068 [INFO] Resolved plugin: xbean-reflect-3.7.jar
+#24 4.068 [INFO] Resolved plugin: maven-reporting-exec-1.6.0.jar
+#24 4.068 [INFO] Resolved plugin: doxia-sink-api-1.11.1.jar
+#24 4.068 [INFO] Resolved plugin: jetty-xml-9.4.46.v20220331.jar
+#24 4.068 [INFO] Resolved plugin: plexus-velocity-1.2.jar
+#24 4.068 [INFO] Resolved plugin: plexus-container-default-2.1.0.jar
+#24 4.068 [INFO] Resolved plugin: commons-codec-1.11.jar
+#24 4.068 [INFO] Resolved plugin: jackson-core-2.19.4.jar
+#24 4.068 [INFO] Resolved plugin: spring-core-6.2.16.jar
+#24 4.068 [INFO] Resolved plugin: snappy-0.4.jar
+#24 4.068 [INFO] Resolved plugin: maven-deploy-plugin-3.1.4.jar
+#24 4.068 [INFO] Resolved plugin: jsr305-3.0.2.jar
+#24 4.068 [INFO] Resolved plugin: plexus-build-api-0.0.7.jar
+#24 4.068 [INFO] Resolved plugin: doxia-module-fml-1.11.1.jar
+#24 4.068 [INFO] Resolved plugin: commons-digester-1.8.jar
+#24 4.068 [INFO] Resolved plugin: jetty-server-9.4.46.v20220331.jar
+#24 4.068 [INFO] Resolved plugin: maven-shared-utils-3.4.2.jar
+#24 4.068 [INFO] Resolved plugin: flexmark-ext-abbreviation-0.42.14.jar
+#24 4.068 [INFO] Resolved plugin: maven-archiver-3.5.2.jar
+#24 4.068 [INFO] Resolved plugin: jackson-databind-2.19.4.jar
+#24 4.068 [INFO] Resolved plugin: zstd-jni-1.5.5-11.jar
+#24 4.069 [INFO] Resolved plugin: flexmark-ext-definition-0.42.14.jar
+#24 4.069 [INFO] Resolved plugin: doxia-logging-api-1.11.1.jar
+#24 4.069 [INFO] Resolved plugin: plexus-xml-3.0.1.jar
+#24 4.069 [INFO] Resolved plugin: maven-surefire-plugin-3.5.4.jar
+#24 4.069 [INFO] Resolved plugin: flexmark-ext-yaml-front-matter-0.42.14.jar
+#24 4.069 [INFO] Resolved plugin: maven-site-plugin-3.12.1.jar
+#24 4.069 [INFO] Resolved plugin: jna-5.17.0.jar
+#24 4.069 [INFO] Resolved plugin: flexmark-ext-superscript-0.42.14.jar
+#24 4.069 [INFO] Resolved plugin: commons-collections-3.2.2.jar
+#24 4.072 [INFO] Resolved plugin: surefire-shared-utils-3.5.4.jar
+#24 4.072 [INFO] Resolved plugin: doxia-module-markdown-1.11.1.jar
+#24 4.072 [INFO] Resolved plugin: flexmark-ext-xwiki-macros-0.42.14.jar
+#24 4.072 [INFO] Resolved plugin: commons-compress-1.20.jar
+#24 4.072 [INFO] Resolved plugin: maven-resources-plugin-3.3.1.jar
+#24 4.072 [INFO] Resolved plugin: velocity-1.7.jar
+#24 4.072 [INFO] Resolved plugin: plexus-utils-3.5.1.jar
+#24 4.072 [INFO] Resolved plugin: surefire-extensions-spi-3.5.4.jar
+#24 4.072 [INFO] Resolved plugin: aopalliance-1.0.jar
+#24 4.072 [INFO] Resolved plugin: aether-spi-1.0.0.v20140518.jar
+#24 4.072 [INFO] Resolved plugin: plexus-interpolation-1.26.jar
+#24 4.072 [INFO] Resolved plugin: maven-settings-builder-3.2.5.jar
+#24 4.072 [INFO] Resolved plugin: httpcore-4.4.14.jar
+#24 4.072 [INFO] Resolved plugin: commons-lang3-3.12.0.jar
+#24 4.072 [INFO] Resolved plugin: maven-surefire-common-3.5.4.jar
+#24 4.072 [INFO] Resolved plugin: maven-artifact-3.2.5.jar
+#24 4.072 [INFO] Resolved plugin: plexus-compiler-javac-2.15.0.jar
+#24 4.072 [INFO] Resolved plugin: flexmark-ext-enumerated-reference-0.42.14.jar
+#24 4.072 [INFO] Resolved plugin: plexus-component-annotations-2.1.1.jar
+#24 4.072 [INFO] Resolved plugin: jackson-module-parameter-names-2.19.4.jar
+#24 4.072 [INFO] Resolved plugin: asm-tree-9.7.jar
+#24 4.072 [INFO] Resolved plugin: commons-logging-1.2.jar
+#24 4.072 [INFO] Resolved plugin: flexmark-ext-escaped-character-0.42.14.jar
+#24 4.072 [INFO] Resolved plugin: spring-beans-6.2.16.jar
+#24 4.072 [INFO] Resolved plugin: jdependency-2.10.jar
+#24 4.073 [INFO] Resolved plugin: plexus-cipher-1.4.jar
+#24 4.073 [INFO] Resolved plugin: httpcore5-h2-5.3.6.jar
+#24 4.073 [INFO] Resolved plugin: flexmark-0.42.14.jar
+#24 4.073 [INFO] Resolved plugin: plexus-utils-3.4.2.jar
+#24 4.073 [INFO] Resolved plugin: flexmark-ext-aside-0.42.14.jar
+#24 4.073 [INFO] Resolved plugin: flexmark-ext-wikilink-0.42.14.jar
+#24 4.073 [INFO] Resolved plugin: surefire-logger-api-3.5.4.jar
+#24 4.073 [INFO] Resolved plugin: org.eclipse.sisu.inject-0.3.5.jar
+#24 4.074 [INFO] Resolved plugin: plexus-io-3.4.2.jar
+#24 4.074 [INFO] Resolved plugin: flexmark-ext-gfm-tables-0.42.14.jar
+#24 4.074 [INFO] Resolved plugin: antlr4-runtime-4.7.2.jar
+#24 4.074 [INFO] Resolved plugin: plexus-interpolation-1.27.jar
+#24 4.074 [INFO] Resolved plugin: commons-io-2.11.0.jar
+#24 4.074 [INFO] Resolved plugin: jetty-io-9.4.46.v20220331.jar
+#24 4.074 [INFO] Resolved plugin: cdi-api-1.2.jar
+#24 4.075 [INFO] Resolved plugin: commons-chain-1.1.jar
+#24 4.075 [INFO] Resolved plugin: plexus-utils-4.0.2.jar
+#24 4.075 [INFO] Resolved plugin: commons-codec-1.16.1.jar
+#24 4.075 [INFO] Resolved plugin: flexmark-html-parser-0.42.14.jar
+#24 4.075 [INFO] Resolved plugin: spring-boot-maven-plugin-3.5.11.jar
+#24 4.075 [INFO] Resolved plugin: javax.inject-1.jar
+#24 4.075 [INFO] Resolved plugin: maven-shared-utils-3.3.4.jar
+#24 4.076 [INFO] Resolved plugin: javax.servlet-api-3.1.0.jar
+#24 4.076 [INFO] Resolved plugin: jetty-util-ajax-9.4.46.v20220331.jar
+#24 4.076 [INFO] Resolved plugin: maven-compiler-plugin-3.14.1.jar
+#24 4.076 [INFO] Resolved plugin: spring-aop-6.2.16.jar
+#24 4.076 [INFO] Resolved plugin: spring-jcl-6.2.16.jar
+#24 4.076 [INFO] Resolved plugin: maven-settings-3.2.5.jar
+#24 4.076 [INFO] Resolved plugin: jsoup-1.10.2.jar
+#24 4.076 [INFO] Resolved plugin: oro-2.0.8.jar
+#24 4.076 [INFO] Resolved plugin: spring-expression-6.2.16.jar
+#24 4.076 [INFO] Resolved plugin: xz-1.9.jar
+#24 4.076 [INFO] Resolved plugin: aether-impl-1.0.0.v20140518.jar
+#24 4.076 [INFO] Resolved plugin: commons-text-1.3.jar
+#24 4.077 [INFO] Resolved plugin: commons-lang-2.4.jar
+#24 4.077 [INFO] Resolved plugin: slf4j-api-1.7.36.jar
+#24 4.077 [INFO] Resolved plugin: maven-resolver-util-1.4.1.jar
+#24 4.077 [INFO] Resolved plugin: doxia-module-apt-1.11.1.jar
+#24 4.077 [INFO] Resolved plugin: flexmark-ext-gfm-issues-0.42.14.jar
+#24 4.077 [INFO] Resolved plugin: jetty-util-9.4.46.v20220331.jar
+#24 4.077 [INFO] Resolved plugin: maven-model-builder-3.2.5.jar
+#24 4.077 [INFO] Resolved plugin: maven-jar-plugin-3.4.2.jar
+#24 4.077 [INFO] Resolved plugin: plexus-archiver-4.2.7.jar
+#24 4.077 [INFO] Resolved plugin: commons-io-2.6.jar
+#24 4.077 [INFO] Resolved plugin: maven-shade-plugin-3.6.0.jar
+#24 4.077 [INFO] Resolved plugin: flexmark-ext-youtube-embedded-0.42.14.jar
+#24 4.078 [INFO] Resolved plugin: flexmark-formatter-0.42.14.jar
+#24 4.078 [INFO] Resolved plugin: maven-model-3.2.5.jar
+#24 4.078 [INFO] Resolved plugin: plexus-utils-4.0.1.jar
+#24 4.078 [INFO] Resolved plugin: jdom2-2.0.6.1.jar
+#24 4.078 [INFO] Resolved plugin: flexmark-profile-pegdown-0.42.14.jar
+#24 4.078 [INFO] Resolved plugin: doxia-module-docbook-simple-1.11.1.jar
+#24 4.078 [INFO] Resolved plugin: commons-lang3-3.16.0.jar
+#24 4.078 [INFO] Resolved plugin: guava-16.0.1.jar
+#24 4.078 [INFO] Resolved plugin: flexmark-ext-typographic-0.42.14.jar
+#24 4.078 [INFO] Resolved plugin: flexmark-ext-autolink-0.42.14.jar
+#24 4.079 [INFO] Resolved plugin: flexmark-ext-jekyll-tag-0.42.14.jar
+#24 4.079 [INFO] Resolved plugin: flexmark-ext-gitlab-0.42.14.jar
+#24 4.079 [INFO] Resolved plugin: commons-compress-1.27.1.jar
+#24 4.079 [INFO] Resolved plugin: doxia-module-xdoc-1.11.1.jar
+#24 4.079 [INFO] Resolved plugin: doxia-site-renderer-1.11.1.jar
+#24 4.079 [INFO] Resolved plugin: commons-beanutils-1.7.0.jar
+#24 4.079 [INFO] Resolved plugin: httpcore5-5.3.6.jar
+#24 4.080 [INFO] Resolved plugin: commons-lang3-3.14.0.jar
+#24 4.081 [INFO] Resolved plugin: plexus-classworlds-2.5.2.jar
+#24 4.081 [INFO] Resolved plugin: spring-context-6.2.16.jar
+#24 4.081 [INFO] Resolved plugin: doxia-module-confluence-1.11.1.jar
+#24 4.082 [INFO] Resolved plugin: doxia-module-xhtml5-1.11.1.jar
+#24 4.082 [INFO] Resolved plugin: flexmark-ext-tables-0.42.14.jar
+#24 4.082 [INFO] Resolved plugin: javax.annotation-api-1.2.jar
+#24 4.082 [INFO] Resolved plugin: flexmark-ext-macros-0.42.14.jar
+#24 4.083 [INFO] Resolved plugin: jna-platform-5.17.0.jar
+#24 4.083 [INFO] Resolved plugin: plexus-sec-dispatcher-1.3.jar
+#24 4.083 [INFO] Resolved plugin: plexus-java-1.5.0.jar
+#24 4.083 [INFO] Resolved plugin: plexus-i18n-1.0-beta-10.jar
+#24 4.083 [INFO] Resolved plugin: qdox-2.2.0.jar
+#24 4.083 [INFO] Resolved plugin: flexmark-ext-gfm-users-0.42.14.jar
+#24 4.083 [INFO] Resolved plugin: maven-clean-plugin-3.4.1.jar
+#24 4.083 [INFO] Resolved plugin: plexus-archiver-4.9.2.jar
+#24 4.083 [INFO] Resolved plugin: jackson-annotations-2.19.4.jar
+#24 4.083 [INFO] Resolved plugin: surefire-booter-3.5.4.jar
+#24 4.083 [INFO] Resolved plugin: micrometer-commons-1.15.9.jar
+#24 4.083 [INFO] Resolved dependency: spring-boot-starter-jdbc-3.5.11.jar
+#24 4.083 [INFO] Resolved dependency: listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+#24 4.083 [INFO] Resolved dependency: spring-boot-starter-logging-3.5.11.jar
+#24 4.083 [INFO] Resolved dependency: kotlin-stdlib-jdk8-1.8.21.jar
+#24 4.084 [INFO] Resolved dependency: jackson-databind-2.17.1.jar
+#24 4.084 [INFO] Resolved dependency: spring-boot-starter-3.5.11.jar
+#24 4.084 [INFO] Resolved dependency: snakeyaml-2.4.jar
+#24 4.085 [INFO] Resolved dependency: simple-xml-safe-2.7.1.jar
+#24 4.085 [INFO] Resolved dependency: oci-java-sdk-common-httpclient-3.66.0.jar
+#24 4.085 [INFO] Resolved dependency: checker-qual-3.41.0.jar
+#24 4.085 [INFO] Resolved dependency: jackson-annotations-2.16.1.jar
+#24 4.085 [INFO] Resolved dependency: log4j-to-slf4j-2.24.3.jar
+#24 4.085 [INFO] Resolved dependency: spring-boot-starter-web-3.5.11.jar
+#24 4.085 [INFO] Resolved dependency: resilience4j-core-1.7.1.jar
+#24 4.085 [INFO] Resolved dependency: slf4j-api-2.0.17.jar
+#24 4.085 [INFO] Resolved dependency: jackson-core-2.16.1.jar
+#24 4.085 [INFO] Resolved dependency: jjwt-api-0.12.6.jar
+#24 4.085 [INFO] Resolved dependency: logback-core-1.5.32.jar
+#24 4.085 [INFO] Resolved dependency: kotlin-stdlib-1.8.21.jar
+#24 4.085 [INFO] Resolved dependency: oci-java-sdk-circuitbreaker-3.66.0.jar
+#24 4.085 [INFO] Resolved dependency: spring-jdbc-6.2.16.jar
+#24 4.085 [INFO] Resolved dependency: commons-io-2.15.1.jar
+#24 4.085 [INFO] Resolved dependency: error_prone_annotations-2.23.0.jar
+#24 4.085 [INFO] Resolved dependency: vavr-0.10.2.jar
+#24 4.085 [INFO] Resolved dependency: spring-boot-starter-tomcat-3.5.11.jar
+#24 4.085 [INFO] Resolved dependency: okhttp-4.12.0.jar
+#24 4.085 [INFO] Resolved dependency: slf4j-api-1.7.33.jar
+#24 4.085 [INFO] Resolved dependency: jul-to-slf4j-2.0.17.jar
+#24 4.085 [INFO] Resolved dependency: snappy-java-1.1.10.5.jar
+#24 4.085 [INFO] Resolved dependency: jackson-datatype-jdk8-2.19.4.jar
+#24 4.085 [INFO] Resolved dependency: jackson-module-parameter-names-2.19.4.jar
+#24 4.085 [INFO] Resolved dependency: tomcat-embed-websocket-10.1.52.jar
+#24 4.085 [INFO] Resolved dependency: guava-33.0.0-jre.jar
+#24 4.085 [INFO] Resolved dependency: jackson-databind-2.16.1.jar
+#24 4.086 [INFO] Resolved dependency: okio-jvm-3.6.0.jar
+#24 4.087 [INFO] Resolved dependency: kotlin-stdlib-jdk7-1.8.21.jar
+#24 4.087 [INFO] Resolved dependency: logback-classic-1.5.32.jar
+#24 4.087 [INFO] Resolved dependency: minio-8.5.10.jar
+#24 4.087 [INFO] Resolved dependency: tomcat-embed-core-10.1.52.jar
+#24 4.087 [INFO] Resolved dependency: spring-web-6.2.16.jar
+#24 4.088 [INFO] Resolved dependency: spring-beans-6.2.16.jar
+#24 4.088 [INFO] Resolved dependency: tomcat-embed-el-10.1.52.jar
+#24 4.089 [INFO] Resolved dependency: spring-core-6.2.16.jar
+#24 4.089 [INFO] Resolved dependency: jackson-core-2.19.4.jar
+#24 4.089 [INFO] Resolved dependency: oci-java-sdk-common-3.66.0.jar
+#24 4.089 [INFO] Resolved dependency: jackson-annotations-2.17.1.jar
+#24 4.089 [INFO] Resolved dependency: bcprov-jdk18on-1.78.jar
+#24 4.090 [INFO] Resolved dependency: spring-tx-6.2.16.jar
+#24 4.090 [INFO] Resolved dependency: protobuf-java-4.31.1.jar
+#24 4.090 [INFO] Resolved dependency: jsr305-3.0.2.jar
+#24 4.090 [INFO] Resolved dependency: failureaccess-1.0.2.jar
+#24 4.090 [INFO] Resolved dependency: jackson-datatype-jsr310-2.19.4.jar
+#24 4.090 [INFO] Resolved dependency: jackson-core-2.12.7.jar
+#24 4.090 [INFO] Resolved dependency: commons-compress-1.26.0.jar
+#24 4.090 [INFO] Resolved dependency: spring-boot-3.5.11.jar
+#24 4.090 [INFO] Resolved dependency: jakarta.annotation-api-2.1.1.jar
+#24 4.090 [INFO] Resolved dependency: spring-boot-starter-json-3.5.11.jar
+#24 4.090 [INFO] Resolved dependency: spring-webmvc-6.2.16.jar
+#24 4.090 [INFO] Resolved dependency: jackson-databind-2.19.4.jar
+#24 4.090 [INFO] Resolved dependency: okio-3.6.0.jar
+#24 4.090 [INFO] Resolved dependency: commons-lang3-3.14.0.jar
+#24 4.090 [INFO] Resolved dependency: spring-context-6.2.16.jar
+#24 4.090 [INFO] Resolved dependency: commons-codec-1.16.1.jar
+#24 4.090 [INFO] Resolved dependency: jackson-annotations-2.12.7.jar
+#24 4.090 [INFO] Resolved dependency: spring-boot-autoconfigure-3.5.11.jar
+#24 4.090 [INFO] Resolved dependency: vavr-match-0.10.2.jar
+#24 4.090 [INFO] Resolved dependency: j2objc-annotations-2.8.jar
+#24 4.090 [INFO] Resolved dependency: jjwt-impl-0.12.6.jar
+#24 4.090 [INFO] Resolved dependency: micrometer-observation-1.15.9.jar
+#24 4.090 [INFO] Resolved dependency: kotlin-stdlib-common-1.9.10.jar
+#24 4.090 [INFO] Resolved dependency: jjwt-jackson-0.12.6.jar
+#24 4.090 [INFO] Resolved dependency: resilience4j-circuitbreaker-1.7.1.jar
+#24 4.090 [INFO] Resolved dependency: spring-aop-6.2.16.jar
+#24 4.090 [INFO] Resolved dependency: spring-jcl-6.2.16.jar
+#24 4.090 [INFO] Resolved dependency: mysql-connector-j-9.6.0.jar
+#24 4.090 [INFO] Resolved dependency: jackson-databind-2.12.7.1.jar
+#24 4.090 [INFO] Resolved dependency: jackson-annotations-2.19.4.jar
+#24 4.090 [INFO] Resolved dependency: log4j-api-2.24.3.jar
+#24 4.091 [INFO] Resolved dependency: spring-expression-6.2.16.jar
+#24 4.091 [INFO] Resolved dependency: micrometer-commons-1.15.9.jar
+#24 4.091 [INFO] Resolved dependency: HikariCP-6.3.3.jar
+#24 4.091 [INFO] Resolved dependency: annotations-13.0.jar
+#24 4.091 [INFO] ------------------------------------------------------------------------
+#24 4.091 [INFO] BUILD SUCCESS
+#24 4.091 [INFO] ------------------------------------------------------------------------
+#24 4.094 [INFO] Total time:  2.175 s
+#24 4.094 [INFO] Finished at: 2026-11-17T07:14:33Z
+#24 4.094 [INFO] ------------------------------------------------------------------------
+#24 5.245 [INFO] Scanning for projects...
+#24 5.484 [INFO] 
+#24 5.484 [INFO] ----------------------< com.jiayuan:file-service >----------------------
+#24 5.485 [INFO] Building file-service 0.0.1-SNAPSHOT
+#24 5.485 [INFO]   from pom.xml
+#24 5.485 [INFO] --------------------------------[ jar ]---------------------------------
+#24 5.852 [INFO] 
+#24 5.852 [INFO] --- resources:3.3.1:resources (default-resources) @ file-service ---
+#24 5.967 [INFO] Copying 1 resource from src/main/resources to target/classes
+#24 6.036 [INFO] Copying 0 resource from src/main/resources to target/classes
+#24 6.040 [INFO] 
+#24 6.040 [INFO] --- compiler:3.14.1:compile (default-compile) @ file-service ---
+#24 6.162 [INFO] Recompiling the module because of changed source code.
+#24 6.174 [INFO] Compiling 7 source files with javac [debug parameters release 17] to target/classes
+#24 7.755 [INFO] 
+#24 7.755 [INFO] --- resources:3.3.1:testResources (default-testResources) @ file-service ---
+#24 7.763 [INFO] skip non existing resourceDirectory /build/src/test/resources
+#24 7.766 [INFO] 
+#24 7.766 [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ file-service ---
+#24 7.776 [INFO] No sources to compile
+#24 7.776 [INFO] 
+#24 7.776 [INFO] --- surefire:3.5.4:test (default-test) @ file-service ---
+#24 7.901 [INFO] No tests to run.
+#24 7.915 [INFO] 
+#24 7.915 [INFO] --- jar:3.4.2:jar (default-jar) @ file-service ---
+#24 8.171 [INFO] Building jar: /build/target/file-service.jar
+#24 8.226 [INFO] 
+#24 8.226 [INFO] --- spring-boot:3.5.11:repackage (repackage) @ file-service ---
+#24 8.725 [INFO] Replacing main artifact /build/target/file-service.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+#24 8.726 [INFO] The original artifact has been renamed to /build/target/file-service.jar.original
+#24 8.727 [INFO] ------------------------------------------------------------------------
+#24 8.727 [INFO] BUILD SUCCESS
+#24 8.727 [INFO] ------------------------------------------------------------------------
+#24 8.730 [INFO] Total time:  3.501 s
+#24 8.730 [INFO] Finished at: 2026-11-17T07:14:38Z
+#24 8.730 [INFO] ------------------------------------------------------------------------
+#24 DONE 8.8s
+#25 [file-service stage-1 2/3] WORKDIR /app
+#25 CACHED
+#23 [share-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build verify
+#23 ...
+#26 [file-service stage-1 3/3] COPY --from=build /build/target/file-service.jar app.jar
+#26 DONE 0.1s
+#27 [file-service] exporting to image
+#27 exporting layers
+#27 exporting layers 1.5s done
+#27 exporting manifest sha256:492702fd434245232f194980194a61f33473b2f1284e8ed8a0d4639569f2bb98 0.0s done
+#27 exporting config sha256:c1a0377f13efb9cfda30e753c52a516d5b7268f53cc7fcb54c62ce9f7f71d0ac 0.0s done
+#27 exporting attestation manifest sha256:a6412b493622bb8e16599231df4294ceb125b61a3f947af5669eb8cc28e3cf43
+#27 exporting attestation manifest sha256:a6412b493622bb8e16599231df4294ceb125b61a3f947af5669eb8cc28e3cf43 0.0s done
+#27 exporting manifest list sha256:bcd79b0a47ab20c05fed61a0491089546587ecdf80926ed93a9ba795978795a9 0.0s done
+#27 naming to docker.io/library/cloud-drive-file:liu-e3-e4 done
+#27 unpacking to docker.io/library/cloud-drive-file:liu-e3-e4
+#27 unpacking to docker.io/library/cloud-drive-file:liu-e3-e4 0.3s done
+#27 DONE 2.0s
+#23 [share-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build verify
+#23 9.372 Preparing Maven dependencies: attempt 1/3
+#23 10.54 [INFO] Scanning for projects...
+#23 10.84 [INFO] 
+#23 10.84 [INFO] ---------------------< com.jiayuan:share-service >----------------------
+#23 10.84 [INFO] Building share-service 0.0.1-SNAPSHOT
+#23 10.84 [INFO]   from pom.xml
+#23 10.84 [INFO] --------------------------------[ jar ]---------------------------------
+#23 10.85 [INFO] 
+#23 10.85 [INFO] --- dependency:3.8.1:go-offline (default-cli) @ share-service ---
+#23 ...
+#28 [file-service] resolving provenance for metadata file
+#28 DONE 0.0s
+#23 [share-service build 6/6] RUN --mount=type=cache,id=cloud-drive-course-maven,target=/root/.m2,sharing=locked sh /usr/local/bin/course-maven-build verify
+#23 12.48 [INFO] Resolved plugin: jetty-servlet-9.4.46.v20220331.jar
+#23 12.48 [INFO] Resolved plugin: maven-install-plugin-3.1.4.jar
+#23 12.48 [INFO] Resolved plugin: asm-9.7.jar
+#23 12.48 [INFO] Resolved plugin: doxia-module-twiki-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: spring-boot-buildpack-platform-3.5.11.jar
+#23 12.48 [INFO] Resolved plugin: velocity-tools-2.0.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-gfm-tasklist-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-resolver-api-1.9.22.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-admonition-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-core-3.2.5.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-footnotes-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-gfm-strikethrough-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-media-tags-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: doxia-module-xhtml-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-util-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-anchorlink-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-resolver-util-1.9.22.jar
+#23 12.48 [INFO] Resolved plugin: aether-api-1.0.0.v20140518.jar
+#23 12.48 [INFO] Resolved plugin: autolink-0.6.0.jar
+#23 12.48 [INFO] Resolved plugin: maven-filtering-3.3.1.jar
+#23 12.48 [INFO] Resolved plugin: asm-commons-9.7.jar
+#23 12.48 [INFO] Resolved plugin: maven-archiver-3.6.2.jar
+#23 12.48 [INFO] Resolved plugin: doxia-skin-model-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: dom4j-1.1.jar
+#23 12.48 [INFO] Resolved plugin: plexus-compiler-api-2.15.0.jar
+#23 12.48 [INFO] Resolved plugin: commons-io-2.16.1.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-youtrack-converter-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: surefire-extensions-api-3.5.4.jar
+#23 12.48 [INFO] Resolved plugin: tomlj-1.0.0.jar
+#23 12.48 [INFO] Resolved plugin: httpclient-4.5.13.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-toc-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: surefire-api-3.5.4.jar
+#23 12.48 [INFO] Resolved plugin: asm-9.8.jar
+#23 12.48 [INFO] Resolved plugin: jetty-http-9.4.46.v20220331.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-jira-converter-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-reporting-api-3.1.1.jar
+#23 12.48 [INFO] Resolved plugin: maven-plugin-api-3.2.5.jar
+#23 12.48 [INFO] Resolved plugin: commons-codec-1.17.1.jar
+#23 12.48 [INFO] Resolved plugin: sisu-guice-3.2.3-no_aop.jar
+#23 12.48 [INFO] Resolved plugin: micrometer-observation-1.15.9.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-attributes-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: commons-lang3-3.8.1.jar
+#23 12.48 [INFO] Resolved plugin: maven-aether-provider-3.2.5.jar
+#23 12.48 [INFO] Resolved plugin: aether-util-1.0.0.v20140518.jar
+#23 12.48 [INFO] Resolved plugin: jetty-security-9.4.46.v20220331.jar
+#23 12.48 [INFO] Resolved plugin: httpclient5-5.5.2.jar
+#23 12.48 [INFO] Resolved plugin: maven-common-artifact-filters-3.4.0.jar
+#23 12.48 [INFO] Resolved plugin: org.eclipse.sisu.plexus-0.3.5.jar
+#23 12.48 [INFO] Resolved plugin: doxia-core-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-ins-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: google-collections-1.0.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-emoji-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-resolver-api-1.4.1.jar
+#23 12.48 [INFO] Resolved plugin: doxia-integration-tools-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: plexus-compiler-manager-2.15.0.jar
+#23 12.48 [INFO] Resolved plugin: maven-repository-metadata-3.2.5.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-jekyll-front-matter-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: doxia-decoration-model-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: spring-boot-loader-tools-3.5.11.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-all-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-shared-incremental-1.1.jar
+#23 12.48 [INFO] Resolved plugin: file-management-3.1.0.jar
+#23 12.48 [INFO] Resolved plugin: commons-compress-1.26.1.jar
+#23 12.48 [INFO] Resolved plugin: jetty-webapp-9.4.46.v20220331.jar
+#23 12.48 [INFO] Resolved plugin: plexus-io-3.2.0.jar
+#23 12.48 [INFO] Resolved plugin: xbean-reflect-3.7.jar
+#23 12.48 [INFO] Resolved plugin: maven-reporting-exec-1.6.0.jar
+#23 12.48 [INFO] Resolved plugin: doxia-sink-api-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: jetty-xml-9.4.46.v20220331.jar
+#23 12.48 [INFO] Resolved plugin: plexus-velocity-1.2.jar
+#23 12.48 [INFO] Resolved plugin: plexus-container-default-2.1.0.jar
+#23 12.48 [INFO] Resolved plugin: jackson-core-2.19.4.jar
+#23 12.48 [INFO] Resolved plugin: spring-core-6.2.16.jar
+#23 12.48 [INFO] Resolved plugin: commons-codec-1.11.jar
+#23 12.48 [INFO] Resolved plugin: snappy-0.4.jar
+#23 12.48 [INFO] Resolved plugin: maven-deploy-plugin-3.1.4.jar
+#23 12.48 [INFO] Resolved plugin: jsr305-3.0.2.jar
+#23 12.48 [INFO] Resolved plugin: plexus-build-api-0.0.7.jar
+#23 12.48 [INFO] Resolved plugin: doxia-module-fml-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: commons-digester-1.8.jar
+#23 12.48 [INFO] Resolved plugin: jetty-server-9.4.46.v20220331.jar
+#23 12.48 [INFO] Resolved plugin: maven-shared-utils-3.4.2.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-abbreviation-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: maven-archiver-3.5.2.jar
+#23 12.48 [INFO] Resolved plugin: jackson-databind-2.19.4.jar
+#23 12.48 [INFO] Resolved plugin: zstd-jni-1.5.5-11.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-definition-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: doxia-logging-api-1.11.1.jar
+#23 12.48 [INFO] Resolved plugin: plexus-xml-3.0.1.jar
+#23 12.48 [INFO] Resolved plugin: maven-surefire-plugin-3.5.4.jar
+#23 12.48 [INFO] Resolved plugin: flexmark-ext-yaml-front-matter-0.42.14.jar
+#23 12.48 [INFO] Resolved plugin: jna-5.17.0.jar
+#23 12.48 [INFO] Resolved plugin: maven-site-plugin-3.12.1.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-superscript-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: commons-collections-3.2.2.jar
+#23 12.49 [INFO] Resolved plugin: surefire-shared-utils-3.5.4.jar
+#23 12.49 [INFO] Resolved plugin: doxia-module-markdown-1.11.1.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-xwiki-macros-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: commons-compress-1.20.jar
+#23 12.49 [INFO] Resolved plugin: maven-resources-plugin-3.3.1.jar
+#23 12.49 [INFO] Resolved plugin: velocity-1.7.jar
+#23 12.49 [INFO] Resolved plugin: plexus-utils-3.5.1.jar
+#23 12.49 [INFO] Resolved plugin: surefire-extensions-spi-3.5.4.jar
+#23 12.49 [INFO] Resolved plugin: aopalliance-1.0.jar
+#23 12.49 [INFO] Resolved plugin: aether-spi-1.0.0.v20140518.jar
+#23 12.49 [INFO] Resolved plugin: plexus-interpolation-1.26.jar
+#23 12.49 [INFO] Resolved plugin: maven-settings-builder-3.2.5.jar
+#23 12.49 [INFO] Resolved plugin: httpcore-4.4.14.jar
+#23 12.49 [INFO] Resolved plugin: commons-lang3-3.12.0.jar
+#23 12.49 [INFO] Resolved plugin: maven-surefire-common-3.5.4.jar
+#23 12.49 [INFO] Resolved plugin: maven-artifact-3.2.5.jar
+#23 12.49 [INFO] Resolved plugin: plexus-compiler-javac-2.15.0.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-enumerated-reference-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: plexus-component-annotations-2.1.1.jar
+#23 12.49 [INFO] Resolved plugin: jackson-module-parameter-names-2.19.4.jar
+#23 12.49 [INFO] Resolved plugin: asm-tree-9.7.jar
+#23 12.49 [INFO] Resolved plugin: commons-logging-1.2.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-escaped-character-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: spring-beans-6.2.16.jar
+#23 12.49 [INFO] Resolved plugin: jdependency-2.10.jar
+#23 12.49 [INFO] Resolved plugin: httpcore5-h2-5.3.6.jar
+#23 12.49 [INFO] Resolved plugin: plexus-cipher-1.4.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: plexus-utils-3.4.2.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-aside-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-wikilink-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: surefire-logger-api-3.5.4.jar
+#23 12.49 [INFO] Resolved plugin: org.eclipse.sisu.inject-0.3.5.jar
+#23 12.49 [INFO] Resolved plugin: plexus-io-3.4.2.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-gfm-tables-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: antlr4-runtime-4.7.2.jar
+#23 12.49 [INFO] Resolved plugin: plexus-interpolation-1.27.jar
+#23 12.49 [INFO] Resolved plugin: commons-io-2.11.0.jar
+#23 12.49 [INFO] Resolved plugin: jetty-io-9.4.46.v20220331.jar
+#23 12.49 [INFO] Resolved plugin: cdi-api-1.2.jar
+#23 12.49 [INFO] Resolved plugin: commons-chain-1.1.jar
+#23 12.49 [INFO] Resolved plugin: plexus-utils-4.0.2.jar
+#23 12.49 [INFO] Resolved plugin: commons-codec-1.16.1.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-html-parser-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: spring-boot-maven-plugin-3.5.11.jar
+#23 12.49 [INFO] Resolved plugin: javax.inject-1.jar
+#23 12.49 [INFO] Resolved plugin: maven-shared-utils-3.3.4.jar
+#23 12.49 [INFO] Resolved plugin: javax.servlet-api-3.1.0.jar
+#23 12.49 [INFO] Resolved plugin: jetty-util-ajax-9.4.46.v20220331.jar
+#23 12.49 [INFO] Resolved plugin: maven-compiler-plugin-3.14.1.jar
+#23 12.49 [INFO] Resolved plugin: spring-aop-6.2.16.jar
+#23 12.49 [INFO] Resolved plugin: spring-jcl-6.2.16.jar
+#23 12.49 [INFO] Resolved plugin: maven-settings-3.2.5.jar
+#23 12.49 [INFO] Resolved plugin: jsoup-1.10.2.jar
+#23 12.49 [INFO] Resolved plugin: oro-2.0.8.jar
+#23 12.49 [INFO] Resolved plugin: spring-expression-6.2.16.jar
+#23 12.49 [INFO] Resolved plugin: xz-1.9.jar
+#23 12.49 [INFO] Resolved plugin: aether-impl-1.0.0.v20140518.jar
+#23 12.49 [INFO] Resolved plugin: commons-text-1.3.jar
+#23 12.49 [INFO] Resolved plugin: commons-lang-2.4.jar
+#23 12.49 [INFO] Resolved plugin: slf4j-api-1.7.36.jar
+#23 12.49 [INFO] Resolved plugin: maven-resolver-util-1.4.1.jar
+#23 12.49 [INFO] Resolved plugin: doxia-module-apt-1.11.1.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-gfm-issues-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: jetty-util-9.4.46.v20220331.jar
+#23 12.49 [INFO] Resolved plugin: maven-model-builder-3.2.5.jar
+#23 12.49 [INFO] Resolved plugin: maven-jar-plugin-3.4.2.jar
+#23 12.49 [INFO] Resolved plugin: plexus-archiver-4.2.7.jar
+#23 12.49 [INFO] Resolved plugin: commons-io-2.6.jar
+#23 12.49 [INFO] Resolved plugin: maven-shade-plugin-3.6.0.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-youtube-embedded-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-formatter-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: maven-model-3.2.5.jar
+#23 12.49 [INFO] Resolved plugin: plexus-utils-4.0.1.jar
+#23 12.49 [INFO] Resolved plugin: jdom2-2.0.6.1.jar
+#23 12.49 [INFO] Resolved plugin: commons-lang3-3.16.0.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-profile-pegdown-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: doxia-module-docbook-simple-1.11.1.jar
+#23 12.49 [INFO] Resolved plugin: guava-16.0.1.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-typographic-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-autolink-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-jekyll-tag-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: commons-compress-1.27.1.jar
+#23 12.49 [INFO] Resolved plugin: flexmark-ext-gitlab-0.42.14.jar
+#23 12.49 [INFO] Resolved plugin: doxia-module-xdoc-1.11.1.jar
+#23 12.49 [INFO] Resolved plugin: doxia-site-renderer-1.11.1.jar
+#23 12.49 [INFO] Resolved plugin: commons-beanutils-1.7.0.jar
+#23 12.49 [INFO] Resolved plugin: httpcore5-5.3.6.jar
+#23 12.49 [INFO] Resolved plugin: commons-lang3-3.14.0.jar
+#23 12.50 [INFO] Resolved plugin: plexus-classworlds-2.5.2.jar
+#23 12.50 [INFO] Resolved plugin: spring-context-6.2.16.jar
+#23 12.50 [INFO] Resolved plugin: doxia-module-confluence-1.11.1.jar
+#23 12.50 [INFO] Resolved plugin: doxia-module-xhtml5-1.11.1.jar
+#23 12.50 [INFO] Resolved plugin: flexmark-ext-tables-0.42.14.jar
+#23 12.50 [INFO] Resolved plugin: javax.annotation-api-1.2.jar
+#23 12.50 [INFO] Resolved plugin: jna-platform-5.17.0.jar
+#23 12.50 [INFO] Resolved plugin: flexmark-ext-macros-0.42.14.jar
+#23 12.50 [INFO] Resolved plugin: plexus-sec-dispatcher-1.3.jar
+#23 12.50 [INFO] Resolved plugin: plexus-java-1.5.0.jar
+#23 12.50 [INFO] Resolved plugin: plexus-i18n-1.0-beta-10.jar
+#23 12.50 [INFO] Resolved plugin: qdox-2.2.0.jar
+#23 12.50 [INFO] Resolved plugin: flexmark-ext-gfm-users-0.42.14.jar
+#23 12.50 [INFO] Resolved plugin: maven-clean-plugin-3.4.1.jar
+#23 12.50 [INFO] Resolved plugin: plexus-archiver-4.9.2.jar
+#23 12.50 [INFO] Resolved plugin: jackson-annotations-2.19.4.jar
+#23 12.50 [INFO] Resolved plugin: surefire-booter-3.5.4.jar
+#23 12.50 [INFO] Resolved plugin: micrometer-commons-1.15.9.jar
+#23 12.50 [INFO] Resolved dependency: spring-security-crypto-6.5.8.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-jdbc-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: jakarta.xml.bind-api-4.0.4.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-logging-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: hamcrest-3.0.jar
+#23 12.50 [INFO] Resolved dependency: jboss-logging-3.4.3.Final.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: snakeyaml-2.4.jar
+#23 12.50 [INFO] Resolved dependency: jackson-databind-2.17.1.jar
+#23 12.50 [INFO] Resolved dependency: json-smart-2.5.2.jar
+#23 12.50 [INFO] Resolved dependency: byte-buddy-1.18.3.jar
+#23 12.50 [INFO] Resolved dependency: oci-java-sdk-common-httpclient-3.66.0.jar
+#23 12.50 [INFO] Resolved dependency: objenesis-3.3.jar
+#23 12.50 [INFO] Resolved dependency: log4j-to-slf4j-2.24.3.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-web-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: junit-jupiter-params-5.12.2.jar
+#23 12.50 [INFO] Resolved dependency: slf4j-api-2.0.17.jar
+#23 12.50 [INFO] Resolved dependency: resilience4j-core-1.7.1.jar
+#23 12.50 [INFO] Resolved dependency: logback-core-1.5.32.jar
+#23 12.50 [INFO] Resolved dependency: jjwt-api-0.12.6.jar
+#23 12.50 [INFO] Resolved dependency: oci-java-sdk-circuitbreaker-3.66.0.jar
+#23 12.50 [INFO] Resolved dependency: spring-jdbc-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: accessors-smart-2.5.2.jar
+#23 12.50 [INFO] Resolved dependency: vavr-0.10.2.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-tomcat-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: assertj-core-3.27.7.jar
+#23 12.50 [INFO] Resolved dependency: slf4j-api-1.7.33.jar
+#23 12.50 [INFO] Resolved dependency: asm-9.7.1.jar
+#23 12.50 [INFO] Resolved dependency: junit-jupiter-api-5.12.2.jar
+#23 12.50 [INFO] Resolved dependency: mockito-core-5.17.0.jar
+#23 12.50 [INFO] Resolved dependency: mockito-junit-jupiter-5.17.0.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-test-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: jul-to-slf4j-2.0.17.jar
+#23 12.50 [INFO] Resolved dependency: jackson-datatype-jdk8-2.19.4.jar
+#23 12.50 [INFO] Resolved dependency: jackson-module-parameter-names-2.19.4.jar
+#23 12.50 [INFO] Resolved dependency: tomcat-embed-websocket-10.1.52.jar
+#23 12.50 [INFO] Resolved dependency: opentest4j-1.3.0.jar
+#23 12.50 [INFO] Resolved dependency: logback-classic-1.5.32.jar
+#23 12.50 [INFO] Resolved dependency: tomcat-embed-core-10.1.52.jar
+#23 12.50 [INFO] Resolved dependency: spring-web-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: spring-test-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: spring-beans-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: junit-jupiter-engine-5.12.2.jar
+#23 12.50 [INFO] Resolved dependency: tomcat-embed-el-10.1.52.jar
+#23 12.50 [INFO] Resolved dependency: jsonassert-1.5.3.jar
+#23 12.50 [INFO] Resolved dependency: spring-core-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: jackson-core-2.19.4.jar
+#23 12.50 [INFO] Resolved dependency: oci-java-sdk-common-3.66.0.jar
+#23 12.50 [INFO] Resolved dependency: jackson-annotations-2.17.1.jar
+#23 12.50 [INFO] Resolved dependency: jakarta.validation-api-3.0.2.jar
+#23 12.50 [INFO] Resolved dependency: spring-tx-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: protobuf-java-4.31.1.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-test-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: jackson-datatype-jsr310-2.19.4.jar
+#23 12.50 [INFO] Resolved dependency: jackson-core-2.12.7.jar
+#23 12.50 [INFO] Resolved dependency: hibernate-validator-8.0.3.Final.jar
+#23 12.50 [INFO] Resolved dependency: xmlunit-core-2.10.4.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: jakarta.annotation-api-2.1.1.jar
+#23 12.50 [INFO] Resolved dependency: awaitility-4.2.2.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-json-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: spring-webmvc-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: jackson-databind-2.19.4.jar
+#23 12.50 [INFO] Resolved dependency: junit-jupiter-5.12.2.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-starter-validation-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: spring-context-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: jackson-annotations-2.12.7.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-autoconfigure-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: junit-platform-commons-1.12.2.jar
+#23 12.50 [INFO] Resolved dependency: vavr-match-0.10.2.jar
+#23 12.50 [INFO] Resolved dependency: micrometer-observation-1.15.9.jar
+#23 12.50 [INFO] Resolved dependency: jjwt-impl-0.12.6.jar
+#23 12.50 [INFO] Resolved dependency: jjwt-jackson-0.12.6.jar
+#23 12.50 [INFO] Resolved dependency: json-path-2.9.0.jar
+#23 12.50 [INFO] Resolved dependency: jakarta.activation-api-2.1.4.jar
+#23 12.50 [INFO] Resolved dependency: resilience4j-circuitbreaker-1.7.1.jar
+#23 12.50 [INFO] Resolved dependency: apiguardian-api-1.1.2.jar
+#23 12.50 [INFO] Resolved dependency: byte-buddy-agent-1.15.11.jar
+#23 12.50 [INFO] Resolved dependency: spring-aop-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: junit-platform-engine-1.12.2.jar
+#23 12.50 [INFO] Resolved dependency: spring-jcl-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: slf4j-api-2.0.11.jar
+#23 12.50 [INFO] Resolved dependency: mysql-connector-j-9.6.0.jar
+#23 12.50 [INFO] Resolved dependency: jackson-databind-2.12.7.1.jar
+#23 12.50 [INFO] Resolved dependency: spring-boot-test-autoconfigure-3.5.11.jar
+#23 12.50 [INFO] Resolved dependency: jackson-annotations-2.19.4.jar
+#23 12.50 [INFO] Resolved dependency: android-json-0.0.20131108.vaadin1.jar
+#23 12.50 [INFO] Resolved dependency: log4j-api-2.24.3.jar
+#23 12.50 [INFO] Resolved dependency: spring-expression-6.2.16.jar
+#23 12.50 [INFO] Resolved dependency: classmate-1.5.1.jar
+#23 12.50 [INFO] Resolved dependency: micrometer-commons-1.15.9.jar
+#23 12.50 [INFO] Resolved dependency: HikariCP-6.3.3.jar
+#23 12.50 [INFO] ------------------------------------------------------------------------
+#23 12.50 [INFO] BUILD SUCCESS
+#23 12.50 [INFO] ------------------------------------------------------------------------
+#23 12.50 [INFO] Total time:  1.979 s
+#23 12.50 [INFO] Finished at: 2026-11-17T07:14:42Z
+#23 12.50 [INFO] ------------------------------------------------------------------------
+#23 13.66 [INFO] Scanning for projects...
+#23 13.90 [INFO] 
+#23 13.90 [INFO] ---------------------< com.jiayuan:share-service >----------------------
+#23 13.90 [INFO] Building share-service 0.0.1-SNAPSHOT
+#23 13.90 [INFO]   from pom.xml
+#23 13.90 [INFO] --------------------------------[ jar ]---------------------------------
+#23 14.33 [INFO] 
+#23 14.33 [INFO] --- resources:3.3.1:resources (default-resources) @ share-service ---
+#23 14.43 [INFO] Copying 1 resource from src/main/resources to target/classes
+#23 14.51 [INFO] Copying 0 resource from src/main/resources to target/classes
+#23 14.51 [INFO] 
+#23 14.51 [INFO] --- compiler:3.14.1:compile (default-compile) @ share-service ---
+#23 14.63 [INFO] Recompiling the module because of changed source code.
+#23 14.63 [INFO] Compiling 16 source files with javac [debug parameters release 17] to target/classes
+#23 15.92 [INFO] 
+#23 15.92 [INFO] --- resources:3.3.1:testResources (default-testResources) @ share-service ---
+#23 15.93 [INFO] skip non existing resourceDirectory /build/src/test/resources
+#23 15.93 [INFO] 
+#23 15.93 [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ share-service ---
+#23 15.94 [INFO] Recompiling the module because of changed dependency.
+#23 15.94 [INFO] Compiling 3 source files with javac [debug parameters release 17] to target/test-classes
+#23 16.28 [INFO] /build/src/test/java/com/jiayuan/drive/shares/HealthControllerTest.java: /build/src/test/java/com/jiayuan/drive/shares/HealthControllerTest.java uses or overrides a deprecated API.
+#23 16.28 [INFO] /build/src/test/java/com/jiayuan/drive/shares/HealthControllerTest.java: Recompile with -Xlint:deprecation for details.
+#23 16.28 [INFO] 
+#23 16.28 [INFO] --- surefire:3.5.4:test (default-test) @ share-service ---
+#23 16.41 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+#23 16.48 [INFO] 
+#23 16.48 [INFO] -------------------------------------------------------
+#23 16.48 [INFO]  T E S T S
+#23 16.48 [INFO] -------------------------------------------------------
+#23 17.08 [INFO] Running com.jiayuan.drive.shares.FileClientTest
+#23 17.30 07:14:47.012 [main] INFO com.jiayuan.drive.shares.FileClient -- dependency operation=metadata requestId=null durationMs=25
+#23 17.38 07:14:47.092 [main] INFO com.jiayuan.drive.shares.FileClient -- dependency operation=metadata requestId=null durationMs=44
+#23 17.38 07:14:47.096 [main] INFO com.jiayuan.drive.shares.FileClient -- dependency operation=metadata requestId=null durationMs=3
+#23 17.38 07:14:47.099 [main] INFO com.jiayuan.drive.shares.FileClient -- dependency operation=metadata requestId=null durationMs=2
+#23 17.38 07:14:47.101 [main] INFO com.jiayuan.drive.shares.FileClient -- dependency operation=metadata requestId=null durationMs=1
+#23 17.40 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.304 s -- in com.jiayuan.drive.shares.FileClientTest
+#23 17.40 [INFO] Running com.jiayuan.drive.shares.HealthControllerTest
+#23 17.65 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+#23 18.77 07:14:48.488 [main] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.3.Final
+#23 19.17 07:14:48.843 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+#23 19.17 07:14:48.843 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+#23 19.17 07:14:48.847 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 2 ms
+#23 19.26 07:14:48.970 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+#23 19.26 07:14:48.970 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+#23 19.26 07:14:48.971 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+#23 19.44 07:14:49.159 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+#23 19.44 07:14:49.159 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+#23 19.44 07:14:49.159 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+#23 19.46 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.056 s -- in com.jiayuan.drive.shares.HealthControllerTest
+#23 19.46 [INFO] Running com.jiayuan.drive.shares.CodeAttemptsTest
+#23 20.52 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.059 s -- in com.jiayuan.drive.shares.CodeAttemptsTest
+#23 20.55 [INFO] 
+#23 20.55 [INFO] Results:
+#23 20.55 [INFO] 
+#23 20.55 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+#23 20.55 [INFO] 
+#23 20.56 [INFO] 
+#23 20.56 [INFO] --- jar:3.4.2:jar (default-jar) @ share-service ---
+#23 20.77 [INFO] Building jar: /build/target/share-service.jar
+#23 20.81 [INFO] 
+#23 20.81 [INFO] --- spring-boot:3.5.11:repackage (repackage) @ share-service ---
+#23 21.08 [INFO] Replacing main artifact /build/target/share-service.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+#23 21.09 [INFO] The original artifact has been renamed to /build/target/share-service.jar.original
+#23 21.09 [INFO] ------------------------------------------------------------------------
+#23 21.09 [INFO] BUILD SUCCESS
+#23 21.09 [INFO] ------------------------------------------------------------------------
+#23 21.09 [INFO] Total time:  7.443 s
+#23 21.09 [INFO] Finished at: 2026-11-17T07:14:50Z
+#23 21.09 [INFO] ------------------------------------------------------------------------
+#23 DONE 21.2s
+#29 [share-service stage-1 2/4] WORKDIR /app
+#29 CACHED
+#30 [share-service stage-1 3/4] COPY --from=build /build/target/share-service.jar app.jar
+#30 DONE 0.1s
+#31 [share-service stage-1 4/4] COPY --from=build /build/target/classes/com/jiayuan/drive/shares/HealthProbe.class /app/probe/com/jiayuan/drive/shares/HealthProbe.class
+#31 DONE 0.1s
+#32 [share-service] exporting to image
+#32 exporting layers
+#32 exporting layers 1.0s done
+#32 exporting manifest sha256:7e5907f319fb2f08d6e33813147e7a14faff4e9708d163831c4c4f22e9589310 0.0s done
+#32 exporting config sha256:7bab55f6e49e8db82638403fe4e4bc765bfab5c1135cad8f1a542fbe8c2545b1 0.0s done
+#32 exporting attestation manifest sha256:88decf3cf247c3e3b53dc846a27e2986e84a0c5392da9669b06d83bff5220597 0.0s done
+#32 exporting manifest list sha256:bc951e0d1e0b67571f3c4378b81712e38ff1ee5efa76b1095a70569648dbe736
+#32 exporting manifest list sha256:bc951e0d1e0b67571f3c4378b81712e38ff1ee5efa76b1095a70569648dbe736 0.0s done
+#32 naming to docker.io/library/cloud-drive-share:liu-e3-e4 done
+#32 unpacking to docker.io/library/cloud-drive-share:liu-e3-e4
+#32 unpacking to docker.io/library/cloud-drive-share:liu-e3-e4 0.2s done
+#32 DONE 1.4s
+#33 [share-service] resolving provenance for metadata file
+#33 DONE 0.0s
+ Image cloud-drive-file:liu-e3-e4 Built 
+ Image cloud-drive-share:liu-e3-e4 Built 
+ Container cloud-drive-liu-20261117-144842-file-service-1 Recreate 
+ Container cloud-drive-liu-20261117-144842-file-service-1 Recreated 
+ Container cloud-drive-liu-20261117-144842-share-service-1 Recreate 
+ Container cloud-drive-liu-20261117-144842-share-service-1 Recreated 
+ Container cloud-drive-liu-20261117-144842-file-service-1 Starting 
+ Container cloud-drive-liu-20261117-144842-file-service-1 Started 
+ Container cloud-drive-liu-20261117-144842-file-service-1 Waiting 
+ Container cloud-drive-liu-20261117-144842-file-service-1 Healthy 
+ Container cloud-drive-liu-20261117-144842-share-service-1 Starting 
+ Container cloud-drive-liu-20261117-144842-share-service-1 Started 

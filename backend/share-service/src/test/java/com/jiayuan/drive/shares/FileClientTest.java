@@ -10,6 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FileClientTest {
     @Test
+    void transportDiagnosticsNeverReturnExceptionText() {
+        assertEquals("connection-reset", FileClient.failureKind(new java.io.IOException("Connection reset")));
+        assertEquals("unexpected-eof", FileClient.failureKind(new java.io.IOException("Unexpected end of file from server")));
+        assertEquals("other", FileClient.failureKind(new java.io.IOException("secret-password /s/private-token")));
+    }
+    @Test
     void forwardsInternalCredentialAndMapsDependencyFailures() throws Exception {
         String token = UUID.randomUUID().toString();
         HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);

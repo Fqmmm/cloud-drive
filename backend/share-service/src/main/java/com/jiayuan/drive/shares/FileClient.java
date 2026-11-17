@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import jakarta.servlet.http.HttpServletResponse;
@@ -81,6 +82,8 @@ class FileClient {
         connection.setReadTimeout(timeout);
         connection.setInstanceFollowRedirects(false);
         connection.setRequestProperty("X-Internal-Token", token);
+        String requestId = org.slf4j.MDC.get("requestId");
+        if (requestId != null) { connection.setRequestProperty("X-Request-Id", requestId); }
         return connection;
     }
 
@@ -88,12 +91,20 @@ class FileClient {
     void stream(String ownerId, String fileId, String filename, HttpServletResponse response) throws IOException {
         long started = System.nanoTime();
         HttpURLConnection connection = null;
+        String stage = "connect";
+        int upstreamStatus = -1;
         try {
             connection = connect(ownerId, fileId, "/content", Math.max(1, contentTimeout));
-            int status = connection.getResponseCode();
-            if (status == 404) { throw missing(); }
-            if (status != 200) { throw unavailable(); }
+            stage = "response-headers";
+            upstreamStatus = connection.getResponseCode();
+            if (upstreamStatus == 404) { throw missing(); }
+            if (upstreamStatus != 200) {
+                LOG.warn("dependency_failure operation=content requestId={} upstreamStatus={}", org.slf4j.MDC.get("requestId"), upstreamStatus);
+                throw unavailable();
+            }
+            stage = "open-body";
             try (var source = connection.getInputStream()) {
+                stage = "copy-body";
                 response.setContentType("application/octet-stream");
                 long length = connection.getContentLengthLong();
                 if (length >= 0) { response.setContentLengthLong(length); }
@@ -103,6 +114,9 @@ class FileClient {
                 source.transferTo(response.getOutputStream());
             }
         } catch (IOException unavailable) {
+            LOG.warn("dependency_failure operation=content requestId={} stage={} upstreamStatus={} errorType={} kind={} committed={}",
+                    org.slf4j.MDC.get("requestId"), stage, upstreamStatus, unavailable.getClass().getSimpleName(),
+                    failureKind(unavailable), response.isCommitted());
             if (!response.isCommitted()) { response.reset(); throw unavailable(); }
             throw new IOException("File transfer interrupted");
         } finally {
@@ -110,6 +124,17 @@ class FileClient {
             LOG.info("dependency operation=content requestId={} durationMs={}",
                     org.slf4j.MDC.get("requestId"), (System.nanoTime() - started) / 1000000);
         }
+    }
+
+    /** Fixed categories reveal transport failures without exposing URL/credential text. */
+    static String failureKind(IOException error) {
+        String message = String.valueOf(error.getMessage()).toLowerCase(Locale.ROOT);
+        if (message.contains("reset")) { return "connection-reset"; }
+        if (message.contains("broken pipe")) { return "broken-pipe"; }
+        if (message.contains("closed")) { return "stream-closed"; }
+        if (message.contains("timed out")) { return "timeout"; }
+        if (message.contains("end of file") || message.contains("premature") || message.contains("eof")) { return "unexpected-eof"; }
+        return "other";
     }
 
     private boolean validId(String id) {

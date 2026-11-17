@@ -1,0 +1,31 @@
+{
+  "kind": "diagnostic-not-formal",
+  "started": "2026-11-17T07:14:24.455336+00:00",
+  "fault_injected": false,
+  "max_seconds": 180,
+  "anomaly_observed": true,
+  "rows": 1062,
+  "categories": {
+    "ok": 1061,
+    "http": 1
+  },
+  "anomalies": [
+    {
+      "probe": "personal_download",
+      "tick": 116,
+      "planned_epoch": 1794899826.8539045,
+      "sent_epoch": 1794899827.989374,
+      "http_status": 503,
+      "business_code": "DEPENDENCY_UNAVAILABLE",
+      "category": "http",
+      "bytes": 72,
+      "sha256": "8a932e3bca9da62464dce12c140422c6f45991daeedaa22e8584b4c0a353e6ee",
+      "request_id": "ce6b32e210de456b9aeec384dd8d3613",
+      "returned_epoch": 1794899828.022354,
+      "elapsed_ms": 32.97996520996094,
+      "schedule_lag_ms": 1135.4694366455078
+    }
+  ],
+  "completed": true,
+  "ended": "2026-11-17T07:17:17.833880+00:00"
+}

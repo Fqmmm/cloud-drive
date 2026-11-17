@@ -1,0 +1,162 @@
+[
+  {
+    "service": "auth-service",
+    "id": "eb9e31df39f274ecc11fe7dd9e9c7aa731f900540e26492078cb0a01abf578a0",
+    "image": "sha256:44118e9d91729631bfa7f6a9943ee2d30652db033d660a4620264ade453ff090",
+    "image_reference": "cloud-drive-auth:liu-e3-e4",
+    "path": "java",
+    "args": [
+      "-jar",
+      "/app/app.jar"
+    ],
+    "started": "2026-11-17T06:51:07.435051976Z",
+    "finished": "0001-01-01T00:00:00Z",
+    "status": "running",
+    "health": "healthy",
+    "exit_code": 0,
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": []
+  },
+  {
+    "service": "file-service",
+    "id": "c6686b55236a7577815537aaa9b1b65a675bac63f05750a262d11c8caff0927c",
+    "image": "sha256:2686da4c625542121611bd7986437d884b95b46c73de6bfb5aa9ce2fac53858b",
+    "image_reference": "cloud-drive-file:liu-e3-e4",
+    "path": "java",
+    "args": [
+      "-jar",
+      "/app/app.jar"
+    ],
+    "started": "2026-11-17T06:51:51.848487621Z",
+    "finished": "2026-11-17T06:51:47.917320648Z",
+    "status": "running",
+    "health": "healthy",
+    "exit_code": 0,
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": []
+  },
+  {
+    "service": "frontend",
+    "id": "70cb939af55c84a0d78c4ef00a7f7bf2ab0624f33457c76eaa55282a80b80bd4",
+    "image": "sha256:c0298e59b8932ab1c9981f96c121fdcfa237637eeab20c5719314bf0f46dab30",
+    "image_reference": "cloud-drive-frontend:liu-e3-e4",
+    "path": "/docker-entrypoint.sh",
+    "args": [
+      "nginx",
+      "-g",
+      "daemon off;"
+    ],
+    "started": "2026-11-17T06:51:20.246294113Z",
+    "finished": "0001-01-01T00:00:00Z",
+    "status": "running",
+    "health": "healthy",
+    "exit_code": 0,
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": []
+  },
+  {
+    "service": "minio",
+    "id": "125fe97051bb75a1ce7dce032395b2e88cbc4aa1a01dee8f57573ae9bfb02b2f",
+    "image": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+    "image_reference": "dappros/minio@sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+    "path": "/usr/bin/docker-entrypoint.sh",
+    "args": [
+      "server",
+      "/data",
+      "--console-address",
+      ":9001"
+    ],
+    "started": "2026-11-17T06:52:01.733559415Z",
+    "finished": "2026-11-17T06:51:57.774734266Z",
+    "status": "running",
+    "health": "healthy",
+    "exit_code": 0,
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": [
+      {
+        "Type": "volume",
+        "Name": "cloud-drive-liu-20261117-144842_minio_data",
+        "Source": "/var/lib/docker/volumes/cloud-drive-liu-20261117-144842_minio_data/_data",
+        "Destination": "/data"
+      }
+    ]
+  },
+  {
+    "service": "mysql",
+    "id": "f340206eb1cd0b843d0fd3252994ed05de6b8d5aaf174e49955014e718a6b229",
+    "image": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+    "image_reference": "mysql:8.0.29@sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+    "path": "docker-entrypoint.sh",
+    "args": [
+      "--default-time-zone=+00:00"
+    ],
+    "started": "2026-11-17T06:50:51.680380949Z",
+    "finished": "0001-01-01T00:00:00Z",
+    "status": "running",
+    "health": "healthy",
+    "exit_code": 0,
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Name": null,
+        "Source": "/run/desktop/mnt/host/c/Users/25979/Desktop/云计算与虚拟化/小组PJ/backend/sql/course-mysql/init",
+        "Destination": "/docker-entrypoint-initdb.d"
+      },
+      {
+        "Type": "bind",
+        "Name": null,
+        "Source": "/run/desktop/mnt/host/c/Users/25979/Desktop/云计算与虚拟化/小组PJ/backend/sql/course-mysql/schema",
+        "Destination": "/opt/course-schema"
+      },
+      {
+        "Type": "volume",
+        "Name": "cloud-drive-liu-20261117-144842_mysql_data",
+        "Source": "/var/lib/docker/volumes/cloud-drive-liu-20261117-144842_mysql_data/_data",
+        "Destination": "/var/lib/mysql"
+      }
+    ]
+  },
+  {
+    "service": "share-service",
+    "id": "426771404ade7dbaa42a8d275352a8cd1db8a5173fcdad09f7198d4410626863",
+    "image": "sha256:6992b5d961d96f9ad9e4dc032b76a49dc53959e97c824f7ec45a992358d9a257",
+    "image_reference": "cloud-drive-share:liu-e3-e4",
+    "path": "java",
+    "args": [
+      "-jar",
+      "/app/app.jar"
+    ],
+    "started": "2026-11-17T06:55:26.762190291Z",
+    "finished": "2026-11-17T06:56:22.956751217Z",
+    "status": "exited",
+    "health": "unhealthy",
+    "exit_code": 143,
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": []
+  }
+]

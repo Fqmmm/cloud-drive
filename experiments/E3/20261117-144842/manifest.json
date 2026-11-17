@@ -1,0 +1,22 @@
+{
+  "started": "2026-11-17T06:52:42.158604+00:00",
+  "kind": "formal",
+  "faults": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+  ],
+  "repeats": 3,
+  "completed": [
+    "F1-r1",
+    "F1-r2",
+    "F1-r3",
+    "F2-r1",
+    "F2-r2"
+  ],
+  "status": "failed",
+  "error": "AssertionError: Baseline contains failures",
+  "ended": "2026-11-17T07:00:50.041989+00:00"
+}

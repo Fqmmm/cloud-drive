@@ -1,0 +1,9 @@
+{
+  "fault": "F2",
+  "repeat": 3,
+  "warmup_seconds": 30,
+  "outage_seconds": 30,
+  "interval_seconds": 1,
+  "jwt_exp": 1794906013,
+  "jwt_refreshed_during_round": false
+}

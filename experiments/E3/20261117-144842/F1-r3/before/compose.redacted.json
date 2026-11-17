@@ -1,0 +1,268 @@
+{
+  "name": "cloud-drive-liu-20261117-144842",
+  "networks": {
+    "default": {
+      "name": "cloud-drive-liu-20261117-144842_default",
+      "ipam": {}
+    }
+  },
+  "services": {
+    "auth-service": {
+      "restart": "unless-stopped",
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "APP_VERSION": "course-v1",
+        "AUTH_DB_PASSWORD": "<redacted>",
+        "JWT_AUDIENCE": "course-drive-api",
+        "JWT_ISSUER": "course-drive",
+        "JWT_SECRET": "<redacted>",
+        "JWT_TTL_SECONDS": "7200"
+      },
+      "image": "cloud-drive-auth:liu-e3-e4",
+      "networks": {
+        "default": null
+      },
+      "build": {
+        "context": "C:\\Users\\25979\\Desktop\\云计算与虚拟化\\小组PJ\\backend",
+        "dockerfile": "auth-service/Dockerfile",
+        "args": {
+          "MAVEN_MIRROR_URL": "https://maven.aliyun.com/repository/public"
+        }
+      },
+      "depends_on": {
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      }
+    },
+    "file-service": {
+      "restart": "unless-stopped",
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "DEFAULT_QUOTA_BYTES": "10737418240",
+        "FILE_DB_PASSWORD": "<redacted>",
+        "INTERNAL_API_TOKEN": "<redacted>",
+        "JWT_AUDIENCE": "course-drive-api",
+        "JWT_ISSUER": "course-drive",
+        "JWT_SECRET": "<redacted>",
+        "MAX_FILE_BYTES": "104857600",
+        "MAX_REQUEST_SIZE": "106954752B",
+        "MINIO_ROOT_PASSWORD": "<redacted>",
+        "MINIO_ROOT_USER": "course-storage"
+      },
+      "image": "cloud-drive-file:liu-e3-e4",
+      "networks": {
+        "default": null
+      },
+      "build": {
+        "context": "C:\\Users\\25979\\Desktop\\云计算与虚拟化\\小组PJ\\backend",
+        "dockerfile": "file-service/Dockerfile",
+        "args": {
+          "MAVEN_MIRROR_URL": "https://maven.aliyun.com/repository/public"
+        }
+      },
+      "depends_on": {
+        "minio": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "bash",
+          "-ec",
+          "exec 3\u003c\u003e/dev/tcp/127.0.0.1/8080\nprintf 'GET /health/ready HTTP/1.1\\r\\nHost: localhost\\r\\nConnection: close\\r\\n\\r\\n' \u003e\u00263\nread -r protocol status rest \u003c\u00263\ntest \"$$status\" = 200\n"
+        ],
+        "timeout": "8s",
+        "interval": "10s",
+        "retries": 12,
+        "start_period": "30s"
+      }
+    },
+    "frontend": {
+      "restart": "unless-stopped",
+      "command": null,
+      "entrypoint": null,
+      "image": "cloud-drive-frontend:liu-e3-e4",
+      "networks": {
+        "default": null
+      },
+      "build": {
+        "context": "C:\\Users\\25979\\Desktop\\云计算与虚拟化\\小组PJ\\frontend",
+        "dockerfile": "Dockerfile",
+        "args": {
+          "NPM_REGISTRY": "https://registry.npmmirror.com",
+          "VITE_MAX_FILE_BYTES": "104857600"
+        }
+      },
+      "depends_on": {
+        "auth-service": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "file-service": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "share-service": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 80,
+          "published": "8088",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "minio": {
+      "restart": "unless-stopped",
+      "command": [
+        "server",
+        "/data",
+        "--console-address",
+        ":9001"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "MINIO_ROOT_PASSWORD": "<redacted>",
+        "MINIO_ROOT_USER": "course-storage"
+      },
+      "image": "dappros/minio@sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "networks": {
+        "default": null
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "minio_data",
+          "target": "/data",
+          "volume": {}
+        }
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "--max-time",
+          "2",
+          "http://127.0.0.1:9000/minio/health/ready"
+        ],
+        "timeout": "3s",
+        "interval": "5s",
+        "retries": 24
+      }
+    },
+    "mysql": {
+      "restart": "unless-stopped",
+      "command": [
+        "--default-time-zone=+00:00"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "AUTH_DB_PASSWORD": "<redacted>",
+        "FILE_DB_PASSWORD": "<redacted>",
+        "MYSQL_ROOT_PASSWORD": "<redacted>",
+        "SHARE_DB_PASSWORD": "<redacted>",
+        "TZ": "UTC"
+      },
+      "image": "mysql:8.0.29@sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "networks": {
+        "default": null
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "mysql_data",
+          "target": "/var/lib/mysql",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Users\\25979\\Desktop\\云计算与虚拟化\\小组PJ\\backend\\sql\\course-mysql\\init",
+          "target": "/docker-entrypoint-initdb.d",
+          "read_only": true,
+          "bind": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Users\\25979\\Desktop\\云计算与虚拟化\\小组PJ\\backend\\sql\\course-mysql\\schema",
+          "target": "/opt/course-schema",
+          "read_only": true,
+          "bind": {}
+        }
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "MYSQL_PWD=\"$$FILE_DB_PASSWORD\" mysql --protocol=TCP -h 127.0.0.1 -u file_user -Nse 'SELECT 1 FROM file_db.schema_version WHERE version = 1' | grep -qx 1"
+        ],
+        "timeout": "3s",
+        "interval": "5s",
+        "retries": 24,
+        "start_period": "30s"
+      }
+    },
+    "share-service": {
+      "restart": "unless-stopped",
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "APP_VERSION": "course-v1",
+        "EXPERIMENT_FAULTS_ENABLED": "false",
+        "FILE_SERVICE_URL": "http://file-service:8080",
+        "INTERNAL_API_TOKEN": "<redacted>",
+        "JWT_AUDIENCE": "course-drive-api",
+        "JWT_ISSUER": "course-drive",
+        "JWT_SECRET": "<redacted>",
+        "PUBLIC_BASE_URL": "http://127.0.0.1:8088",
+        "SHARE_CODE_MAX_FAILURES": "5",
+        "SHARE_CODE_WINDOW_SECONDS": "60",
+        "SHARE_DB_PASSWORD": "<redacted>"
+      },
+      "image": "cloud-drive-share:liu-e3-e4",
+      "networks": {
+        "default": null
+      },
+      "build": {
+        "context": "C:\\Users\\25979\\Desktop\\云计算与虚拟化\\小组PJ\\backend",
+        "dockerfile": "share-service/Dockerfile",
+        "args": {
+          "APP_VERSION": "course-v1",
+          "MAVEN_MIRROR_URL": "https://maven.aliyun.com/repository/public"
+        }
+      },
+      "depends_on": {
+        "file-service": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      }
+    }
+  },
+  "volumes": {
+    "minio_data": {
+      "name": "cloud-drive-liu-20261117-144842_minio_data"
+    },
+    "mysql_data": {
+      "name": "cloud-drive-liu-20261117-144842_mysql_data"
+    }
+  }
+}

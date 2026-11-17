@@ -1,0 +1,15 @@
+{
+  "started": "2026-11-17T06:52:24.267505+00:00",
+  "status": "complete",
+  "files_per_user": 3,
+  "users": 2,
+  "bytes_per_file": [
+    1024,
+    1048576,
+    20971520
+  ],
+  "shares_per_file": 2,
+  "generation": "random.Random(20261117 + size).randbytes(size)",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "ended": "2026-11-17T06:52:41.259631+00:00"
+}

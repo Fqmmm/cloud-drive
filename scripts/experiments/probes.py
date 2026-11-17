@@ -8,28 +8,35 @@ from concurrent.futures import ThreadPoolExecutor
 import csv
 import json
 import multiprocessing as mp
+import re
 import threading
 import time
+import uuid
 
 import requests
 
 from support import digest, utc
 
 FIELDS = ["probe", "tick", "planned_epoch", "sent_epoch", "returned_epoch", "http_status", "business_code",
-          "category", "elapsed_ms", "schedule_lag_ms", "bytes", "sha256"]
+          "category", "elapsed_ms", "schedule_lag_ms", "bytes", "sha256", "request_id"]
 
 
 def http_worker(connection, spec):
     sent = time.time()
     connection.send(dict(event="sent", sent_epoch=sent))
-    row = dict(sent_epoch=sent, http_status="", business_code="", category="transport", bytes=0, sha256="")
+    request_id = uuid.uuid4().hex
+    row = dict(sent_epoch=sent, http_status="", business_code="", category="transport", bytes=0, sha256="", request_id=request_id)
     try:
         with requests.Session() as session:
             session.trust_env = False
+            headers = dict(spec.get("headers", {}), **{"X-Request-Id": request_id})
             with session.request(spec.get("method", "GET"), spec["url"], json=spec.get("data"),
-                headers=spec.get("headers", {}), timeout=spec["timeout"], allow_redirects=False) as response:
+                headers=headers, timeout=spec["timeout"], allow_redirects=False) as response:
                 body = response.content
                 row.update(http_status=response.status_code, bytes=len(body))
+                server_id = response.headers.get("X-Request-Id", "")
+                if re.fullmatch(r"[A-Za-z0-9_-]{1,64}", server_id):
+                    row["request_id"] = server_id
                 if spec.get("sha256"):
                     row["sha256"] = digest(body)
                     ok = response.status_code == 200 and row["sha256"] == spec["sha256"]
@@ -92,6 +99,7 @@ def execute(spec):
         row.setdefault("business_code", "")
         row.setdefault("bytes", 0)
         row.setdefault("sha256", "")
+        row.setdefault("request_id", "")
         row["elapsed_ms"] = (row["returned_epoch"] - (row["sent_epoch"] or began)) * 1000
         return row
     finally:

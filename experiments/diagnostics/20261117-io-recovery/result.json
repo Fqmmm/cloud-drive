@@ -1,0 +1,13 @@
+{
+  "kind": "diagnostic-not-formal",
+  "started": "2026-11-17T07:30:25.963238+00:00",
+  "fault_injected": false,
+  "max_seconds": 300,
+  "rows": 2709,
+  "categories": {
+    "ok": 2709
+  },
+  "anomalies": [],
+  "completed": true,
+  "ended": "2026-11-17T07:36:20.178321+00:00"
+}

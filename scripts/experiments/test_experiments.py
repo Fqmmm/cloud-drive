@@ -82,6 +82,7 @@ class Handler(BaseHTTPRequestHandler):
         body = b"sample" if self.path == "/bytes" else b'{"code":"00000","data":{}}'
         self.send_response(200)
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("X-Request-Id", "server-test-id")
         self.end_headers()
         try:
             self.wfile.write(body)
@@ -235,11 +236,13 @@ class RecoveryTests(unittest.TestCase):
             (path / "docker-events.jsonl").write_text(json.dumps(dict(Action="die", timeNano=100200000000,
                 Actor=dict(ID="same-id", Attributes=dict(exitCode="17")))) + "\n")
             rows = [dict(probe="download", tick=i, planned_epoch=100 + i, sent_epoch=100.1 + i,
-                category="timeout" if i == 0 else "ok", schedule_lag_ms=100, elapsed_ms=1) for i in range(4)]
+                returned_epoch=100.2 + i, category="timeout" if i == 0 else "ok", schedule_lag_ms=100, elapsed_ms=1) for i in range(4)]
+            rows[0]["planned_epoch"] = 99.9  # Queued before fault, actually sent after it.
             csv_write(path / "probe.csv", rows)
             impact, timeline = summarize_round(path)
             self.assertAlmostEqual(timeline["recovery_seconds"], 1.1)
             self.assertAlmostEqual(timeline["exit_to_start_seconds"], .2)
+            self.assertAlmostEqual(timeline["t1"], 100.2)
             self.assertAlmostEqual(impact[0]["failure_window_seconds"], 1.0)
             (path / "docker-events.jsonl").write_text("")
             with self.assertRaises(ValueError):
@@ -294,6 +297,10 @@ class ProbeTests(unittest.TestCase):
         wrong = execute(dict(url=self.base + "/bytes", timeout=5, sha256=digest(b"different")))
         self.assertEqual(correct["category"], "ok")
         self.assertEqual(wrong["category"], "checksum")
+
+    def test_actual_server_request_id_is_retained_for_log_correlation(self):
+        row = execute(dict(url=self.base + "/bytes", timeout=5, sha256=digest(b"sample")))
+        self.assertEqual(row["request_id"], "server-test-id")
 
     def test_wall_clock_deadline_kills_hung_worker(self):
         began = time.monotonic()

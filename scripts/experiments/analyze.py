@@ -31,11 +31,16 @@ def summarize_round(folder):
     for name in names:
         records = [r for r in probes if r["probe"] == name]
         fault_records = [r for r in records if t0 <= float(r["planned_epoch"]) < common_t5]
-        failed = [r for r in records if float(r["planned_epoch"]) >= t0 and r["category"] != "ok"]
+        # A queued probe may be planned before injection but actually sent after
+        # it. Use actual send/return times for t1; planned time only assigns the
+        # scheduled-request success-rate window.
+        failed = [r for r in records if r["sent_epoch"] and float(r["sent_epoch"]) >= t0 and r["category"] != "ok"]
         first = min((float(r["sent_epoch"]) for r in failed if r["sent_epoch"]), default=None)
+        observed = min((float(r["returned_epoch"]) for r in failed if r.get("returned_epoch")), default=None)
         errors = Counter(r["category"] for r in fault_records if r["category"] != "ok")
         rows.append(dict(fault=result["fault"], repeat=result["repeat"], probe=name, t0=t0, t3=t3, t5=recovered[name],
-            first_failed_sent_epoch=first, failure_window_seconds=max(0, recovered[name] - first) if first is not None else None,
+            first_failed_sent_epoch=first, first_failed_returned_epoch=observed,
+            failure_window_seconds=max(0, recovered[name] - first) if first is not None else None,
             recovery_seconds=recovered[name] - (t3 or t0), window_scheduled=len(fault_records),
             window_success=sum(r["category"] == "ok" for r in fault_records),
             window_success_rate=sum(r["category"] == "ok" for r in fault_records) / len(fault_records) if fault_records else None,
@@ -55,7 +60,7 @@ def summarize_round(folder):
     from datetime import datetime
     t4 = datetime.fromisoformat(after["started"].replace("Z", "+00:00")).timestamp()
     t2 = min((e.get("timeNano", e.get("time", 0) * 1e9) / 1e9 for e in exit_events), default=times.get("t2-stop-confirmed"))
-    t1 = min((r["first_failed_sent_epoch"] for r in rows if r["first_failed_sent_epoch"] is not None), default=None)
+    t1 = min((r["first_failed_returned_epoch"] for r in rows if r["first_failed_returned_epoch"] is not None), default=None)
     return rows, dict(fault=result["fault"], repeat=result["repeat"], recovery_mode="automatic" if auto else "manual-start",
         t0=t0, t1=t1, t2=t2, t3=t3, t4=t4, common_t5=common_t5,
         recovery_seconds=common_t5 - (t3 or t0), stopped_seconds=(t3 - times["t2-stop-confirmed"]) if t3 else None,

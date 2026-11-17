@@ -1,0 +1,43 @@
+{
+  "utc": "2026-11-17T06:51:35.200334+00:00",
+  "docker_context": "desktop-linux",
+  "project": "cloud-drive-liu-20261117-144842",
+  "source_commit": "dfb9c7c9a1ecf867c700dd63690dd35e5ed012c6",
+  "worktree_status": "?? experiments/acceptance/20261117-144842-deployment/\n",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "host_cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "host_logical_cpus": 22,
+  "engine": {
+    "ServerVersion": "29.9.3",
+    "OperatingSystem": "Docker Desktop",
+    "OSType": "linux",
+    "Architecture": "x86_64",
+    "NCPU": 22,
+    "MemTotal": 16565334016,
+    "DockerRootDir": "/var/lib/docker"
+  },
+  "compose_version": "Docker Compose version v5.7.0",
+  "parameters": {
+    "COMPOSE_PROJECT_NAME": "cloud-drive-liu-20261117-144842",
+    "HTTP_PORT": "8088",
+    "PUBLIC_BASE_URL": "http://127.0.0.1:8088",
+    "APP_IMAGE_TAG": "liu-e3-e4",
+    "NPM_REGISTRY": "https://registry.npmmirror.com",
+    "MAVEN_MIRROR_URL": "https://maven.aliyun.com/repository/public",
+    "MYSQL_IMAGE": "mysql:8.0.29@sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+    "MINIO_IMAGE": "dappros/minio@sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+    "MINIO_ROOT_USER": "course-storage",
+    "JWT_ISSUER": "course-drive",
+    "JWT_AUDIENCE": "course-drive-api",
+    "JWT_TTL_SECONDS": "7200",
+    "DEFAULT_QUOTA_BYTES": "10737418240",
+    "MAX_FILE_BYTES": "104857600",
+    "MAX_REQUEST_SIZE": "106954752B",
+    "SHARE_CODE_MAX_FAILURES": "5",
+    "SHARE_CODE_WINDOW_SECONDS": "60",
+    "EXPERIMENT_FAULTS_ENABLED": "false",
+    "AUTH_APP_VERSION": "course-v1",
+    "SHARE_APP_VERSION": "course-v1"
+  }
+}

@@ -1,0 +1,25 @@
+file-service-1  | 2026-11-17T07:14:55.213639746Z 
+file-service-1  | 2026-11-17T07:14:55.213689291Z   .   ____          _            __ _ _
+file-service-1  | 2026-11-17T07:14:55.213691475Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+file-service-1  | 2026-11-17T07:14:55.213692380Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+file-service-1  | 2026-11-17T07:14:55.213693274Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+file-service-1  | 2026-11-17T07:14:55.213694155Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+file-service-1  | 2026-11-17T07:14:55.213695032Z  =========|_|==============|___/=/_/_/_/
+file-service-1  | 2026-11-17T07:14:55.213695927Z 
+file-service-1  | 2026-11-17T07:14:55.215008154Z  :: Spring Boot ::               (v3.5.11)
+file-service-1  | 2026-11-17T07:14:55.215047762Z 
+file-service-1  | 2026-11-17T07:14:55.326718663Z 2026-11-17T07:14:55.324Z  INFO 1 --- [           main] c.jiayuan.drive.files.FileApplication    : Starting FileApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 1 (/app/app.jar started by root in /app)
+file-service-1  | 2026-11-17T07:14:55.328371178Z 2026-11-17T07:14:55.327Z  INFO 1 --- [           main] c.jiayuan.drive.files.FileApplication    : No active profile set, falling back to 1 default profile: "default"
+file-service-1  | 2026-11-17T07:14:56.491581376Z 2026-11-17T07:14:56.491Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+file-service-1  | 2026-11-17T07:14:56.506350168Z 2026-11-17T07:14:56.505Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+file-service-1  | 2026-11-17T07:14:56.506670500Z 2026-11-17T07:14:56.506Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+file-service-1  | 2026-11-17T07:14:56.533986402Z 2026-11-17T07:14:56.533Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+file-service-1  | 2026-11-17T07:14:56.535114316Z 2026-11-17T07:14:56.534Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1150 ms
+file-service-1  | 2026-11-17T07:14:57.492965637Z 2026-11-17T07:14:57.492Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+file-service-1  | 2026-11-17T07:14:57.517082607Z 2026-11-17T07:14:57.516Z  INFO 1 --- [           main] c.jiayuan.drive.files.FileApplication    : Started FileApplication in 2.787 seconds (process running for 3.277)
+file-service-1  | 2026-11-17T07:14:57.721579407Z 2026-11-17T07:14:57.720Z  INFO 1 --- [   scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+file-service-1  | 2026-11-17T07:14:57.736339233Z 2026-11-17T07:14:57.735Z  INFO 1 --- [   scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+file-service-1  | 2026-11-17T07:14:59.340666632Z 2026-11-17T07:14:59.340Z  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+file-service-1  | 2026-11-17T07:14:59.340693364Z 2026-11-17T07:14:59.340Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+file-service-1  | 2026-11-17T07:14:59.341968123Z 2026-11-17T07:14:59.341Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+file-service-1  | 2026-11-17T07:17:08.011835991Z 2026-11-17T07:17:08.011Z  WARN 1 --- [nio-8080-exec-4] com.jiayuan.drive.files.FileController   : storage_failure operation=open requestId=d3728c15eb67835278d5abbe9545e74c errorType=IOException

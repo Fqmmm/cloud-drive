@@ -1,6 +1,7 @@
 package com.jiayuan.drive.files;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 @RestController
 class FileController {
+    private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(FileController.class);
     record Name(String name) {}
     record Directory(String name, Long parentId) {}
     record Metadata(String id, String ownerId, String originalName, long fileSize,
@@ -84,8 +86,8 @@ class FileController {
 
     @GetMapping("/api/v1/files/{id}/download")
     void download(@RequestAttribute("fileOwner") long owner, @PathVariable long id,
-                  HttpServletResponse response) throws IOException {
-        stream(catalog.requireKind(owner, id, false), response);
+                  HttpServletResponse response, HttpServletRequest request) throws IOException {
+        stream(catalog.requireKind(owner, id, false), response, request.getHeader("X-Request-Id"));
     }
 
     @GetMapping("/internal/v1/files/{id}")
@@ -97,8 +99,8 @@ class FileController {
 
     @GetMapping("/internal/v1/files/{id}/content")
     void internalDownload(@PathVariable long id, @RequestParam long ownerId,
-                          HttpServletResponse response) throws IOException {
-        stream(catalog.requireKind(ownerId, id, false), response);
+                          HttpServletResponse response, HttpServletRequest request) throws IOException {
+        stream(catalog.requireKind(ownerId, id, false), response, request.getHeader("X-Request-Id"));
     }
 
     @GetMapping("/health/live")
@@ -112,11 +114,13 @@ class FileController {
         return ResponseEntity.status(ready ? 200 : 503).body(Map.of("status", ready ? "UP" : "DOWN"));
     }
 
-    private void stream(FileCatalog.Stored file, HttpServletResponse response) throws IOException {
+    private void stream(FileCatalog.Stored file, HttpServletResponse response, String suppliedId) throws IOException {
+        String requestId = suppliedId != null && suppliedId.matches("[A-Za-z0-9_-]{1,64}") ? suppliedId : "absent";
         InputStream source;
         try {
             source = storage.open(file.key());
         } catch (Exception unavailable) {
+            LOG.warn("storage_failure operation=open requestId={} errorType={}", requestId, unavailable.getClass().getSimpleName());
             throw ApiError.dependency();
         }
 
@@ -126,6 +130,10 @@ class FileController {
             response.setHeader("Content-Disposition", ContentDisposition.attachment()
                     .filename(file.item().originalName(), StandardCharsets.UTF_8).build().toString());
             source.transferTo(response.getOutputStream());
+        } catch (IOException interrupted) {
+            LOG.warn("storage_failure operation=copy requestId={} errorType={} committed={}",
+                    requestId, interrupted.getClass().getSimpleName(), response.isCommitted());
+            throw interrupted;
         }
     }
 }

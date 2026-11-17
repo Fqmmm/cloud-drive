@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 final class ObjectStorage {
     private static final String BUCKET = "cloud-drive";
     private final MinioClient client;
+    private final MinioClient downloads;
     private final MinioClient control;
     private boolean initialized;
 
@@ -24,6 +25,11 @@ final class ObjectStorage {
                 .readTimeout(120, TimeUnit.SECONDS).writeTimeout(120, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(false).build();
         client = MinioClient.builder().endpoint(endpoint).credentials(user, password).httpClient(transport).build();
+        // GET may reconnect before response headers if a pooled socket died.
+        // Uploads keep their original non-retrying transport; an opened stream
+        // is returned directly and is never replayed after partial consumption.
+        downloads = MinioClient.builder().endpoint(endpoint).credentials(user, password)
+                .httpClient(transport.newBuilder().retryOnConnectionFailure(true).build()).build();
         control = MinioClient.builder().endpoint(endpoint).credentials(user, password)
                 .httpClient(transport.newBuilder().callTimeout(3, TimeUnit.SECONDS).build()).build();
     }
@@ -53,7 +59,7 @@ final class ObjectStorage {
     }
 
     InputStream open(String key) throws Exception {
-        return client.getObject(GetObjectArgs.builder().bucket(BUCKET).object(key).build());
+        return downloads.getObject(GetObjectArgs.builder().bucket(BUCKET).object(key).build());
     }
 
     void delete(String key) throws Exception {

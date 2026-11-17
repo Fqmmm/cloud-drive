@@ -1,0 +1,246 @@
+frontend-1  | 2026-11-17T06:51:20.657221833Z /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+frontend-1  | 2026-11-17T06:51:20.657245266Z /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+frontend-1  | 2026-11-17T06:51:20.660200147Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+frontend-1  | 2026-11-17T06:51:20.673154084Z 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+frontend-1  | 2026-11-17T06:51:20.694862421Z 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version
+frontend-1  | 2026-11-17T06:51:20.694945228Z /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+frontend-1  | 2026-11-17T06:51:20.695186067Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+frontend-1  | 2026-11-17T06:51:20.697789146Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+frontend-1  | 2026-11-17T06:51:20.698952324Z /docker-entrypoint.sh: Configuration complete; ready for start up
+frontend-1  | 2026-11-17T06:51:20.712482413Z 2026/11/17 06:51:20 [notice] 1#1: using the "epoll" event method
+frontend-1  | 2026-11-17T06:51:20.712497721Z 2026/11/17 06:51:20 [notice] 1#1: nginx/1.28.3
+frontend-1  | 2026-11-17T06:51:20.712499181Z 2026/11/17 06:51:20 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+frontend-1  | 2026-11-17T06:51:20.712500625Z 2026/11/17 06:51:20 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+frontend-1  | 2026-11-17T06:51:20.712501513Z 2026/11/17 06:51:20 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+frontend-1  | 2026-11-17T06:51:20.713017753Z 2026/11/17 06:51:20 [notice] 1#1: start worker processes
+frontend-1  | 2026-11-17T06:51:20.713226815Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 29
+frontend-1  | 2026-11-17T06:51:20.728330913Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 30
+frontend-1  | 2026-11-17T06:51:20.728612780Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 31
+frontend-1  | 2026-11-17T06:51:20.728622465Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 32
+frontend-1  | 2026-11-17T06:51:20.728980713Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 33
+frontend-1  | 2026-11-17T06:51:20.728987403Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 34
+frontend-1  | 2026-11-17T06:51:20.728988400Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 35
+frontend-1  | 2026-11-17T06:51:20.728989276Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 36
+frontend-1  | 2026-11-17T06:51:20.729541420Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 37
+frontend-1  | 2026-11-17T06:51:20.729719577Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 38
+frontend-1  | 2026-11-17T06:51:20.730056093Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 39
+frontend-1  | 2026-11-17T06:51:20.730498710Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 40
+frontend-1  | 2026-11-17T06:51:20.730505555Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 41
+frontend-1  | 2026-11-17T06:51:20.730678707Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 42
+frontend-1  | 2026-11-17T06:51:20.730898173Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 43
+frontend-1  | 2026-11-17T06:51:20.731401685Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 44
+frontend-1  | 2026-11-17T06:51:20.731410913Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 45
+frontend-1  | 2026-11-17T06:51:20.731593485Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 46
+frontend-1  | 2026-11-17T06:51:20.731794610Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 47
+frontend-1  | 2026-11-17T06:51:20.732130663Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 48
+frontend-1  | 2026-11-17T06:51:20.732462364Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 49
+frontend-1  | 2026-11-17T06:51:20.732846952Z 2026/11/17 06:51:20 [notice] 1#1: start worker process 50
+frontend-1  | 2026-11-17T06:51:38.924949714Z f78a26efb18ff015e4165869b493f61b POST status=200 duration=0.423 upstream=200
+frontend-1  | 2026-11-17T06:51:39.204437119Z 775e348a203422aabacf6b813f7624d6 POST status=200 duration=0.278 upstream=200
+frontend-1  | 2026-11-17T06:51:39.509424800Z b8cb57479213be268b622d39bb92b379 POST status=409 duration=0.303 upstream=409
+frontend-1  | 2026-11-17T06:51:39.776446081Z cd9c8cee0969e6d797757a14f4dc0617 POST status=409 duration=0.266 upstream=409
+frontend-1  | 2026-11-17T06:51:39.800669783Z 1c694c4e751f3f981cab59af3254598a POST status=400 duration=0.022 upstream=400
+frontend-1  | 2026-11-17T06:51:39.807541192Z 22cc50c29476f48793dc3465e1e201af POST status=400 duration=0.005 upstream=400
+frontend-1  | 2026-11-17T06:51:39.812701854Z e1b5e834550903435415b4fce6ee026e POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:39.819491929Z b20f5157d2b8efc34febfcab2052dbb3 POST status=400 duration=0.005 upstream=400
+frontend-1  | 2026-11-17T06:51:39.826044035Z 79ddb850c08b71ba018d32da14792424 POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:39.833004544Z bc73e8d59865cc6fdab4bed799a65f26 POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:39.838714983Z c8090b9cb6f6a32920a034720d67a85f POST status=400 duration=0.005 upstream=400
+frontend-1  | 2026-11-17T06:51:39.844353930Z 7e72686ee1beaf55b567ddcc733bb63e POST status=400 duration=0.005 upstream=400
+frontend-1  | 2026-11-17T06:51:39.850001546Z a057cc2e7a0bc1a6e68e0d7799e98730 POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:39.855657892Z 01a5c29c74a13000c089df95e24a4fbd POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:40.145906647Z b4833794401fbf5a8267ba7565295d3c POST status=401 duration=0.289 upstream=401
+frontend-1  | 2026-11-17T06:51:40.439768144Z c289bf94119c0b29204ea1bce5ee1907 POST status=200 duration=0.292 upstream=200
+frontend-1  | 2026-11-17T06:51:40.706278860Z 6c77a5611fbba3c269d8fecb89df269a POST status=200 duration=0.266 upstream=200
+frontend-1  | 2026-11-17T06:51:40.733424548Z 7d90dfe05c030ad2dd90bd0d1a6436a2 GET status=200 duration=0.026 upstream=200
+frontend-1  | 2026-11-17T06:51:40.762581742Z 9620b58ba00ec1d4285a23a4886ccfbc GET status=401 duration=0.027 upstream=401
+frontend-1  | 2026-11-17T06:51:40.794329544Z 51bff16228806264acd1f57a99c8e5e6 GET status=401 duration=0.031 upstream=401
+frontend-1  | 2026-11-17T06:51:40.804947793Z b88dbf5275bf395f843eadd118df5189 GET status=401 duration=0.009 upstream=401
+frontend-1  | 2026-11-17T06:51:41.230638461Z c458113ced8c261b2de04fe71bb2ccf9 POST status=200 duration=0.152 upstream=200
+frontend-1  | 2026-11-17T06:51:41.252356885Z e0cf32f6dc5ef6ad6284332ad22c7d07 GET status=200 duration=0.020 upstream=200
+frontend-1  | 2026-11-17T06:51:41.269442890Z ea9526e9305a8ad156ef851000d1f67a GET status=404 duration=0.015 upstream=404
+frontend-1  | 2026-11-17T06:51:41.274936630Z a33c84e9d94cc0f90b55c40e012759a0 POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:41.280154583Z 31f659a8f77ddb2dd8c3b3ec1fb37317 POST status=400 duration=0.003 upstream=400
+frontend-1  | 2026-11-17T06:51:41.285459038Z 3c0a545b2e926dc7f00864bfa2ceb0c3 POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:41.290674880Z 581c6584031d9594bea6ea83211e833a POST status=400 duration=0.003 upstream=400
+frontend-1  | 2026-11-17T06:51:41.295352338Z b6e95289cef94b3bd141252673d2f9ee POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:41.300994259Z 7b4d4dceaf477b8c60cf9d7f2458136e POST status=400 duration=0.003 upstream=400
+frontend-1  | 2026-11-17T06:51:41.306881963Z 86a55f90fa08a6c54dbcd5c2ea26971b POST status=400 duration=0.003 upstream=400
+frontend-1  | 2026-11-17T06:51:41.386357829Z 0e2222ca8d9c06d413db1b68dd7566b2 POST status=200 duration=0.078 upstream=200
+frontend-1  | 2026-11-17T06:51:41.415757757Z 3edf83fb3a59e21fcfda72cafa7d4c05 DELETE status=200 duration=0.027 upstream=200
+frontend-1  | 2026-11-17T06:51:41.442382021Z 51e49f287ccbd7eaabdea2836e41377b POST status=200 duration=0.025 upstream=200
+frontend-1  | 2026-11-17T06:51:41.463881977Z 54a8ff6cf9b103332db62a2e22629a80 DELETE status=200 duration=0.018 upstream=200
+frontend-1  | 2026-11-17T06:51:41.486603090Z 329ce9dd7be5348843931f02af4768ab POST status=200 duration=0.021 upstream=200
+frontend-1  | 2026-11-17T06:51:41.505469403Z c24de420264ad5a33d8bce8e3044d067 DELETE status=200 duration=0.017 upstream=200
+frontend-1  | 2026-11-17T06:51:41.531424973Z fd0e273ca97397cd4a60857eb2643c9c PUT status=200 duration=0.025 upstream=200
+frontend-1  | 2026-11-17T06:51:41.539688674Z 0e112124139fae2055f160b03f15cf61 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:51:41.545890687Z 450d88a55c5ed66bf019f950d7715606 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:51:41.672982207Z 0f2db9ae1d68fa40cb412614fce7a030 POST status=200 duration=0.122 upstream=200
+frontend-1  | 2026-11-17T06:51:41.681124491Z e0d56143ef7e7eddff3e909923f0e319 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:51:41.749378258Z 22070553d9d8028544af49d1b268c45e POST status=409 duration=0.067 upstream=409
+frontend-1  | 2026-11-17T06:51:41.765495056Z f6d8d00c8231403770af6ed540df1475 POST status=409 duration=0.015 upstream=409
+frontend-1  | 2026-11-17T06:51:41.775793200Z 6903244cad818f38ac26a7575ec63dc7 DELETE status=409 duration=0.009 upstream=409
+frontend-1  | 2026-11-17T06:51:41.796831611Z 6b017c9bb881c6d29484bc9b92084bd7 POST status=200 duration=0.018 upstream=200
+frontend-1  | 2026-11-17T06:51:41.816532040Z 6218931cbf4fa24178e6138adba7b3c6 PUT status=409 duration=0.018 upstream=409
+frontend-1  | 2026-11-17T06:51:41.838967459Z c377c6fde56b7c2f028f7d077dc684cd DELETE status=200 duration=0.021 upstream=200
+frontend-1  | 2026-11-17T06:51:41.851316815Z 154c71ea9636921277c10be473a99637 GET status=200 duration=0.011 upstream=200
+frontend-1  | 2026-11-17T06:51:41.859519210Z 01bc3142d40037b2246f24ff75493821 GET status=404 duration=0.006 upstream=404
+frontend-1  | 2026-11-17T06:51:41.877011590Z 7782583287036f8d0b5a48ec6e482927 PUT status=404 duration=0.015 upstream=404
+frontend-1  | 2026-11-17T06:51:41.890776674Z 9fbfccd088a7baf25bae0c5a27d6b719 DELETE status=404 duration=0.012 upstream=404
+frontend-1  | 2026-11-17T06:51:42.031527247Z f9c2812e79d02ea41611093489262319 POST status=404 duration=0.140 upstream=404
+frontend-1  | 2026-11-17T06:51:42.039549200Z a3f37421d5aa2718a1408a5ed55c3d29 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:51:42.871811006Z 9587b7e1ebde6bb1fde84d023602c146 POST status=413 duration=0.721 upstream=413
+frontend-1  | 2026-11-17T06:51:42.900606369Z 06ac36bf99be8be0ca7cea7896c0e585 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:51:43.288081304Z 67e27c361a7c2a849e24ee6a1feb70b5 POST status=200 duration=0.078 upstream=200
+frontend-1  | 2026-11-17T06:51:43.300980177Z 400d457a56e878690a049e26e933be27 POST status=200 duration=0.081 upstream=200
+frontend-1  | 2026-11-17T06:51:43.301285332Z 1ca448af694c0171b02b948a9650c016 POST status=409 duration=0.068 upstream=409
+frontend-1  | 2026-11-17T06:51:43.323106356Z f2c3378ec9c3ad0752d7b5df1c9ba230 DELETE status=200 duration=0.019 upstream=200
+frontend-1  | 2026-11-17T06:51:43.343149597Z 898dc87564f0421d57c05f7f723d4f12 DELETE status=200 duration=0.018 upstream=200
+frontend-1  | 2026-11-17T06:51:43.685645391Z 003667750933967db72401174cb7b762 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:51:43.705030147Z 77a8f7e1175c59193ffd8a1c4b80feba POST status=400 duration=0.017 upstream=400
+frontend-1  | 2026-11-17T06:51:43.730474336Z 7390d9df7d1c25ea1c13c0c061995b47 POST status=400 duration=0.024 upstream=400
+frontend-1  | 2026-11-17T06:51:43.736857726Z cdd3403c516e419a0771f69483af7352 POST status=400 duration=0.004 upstream=400
+frontend-1  | 2026-11-17T06:51:43.783009224Z 1f818af0699545fd87b7d7ba6211f57f POST status=200 duration=0.045 upstream=200
+frontend-1  | 2026-11-17T06:51:43.807609627Z cbb833dfcc3bd4519a3104847ec8ffaa POST status=200 duration=0.023 upstream=200
+frontend-1  | 2026-11-17T06:51:43.829868417Z d8450f9217aa4b96aaae84527a880edb POST status=200 duration=0.020 upstream=200
+frontend-1  | 2026-11-17T06:51:43.853067736Z 80fae36133bedb815906d5aeb40d84e4 POST status=200 duration=0.021 upstream=200
+frontend-1  | 2026-11-17T06:51:43.875644286Z d54148a5b64520279cbd9b4740282aff POST status=200 duration=0.021 upstream=200
+frontend-1  | 2026-11-17T06:51:44.184664042Z d9aa0b4964e173abe1d720b58c676d83 POST status=200 duration=0.306 upstream=200
+frontend-1  | 2026-11-17T06:51:44.204944747Z 921f189e508f5223677c16448bfb6410 GET status=200 duration=0.017 upstream=200
+frontend-1  | 2026-11-17T06:51:44.216487753Z 38a18b2ed7ba8901ec6786c3afc6fae7 POST status=403 duration=0.010 upstream=403
+frontend-1  | 2026-11-17T06:51:44.227743057Z 9cbd2a246ce487e8fc20e0a82743c180 POST status=403 duration=0.008 upstream=403
+frontend-1  | 2026-11-17T06:51:44.236245337Z 78068a92660e693302d26fb0166903fe POST status=403 duration=0.007 upstream=403
+frontend-1  | 2026-11-17T06:51:44.507788136Z a19b8c57a77de5425bb5ac53010b62bd POST status=403 duration=0.269 upstream=403
+frontend-1  | 2026-11-17T06:51:44.787513684Z 91910bb34648a4892d0eed1dbbaeedbf POST status=403 duration=0.278 upstream=403
+frontend-1  | 2026-11-17T06:51:45.073834003Z 6e6b703fddbdb79636079d155cccd38d POST status=429 duration=0.284 upstream=429
+frontend-1  | 2026-11-17T06:51:45.358373123Z 29276db95887bef7cabd2eda90d8a48f POST status=429 duration=0.282 upstream=429
+frontend-1  | 2026-11-17T06:51:45.623934816Z 0ff6a74b87561c9b08af1ada17e4acb7 POST status=429 duration=0.263 upstream=429
+frontend-1  | 2026-11-17T06:51:45.904230658Z e534a7b8181f61bd80cf4c98e60b5294 POST status=429 duration=0.278 upstream=429
+frontend-1  | 2026-11-17T06:51:46.179136795Z 05c1c0faca8b400ac327299425c85be3 POST status=200 duration=0.272 upstream=200
+frontend-1  | 2026-11-17T06:51:46.207114767Z f1537b32e325e668687159b4948a9932 POST status=200 duration=0.024 upstream=200
+frontend-1  | 2026-11-17T06:51:46.487098388Z 1ebd4fb659fbdb2f513ac990745c9dd7 POST status=200 duration=0.275 upstream=200
+frontend-1  | 2026-11-17T06:51:46.754910814Z e539a8c18d2624eae5e9b8570a65bb95 POST status=429 duration=0.263 upstream=429
+frontend-1  | 2026-11-17T06:51:46.869910223Z 1d555678860f97a00b8734d32dfe8a78 PUT status=200 duration=0.113 upstream=200
+frontend-1  | 2026-11-17T06:51:46.878871743Z 6a25ee2536a422591fe7b7c7743df092 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:51:46.889552814Z 222067556fdef2b35d610cc23b3f8824 GET status=200 duration=0.008 upstream=200
+frontend-1  | 2026-11-17T06:51:46.900240574Z ad2b01519510632443ac994bd7179bc0 GET status=200 duration=0.008 upstream=200
+frontend-1  | 2026-11-17T06:51:46.914415384Z e9d43b7e08f49f39065a4d4f6ee7fa82 GET status=200 duration=0.013 upstream=200
+frontend-1  | 2026-11-17T06:51:46.920753053Z afc89439adc02b826aba203c0e4c8d73 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:51:46.929404753Z 5047fa706bd4f12d92ce36da1b9bbfc9 DELETE status=404 duration=0.008 upstream=404
+frontend-1  | 2026-11-17T06:51:46.943407511Z 364c5ef7b0ced101f1a93331c91b1116 DELETE status=200 duration=0.013 upstream=200
+frontend-1  | 2026-11-17T06:51:46.950919798Z c8df34b3d0658b4f7286340033359ab1 DELETE status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:51:46.958456407Z 8e0185815455d40a00a645d10f846487 GET status=410 duration=0.005 upstream=410
+frontend-1  | 2026-11-17T06:51:47.243427512Z ae6397ee6cb46be234ed8e183afdbe56 POST status=200 duration=0.283 upstream=200
+frontend-1  | 2026-11-17T06:51:47.311086809Z 71a82647171c72e3e27c4a2eac3e1967 POST status=200 duration=0.063 upstream=200
+frontend-1  | 2026-11-17T06:51:47.612304033Z f5f29830cc6da5d186c52d0c9d21b651 GET status=410 duration=0.006 upstream=410
+frontend-1  | 2026-11-17T06:51:47.620250637Z e0a719e8efc146f6d64902bf6617189f GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:51:47.628562393Z 80e7e40febd73b8d76225c96e86ad703 GET status=404 duration=0.006 upstream=404
+frontend-1  | 2026-11-17T06:51:47.634869251Z fb6e6b3fa6392fe859d8afff4b855a50 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:51:51.550702160Z b85faa19046b95c421ce6a79b7e56a5a POST status=503 duration=3.262 upstream=503
+frontend-1  | 2026-11-17T06:51:52.396666268Z cc70a43dbba384a6a8ad9bd090736dd0 POST status=503 duration=0.313 upstream=503
+frontend-1  | 2026-11-17T06:51:54.699201246Z 335d9a1c241cbaf0ce62b46dae3e4f96 POST status=503 duration=0.293 upstream=503
+frontend-1  | 2026-11-17T06:51:57.234213230Z 5babbe5eba40801adecd5663cec270e3 POST status=200 duration=0.533 upstream=200
+frontend-1  | 2026-11-17T06:51:57.510675755Z 87b24c22216371d8f8365231270c2ccd POST status=200 duration=0.274 upstream=200
+frontend-1  | 2026-11-17T06:51:57.544638291Z 182f1d75d379205bb25c07a7205da6bf GET status=200 duration=0.032 upstream=200
+frontend-1  | 2026-11-17T06:51:58.121340528Z dfde141c97e90cc628ab9e6b77ada81c POST status=503 duration=0.036 upstream=503
+frontend-1  | 2026-11-17T06:51:58.130199584Z dd7905f2e6e8ae444cecb98ed0cd60bd GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:51:58.166684981Z 77eb56b6b8a13da9e77295e84b136741 GET status=200 duration=0.034 upstream=200
+frontend-1  | 2026-11-17T06:52:01.449917084Z 6a8f09f03be4e74a2cc49afd31938201 POST status=503 duration=3.281 upstream=503
+frontend-1  | 2026-11-17T06:52:02.252911501Z b15788a815c7a0ae339944aaf500b04c POST status=503 duration=0.266 upstream=503
+frontend-1  | 2026-11-17T06:52:04.559425539Z 738d100137a8875eab73ef009830806a POST status=200 duration=0.304 upstream=200
+frontend-1  | 2026-11-17T06:52:04.893008994Z 9469aca1dd04c482810ca2b384dbd54b POST status=200 duration=0.330 upstream=200
+frontend-1  | 2026-11-17T06:52:04.935224310Z 0966402e01bcbf15ac38a116b60523b7 DELETE status=200 duration=0.033 upstream=200
+frontend-1  | 2026-11-17T06:52:04.947432685Z b270486d6b7b81891dfcb38698afdb08 DELETE status=404 duration=0.010 upstream=404
+frontend-1  | 2026-11-17T06:52:04.954959378Z c32cd6fb8a4249b222d31623ffc640d7 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:52:04.961853848Z ebe70dead8b6b1987d087f54ba5ae825 GET status=404 duration=0.005 upstream=404
+frontend-1  | 2026-11-17T06:52:05.238277115Z 50f2dc55fe8c2e8f67aeda73a61dd247 POST status=404 duration=0.274 upstream=404
+frontend-1  | 2026-11-17T06:52:05.309000392Z 521e71fe06de821716e3057fe84151e2 POST status=200 duration=0.069 upstream=200
+frontend-1  | 2026-11-17T06:52:05.591266581Z 54cf5db375417289433e8ef7e9f17107 POST status=404 duration=0.279 upstream=404
+frontend-1  | 2026-11-17T06:52:05.637456067Z e45e1a258e01c2b3e66e5eb5f6108afc DELETE status=200 duration=0.043 upstream=200
+frontend-1  | 2026-11-17T06:52:05.663793907Z f49903de52b8463d727ef7033255cd52 DELETE status=200 duration=0.024 upstream=200
+frontend-1  | 2026-11-17T06:52:10.502330525Z cbffb9b5f35c3aaaefea2ea7c9457f7d GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:10.512878026Z 9e85442f6dbae4a5ecff98615682da0d GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:10.514640841Z 8374b3ba81faeededd70a00bc89b85f6 GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:11.186026441Z c136d3b0ad11134e36739d8fb290340c POST status=200 duration=0.288 upstream=200
+frontend-1  | 2026-11-17T06:52:11.645286622Z 77bfb57ddc74ca0eff62d52fca8ce7fc POST status=409 duration=0.265 upstream=409
+frontend-1  | 2026-11-17T06:52:12.121531522Z d15b963dee7bdf30a66f3ea9c5c1cb5f POST status=401 duration=0.259 upstream=401
+frontend-1  | 2026-11-17T06:52:12.580987402Z 022d2ae4d90587c0e6e7bada580e0af9 POST status=200 duration=0.268 upstream=200
+frontend-1  | 2026-11-17T06:52:12.592725975Z 4da34b2deda0a6b22bf31ffe3abd0655 GET status=200 duration=0.008 upstream=200
+frontend-1  | 2026-11-17T06:52:12.611523797Z 6a8d5d13553986b50e38c6300750be85 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:52:12.625946287Z c874fb0b8c0a9f2d005da319fab59742 GET status=200 duration=0.021 upstream=200
+frontend-1  | 2026-11-17T06:52:12.711558160Z 8a679a2a8ead8435477a7a3d6a58ee3c GET status=304 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:12.753896202Z 1b55798406735821d86855e99e1d385b GET status=200 duration=0.014 upstream=200
+frontend-1  | 2026-11-17T06:52:12.769456433Z 837ade093c5a33ee10e05dda20675103 GET status=200 duration=0.015 upstream=200
+frontend-1  | 2026-11-17T06:52:12.777264634Z ca04c0c04aba13cdfbdfa7dd5053588e GET status=200 duration=0.023 upstream=200
+frontend-1  | 2026-11-17T06:52:12.981142242Z 0e50638186f923568bcf33441a18829e POST status=200 duration=0.135 upstream=200
+frontend-1  | 2026-11-17T06:52:12.991646466Z cf551cb6bfaa8978e4d94ec6cf7695dc GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:12.993248384Z 88fa146f9e42b436817c33e02fcd557c GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:52:13.110344275Z 5e2368f578b77bc754c6806d3dd1f208 GET status=200 duration=0.010 upstream=200
+frontend-1  | 2026-11-17T06:52:13.112980943Z 2635d95f0fb0a1559c4db6c72c3f4fd6 GET status=200 duration=0.014 upstream=200
+frontend-1  | 2026-11-17T06:52:13.345303165Z 4251fed9440629115b1424f797e0d3d8 POST status=200 duration=0.059 upstream=200
+frontend-1  | 2026-11-17T06:52:13.355256637Z 23446482216c81744106e422636da605 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:52:13.357153153Z afa354c353512378e3184974a047b8a9 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:52:14.056147333Z 87ce4bce16aee0a6aaff378daeaace82 GET status=200 duration=0.010 upstream=200
+frontend-1  | 2026-11-17T06:52:14.915894818Z 0db37f90a93559d7bd8675753e34d746 PUT status=200 duration=0.028 upstream=200
+frontend-1  | 2026-11-17T06:52:14.929822792Z d4becdb0f9929f9a78d47d7b17198fea GET status=200 duration=0.009 upstream=200
+frontend-1  | 2026-11-17T06:52:14.931857704Z e5a90a1694eff8b9855af3e4432d355b GET status=200 duration=0.011 upstream=200
+frontend-1  | 2026-11-17T06:52:15.088280591Z 4db7e534f23137261b2dbc1495c54897 GET status=200 duration=0.009 upstream=200
+frontend-1  | 2026-11-17T06:52:15.155930209Z 74875b65ed55e38ff059f6cbb47bb3ef POST status=200 duration=0.027 upstream=200
+frontend-1  | 2026-11-17T06:52:15.166971520Z 6670630e1f26aa4c894b3f169ef9cadf GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:15.641656579Z 540dd2e0f57732f9b131495481bfdad6 POST status=200 duration=0.297 upstream=200
+frontend-1  | 2026-11-17T06:52:15.653581232Z 70ebaf993186976c91747c7c951fb4e8 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:52:15.830688705Z 1bd0d67f592704a1c9e4a6ec4bccf06d GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:15.837541589Z 55b809c24720254b6e7118092e6cde51 GET status=200 duration=0.001 upstream=-
+frontend-1  | 2026-11-17T06:52:15.843523853Z 2118f05324a688d56c92e323ed2b8a4d GET status=200 duration=0.001 upstream=-
+frontend-1  | 2026-11-17T06:52:16.562357532Z e5f1e548124393d2d10c221de440e4a6 POST status=200 duration=0.296 upstream=200
+frontend-1  | 2026-11-17T06:52:17.089966338Z 25e6d3db7ebdbed47e897dc6fa359fc9 POST status=409 duration=0.309 upstream=409
+frontend-1  | 2026-11-17T06:52:17.532016512Z ebeae5f8d4064d652182d599e2a68465 POST status=401 duration=0.251 upstream=401
+frontend-1  | 2026-11-17T06:52:18.004796885Z a753610d881f5dd5fc627039e4fea956 POST status=200 duration=0.275 upstream=200
+frontend-1  | 2026-11-17T06:52:18.012830531Z a74e1f47a02cd6f8427253ab77809822 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:52:18.034357226Z 350e522c77d4e1cc568668a7400a1dc1 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:18.046802133Z 4a447b2e96c1d9c8f0cc5b56963a6f84 GET status=200 duration=0.018 upstream=200
+frontend-1  | 2026-11-17T06:52:18.139144551Z 437c09be9a995cbe79d14ad066ae2337 GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:18.147837783Z 6316fde8cbd5b723cad62fda5f351188 GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:18.151092646Z 9d8448f06f913e81897afa7fe27241ae GET status=200 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:18.374636114Z a5da4492cf08700f4bf4f2e658517b97 GET status=200 duration=0.013 upstream=200
+frontend-1  | 2026-11-17T06:52:18.529394788Z 3a0c4f1cdc49c545f98202400a0a2c41 POST status=200 duration=0.029 upstream=200
+frontend-1  | 2026-11-17T06:52:18.680733205Z 05db622e3ce941104dc2dd38edeea4ff GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:52:19.005609877Z 3338b840e9771e754d450826824e9487 POST status=403 duration=0.278 upstream=403
+frontend-1  | 2026-11-17T06:52:19.431014941Z ef34bb063fbd416e8763b456c1a3ee37 POST status=200 duration=0.266 upstream=200
+frontend-1  | 2026-11-17T06:52:19.846655721Z 8693dd175a3737b6f65e103d52b506fe POST status=200 duration=0.270 upstream=200
+frontend-1  | 2026-11-17T06:52:20.058093798Z 51fe9e1000991014c33d608e2a514890 DELETE status=200 duration=0.023 upstream=200
+frontend-1  | 2026-11-17T06:52:20.068677650Z 9470988829829aa7e9b610c74469dddc GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:20.176258129Z 261544a115e8f6c60f3982c644309e7f GET status=410 duration=0.004 upstream=410
+frontend-1  | 2026-11-17T06:52:20.300980702Z 68351d35c7817262a82a57feb26b7b4e GET status=410 duration=0.006 upstream=410
+frontend-1  | 2026-11-17T06:52:20.316510241Z 876c688895f2d514c1eca40adaa40242 GET status=404 duration=0.005 upstream=404
+frontend-1  | 2026-11-17T06:52:20.476607361Z e913dd86460b0340f7e033df76c68512 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:20.476632043Z 0ce6a66390fe556df2fed6e8c3fcbb4d GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:20.531993840Z 4665dbcda79e76c705ce848d36a8ae57 GET status=200 duration=0.004 upstream=200
+frontend-1  | 2026-11-17T06:52:20.532942427Z 9944139a87c4dc74a926636f5fba7702 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:20.835642770Z 4572c82ae551305daa72a7a6819c88f9 DELETE status=200 duration=0.020 upstream=200
+frontend-1  | 2026-11-17T06:52:20.844908674Z f5f141b07df5e4d7818bf10b2d73f91e GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:52:20.845381222Z 832029605b5ef303b466c2dd9e1291fd GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:20.945929340Z 8a5a07bf1b7e4d9838fdc1961efc0a63 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:52:21.308591853Z 07aa42458b31ed0570f98f5d51402fc4 POST status=404 duration=0.298 upstream=404
+frontend-1  | 2026-11-17T06:52:21.454861758Z 46c8526728629ac1cb5db3a5a1e3a240 GET status=200 duration=0.008 upstream=200
+frontend-1  | 2026-11-17T06:52:21.454890325Z d4d46ea98d54e70e12369bc4d5c6ac67 GET status=200 duration=0.008 upstream=200
+frontend-1  | 2026-11-17T06:52:21.527204881Z 270a8459a08d05aa26c9632ca969f9cc PUT status=200 duration=0.022 upstream=200
+frontend-1  | 2026-11-17T06:52:21.535327464Z 7d2948acd05c7bb2f95ae60434136b7c GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T06:52:21.536674404Z 8694113fc57f884457da12f1e2282654 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:21.748866626Z 17e2e149972f6c0aa4946977eaa90923 DELETE status=200 duration=0.060 upstream=200
+frontend-1  | 2026-11-17T06:52:21.759662417Z d226220eb445e9c52f498cecd37c2bb7 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:21.759687585Z 33793b7aa8c2017713948306d4bfe309 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T06:52:21.877090989Z 5e1bd03bec351b27bdb0dce280e656bf GET status=304 duration=0.000 upstream=-
+frontend-1  | 2026-11-17T06:52:21.925832851Z 45fa5e023e519e4fd7c385ad2d2db717 GET status=401 duration=0.007 upstream=401
+frontend-1  | 2026-11-17T06:52:22.144495543Z 318451ef661ed8144bd777adaf34297b DELETE status=404 duration=0.010 upstream=404
+frontend-1  | 2026-11-17T06:52:22.154193939Z f90b7791474a99dd633ac607ed993ecd DELETE status=404 duration=0.008 upstream=404
+frontend-1  | 2026-11-17T06:52:22.164213566Z 34cfaaa20d92c655367fc72c0112feb4 DELETE status=404 duration=0.008 upstream=404
+frontend-1  | 2026-11-17T06:52:22.172927832Z 77ec871f6d599b873c777765bf8eb722 DELETE status=404 duration=0.007 upstream=404
+frontend-1  | 2026-11-17T06:52:22.235595809Z 1d628e39b2bb4dd40c15d72616bc00a3 DELETE status=200 duration=0.061 upstream=200
+frontend-1  | 2026-11-17T06:52:22.252992030Z f9e5dbbb39dd682f1d5d55caec0da0fa DELETE status=200 duration=0.015 upstream=200
+frontend-1  | 2026-11-17T06:52:22.271517433Z d8ec850a33c38d2e3fbbabf4b4e1b6dc DELETE status=200 duration=0.016 upstream=200
+frontend-1  | 2026-11-17T06:52:22.284870603Z b72a1ef1a0b152a2086961544578f03f DELETE status=200 duration=0.012 upstream=200
+frontend-1  | 2026-11-17T06:52:22.292577998Z 5af8e3603d4198a2aa4c2f87c4377d63 DELETE status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T06:52:22.308553599Z cb0521a675d78e44280f05f749ab3c70 DELETE status=200 duration=0.014 upstream=200
+frontend-1  | 2026-11-17T06:52:22.326250392Z 3dcdb630c4520db0ca879f0da4a63b48 DELETE status=200 duration=0.016 upstream=200
+frontend-1  | 2026-11-17T06:52:22.336134252Z d62b6864a446b51bfcbf6f8a87a32748 DELETE status=404 duration=0.008 upstream=404
