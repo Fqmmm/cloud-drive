@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-17T03:59:03.437027+00:00",
+  "distribution_unregistered": true,
+  "lab_directory_removed": true,
+  "original_lab_bytes": 12683277487,
+  "disk_free_after_bytes": {
+    "C:/": 63245324288,
+    "D:/": 127992315904
+  },
+  "d_free_increase_bytes": 12683313152,
+  "retained_lab_records_verified": 11,
+  "retained_guest_nginx_originals_verified": 3,
+  "other_distributions_unchanged": true,
+  "default_distribution_unchanged": true,
+  "original_experiment_results_unchanged": true
+}

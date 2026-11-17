@@ -1,0 +1,28 @@
+{
+  "before": {
+    "Ubuntu-24.04": {
+      "id": "{c3479d17-032e-4df6-9c3b-15806478a532}",
+      "base_path": "C:\\Users\\24930\\AppData\\Local\\Packages\\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\\LocalState"
+    },
+    "docker-desktop": {
+      "id": "{c4eb6250-7382-4520-b9d2-632422b41f98}",
+      "base_path": "\\\\?\\C:\\Users\\24930\\AppData\\Local\\Docker\\wsl\\main"
+    },
+    "CloudDrive-E1-Native": {
+      "id": "{ffe66500-1937-4fb5-9459-b8e7dd542c60}",
+      "base_path": "\\\\?\\D:\\CloudDriveLab\\E1Native\\wsl"
+    }
+  },
+  "after": {
+    "Ubuntu-24.04": {
+      "id": "{c3479d17-032e-4df6-9c3b-15806478a532}",
+      "base_path": "C:\\Users\\24930\\AppData\\Local\\Packages\\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\\LocalState"
+    },
+    "docker-desktop": {
+      "id": "{c4eb6250-7382-4520-b9d2-632422b41f98}",
+      "base_path": "\\\\?\\C:\\Users\\24930\\AppData\\Local\\Docker\\wsl\\main"
+    }
+  },
+  "default_distribution_unchanged": true,
+  "other_distributions_unchanged": true
+}

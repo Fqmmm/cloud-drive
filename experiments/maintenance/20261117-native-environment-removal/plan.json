@@ -1,0 +1,113 @@
+{
+  "utc": "2026-11-17T03:56:49.109421+00:00",
+  "source_commit": "72ecb5ff0e48fd5d262f476e4f1368b6fd7f9e5c",
+  "distribution": "CloudDrive-E1-Native",
+  "verified_base_path": "D:\\CloudDriveLab\\E1Native\\wsl",
+  "lab_path": "D:\\CloudDriveLab\\E1Native",
+  "lab_bytes": 12683277487,
+  "lab_files": 22,
+  "disk_free_before_bytes": {
+    "C:/": 63257018368,
+    "D:/": 115309002752
+  },
+  "retained_lab_records": [
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\provenance.json",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\provenance.json",
+      "source_sha256": "72f537a4772063f9afba7136f19ab895a9792f4033c16dabb1260f35127ebe80",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\provenance.redacted.json",
+      "archived_sha256": "4189c983e5dd71932007bc7a921c67dd5004f7b2a2808b5c58de487b05f6a532"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\e1-before.json",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\e1-before.json",
+      "source_sha256": "2aaafc9f07fe0b9ce5f55f1208fb799123853e5ea1dd4510339ec39059df8fe6",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\e1-before.redacted.json",
+      "archived_sha256": "0db4cf2664a079f38d47d05a9a7570dc8b91a27b81430a7fc23c1554e74fc227"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\smoke.json",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\smoke.json",
+      "source_sha256": "1cef260862a47a78893c98e8264a07789a6587b6d935bc2b0a22f150118d88da",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\smoke.redacted.json",
+      "archived_sha256": "b4985977e0665bae0c86afbfe0ef281e265f6c4d6063699f320843d87d41eab2"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\share-service.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\share-service.log",
+      "source_sha256": "3a48c4a6f38354bbfd78f2fd6a41c8f0f9623863321cd292529f4da8d23cf4de",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\share-service.redacted.log",
+      "archived_sha256": "3a48c4a6f38354bbfd78f2fd6a41c8f0f9623863321cd292529f4da8d23cf4de"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\mysql.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\mysql.log",
+      "source_sha256": "0aca5a91f0a3b81e12b9bf562b90e7cec09f401779add600886fee9c6d0d134e",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\mysql.redacted.log",
+      "archived_sha256": "0aca5a91f0a3b81e12b9bf562b90e7cec09f401779add600886fee9c6d0d134e"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\mysql-initialize.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\mysql-initialize.log",
+      "source_sha256": "e5b10a0763f54323e8481f88715e5f5ef4649b3423423408e133d39183eb1a70",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\mysql-initialize.redacted.log",
+      "archived_sha256": "e5b10a0763f54323e8481f88715e5f5ef4649b3423423408e133d39183eb1a70"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\minio.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\minio.log",
+      "source_sha256": "a9f42bbda7ff6e70560d5e645a4bebfbda7eba1f664c37b37159e10121fdd4d0",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\minio.redacted.log",
+      "archived_sha256": "3f2355a086a03935e0b4222174c6abb6a6cad146935fbe3fb37df5fa7ed26fea"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\mc-diagnostic.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\mc-diagnostic.log",
+      "source_sha256": "721f58dde3ceb4c47c86504b519f9f50b99cf9d3d9ab8b3ea417a993de9a1b31",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\mc-diagnostic.redacted.log",
+      "archived_sha256": "388a0b71fc7dce693944da4e78bcc83f1cb146149f0c28c6bbf4a0933b0c8078"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\frontend.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\frontend.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\frontend.redacted.log",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\file-service.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\file-service.log",
+      "source_sha256": "c2e4fc4830e0a08073eb78c6fdb7ff221194051dd425174fd21c607a952abcd0",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\file-service.redacted.log",
+      "archived_sha256": "c2e4fc4830e0a08073eb78c6fdb7ff221194051dd425174fd21c607a952abcd0"
+    },
+    {
+      "source_path": "D:\\CloudDriveLab\\E1Native\\bootstrap\\auth-service.log",
+      "private_copy": "artifacts\\cleanup\\20261117-native-environment-removal\\lab-records\\bootstrap\\auth-service.log",
+      "source_sha256": "b229426560a547ded7ae668915593fe858c5c99abd64a26d20d8701a89de6f6b",
+      "existing_public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-lab\\bootstrap\\auth-service.redacted.log",
+      "archived_sha256": "b229426560a547ded7ae668915593fe858c5c99abd64a26d20d8701a89de6f6b"
+    }
+  ],
+  "retained_guest_nginx_records": [
+    {
+      "source": "native-wsl/opt/e1-native/logs/error.log",
+      "private_copy": "artifacts\\log-archive\\20261116-main-integration\\native-linux\\logs\\error.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-wsl\\opt\\e1-native\\logs\\error.redacted.log"
+    },
+    {
+      "source": "native-wsl/opt/e1-native/logs/access.log",
+      "private_copy": "artifacts\\log-archive\\20261116-main-integration\\native-linux\\logs\\access.log",
+      "source_sha256": "18f76149e2468d67af954f67471ddfb0df97470650a7da1d76bed7627325f2d7",
+      "public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-wsl\\opt\\e1-native\\logs\\access.redacted.log"
+    },
+    {
+      "source": "native-wsl/opt/e1-native/logs/nginx-main.log",
+      "private_copy": "artifacts\\log-archive\\20261116-main-integration\\native-linux\\logs\\nginx-main.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_archive": "experiments\\log-archive\\20261116-main-integration\\sources\\native-wsl\\opt\\e1-native\\logs\\nginx-main.redacted.log"
+    }
+  ],
+  "retained": "Ubuntu-24.04, docker-desktop, project source, all committed experimental CSV/JSON/logs/reports and private native logs outside this lab"
+}

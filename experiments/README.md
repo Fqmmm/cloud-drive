@@ -12,8 +12,11 @@
 | [E2/20261116-e2-formal/](E2/20261116-e2-formal/) | 首次部署、三次已有镜像启动、独立更新、双副本验证及六轮性能对照 |
 | [log-archive/20261116-main-integration/](log-archive/20261116-main-integration/README.md) | 从本机补充的服务、启动、诊断和容器保留日志，以及来源和校验索引 |
 | [maintenance/20261117-c-drive-cleanup/](maintenance/20261117-c-drive-cleanup/README.md) | 按用户要求清理 C 盘运行资源的记录，含 12 个容器删除前的最终日志、删除清单和磁盘压缩结果 |
+| [maintenance/20261117-native-environment-removal/](maintenance/20261117-native-environment-removal/README.md) | 补充移除 D 盘 `CloudDrive-E1-Native` 专用发行版及导出文件，保留日志映射和注销校验 |
 
 2026 年 11 月 17 日，用户要求删除本轮 C 盘实验资源，业务容器、数据库和上传数据已清理。D 盘的实验记录、报告及代码保留，指标仍可离线复算。报告中的服务恢复状态对应实验结束当时，后续清理状态见上方维护记录。
+
+同日按用户补充要求，D 盘的非容器专用发行版及安装、导出文件也已移除；原始日志、CSV/JSON、图表和报告保留。
 
 ### 论文采用的正式批次
 

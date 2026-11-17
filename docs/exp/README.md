@@ -22,6 +22,7 @@
 
 2026 年 11 月 17 日按用户要求清理了 C 盘实验容器、业务卷、镜像和缓存，并回收 Docker 虚拟盘空闲空间。
 实验数据与报告保留，新增 12 个容器的最终日志；当前运行环境状态及清理证据见 [维护记录](../../experiments/maintenance/20261117-c-drive-cleanup/README.md)。
+随后补充移除 D 盘非容器专用发行版及导出文件，日志原文已另行保留，见 [非容器清理记录](../../experiments/maintenance/20261117-native-environment-removal/README.md)。
 
 ## 写作处理记录
 

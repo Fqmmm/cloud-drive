@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-17T03:57:40.513765+00:00",
+  "command": [
+    "wsl",
+    "--unregister",
+    "CloudDrive-E1-Native"
+  ],
+  "exit_code": 0,
+  "stdout": "\u64cd\u4f5c\u6210\u529f\u5b8c\u6210\u3002 \r\n",
+  "stderr": ""
+}
