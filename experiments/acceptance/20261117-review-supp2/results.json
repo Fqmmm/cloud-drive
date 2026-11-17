@@ -1,0 +1,138 @@
+{
+  "started": "2026-11-17T11:27:30.973070+00:00",
+  "ended": "2026-11-17T11:27:43.256978+00:00",
+  "kind": "supplement",
+  "completed": true,
+  "http_checks_passed": true,
+  "passed": 9,
+  "total": 9,
+  "results": [
+    {
+      "requirement": "FR-04",
+      "case": "active-name database collation is recorded",
+      "status": "PASS",
+      "actual": {
+        "collation": "utf8mb4_0900_as_cs"
+      }
+    },
+    {
+      "requirement": "FR-04",
+      "case": "simultaneous Case and case match the deployed name rule",
+      "status": "PASS",
+      "input": {
+        "names": [
+          "Case",
+          "case"
+        ],
+        "same_parent": true
+      },
+      "expected": {
+        "rule": "case-sensitive",
+        "collation": "utf8mb4_0900_as_cs"
+      },
+      "actual": {
+        "second_http": 200,
+        "matching_names": {
+          "Case": "28",
+          "case": "29"
+        }
+      }
+    },
+    {
+      "requirement": "FR-04",
+      "case": "exact duplicate name is rejected while original exists",
+      "status": "PASS",
+      "expected": {
+        "http_status": 409
+      },
+      "actual": {
+        "http_status": 409
+      }
+    },
+    {
+      "requirement": "FR-04",
+      "case": "255-character directory name is preserved",
+      "status": "PASS",
+      "input": {
+        "name_length": 255
+      },
+      "actual": {
+        "name_length": 255
+      }
+    },
+    {
+      "requirement": "FR-05",
+      "case": "file exactly at configured limit uploads successfully",
+      "status": "PASS",
+      "input": {
+        "bytes": 104857600
+      },
+      "expected": {
+        "http_status": 200
+      },
+      "actual": {
+        "http_status": 200
+      }
+    },
+    {
+      "requirement": "FR-08",
+      "case": "exact-limit upload charges actual bytes once",
+      "status": "PASS",
+      "expected": {
+        "used_bytes": 104857600
+      },
+      "actual": {
+        "used_bytes": 104857600
+      }
+    },
+    {
+      "requirement": "FR-06",
+      "case": "exact-limit download size and SHA-256 match source",
+      "status": "PASS",
+      "expected": {
+        "bytes": 104857600,
+        "sha256": "4cbf988462cc3ba2e10e3aae9f5268546aa79016359fb45be7dd199c073125c0"
+      },
+      "actual": {
+        "http_status": 200,
+        "bytes": 104857600,
+        "sha256": "4cbf988462cc3ba2e10e3aae9f5268546aa79016359fb45be7dd199c073125c0"
+      }
+    },
+    {
+      "requirement": "FR-07",
+      "case": "exact-limit deletion restores usage once",
+      "status": "PASS",
+      "expected": {
+        "first_http": 200,
+        "second_http": 404,
+        "used_bytes": 0
+      },
+      "actual": {
+        "first_http": 200,
+        "second_http": 404,
+        "used_bytes": 0
+      }
+    },
+    {
+      "requirement": "FR-05",
+      "case": "limit plus one byte is rejected without record or quota charge",
+      "status": "PASS",
+      "input": {
+        "bytes": 104857601
+      },
+      "expected": {
+        "http_status": 413,
+        "used_bytes": 0,
+        "active_record": false
+      },
+      "actual": {
+        "http_status": 413,
+        "used_bytes": 0,
+        "active_record": false
+      }
+    }
+  ],
+  "fatal": null,
+  "host_verified_utc": "2026-11-17T11:29:21.271375+00:00"
+}

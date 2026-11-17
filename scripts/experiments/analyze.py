@@ -40,7 +40,7 @@ def summarize_round(folder):
         errors = Counter(r["category"] for r in fault_records if r["category"] != "ok")
         rows.append(dict(fault=result["fault"], repeat=result["repeat"], probe=name, t0=t0, t3=t3, t5=recovered[name],
             first_failed_sent_epoch=first, first_failed_returned_epoch=observed,
-            failure_window_seconds=max(0, recovered[name] - first) if first is not None else None,
+            failure_window_seconds=max(0, recovered[name] - observed) if observed is not None else None,
             recovery_seconds=recovered[name] - (t3 or t0), window_scheduled=len(fault_records),
             window_success=sum(r["category"] == "ok" for r in fault_records),
             window_success_rate=sum(r["category"] == "ok" for r in fault_records) / len(fault_records) if fault_records else None,
@@ -108,6 +108,8 @@ def report_e3(folder, output):
     if manifest.get("continued_from"):
         lines.extend(["", f"本批续自 `{manifest['continued_from']}`，继承已完成轮次：" + ", ".join(manifest["inherited_rounds"]) +
             "。原批因对象不存在的 CLI 返回格式被校验器误判而停止；失败轮次不纳入。续跑前核对六服务镜像 ID、探针源码哈希和原样本，继承文件逐项校验 SHA-256。原记录和续跑来源清单保留。"])
+    if (folder / "analysis-revisions/20261117-failure-window-v2/revision.json").exists():
+        lines.extend(["", "统计修订：impact.csv 的业务失败窗口采用 t5−首次失败回包时间，与 t1 定义一致。原值、逐行差异和修订前证据索引保存在 analysis-revisions/20261117-failure-window-v2/；恢复时间、成功率及图表数值不变，原始探针记录未改动。"])
     lines.extend(["", "## 故障影响", "", "下表汇总三轮中从 t0 到共同稳定恢复 t5 的探测；调度时间决定窗口归属。原始业务码、错误类别和调度偏差见 impact.csv/probe.csv。", "",
         "| 故障 | 业务 | 窗口成功/计划请求 | 成功率 |", "|---|---|---:|---:|"])
     for fault in manifest["faults"]:
@@ -222,6 +224,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--context-run-id", help="Original acceptance/dataset/private context for an E3 continuation")
+    parser.add_argument("--supplement-run-id", action="append", default=[], help="Include completed supplementary acceptance in the evidence index")
     args = parser.parse_args()
     if not __import__("re").fullmatch(r"[a-z0-9-]{1,24}", args.run_id):
         parser.error("Invalid run ID")
@@ -236,6 +239,14 @@ def main():
     report_e4(e4, ROOT / "docs" / "exp" / "E4-results.md")
     paths = [e3, e4, ROOT / "experiments" / "acceptance" / context_id,
              ROOT / "experiments" / "acceptance" / (context_id + "-deployment"), ROOT / "experiments" / "datasets" / context_id]
+    for identifier in args.supplement_run_id:
+        if not __import__("re").fullmatch(r"[a-z0-9-]{1,32}", identifier):
+            parser.error("Invalid supplementary run ID")
+        supplement = ROOT / "experiments/acceptance" / identifier
+        result = read(supplement / "results.json")
+        if not result["completed"] or not result["results"] or not all(r["status"] == "PASS" for r in result["results"]):
+            raise ValueError("Supplementary acceptance is incomplete")
+        paths.append(supplement)
     normalize_public(paths)
     security_scan = audit_public(paths, ROOT / "artifacts" / "liu" / context_id)
     files = [p for folder in paths for p in folder.rglob("*") if p.is_file() and p.name != "evidence-index.json"]

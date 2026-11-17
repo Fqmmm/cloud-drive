@@ -1,0 +1,52 @@
+{
+  "captured_utc": "2026-11-17T11:26:38.998Z",
+  "project": "cloud-drive-liu-20261117-154613",
+  "database": {
+    "cleanup_count": 0,
+    "name_collation": "utf8mb4_0900_as_cs"
+  },
+  "containers": [
+    {
+      "service": "mysql",
+      "id": "0c3dc6a9e735b44a911357389bf24c632a0122fb617c35d7968bee8410b1d09b",
+      "image": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "status": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "minio",
+      "id": "fbe50a71b16580c87979744482150318fc28d99a857153ebd14720c79e49d705",
+      "image": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "status": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "auth-service",
+      "id": "02ee5c90068e0a8cc92fa6b11e53c9748ae77c643adfdf77a98a85fdc255f127",
+      "image": "sha256:c6d9eaddf2995369caad928dab353213d227d429a4f7c0ed4337577be3b4ee7c",
+      "status": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "file-service",
+      "id": "f3f240f647fd9ca1f9b92bb769183bec11ae6643d30e373be8fd5aae43807a75",
+      "image": "sha256:24d894ff44b05da008f9df1dc3597a7841444500d2dec4c2a13a8937c2575f25",
+      "status": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "share-service",
+      "id": "0ceaf706924b86232368c184af5aff7ae6608b6db435e97b6b536892022edb71",
+      "image": "sha256:a33c49e73920b147d2df9fbd193c98d18b147d8ef3dbfaaf5e051d0e4f896b04",
+      "status": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "frontend",
+      "id": "318e7c7dc90db5871c259562116145049158cffcc5c76b0f9e71b9c8cf7fb975",
+      "image": "sha256:7037567c1dd6d922dad0f7d08ad5bca1f5e50efe8874526c9696f6990cbc7c38",
+      "status": "running",
+      "health": "healthy"
+    }
+  ]
+}

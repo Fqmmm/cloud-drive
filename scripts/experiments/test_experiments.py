@@ -19,9 +19,57 @@ from unittest.mock import patch
 from support import Context, SERVICES, csv_write, digest, init_env, object_is_absent, retained_volumes, run_live, sanitize, validate_project, validate_resume_environment
 from probes import execute, recovery, Scheduler
 from analyze import audit_public, normalize_public, report_e3, report_e4, summarize_round
+from supplement import validate_host_evidence, finalize
 
 GIT_BASH = Path("C:/Program Files/Git/bin/bash.exe")
 BASH = str(GIT_BASH) if GIT_BASH.is_file() else shutil.which("bash")
+
+
+class SupplementEvidenceTests(unittest.TestCase):
+    def evidence(self, **changes):
+        value = dict(project="cloud-drive-liu-test", captured_utc="2026-11-17T12:01:00+00:00",
+            database=dict(cleanup_count=0, name_collation="utf8mb4_0900_as_cs"),
+            containers=[dict(service=s, id=s + "-container", image=s + "-image", status="running", health="healthy") for s in SERVICES])
+        value.update(changes)
+        return value
+
+    def test_host_evidence_rejects_wrong_project_pending_cleanup_and_missing_service(self):
+        value = self.evidence()
+        self.assertEqual(len(validate_host_evidence(value, "cloud-drive-liu-test")), 6)
+        invalid = [self.evidence(project="cloud-drive-liu-other"),
+                   self.evidence(database=dict(cleanup_count=1)), self.evidence(containers=value["containers"][:-1])]
+        for evidence in invalid:
+            with self.assertRaises(ValueError):
+                validate_host_evidence(evidence, "cloud-drive-liu-test")
+
+    def test_finalization_rejects_stale_capture_and_changed_image(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            def write(name, value):
+                (folder / name).write_text(json.dumps(value), encoding="utf-8")
+            write("manifest.json", dict(status="awaiting-host-verification"))
+            write("results.json", dict(fatal=None, http_checks_passed=True, passed=9, total=9, ended="2026-11-17T12:00:30+00:00"))
+            write("host-before.json", self.evidence(captured_utc="2026-11-17T12:00:00+00:00"))
+            write("after.json", self.evidence(captured_utc="2026-11-17T12:00:20+00:00"))
+            ctx = SimpleNamespace(project="cloud-drive-liu-test")
+            with self.assertRaises(ValueError):
+                finalize(folder, ctx, folder / "after.json")
+            changed = self.evidence()
+            changed["containers"][0]["image"] = "different-image"
+            write("after.json", changed)
+            with self.assertRaises(AssertionError):
+                finalize(folder, ctx, folder / "after.json")
+            self.assertNotEqual(json.loads((folder / "manifest.json").read_text())["status"], "complete")
+
+    def test_failed_http_checks_cannot_be_finalized(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            (folder / "manifest.json").write_text(json.dumps(dict(status="failed")))
+            (folder / "results.json").write_text(json.dumps(dict(fatal="HTTP failed", http_checks_passed=False)))
+            with self.assertRaises(ValueError):
+                finalize(folder, SimpleNamespace(project="cloud-drive-liu-test"), folder / "missing-after.json")
 
 
 @unittest.skipUnless(BASH, "Maven wrapper checks require Bash")
@@ -285,7 +333,9 @@ class RecoveryTests(unittest.TestCase):
             self.assertAlmostEqual(timeline["recovery_seconds"], 1.1)
             self.assertAlmostEqual(timeline["exit_to_start_seconds"], .2)
             self.assertAlmostEqual(timeline["t1"], 100.2)
-            self.assertAlmostEqual(impact[0]["failure_window_seconds"], 1.0)
+            self.assertAlmostEqual(impact[0]["first_failed_sent_epoch"], 100.1)
+            self.assertAlmostEqual(impact[0]["first_failed_returned_epoch"], 100.2)
+            self.assertAlmostEqual(impact[0]["failure_window_seconds"], .9)
             (path / "docker-events.jsonl").write_text("")
             with self.assertRaises(ValueError):
                 summarize_round(path)

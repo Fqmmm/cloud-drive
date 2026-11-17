@@ -1,0 +1,26 @@
+{
+  "started": "2026-11-17T11:27:30.973070+00:00",
+  "status": "complete",
+  "kind": "supplement",
+  "source_acceptance": "20261117-154613",
+  "project": "cloud-drive-liu-20261117-154613",
+  "scope": [
+    "FR-04 concurrent case names",
+    "FR-05 inclusive upload limit",
+    "FR-06 boundary SHA-256",
+    "FR-07 deletion",
+    "FR-08 quota"
+  ],
+  "implementation_sha256": "a74bcad7a926768395c25039fc113398311bbadcdd6eadb148be225d896b51af",
+  "acceptance_sha256": "6b2494ff5db19b364b425e0334f65c4bc8b1c147684413f551bdfb5bd1fbf5c6",
+  "execution_mode": "HTTP-only with separate direct Docker evidence",
+  "source_commit": "1f3eb2947323750fbc1a3cbe91b70a10010eec02",
+  "worktree_status": " M scripts/experiments/analyze.py\n M scripts/experiments/test_experiments.py\n M scripts/smoke/functional.py\n?? experiments/E3/20261117-154613-c1/analysis-revisions/\n?? experiments/acceptance/20261117-review-supp/\n?? experiments/acceptance/20261117-review-supp2/\n?? scripts/experiments/supplement-evidence.sh\n?? scripts/experiments/supplement.py\n",
+  "configured_limit_bytes": 104857600,
+  "original_fixtures_verified": true,
+  "ended": "2026-11-17T11:27:43.256978+00:00",
+  "host_verified_utc": "2026-11-17T11:29:21.271375+00:00",
+  "same_containers_and_images": true,
+  "cleanup_queue_empty": true,
+  "host_evidence": "direct read-only Docker commands"
+}

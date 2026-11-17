@@ -1,0 +1,16 @@
+{
+  "audited_utc": "2026-11-17T11:37:15.495118+00:00",
+  "completed": true,
+  "checks": {
+    "previous_index_entries_verified_unchanged": 600,
+    "revised_failure_windows_independently_verified": 60,
+    "raw_probe_files_unchanged": 15,
+    "figure_artifacts_verified": 14,
+    "supplementary_checks": 9,
+    "original_fixture_downloads_reverified": 18,
+    "original_fixture_permissions_reverified": 6,
+    "current_index_hashes_and_privacy_verified": 619,
+    "prior_delivery_audit_passed": true
+  },
+  "note": "Independent raw-data recomputation and direct Docker captures; original Git commit remains 1f3eb29 until this fix is committed"
+}

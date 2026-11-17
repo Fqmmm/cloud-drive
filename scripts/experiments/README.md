@@ -62,6 +62,8 @@ E3 普通请求绝对期限 5 秒，下载 15 秒。每个请求运行在独立�
 
 首次失败的实际发出、实际回包时刻分别保存，t1 使用失败回包时刻；计划在故障前但因调度滞后而在故障后发出的请求也纳入首次失败判断。故障窗口成功率按计划 tick 划分，实际发出偏差另列，不能把它当作无线程调度误差的精确边界。
 
+审查修正后 `failure_window_seconds = max(0, t5 - first_failed_returned_epoch)`。旧值、差异和旧分析器留在正式批次的 `analysis-revisions/20261117-failure-window-v2/`，详情见 [审查补齐报告](../../docs/exp/liu-review-fix.md)。原图只使用未变的统计字段，图表字节保留，来源说明记录 CSV 修订。
+
 E4 比较容器 ID 改变且原命名卷/目标路径不变，稳定业务字段和记录数逐项相等，对象键/大小相等，所有下载字节数/SHA-256 一致，以及授权关系和私有桶策略。MySQL 或 MinIO 就绪后人工重启三个应用、等待健康、验证 Nginx 配置并 reload，步骤用时单独记录。原始 SQL 备份留在本机，公开元数据排除密码、JWT、提取码散列和分享 token。
 
 ```powershell
@@ -72,6 +74,10 @@ python -m unittest discover -s scripts/experiments -p test_experiments.py -v
 ```
 
 已完成的续跑批次用 `--run-id 20261117-154613-c1 --context-run-id 20261117-154613` 复算。可选图表入口为 `python scripts/experiments/figures.py --run-id 20261117-154613-c1`，需要 Matplotlib/NumPy，生成 PNG 与矢量 PDF 并记录输入哈希；图表生成后再执行分析器刷新报告链接与证据索引。实际结果选择与论文引用见 [材料说明](../../docs/exp/liu-paper-notes.md)。
+
+纳入本次补充验收索引时再加 `--supplement-run-id 20261117-review-supp2`；未完成的补充批次不能纳入。只补跑边界用例可执行 `supplement.py --env-file <原私有环境> --run-id <新编号>`，它新建账号，复验原样本，不重建容器。
+
+当执行环境只允许直接 Docker 命令、禁止脚本子进程访问 Docker 时，`--host-before <JSON>` 可将 HTTP 检查与基础设施采集分开。JSON 保存 project、captured_utc、六个容器的 service/id/image/status/health，以及 database.name_collation/cleanup_count。`supplement-evidence.sh` 在 MySQL 容器中只读查询排序规则与队列数，不输出凭证。HTTP 检查成功仍标记 awaiting-host-verification，随后以 `--finalize-with <后置JSON>` 核实同项目、同容器/镜像、六服务健康、队列 0、排序规则未变且后置时间晚于业务完成，才标为 complete。前后证据均随批保存。此模式不提供 Docker 命令代理。
 
 公开数据的离线复算不要求私有 `.env`/fixtures。缺少本机凭证时，索引明确标记未执行精确敏感值对照扫描，仍保留 JWT/提取码通用模式检查；发布本批时的精确扫描在原本机执行。新环境也可用常规 Python 安装 requests 后运行分析器，不必依赖原 `.venv` 路径。
 

@@ -1,0 +1,10 @@
+{
+  "started": "2026-11-17T11:23:38.407528+00:00",
+  "ended": "2026-11-17T11:23:39.116389+00:00",
+  "kind": "supplement",
+  "completed": false,
+  "passed": 0,
+  "total": 0,
+  "results": [],
+  "fatal": "RuntimeError: docker exited 1; see execution.jsonl"
+}

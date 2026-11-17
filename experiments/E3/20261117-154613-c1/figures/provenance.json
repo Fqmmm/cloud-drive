@@ -6,7 +6,7 @@
   "inputs": [
     {
       "path": "experiments/E3/20261117-154613-c1/impact.csv",
-      "sha256": "b4d2f410a63d2e6b2f337ddb9b2fbb72032ac55bb9dbf26ba7a4a83b3dc7ecf5"
+      "sha256": "344e1d5ee9544b2e50fe83f8f3fb3e0dbb93b21e509537bc3942dac69630c556"
     },
     {
       "path": "experiments/E3/20261117-154613-c1/recovery.csv",
@@ -193,6 +193,17 @@
     {
       "path": "experiments/E3/20261117-154613-c1/figures/timeline-F5.pdf",
       "sha256": "7e4183b4ff92c7436ba616b66da7c2be12fade1b02d45acddaf44d452e2d4595"
+    }
+  ],
+  "analysis_revisions": [
+    {
+      "utc": "2026-11-17T11:29:29.877536+00:00",
+      "reason": "failure_window_seconds now starts at first failed response receipt",
+      "previous_impact_sha256": "b4d2f410a63d2e6b2f337ddb9b2fbb72032ac55bb9dbf26ba7a4a83b3dc7ecf5",
+      "revised_impact_sha256": "344e1d5ee9544b2e50fe83f8f3fb3e0dbb93b21e509537bc3942dac69630c556",
+      "figure_inputs_used_for_plotting_unchanged": true,
+      "figure_bytes_preserved": true,
+      "previous_provenance": "analysis-revisions/20261117-failure-window-v2/figures-provenance-before.json"
     }
   ]
 }

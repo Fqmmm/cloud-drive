@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-17T11:23:38.407528+00:00",
+  "status": "failed",
+  "kind": "supplement",
+  "source_acceptance": "20261117-154613",
+  "project": "cloud-drive-liu-20261117-154613",
+  "scope": [
+    "FR-04 concurrent case names",
+    "FR-05 inclusive upload limit",
+    "FR-06 boundary SHA-256",
+    "FR-07 deletion",
+    "FR-08 quota"
+  ],
+  "implementation_sha256": "dd3a2ca3913f4941157c44aa4c24aadc2c6f4a242632c7596c681c543657645a",
+  "acceptance_sha256": "6b2494ff5db19b364b425e0334f65c4bc8b1c147684413f551bdfb5bd1fbf5c6",
+  "ended": "2026-11-17T11:23:39.116389+00:00"
+}

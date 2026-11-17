@@ -2,6 +2,8 @@
 
 FR-01—FR-12、E3、E4 的实测工作已经完成。结果报告分别见 [E3](E3-results.md)、[E4](E4-results.md)，过程及问题处理见 [任务记录](../liu-progress.md)。本文件帮助小组选择数据、说明方法和引用图表。
 
+2026-11-17 审查后的三项补齐见 [修正与补充验收](liu-review-fix.md)：失败窗口已改为 t5−首次失败回包时间，9/9 补充断言验证了 100 MiB 成功边界、超限及同目录名称大小写。原 121 条验收与补充记录分别引用，不声称整套验收重新运行。
+
 ## 采用哪些记录
 
 | 项目 | 正式证据 | 采用范围 |
@@ -41,11 +43,11 @@ FR-01—FR-12、E3、E4 的实测工作已经完成。结果报告分别见 [E3]
 在仓库根目录执行：
 
 ```powershell
-.\artifacts\liu-tools\Scripts\python.exe scripts/experiments/analyze.py --run-id 20261117-154613-c1 --context-run-id 20261117-154613
+.\artifacts\liu-tools\Scripts\python.exe scripts/experiments/analyze.py --run-id 20261117-154613-c1 --context-run-id 20261117-154613 --supplement-run-id 20261117-review-supp2
 # 图表需要 Matplotlib 和 NumPy，版本记录在 figures/provenance.json
 python scripts/experiments/figures.py --run-id 20261117-154613-c1
 # 图表更新后刷新报告链接与证据索引
-.\artifacts\liu-tools\Scripts\python.exe scripts/experiments/analyze.py --run-id 20261117-154613-c1 --context-run-id 20261117-154613
+.\artifacts\liu-tools\Scripts\python.exe scripts/experiments/analyze.py --run-id 20261117-154613-c1 --context-run-id 20261117-154613 --supplement-run-id 20261117-review-supp2
 ```
 
 复算使用已归档 CSV/JSON，不需要重新启动 Docker 或提供本机私有凭证。私有环境存在时执行精确敏感值扫描；在其他组员的新克隆中只执行通用模式检查，并在索引标明精确扫描未执行。公开文本先规范为 UTF-8/LF，再建立使用可移植相对路径的 SHA-256 索引；正式、失败、诊断和继承来源分别保留。

@@ -42,9 +42,9 @@ class Acceptance:
         self.files = []
         self.shares = []
 
-    def check(self, requirement, label, condition):
+    def check(self, requirement, label, condition, **details):
         status = "PASS" if condition else "FAIL"
-        self.results.append(dict(requirement=requirement, case=label, status=status))
+        self.results.append(dict(requirement=requirement, case=label, status=status, **details))
         print(f"{status} {requirement}: {label}", flush=True)
         if not condition:
             raise AssertionError(f"{requirement}: {label}")
@@ -144,10 +144,7 @@ class Acceptance:
         self.check("FR-03", "other user cannot browse private directory", self.api("/files?parentId=" + self.directory, token=self.other_token).status_code == 404)
         for name in [" ", ".", "..", "bad/name", "bad\\name", "bad\nname", "x" * 256]:
             self.check("FR-04", "invalid directory name rejected", self.api("/directories", "POST", dict(name=name, parentId=self.directory), self.token).status_code == 400)
-        for name in ["Case", "case", "x" * 255]:
-            item = self.data(self.api("/directories", "POST", dict(name=name, parentId=self.directory), self.token))
-            self.check("FR-04", "case-sensitive names and 255-character boundary accepted", isinstance(item["id"], str))
-            self.api("/directories/" + item["id"], "DELETE", token=self.token)
+        self.directory_name_boundaries()
         renamed = self.data(self.api("/directories/" + self.directory + "/rename", "PUT", dict(name="归档 资料"), self.token))
         self.check("FR-04", "directory rename keeps identity", renamed["id"] == self.directory and renamed["originalName"] == "归档 资料")
         self.original_quota = self.quota()["totalBytes"]
@@ -174,6 +171,7 @@ class Acceptance:
         self.check("FR-03", "other user's root contains no owner entries", not other_root["items"])
         self.check("FR-05", "single-file limit enforced", self.upload("too-large.bin", bytes(int(self.settings["MAX_FILE_BYTES"]) + 1)).status_code == 413)
         self.check("FR-05", "failed uploads leave quota unchanged", self.quota()["usedBytes"] == len(self.content))
+        self.upload_size_boundary()
         self.sql(f"UPDATE file_db.user_quota SET total_quota={len(self.content) + 800000} WHERE user_id={self.owner_id}")
         try:
             with ThreadPoolExecutor(max_workers=3) as pool:
@@ -187,6 +185,103 @@ class Acceptance:
         finally:
             self.sql(f"UPDATE file_db.user_quota SET total_quota={self.original_quota} WHERE user_id={self.owner_id}")
         self.check("FR-08", "delete restores usage even before physical cleanup", self.quota()["usedBytes"] == len(self.content))
+
+    def directory_name_boundaries(self):
+        """Observe both names concurrently and compare with the deployed collation."""
+        created = []
+        collation = self.sql("SELECT COLLATION_NAME FROM information_schema.COLUMNS "
+                             "WHERE TABLE_SCHEMA='file_db' AND TABLE_NAME='sys_file' AND COLUMN_NAME='active_name';")
+        self.check("FR-04", "active-name database collation is recorded", bool(collation), actual=dict(collation=collation))
+        try:
+            first = self.data(self.api("/directories", "POST", dict(name="Case", parentId=self.directory), self.token))
+            created.append(first["id"])
+            second_response = self.api("/directories", "POST", dict(name="case", parentId=self.directory), self.token)
+            second = self.data(second_response) if second_response.status_code == 200 else None
+            if second:
+                created.append(second["id"])
+            listing = self.data(self.api("/files?parentId=" + self.directory, token=self.token))["items"]
+            names = {item["originalName"]: item["id"] for item in listing}
+            if collation.endswith("_ci"):
+                valid = second_response.status_code == 409 and names.get("Case") == first["id"] and "case" not in names
+                behavior = "case-insensitive"
+            else:
+                valid = (second is not None and second["id"] != first["id"]
+                         and names.get("Case") == first["id"] and names.get("case") == second["id"])
+                behavior = "case-sensitive"
+            self.check("FR-04", "simultaneous Case and case match the deployed name rule", valid,
+                       input=dict(names=["Case", "case"], same_parent=True),
+                       expected=dict(rule=behavior, collation=collation),
+                       actual=dict(second_http=second_response.status_code, matching_names={k:v for k,v in names.items() if k in ("Case", "case")}))
+            duplicate = self.api("/directories", "POST", dict(name="Case", parentId=self.directory), self.token)
+            self.check("FR-04", "exact duplicate name is rejected while original exists", duplicate.status_code == 409,
+                       expected=dict(http_status=409), actual=dict(http_status=duplicate.status_code))
+            boundary = self.data(self.api("/directories", "POST", dict(name="x" * 255, parentId=self.directory), self.token))
+            created.append(boundary["id"])
+            self.check("FR-04", "255-character directory name is preserved", boundary["originalName"] == "x" * 255,
+                       input=dict(name_length=255), actual=dict(name_length=len(boundary["originalName"])))
+        finally:
+            for identifier in reversed(created):
+                response = self.api("/directories/" + identifier, "DELETE", token=self.token)
+                if response.status_code not in (200, 404):
+                    raise AssertionError("Name-boundary directory cleanup failed")
+
+    def upload_size_boundary(self):
+        """Verify the inclusive file-size boundary, then restore the original usage."""
+        import tempfile
+        limit = int(self.settings["MAX_FILE_BYTES"])
+        before = self.quota()["usedBytes"]
+        identifier = None
+        # A temporary file avoids retaining an additional 100 MiB source buffer.
+        # requests still buffers its multipart encoding; this is a single upload.
+        with tempfile.TemporaryFile() as source:
+            block = bytes(range(256)) * 4096
+            expected_hash = hashlib.sha256()
+            remaining = limit
+            while remaining:
+                part = block[:min(remaining, len(block))]
+                source.write(part)
+                expected_hash.update(part)
+                remaining -= len(part)
+            source.seek(0)
+            try:
+                uploaded = self.upload("boundary-exact.bin", source)
+                self.check("FR-05", "file exactly at configured limit uploads successfully", uploaded.status_code == 200,
+                           input=dict(bytes=limit), expected=dict(http_status=200), actual=dict(http_status=uploaded.status_code))
+                item = self.data(uploaded)
+                identifier = item["id"]
+                self.files.append(identifier)
+                usage = self.quota()["usedBytes"]
+                self.check("FR-08", "exact-limit upload charges actual bytes once", usage == before + limit,
+                           expected=dict(used_bytes=before+limit), actual=dict(used_bytes=usage))
+                downloaded = self.api("/files/" + identifier + "/download", token=self.token)
+                actual_hash = hashlib.sha256(downloaded.content).hexdigest()
+                self.check("FR-06", "exact-limit download size and SHA-256 match source",
+                           downloaded.status_code == 200 and len(downloaded.content) == limit and actual_hash == expected_hash.hexdigest(),
+                           expected=dict(bytes=limit, sha256=expected_hash.hexdigest()),
+                           actual=dict(http_status=downloaded.status_code, bytes=len(downloaded.content), sha256=actual_hash))
+                del downloaded
+                first = self.api("/files/" + identifier, "DELETE", token=self.token).status_code
+                second = self.api("/files/" + identifier, "DELETE", token=self.token).status_code
+                usage = self.quota()["usedBytes"]
+                self.check("FR-07", "exact-limit deletion restores usage once", first == 200 and second == 404 and usage == before,
+                           expected=dict(first_http=200, second_http=404, used_bytes=before),
+                           actual=dict(first_http=first, second_http=second, used_bytes=usage))
+                source.seek(0, 2)
+                source.write(b"x")
+                source.seek(0)
+                rejected = self.upload("boundary-over.bin", source)
+                usage = self.quota()["usedBytes"]
+                listing = self.data(self.api("/files?parentId=" + self.directory, token=self.token))["items"]
+                self.check("FR-05", "limit plus one byte is rejected without record or quota charge",
+                           rejected.status_code == 413 and usage == before and not any(v["originalName"] == "boundary-over.bin" for v in listing),
+                           input=dict(bytes=limit+1), expected=dict(http_status=413, used_bytes=before, active_record=False),
+                           actual=dict(http_status=rejected.status_code, used_bytes=usage,
+                                       active_record=any(v["originalName"] == "boundary-over.bin" for v in listing)))
+            finally:
+                if identifier:
+                    response = self.api("/files/" + identifier, "DELETE", token=self.token)
+                    if response.status_code not in (200, 404):
+                        raise AssertionError("Exact-limit file cleanup failed")
 
     def sharing(self):
         for request in [dict(fileId=self.directory, accessType=0, expireDays=7),

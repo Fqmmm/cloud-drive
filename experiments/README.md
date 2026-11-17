@@ -4,6 +4,8 @@
 
 刘骐语的 FR-01—FR-12 验收 121/121 通过，正式 E3/E4 采用 `20261117-154613-c1`。E3 前九轮从 `20261117-154613` 按原文件继承，镜像、探针和样本已复核，来源与逐文件哈希见 `inherited-evidence.json`。失败、诊断和校验器误判批次保留，不混入正式重复。执行工具见[运行说明](../scripts/experiments/README.md)，过程见[任务记录](../docs/liu-progress.md)，论文采用方法见[材料说明](../docs/exp/liu-paper-notes.md)。离线 `tool-validation/` 使用临时合成数据，不属于正式测量。
 
+同日全面审查后，失败窗口统一从首次失败回包计时，旧值与差异留在 E3 批次的 `analysis-revisions/20261117-failure-window-v2/`。新增 [9/9 补充验收](acceptance/20261117-review-supp2/)验证 100 MiB 上限成功、超限拒绝、容量与删除、同目录大小写及同名冲突；过程见 [补齐报告](../docs/exp/liu-review-fix.md)。原 121 条验收和 E3/E4 原始测量保留。
+
 先读 [E1 结果报告](../docs/exp/E1-results.md)和 [E2 结果报告](../docs/exp/E2-results.md)，再按报告中的批次查阅本目录。报告负责解释结果，这里说明证据存在哪里、怎样区分、如何引用。
 
 ## 1. 目录入口

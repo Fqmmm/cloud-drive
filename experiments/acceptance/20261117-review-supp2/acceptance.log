@@ -1,0 +1,9 @@
+PASS FR-04: active-name database collation is recorded
+PASS FR-04: simultaneous Case and case match the deployed name rule
+PASS FR-04: exact duplicate name is rejected while original exists
+PASS FR-04: 255-character directory name is preserved
+PASS FR-05: file exactly at configured limit uploads successfully
+PASS FR-08: exact-limit upload charges actual bytes once
+PASS FR-06: exact-limit download size and SHA-256 match source
+PASS FR-07: exact-limit deletion restores usage once
+PASS FR-05: limit plus one byte is rejected without record or quota charge
