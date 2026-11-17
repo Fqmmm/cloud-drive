@@ -1,0 +1,109 @@
+[
+  {
+    "utc": "2026-11-17T02:07:31.002174+00:00",
+    "command": [
+      "docker",
+      "stop",
+      "--time",
+      "30",
+      "96080b36828f43dbfefc95f969af66cc38b9370307436e9eeee3c38e7d75b307",
+      "d428fd3fe9e7f171b3fbc17d10f61ecc8d7b9793f491ed7d73d665110a1cc025",
+      "b4fe134e2ec77dab2c6443bd3962a8960135c3818e99da331a2d52724e3fec80",
+      "5cf68a2055f789576033b16b2693e013be49db9aa8d804d32f2c54517ad633dc",
+      "102c36a0b494a057533450ed0635fc83404d93fb170c9e3ff243c2b74fdbc8f0",
+      "325610b73d03b8bfcca42156e37d734b5e7712bb4afb66c64c85237fdcb80a91"
+    ],
+    "exit_code": 0,
+    "output": "Flag --time has been deprecated, use --timeout instead\n96080b36828f43dbfefc95f969af66cc38b9370307436e9eeee3c38e7d75b307\nd428fd3fe9e7f171b3fbc17d10f61ecc8d7b9793f491ed7d73d665110a1cc025\nb4fe134e2ec77dab2c6443bd3962a8960135c3818e99da331a2d52724e3fec80\n5cf68a2055f789576033b16b2693e013be49db9aa8d804d32f2c54517ad633dc\n102c36a0b494a057533450ed0635fc83404d93fb170c9e3ff243c2b74fdbc8f0\n325610b73d03b8bfcca42156e37d734b5e7712bb4afb66c64c85237fdcb80a91\n"
+  },
+  {
+    "utc": "2026-11-17T02:08:56.127733+00:00",
+    "command": [
+      "docker",
+      "rm",
+      "775e558bbe07c7110f1e074f66a3bca24b19cdef35e6cb56238a9e4e8bf898b3",
+      "61199e4ce6537c30cde172d7662bd8598b4c070bd234810f779c35a67b7d6d3f",
+      "5648ec5f8d933fccadc27658e73010a9956a94e0f21ceb50faa186e1a50b3cfa",
+      "d6f2b2eef6397833269261058fb92e275f395e8565c15597d14be12f7b0bd356",
+      "b2c3802eb0a442eabfb0970719824bb849eefb40d133b75edc9334d763de750e",
+      "6e6df3f9a6f05e42166bcab898336d61dc1ed823c09c8c7183ce41c614638718",
+      "96080b36828f43dbfefc95f969af66cc38b9370307436e9eeee3c38e7d75b307",
+      "d428fd3fe9e7f171b3fbc17d10f61ecc8d7b9793f491ed7d73d665110a1cc025",
+      "b4fe134e2ec77dab2c6443bd3962a8960135c3818e99da331a2d52724e3fec80",
+      "5cf68a2055f789576033b16b2693e013be49db9aa8d804d32f2c54517ad633dc",
+      "102c36a0b494a057533450ed0635fc83404d93fb170c9e3ff243c2b74fdbc8f0",
+      "325610b73d03b8bfcca42156e37d734b5e7712bb4afb66c64c85237fdcb80a91"
+    ],
+    "exit_code": 0,
+    "output": "775e558bbe07c7110f1e074f66a3bca24b19cdef35e6cb56238a9e4e8bf898b3\n61199e4ce6537c30cde172d7662bd8598b4c070bd234810f779c35a67b7d6d3f\n5648ec5f8d933fccadc27658e73010a9956a94e0f21ceb50faa186e1a50b3cfa\nd6f2b2eef6397833269261058fb92e275f395e8565c15597d14be12f7b0bd356\nb2c3802eb0a442eabfb0970719824bb849eefb40d133b75edc9334d763de750e\n6e6df3f9a6f05e42166bcab898336d61dc1ed823c09c8c7183ce41c614638718\n96080b36828f43dbfefc95f969af66cc38b9370307436e9eeee3c38e7d75b307\nd428fd3fe9e7f171b3fbc17d10f61ecc8d7b9793f491ed7d73d665110a1cc025\nb4fe134e2ec77dab2c6443bd3962a8960135c3818e99da331a2d52724e3fec80\n5cf68a2055f789576033b16b2693e013be49db9aa8d804d32f2c54517ad633dc\n102c36a0b494a057533450ed0635fc83404d93fb170c9e3ff243c2b74fdbc8f0\n325610b73d03b8bfcca42156e37d734b5e7712bb4afb66c64c85237fdcb80a91\n"
+  },
+  {
+    "utc": "2026-11-17T02:08:56.449635+00:00",
+    "command": [
+      "docker",
+      "volume",
+      "rm",
+      "cloud-drive-course_minio_data",
+      "cloud-drive-course_mysql_data",
+      "cloud-drive-e2-20261116_minio_data",
+      "cloud-drive-e2-20261116_mysql_data"
+    ],
+    "exit_code": 0,
+    "output": "cloud-drive-course_minio_data\ncloud-drive-course_mysql_data\ncloud-drive-e2-20261116_minio_data\ncloud-drive-e2-20261116_mysql_data\n"
+  },
+  {
+    "utc": "2026-11-17T02:08:57.008517+00:00",
+    "command": [
+      "docker",
+      "network",
+      "rm",
+      "3c711a5c8732"
+    ],
+    "exit_code": 0,
+    "output": "3c711a5c8732\n"
+  },
+  {
+    "utc": "2026-11-17T02:08:57.560111+00:00",
+    "command": [
+      "docker",
+      "network",
+      "rm",
+      "ad3c55771c3b"
+    ],
+    "exit_code": 0,
+    "output": "ad3c55771c3b\n"
+  },
+  {
+    "utc": "2026-11-17T02:08:59.101274+00:00",
+    "command": [
+      "docker",
+      "image",
+      "rm",
+      "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "sha256:31a18498d66d3aebff1c87ecb20fece98c06f60cd824534e9210ff7965e829f5",
+      "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+      "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "sha256:66c3976e4bcfd4db61bb94726e2f52bd9f861e7eb87626217a61dced9308b5fd",
+      "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+      "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+      "sha256:cc284b9fa53e1fdcdea1a41472a215bbd19ab67a8b81970ba7de3bd1a2a2040d",
+      "sha256:cc9b49edd17fbd7228c114fac3a450910a8c08177efdf71a867f486fc6c957fe",
+      "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d",
+      "sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787"
+    ],
+    "exit_code": 0,
+    "output": "Untagged: mysql:8.0.29\nDeleted: sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75\nUntagged: cloud-drive-file:20261116-e2-formal\nDeleted: sha256:31a18498d66d3aebff1c87ecb20fece98c06f60cd824534e9210ff7965e829f5\nUntagged: cloud-drive-auth:local\nDeleted: sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18\nUntagged: dappros/minio:RELEASE.2025-09-07T16-13-09Z\nDeleted: sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0\nUntagged: cloud-drive-frontend:20261116-e2-formal\nDeleted: sha256:66c3976e4bcfd4db61bb94726e2f52bd9f861e7eb87626217a61dced9308b5fd\nUntagged: cloud-drive-file:local\nDeleted: sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373\nUntagged: cloud-drive-frontend:local\nDeleted: sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097\nUntagged: cloud-drive-auth:20261116-e2-formal\nDeleted: sha256:cc284b9fa53e1fdcdea1a41472a215bbd19ab67a8b81970ba7de3bd1a2a2040d\nUntagged: cloud-drive-share:20261116-e2-formal\nDeleted: sha256:cc9b49edd17fbd7228c114fac3a450910a8c08177efdf71a867f486fc6c957fe\nUntagged: cloud-drive-share:local\nDeleted: sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d\nUntagged: docker.m.daocloud.io/library/node@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787\nDeleted: sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787\n"
+  },
+  {
+    "utc": "2026-11-17T02:09:04.207435+00:00",
+    "command": [
+      "docker",
+      "buildx",
+      "prune",
+      "--all",
+      "--force"
+    ],
+    "exit_code": 0,
+    "output": "ID\t\t\t\t\t\tRECLAIMABLE\tSIZE\t\tLAST ACCESSED\naghfy7lnyzaqp80z9m3jt8kld*              \ttrue \t\t8.192kB   \t17 hours ago\nj4rv9eatftv1okn8a5k5hjwg1*              \ttrue \t155.6kB   \t17 hours ago\nogrxf37vuxuvmur509ezeused*              \ttrue \t8.192kB   \t17 hours ago\nkdmgq4fya427ty5tn5kzh9rt4*              \ttrue \t139.3kB   \t17 hours ago\nbchl3328glg23nz6md8zk99iu*              \ttrue \t4.096kB   \t17 hours ago\njc5jot541jd234h5e4pcajteq               \ttrue \t1.876MB   \t17 hours ago\npylarya8llvzryk9sz21cw2wt*              \ttrue \t6.701MB   \t23 hours ago\npzzeg1o6ys6n7p71b3jqna0c9               \ttrue \t87.07MB   \t17 hours ago\nfbg4j9nerao5o3l9c9vgruyby*              \ttrue \t107.9MB   \t23 hours ago\nq7z5r9j1jdj9a0v3a031tihot*              \ttrue \t90.11kB   \t17 hours ago\npai2qg8qzusndznzup6hr974o               \ttrue \t1.294MB   \tLess than a second ago\nrprj2i55o7p6pzrybbjbc0rbv*              \ttrue \t128.2MB   \t23 hours ago\nickwogtsx4b6kihwj3l6lrjsi*              \ttrue \t8.192kB   \t17 hours ago\nnmxbvrchwhuqm2vpxuprrhkmh*              \ttrue \t108MB     \t23 hours ago\nsri1haa449qsnv3gxxgyp5qar               \ttrue \t34.18kB   \t17 hours ago\nro2jrbl6m3qivkw4pmf51wstv               \ttrue \t34.18kB   \t17 hours ago\n47zc6o6tg3331uymoolidt0je*              \ttrue \t8.192kB   \t17 hours ago\ns20zdxb3m7abtekn17u668rvl*              \ttrue \t8.192kB   \t17 hours ago\nyleyemkvyacmoflqwh0xtv1xn*              \ttrue \t1.614MB   \t17 hours ago\nlqml04y30nq3mq3i2vcthjoyz               \ttrue \t135.2kB   \tLess than a second ago\nt10rh2lqfgcn4lwlbphdb28lq               \ttrue \t12.29kB   \tLess than a second ago\ng0yahzmg5ql0338p53usnrjeg               \ttrue \t51.15MB   \tLess than a second ago\nvgz5cmlesbz0wnmkltf0u9knn               \ttrue \t20.81kB   \tLess than a second ago\n49xk0w935x6qts3fl4xfeu9g9               \ttrue \t24.58kB   \tLess than a second ago\nx4cot63ga9qk686f95ye0gyz7               \ttrue \t86.02kB   \tLess than a second ago\npsp8r68afwhur9r7dlydo4qb8               \ttrue \t151.6kB   \tLess than a second ago\ns7mketf7re04i4eyk22jlyr5h               \ttrue \t51.18MB   \tLess than a second ago\nq4mygcv7nubli4lstc3c8ny1a               \ttrue \t469MB     \tLess than a second ago\ntsigwym8lkb567edlpfseunm2               \ttrue \t29.49kB   \tLess than a second ago\nrmm5btrqc5j74jbbrdwnnsx1d               \ttrue \t8.285kB   \tLess than a second ago\nykp4z2rbk86ywqwgihzoyks4y               \ttrue \t12.29kB   \tLess than a second ago\n927tssexabn0umdm23393pk2i               \ttrue \t12.29kB   \tLess than a second ago\nakk64xd20dni99ip0i3qlperp               \ttrue \t8.192kB   \tLess than a second ago\ncxcbzwy2ft8bazofgap1e2z5s               \ttrue \t14.75kB   \tLess than a second ago\n641zr5nzslyfb54xed386w7h3               \ttrue \t72.07MB   \tLess than a second ago\nca0ihy4kr453n1ct1qkgpzuwh               \ttrue \t303.1kB   \tLess than a second ago\nbabqoweie3of092n060bo1joc               \ttrue \t17.78kB   \tLess than a second ago\n7zx3o3n0m8629kcatl8ho10ci               \ttrue \t12.45kB   \tLess than a second ago\nhspc7uq43r60tl84j1nj8qt2k               \ttrue \t12.44kB   \tLess than a second ago\nij8l3sqiljo267w4todkk51fe               \ttrue \t8.192kB   \tLess than a second ago\nn6wtncd87xrv3oeexrixemo4m               \ttrue \t24.93kB   \tLess than a second ago\nfuxvt2m1iwl4k0w8sfkl9m95g               \ttrue \t13.5kB    \tLess than a second ago\nyrgxq9zn35o5b22qg5tqnor77               \ttrue \t20.93kB   \tLess than a second ago\ny6rd2uxncd3jor3l1f5av15mp               \ttrue \t190MB     \tLess than a second ago\nmmul03s2smjf8wo0fgsztr8ni               \ttrue \t6.733MB   \tLess than a second ago\n2dslvh5h6ifi9desdaswjp97c               \ttrue \t78.33MB   \tLess than a second ago\nstxgz2wxo0xkawew4tmmo87u2               \ttrue \t12.69kB   \tLess than a second ago\ncujehcv2dp7ei8n42smwibqrv               \ttrue \t21.33kB   \tLess than a second ago\ni3ytc5nsos5iukqe3atfbk6ba               \ttrue \t20.05MB   \tLess than a second ago\n8r623b1zw8fjqvh7cwe7l3kk5               \ttrue \t12.68kB   \tLess than a second ago\nlxginbsgux45phtoo4x5vqm17               \ttrue \t217.2MB   \tLess than a second ago\nsb7p00e5fi99kbuf846o635nm               \ttrue \t13.24kB   \tLess than a second ago\nc7s6zxnur5qrk0tvmc3jyohl2               \ttrue \t159MB     \tLess than a second ago\nxtskd6hz1dv35cjlvyojerqwt               \ttrue \t8.818kB   \tLess than a second ago\nnb1tua7eqilko7yped5qeiseo               \ttrue \t100.8MB   \tLess than a second ago\nvlfou6usf0hb48bmft2xmf9b9               \ttrue \t12.79MB   \tLess than a second ago\nwm4atan9lje1o83ct4xao8rrh               \ttrue \t14.57kB   \tLess than a second ago\nvxer2e2cgr807ucntzjdry4uy               \ttrue \t7.339MB   \tLess than a second ago\nvq5g5e3mtz6vusszhmzboumfs               \ttrue \t12.45kB   \tLess than a second ago\nwrclt4bff9eh4evl0sdia33u5               \ttrue \t12.97MB   \tLess than a second ago\nunzi6oozqfs2szhfle9j2wez9               \ttrue \t424.2MB   \tLess than a second ago\nlr45zeeqnekwupw5ljlsmcfga               \ttrue \t91.76MB   \tLess than a second ago\n6vgojcm41yvoizp2eyo22y33z               \ttrue \t117.3MB   \tLess than a second ago\nTotal:\t2.526GB\n"
+  }
+]

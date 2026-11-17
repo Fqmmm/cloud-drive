@@ -1,0 +1,1083 @@
+{
+  "utc": "2026-11-17T02:07:27.148389+00:00",
+  "source_commit": "07a08a578a1127473aacb6bc7d563b48908d2a3a",
+  "authorization": "User authorized removal of all C-drive resources from this experiment, with no business-data restoration",
+  "c_free_before_bytes": 21422809088,
+  "docker_vhdx_before_bytes": 47823454208,
+  "containers": [
+    {
+      "id": "775e558bbe07c7110f1e074f66a3bca24b19cdef35e6cb56238a9e4e8bf898b3",
+      "name": "/cloud-drive-e2-20261116-share-service-1",
+      "image": "sha256:cc9b49edd17fbd7228c114fac3a450910a8c08177efdf71a867f486fc6c957fe",
+      "project": "cloud-drive-e2-20261116"
+    },
+    {
+      "id": "61199e4ce6537c30cde172d7662bd8598b4c070bd234810f779c35a67b7d6d3f",
+      "name": "/cloud-drive-e2-20261116-frontend-1",
+      "image": "sha256:66c3976e4bcfd4db61bb94726e2f52bd9f861e7eb87626217a61dced9308b5fd",
+      "project": "cloud-drive-e2-20261116"
+    },
+    {
+      "id": "5648ec5f8d933fccadc27658e73010a9956a94e0f21ceb50faa186e1a50b3cfa",
+      "name": "/cloud-drive-e2-20261116-auth-service-1",
+      "image": "sha256:cc284b9fa53e1fdcdea1a41472a215bbd19ab67a8b81970ba7de3bd1a2a2040d",
+      "project": "cloud-drive-e2-20261116"
+    },
+    {
+      "id": "d6f2b2eef6397833269261058fb92e275f395e8565c15597d14be12f7b0bd356",
+      "name": "/cloud-drive-e2-20261116-file-service-1",
+      "image": "sha256:31a18498d66d3aebff1c87ecb20fece98c06f60cd824534e9210ff7965e829f5",
+      "project": "cloud-drive-e2-20261116"
+    },
+    {
+      "id": "b2c3802eb0a442eabfb0970719824bb849eefb40d133b75edc9334d763de750e",
+      "name": "/cloud-drive-e2-20261116-mysql-1",
+      "image": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "project": "cloud-drive-e2-20261116"
+    },
+    {
+      "id": "6e6df3f9a6f05e42166bcab898336d61dc1ed823c09c8c7183ce41c614638718",
+      "name": "/cloud-drive-e2-20261116-minio-1",
+      "image": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "project": "cloud-drive-e2-20261116"
+    },
+    {
+      "id": "96080b36828f43dbfefc95f969af66cc38b9370307436e9eeee3c38e7d75b307",
+      "name": "/cloud-drive-course-frontend-1",
+      "image": "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+      "project": "cloud-drive-course"
+    },
+    {
+      "id": "d428fd3fe9e7f171b3fbc17d10f61ecc8d7b9793f491ed7d73d665110a1cc025",
+      "name": "/cloud-drive-course-share-service-1",
+      "image": "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d",
+      "project": "cloud-drive-course"
+    },
+    {
+      "id": "b4fe134e2ec77dab2c6443bd3962a8960135c3818e99da331a2d52724e3fec80",
+      "name": "/cloud-drive-course-auth-service-1",
+      "image": "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+      "project": "cloud-drive-course"
+    },
+    {
+      "id": "5cf68a2055f789576033b16b2693e013be49db9aa8d804d32f2c54517ad633dc",
+      "name": "/cloud-drive-course-file-service-1",
+      "image": "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+      "project": "cloud-drive-course"
+    },
+    {
+      "id": "102c36a0b494a057533450ed0635fc83404d93fb170c9e3ff243c2b74fdbc8f0",
+      "name": "/cloud-drive-course-mysql-1",
+      "image": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "project": "cloud-drive-course"
+    },
+    {
+      "id": "325610b73d03b8bfcca42156e37d734b5e7712bb4afb66c64c85237fdcb80a91",
+      "name": "/cloud-drive-course-minio-1",
+      "image": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "project": "cloud-drive-course"
+    }
+  ],
+  "volumes": [
+    "cloud-drive-course_minio_data",
+    "cloud-drive-course_mysql_data",
+    "cloud-drive-e2-20261116_minio_data",
+    "cloud-drive-e2-20261116_mysql_data"
+  ],
+  "images": [
+    {
+      "id": "sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75",
+      "tags": [
+        "mysql:8.0.29"
+      ]
+    },
+    {
+      "id": "sha256:31a18498d66d3aebff1c87ecb20fece98c06f60cd824534e9210ff7965e829f5",
+      "tags": [
+        "cloud-drive-file:20261116-e2-formal"
+      ]
+    },
+    {
+      "id": "sha256:5f63f257f2f17cc44355fc7024d4281ae4f057247ddee30c9d00b65fa718be18",
+      "tags": [
+        "cloud-drive-auth:local"
+      ]
+    },
+    {
+      "id": "sha256:624bad2fe79a8613aa3c5c9b765ebcab365080b8445cf1b05c357cc7753725f0",
+      "tags": [
+        "dappros/minio:RELEASE.2025-09-07T16-13-09Z"
+      ]
+    },
+    {
+      "id": "sha256:66c3976e4bcfd4db61bb94726e2f52bd9f861e7eb87626217a61dced9308b5fd",
+      "tags": [
+        "cloud-drive-frontend:20261116-e2-formal"
+      ]
+    },
+    {
+      "id": "sha256:af5503ce1bd46fe1f0b9c03604fe416ecc7b484d24f57854d07364868ce4d373",
+      "tags": [
+        "cloud-drive-file:local"
+      ]
+    },
+    {
+      "id": "sha256:b4de03eb9dcc04f056e6ebc213a0171b281b81384adbf4b60b3b521966196097",
+      "tags": [
+        "cloud-drive-frontend:local"
+      ]
+    },
+    {
+      "id": "sha256:cc284b9fa53e1fdcdea1a41472a215bbd19ab67a8b81970ba7de3bd1a2a2040d",
+      "tags": [
+        "cloud-drive-auth:20261116-e2-formal"
+      ]
+    },
+    {
+      "id": "sha256:cc9b49edd17fbd7228c114fac3a450910a8c08177efdf71a867f486fc6c957fe",
+      "tags": [
+        "cloud-drive-share:20261116-e2-formal"
+      ]
+    },
+    {
+      "id": "sha256:e086e671d0460d51a8e81304c22ed0b47d4d56b16b96bccaafdd5f6f91a6eb3d",
+      "tags": [
+        "cloud-drive-share:local"
+      ]
+    },
+    {
+      "id": "sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787",
+      "tags": [
+        "docker.m.daocloud.io/library/node@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787"
+      ]
+    }
+  ],
+  "cache_records": [
+    {
+      "CreatedAt": "2026-11-16 03:12:22.056182025 +0000 UTC",
+      "Description": "local source for context",
+      "ID": "bchl3328glg23nz6md8zk99iu",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "4.096kB",
+      "Type": "source.local",
+      "UsageCount": 4
+    },
+    {
+      "CreatedAt": "2026-11-16 03:09:02.205425598 +0000 UTC",
+      "Description": "local source for dockerfile",
+      "ID": "47zc6o6tg3331uymoolidt0je",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "8.192kB",
+      "Type": "source.local",
+      "UsageCount": 5
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.104656285 +0000 UTC",
+      "Description": "local source for context",
+      "ID": "aghfy7lnyzaqp80z9m3jt8kld",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "8.192kB",
+      "Type": "source.local",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.294853363 +0000 UTC",
+      "Description": "[build 2/5] WORKDIR /build",
+      "ID": "akk64xd20dni99ip0i3qlperp",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "hspc7uq43r60tl84j1nj8qt2k"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "8.192kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:09:02.14848757 +0000 UTC",
+      "Description": "local source for dockerfile",
+      "ID": "ickwogtsx4b6kihwj3l6lrjsi",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "8.192kB",
+      "Type": "source.local",
+      "UsageCount": 4
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:13.653424193 +0000 UTC",
+      "Description": "[build 2/7] WORKDIR /build",
+      "ID": "ij8l3sqiljo267w4todkk51fe",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "yrgxq9zn35o5b22qg5tqnor77"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "8.192kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:09:02.116815419 +0000 UTC",
+      "Description": "local source for dockerfile",
+      "ID": "ogrxf37vuxuvmur509ezeused",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "8.192kB",
+      "Type": "source.local",
+      "UsageCount": 4
+    },
+    {
+      "CreatedAt": "2026-11-16 03:09:02.165125112 +0000 UTC",
+      "Description": "local source for dockerfile",
+      "ID": "s20zdxb3m7abtekn17u668rvl",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "8.192kB",
+      "Type": "source.local",
+      "UsageCount": 4
+    },
+    {
+      "CreatedAt": "2026-11-16 03:15:32.016221534 +0000 UTC",
+      "Description": "[stage-1 2/4] WORKDIR /app",
+      "ID": "rmm5btrqc5j74jbbrdwnnsx1d",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "cxcbzwy2ft8bazofgap1e2z5s"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "8.285kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.589997589 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "xtskd6hz1dv35cjlvyojerqwt",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "vxer2e2cgr807ucntzjdry4uy"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "8.818kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.45157048 +0000 UTC",
+      "Description": "[build 3/5] COPY share-service/pom.xml pom.xml",
+      "ID": "927tssexabn0umdm23393pk2i",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "akk64xd20dni99ip0i3qlperp"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "12.29kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.464378597 +0000 UTC",
+      "Description": "[build 3/5] COPY auth-service/pom.xml pom.xml",
+      "ID": "t10rh2lqfgcn4lwlbphdb28lq",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "akk64xd20dni99ip0i3qlperp"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "12.29kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.473450286 +0000 UTC",
+      "Description": "[build 3/5] COPY file-service/pom.xml pom.xml",
+      "ID": "ykp4z2rbk86ywqwgihzoyks4y",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "akk64xd20dni99ip0i3qlperp"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "12.29kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.16394751 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "hspc7uq43r60tl84j1nj8qt2k",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "n6wtncd87xrv3oeexrixemo4m"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "12.44kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.658225394 +0000 UTC",
+      "Description": "pulled from docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a",
+      "ID": "7zx3o3n0m8629kcatl8ho10ci",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "y6rd2uxncd3jor3l1f5av15mp"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "12.45kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.577634494 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "vq5g5e3mtz6vusszhmzboumfs",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "unzi6oozqfs2szhfle9j2wez9"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "12.45kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.29583696 +0000 UTC",
+      "Description": "pulled from docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a",
+      "ID": "8r623b1zw8fjqvh7cwe7l3kk5",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "c7s6zxnur5qrk0tvmc3jyohl2"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "12.68kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.765466049 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "stxgz2wxo0xkawew4tmmo87u2",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "sb7p00e5fi99kbuf846o635nm"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "12.69kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.669733618 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "sb7p00e5fi99kbuf846o635nm",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "xtskd6hz1dv35cjlvyojerqwt"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "13.24kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.812937303 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "fuxvt2m1iwl4k0w8sfkl9m95g",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "stxgz2wxo0xkawew4tmmo87u2"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "13.5kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.621957878 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "wm4atan9lje1o83ct4xao8rrh",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "vq5g5e3mtz6vusszhmzboumfs"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "14.57kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.74620992 +0000 UTC",
+      "Description": "pulled from docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a",
+      "ID": "cxcbzwy2ft8bazofgap1e2z5s",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "7zx3o3n0m8629kcatl8ho10ci"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "14.75kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.853819406 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "babqoweie3of092n060bo1joc",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "fuxvt2m1iwl4k0w8sfkl9m95g"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "17.78kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:15:31.286573235 +0000 UTC",
+      "Description": "[stage-1 3/4] COPY nginx/course-proxy.conf /etc/nginx/course-proxy.conf",
+      "ID": "vgz5cmlesbz0wnmkltf0u9knn",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "tsigwym8lkb567edlpfseunm2"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "20.81kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.708904019 +0000 UTC",
+      "Description": "pulled from docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787",
+      "ID": "yrgxq9zn35o5b22qg5tqnor77",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "mmul03s2smjf8wo0fgsztr8ni"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "20.93kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.959811242 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "cujehcv2dp7ei8n42smwibqrv",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "i3ytc5nsos5iukqe3atfbk6ba"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "21.33kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:39.122360862 +0000 UTC",
+      "Description": "[build 5/7] COPY index.html tsconfig.json vite.config.ts uno.config.ts ./",
+      "ID": "49xk0w935x6qts3fl4xfeu9g9",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "q4mygcv7nubli4lstc3c8ny1a"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "24.58kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.061924118 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "n6wtncd87xrv3oeexrixemo4m",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "cujehcv2dp7ei8n42smwibqrv"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "24.93kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:15:31.174143166 +0000 UTC",
+      "Description": "[stage-1 2/4] COPY nginx/default.conf /etc/nginx/conf.d/default.conf",
+      "ID": "tsigwym8lkb567edlpfseunm2",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "641zr5nzslyfb54xed386w7h3"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "29.49kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:19:30.562080468 +0000 UTC",
+      "Description": "[stage-1 4/4] COPY --from=build /build/target/classes/com/jiayuan/drive/auth/HealthProbe.class /app/probe/com/jiayuan/drive/auth/HealthProbe.class",
+      "ID": "ro2jrbl6m3qivkw4pmf51wstv",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "g0yahzmg5ql0338p53usnrjeg"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "34.18kB",
+      "Type": "regular",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:18:18.983292047 +0000 UTC",
+      "Description": "[stage-1 4/4] COPY --from=build /build/target/classes/com/jiayuan/drive/shares/HealthProbe.class /app/probe/com/jiayuan/drive/shares/HealthProbe.class",
+      "ID": "sri1haa449qsnv3gxxgyp5qar",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "s7mketf7re04i4eyk22jlyr5h"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "34.18kB",
+      "Type": "regular",
+      "UsageCount": 4
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.733798576 +0000 UTC",
+      "Description": "[build 4/5] COPY file-service/src src",
+      "ID": "x4cot63ga9qk686f95ye0gyz7",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "ykp4z2rbk86ywqwgihzoyks4y"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "86.02kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.342611877 +0000 UTC",
+      "Description": "local source for context",
+      "ID": "q7z5r9j1jdj9a0v3a031tihot",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "90.11kB",
+      "Type": "source.local",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.721820804 +0000 UTC",
+      "Description": "[build 4/5] COPY auth-service/src src",
+      "ID": "lqml04y30nq3mq3i2vcthjoyz",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "t10rh2lqfgcn4lwlbphdb28lq"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "135.2kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.988729105 +0000 UTC",
+      "Description": "local source for context",
+      "ID": "kdmgq4fya427ty5tn5kzh9rt4",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "139.3kB",
+      "Type": "source.local",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.74482937 +0000 UTC",
+      "Description": "[build 4/5] COPY share-service/src src",
+      "ID": "psp8r68afwhur9r7dlydo4qb8",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "927tssexabn0umdm23393pk2i"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "151.6kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.322050801 +0000 UTC",
+      "Description": "local source for context",
+      "ID": "j4rv9eatftv1okn8a5k5hjwg1",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "155.6kB",
+      "Type": "source.local",
+      "UsageCount": 4
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:13.768443563 +0000 UTC",
+      "Description": "[build 3/7] COPY package.json pnpm-lock.yaml ./",
+      "ID": "ca0ihy4kr453n1ct1qkgpzuwh",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "ij8l3sqiljo267w4todkk51fe"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "303.1kB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:39.250462495 +0000 UTC",
+      "Description": "[build 6/7] COPY src src",
+      "ID": "pai2qg8qzusndznzup6hr974o",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "49xk0w935x6qts3fl4xfeu9g9"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "1.294MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.554237219 +0000 UTC",
+      "Description": "local source for context",
+      "ID": "yleyemkvyacmoflqwh0xtv1xn",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": true,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "1.614MB",
+      "Type": "source.local",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:47.068289206 +0000 UTC",
+      "Description": "[stage-1 4/4] COPY --from=build /build/dist /usr/share/nginx/html",
+      "ID": "jc5jot541jd234h5e4pcajteq",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "vgz5cmlesbz0wnmkltf0u9knn"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "1.876MB",
+      "Type": "regular",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:39.32059624 +0000 UTC",
+      "Description": "mount / from exec /bin/sh -c pnpm exec vue-tsc --noEmit && pnpm exec vite build",
+      "ID": "pylarya8llvzryk9sz21cw2wt",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": true,
+      "Parents": [
+        "pai2qg8qzusndznzup6hr974o"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "6.701MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.628417253 +0000 UTC",
+      "Description": "pulled from docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787",
+      "ID": "mmul03s2smjf8wo0fgsztr8ni",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "lxginbsgux45phtoo4x5vqm17"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "6.733MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.490800212 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "vxer2e2cgr807ucntzjdry4uy",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "wrclt4bff9eh4evl0sdia33u5"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "7.339MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.422470522 +0000 UTC",
+      "Description": "pulled from docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787",
+      "ID": "vlfou6usf0hb48bmft2xmf9b9",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "12.79MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.361353467 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "wrclt4bff9eh4evl0sdia33u5",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "12.97MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.805272724 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "i3ytc5nsos5iukqe3atfbk6ba",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "nb1tua7eqilko7yped5qeiseo"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "20.05MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:19:30.468246398 +0000 UTC",
+      "Description": "[stage-1 3/4] COPY --from=build /build/target/auth-service.jar app.jar",
+      "ID": "g0yahzmg5ql0338p53usnrjeg",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "rmm5btrqc5j74jbbrdwnnsx1d"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "51.15MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:18:18.883990431 +0000 UTC",
+      "Description": "[stage-1 3/4] COPY --from=build /build/target/share-service.jar app.jar",
+      "ID": "s7mketf7re04i4eyk22jlyr5h",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "rmm5btrqc5j74jbbrdwnnsx1d"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "51.18MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.891558623 +0000 UTC",
+      "Description": "pulled from docker.io/library/nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236",
+      "ID": "641zr5nzslyfb54xed386w7h3",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "babqoweie3of092n060bo1joc"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "72.07MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.467451393 +0000 UTC",
+      "Description": "pulled from docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a",
+      "ID": "2dslvh5h6ifi9desdaswjp97c",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "8r623b1zw8fjqvh7cwe7l3kk5"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "78.33MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:18:08.885199933 +0000 UTC",
+      "Description": "[stage-1 3/3] COPY --from=build /build/target/file-service.jar app.jar",
+      "ID": "pzzeg1o6ys6n7p71b3jqna0c9",
+      "LastUsedAt": "17 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "rmm5btrqc5j74jbbrdwnnsx1d"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "87.07MB",
+      "Type": "regular",
+      "UsageCount": 3
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.402774404 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "lr45zeeqnekwupw5ljlsmcfga",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "6vgojcm41yvoizp2eyo22y33z"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "91.76MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.706015615 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "nb1tua7eqilko7yped5qeiseo",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "wm4atan9lje1o83ct4xao8rrh"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "100.8MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.959220988 +0000 UTC",
+      "Description": "mount / from exec /bin/sh -c mvn -B verify",
+      "ID": "fbg4j9nerao5o3l9c9vgruyby",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": true,
+      "Parents": [
+        "lqml04y30nq3mq3i2vcthjoyz"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "107.9MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.939961962 +0000 UTC",
+      "Description": "mount / from exec /bin/sh -c mvn -B verify",
+      "ID": "nmxbvrchwhuqm2vpxuprrhkmh",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": true,
+      "Parents": [
+        "psp8r68afwhur9r7dlydo4qb8"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "108MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.242389306 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "6vgojcm41yvoizp2eyo22y33z",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "117.3MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:14:56.948329881 +0000 UTC",
+      "Description": "mount / from exec /bin/sh -c mvn -B package",
+      "ID": "rprj2i55o7p6pzrybbjbc0rbv",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": true,
+      "Parents": [
+        "x4cot63ga9qk686f95ye0gyz7"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "128.2MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.189999872 +0000 UTC",
+      "Description": "pulled from docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a",
+      "ID": "c7s6zxnur5qrk0tvmc3jyohl2",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": null,
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "159MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.545858117 +0000 UTC",
+      "Description": "pulled from docker.io/library/eclipse-temurin:17-jre@sha256:0b6521287f850ec1c4b31c9074c5a1ae1d67c5922c3fefd21065c7c32e244d4a",
+      "ID": "y6rd2uxncd3jor3l1f5av15mp",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "2dslvh5h6ifi9desdaswjp97c"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "190MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:23.542219594 +0000 UTC",
+      "Description": "pulled from docker.io/library/node:24-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787",
+      "ID": "lxginbsgux45phtoo4x5vqm17",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "vlfou6usf0hb48bmft2xmf9b9"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "217.2MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:12:22.503956736 +0000 UTC",
+      "Description": "pulled from docker.io/library/maven:3.9.9-eclipse-temurin-17@sha256:f58d59b6273e785ac0a4477f6e9b5ba1d7731c75b906c0f7b34076f1851318cc",
+      "ID": "unzi6oozqfs2szhfle9j2wez9",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "lr45zeeqnekwupw5ljlsmcfga"
+      ],
+      "Reclaimable": true,
+      "Shared": false,
+      "Size": "424.2MB",
+      "Type": "regular",
+      "UsageCount": 1
+    },
+    {
+      "CreatedAt": "2026-11-16 03:28:38.776711018 +0000 UTC",
+      "Description": "mount / from exec /bin/sh -c npm install -g pnpm@10.32.1 --registry=https://registry.npmjs.org && pnpm install --frozen-lockfile --ignore-scripts",
+      "ID": "q4mygcv7nubli4lstc3c8ny1a",
+      "LastUsedAt": "23 hours ago",
+      "Mutable": false,
+      "Parents": [
+        "ca0ihy4kr453n1ct1qkgpzuwh"
+      ],
+      "Reclaimable": true,
+      "Shared": true,
+      "Size": "469MB",
+      "Type": "regular",
+      "UsageCount": 1
+    }
+  ],
+  "retained_images": {
+    "mysql:8.4": "sha256:be18eb9dc45eea9b86cb74f8c68ab92ce8569ecc37ea4e6fade02e37036c5ff4",
+    "nginx:latest": "sha256:165ddde8751e75a1c907d24ef10d9f6deb08b57e0fe56caf67512486aff76d82",
+    "mysql:latest": "sha256:24e450bbd24f621c71b10404c946cc9ea1cbb0e6e7464b2be2de5193dcf1d05b"
+  },
+  "retained_volumes": [
+    "test_mysql_data"
+  ],
+  "retained": "Existing Ubuntu, pre-existing Playwright, unrelated Docker objects, all D-drive source/results/native environment"
+}

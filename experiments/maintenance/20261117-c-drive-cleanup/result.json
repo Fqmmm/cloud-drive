@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-17T02:19:51.387014+00:00",
+  "disk_target": "C:\\Users\\24930\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+  "disk_before_bytes": 47814017024,
+  "disk_after_bytes": 5421137920,
+  "disk_bytes_reclaimed": 42392879104,
+  "c_free_before_cleanup_bytes": 21422809088,
+  "c_free_after_cleanup_bytes": 63836266496,
+  "d_free_after_cleanup_bytes": 115327930368,
+  "containers_deleted": 12,
+  "volumes_deleted": 4,
+  "images_deleted": 11,
+  "build_cache_records_deleted": 63,
+  "final_container_logs_archived": 12,
+  "retained_volume": "test_mysql_data",
+  "retained_images": [
+    "mysql:8.4",
+    "nginx:latest",
+    "mysql:latest"
+  ],
+  "ubuntu_data_deleted": false,
+  "windows_playwright_deleted": false,
+  "d_drive_results_deleted": false,
+  "docker_desktop_state": "stopped after post-compaction verification",
+  "verification_passed": true,
+  "final_docker_vhdx_bytes": 5421137920,
+  "ubuntu_final_state": "Stopped",
+  "retained_ubuntu_vhdx_bytes": 59336818688
+}

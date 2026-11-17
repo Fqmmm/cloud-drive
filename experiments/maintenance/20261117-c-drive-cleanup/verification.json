@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-17T02:20:52.300870+00:00",
+  "post_compaction_engine_readable": true,
+  "containers_remaining": 0,
+  "volumes_remaining": [
+    "test_mysql_data"
+  ],
+  "images_remaining": {
+    "mysql:8.4": "sha256:be18eb9dc45eea9b86cb74f8c68ab92ce8569ecc37ea4e6fade02e37036c5ff4",
+    "nginx:latest": "sha256:165ddde8751e75a1c907d24ef10d9f6deb08b57e0fe56caf67512486aff76d82",
+    "mysql:latest": "sha256:24e450bbd24f621c71b10404c946cc9ea1cbb0e6e7464b2be2de5193dcf1d05b"
+  },
+  "build_cache_records_remaining": 0,
+  "docker_desktop_final_state": "stopped",
+  "ubuntu_shutdown_requested": false
+}

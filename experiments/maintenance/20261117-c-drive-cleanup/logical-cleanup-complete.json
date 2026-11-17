@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-17T02:10:52.326706+00:00",
+  "containers_deleted": 12,
+  "volumes_deleted": 4,
+  "images_deleted": 11,
+  "build_cache_records_before": 63,
+  "build_cache_records_after": 0,
+  "final_logs_preserved": 12,
+  "c_free_bytes": 21418577920,
+  "docker_vhdx_bytes": 47823454208,
+  "retained_objects_verified": true
+}

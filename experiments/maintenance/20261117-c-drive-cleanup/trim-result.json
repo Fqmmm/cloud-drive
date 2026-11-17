@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-17T02:10:52.325749+00:00",
+  "command": [
+    "/bin/busybox",
+    "fstrim",
+    "-v",
+    "/mnt/docker-desktop-disk"
+  ],
+  "exit_code": 0,
+  "stdout": "/mnt/docker-desktop-disk: 3421376512 bytes trimmed\n",
+  "stderr": ""
+}

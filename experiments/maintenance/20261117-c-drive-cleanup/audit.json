@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-17T02:32:27.178566+00:00",
+  "final_logs_verified": 12,
+  "original_log_hashes_unchanged": true,
+  "archived_log_hashes_verified": true,
+  "source_line_counts_preserved": true,
+  "credential_findings": 0,
+  "original_experiment_records_unchanged": true,
+  "local_links_verified": 38,
+  "old_ubuntu_vhdx_retained": true,
+  "ubuntu_explicit_shutdown_requested": false
+}

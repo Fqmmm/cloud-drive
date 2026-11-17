@@ -1,0 +1,151 @@
+{
+  "captured_utc": "2026-11-17T02:08:55.107680+00:00",
+  "records": [
+    {
+      "source": "docker-final/cloud-drive-e2-20261116-share-service-1.log",
+      "source_sha256": "f6ff0441bc282b2c6141511903013cf49b4032074edce256f4911c16d90f2c21",
+      "source_bytes": 9078344,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-e2-20261116-share-service-1.redacted.log",
+      "archived_sha256": "d16508a25381c6577c1540b871760f83a0ac30fef711dc4900f4250825ead69b",
+      "archived_bytes": 9078341,
+      "source_lines": 36232,
+      "archived_lines": 36232,
+      "source_modified_utc": "2026-11-17T02:07:31.202178+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-e2-20261116-frontend-1.log",
+      "source_sha256": "fba82d4279806cedd153430083bc7ba540e8b7f0970a6445815954131c6d7884",
+      "source_bytes": 2417918,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-e2-20261116-frontend-1.redacted.log",
+      "archived_sha256": "162ee9f7463557172d86ad65d97de6dd894dfe0e9e1a49563edbc44c948be74b",
+      "archived_bytes": 2417917,
+      "source_lines": 22439,
+      "archived_lines": 22439,
+      "source_modified_utc": "2026-11-17T02:07:50.021061+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-e2-20261116-auth-service-1.log",
+      "source_sha256": "31258298d6b44d3eb9734c48872d81872fa20fd0ae4e26f2552cc1ff3057a62a",
+      "source_bytes": 105528,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-e2-20261116-auth-service-1.redacted.log",
+      "archived_sha256": "a39a8b52c8c97e0a7e90afe5651ad5e3b709f18f2a4f0a01f61e01c49f6e68e3",
+      "archived_bytes": 105525,
+      "source_lines": 395,
+      "archived_lines": 395,
+      "source_modified_utc": "2026-11-17T02:07:54.893930+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-e2-20261116-file-service-1.log",
+      "source_sha256": "d3565eae9bd9d592715955ec82d51b7d2c4e43b924458c61f0ed457907518cf3",
+      "source_bytes": 3820,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-e2-20261116-file-service-1.redacted.log",
+      "archived_sha256": "76dcd01b2f3ede2199539680bec5d8c1ffd784cfbc09cfea5dc7f14ce44a41b3",
+      "archived_bytes": 3817,
+      "source_lines": 28,
+      "archived_lines": 28,
+      "source_modified_utc": "2026-11-17T02:07:55.183313+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-e2-20261116-mysql-1.log",
+      "source_sha256": "d340471bc13acc73cf2bcfc68789de092c09d79b68d4580b69cfedf9800f0355",
+      "source_bytes": 2214,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-e2-20261116-mysql-1.redacted.log",
+      "archived_sha256": "d340471bc13acc73cf2bcfc68789de092c09d79b68d4580b69cfedf9800f0355",
+      "archived_bytes": 2214,
+      "source_lines": 14,
+      "archived_lines": 14,
+      "source_modified_utc": "2026-11-17T02:07:55.276913+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-e2-20261116-minio-1.log",
+      "source_sha256": "23aec2b3af03fd85f2b284bced695d414bfca6ea92d3571e1dc05e0581585955",
+      "source_bytes": 667,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-e2-20261116-minio-1.redacted.log",
+      "archived_sha256": "d961064666e07e1498329c486bf52887856bc6f32134b9e3ecdb8c4bc8f66807",
+      "archived_bytes": 662,
+      "source_lines": 10,
+      "archived_lines": 10,
+      "source_modified_utc": "2026-11-17T02:07:55.354217+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-course-frontend-1.log",
+      "source_sha256": "c04853a822ff7b9355010cb8e30ae9948806c5aec0ac3803cf36a805ea22122a",
+      "source_bytes": 9827171,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-course-frontend-1.redacted.log",
+      "archived_sha256": "4db90213bfbc7c90b09b2224cdf19494097a4bce5df7dd42a46d05de19c46d22",
+      "archived_bytes": 9827167,
+      "source_lines": 91033,
+      "archived_lines": 91033,
+      "source_modified_utc": "2026-11-17T02:07:55.644471+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-course-share-service-1.log",
+      "source_sha256": "5bb2ad3a73332ec0586971eeecba51305f1584d4f429b0ab04eeaa3f98a68197",
+      "source_bytes": 13280367,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-course-share-service-1.redacted.log",
+      "archived_sha256": "7fecf831a023f791d1da733663a0d91b5f1e74c9c5e9a654a13fcce5101542e4",
+      "archived_bytes": 13280355,
+      "source_lines": 52790,
+      "archived_lines": 52790,
+      "source_modified_utc": "2026-11-17T02:08:13.395598+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-course-auth-service-1.log",
+      "source_sha256": "08370b18dd6c489d5d1306ef7f5347bcca066736637278d240374719257cdef0",
+      "source_bytes": 1023370,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-course-auth-service-1.redacted.log",
+      "archived_sha256": "1a8ac3c65663838cb3ee12ccb01f8f6827b89c62f330c5256ec08c8774390c83",
+      "archived_bytes": 1023358,
+      "source_lines": 3793,
+      "archived_lines": 3793,
+      "source_modified_utc": "2026-11-17T02:08:26.269119+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-course-file-service-1.log",
+      "source_sha256": "9632611085c25a54a0b6140a00c24ee3cabf682deb8da2bb51ffdb8ba2afb017",
+      "source_bytes": 18424,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-course-file-service-1.redacted.log",
+      "archived_sha256": "711efd29cdb7ff18f91b597f17fb0511609c5ffa25790965e31dd7cb5d339601",
+      "archived_bytes": 18409,
+      "source_lines": 136,
+      "archived_lines": 136,
+      "source_modified_utc": "2026-11-17T02:08:27.041528+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-course-mysql-1.log",
+      "source_sha256": "2ff94e213c64c8a9ca1bec572b513d7c352191af56271d7375a672a5a961b5c7",
+      "source_bytes": 8744,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-course-mysql-1.redacted.log",
+      "archived_sha256": "2ff94e213c64c8a9ca1bec572b513d7c352191af56271d7375a672a5a961b5c7",
+      "archived_bytes": 8744,
+      "source_lines": 56,
+      "archived_lines": 56,
+      "source_modified_utc": "2026-11-17T02:08:27.132367+00:00"
+    },
+    {
+      "source": "docker-final/cloud-drive-course-minio-1.log",
+      "source_sha256": "82a77b3dfdec1aa4c870dbc8f5faee8d74ced9c4edc0f7756633796daae62413",
+      "source_bytes": 3499,
+      "source_encoding": "utf-8",
+      "archived_path": "sources/docker-final/cloud-drive-course-minio-1.redacted.log",
+      "archived_sha256": "b6e67d7a4e26f102da6395764ed0d20e04e32916359ae803d86925f3c6a60d7c",
+      "archived_bytes": 3474,
+      "source_lines": 51,
+      "archived_lines": 51,
+      "source_modified_utc": "2026-11-17T02:08:27.215231+00:00"
+    }
+  ],
+  "final_container_logs": 12,
+  "normalization": "UTF-8/LF, credential redaction, trailing whitespace normalization; source line counts retained"
+}

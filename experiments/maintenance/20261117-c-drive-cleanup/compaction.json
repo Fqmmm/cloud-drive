@@ -1,0 +1,11 @@
+{
+  "started_utc": "2026-11-17T02:13:23.8722075Z",
+  "target": "C:\\Users\\24930\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+  "status": "completed",
+  "before_bytes": 47814017024,
+  "c_free_before_bytes": 21452210176,
+  "diskpart_exit_code": 0,
+  "after_bytes": 5421137920,
+  "c_free_after_bytes": 63844442112,
+  "finished_utc": "2026-11-17T02:13:32.8101140Z"
+}
