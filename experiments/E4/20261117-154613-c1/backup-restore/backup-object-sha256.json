@@ -1,0 +1,32 @@
+[
+  {
+    "path": "objects\\6036229a-ec05-4a91-bd16-829e250586e5",
+    "bytes": 1048576,
+    "sha256": "6a8aeb8996c0e8dbefdf7b45d4532a619aafb2b33f13646c18b33b793b4b9dc3"
+  },
+  {
+    "path": "objects\\760c5128-2015-4e3e-b861-9910d72fca4e",
+    "bytes": 1024,
+    "sha256": "ad55c8fca1adc0c3f5ed2f21b85b93a1a07e1847f7b95fa97a6956906022c1c4"
+  },
+  {
+    "path": "objects\\b19859a1-9fd3-4443-85f9-dea5660c8ade",
+    "bytes": 20971520,
+    "sha256": "3a411bd495f9cee9791ac89be456f298552534a7984cd71a0c27b72b1772c647"
+  },
+  {
+    "path": "objects\\b5b037fd-601e-4c4c-98db-8fff73ef164f",
+    "bytes": 1024,
+    "sha256": "ad55c8fca1adc0c3f5ed2f21b85b93a1a07e1847f7b95fa97a6956906022c1c4"
+  },
+  {
+    "path": "objects\\bb14ecfa-8237-46d5-a743-0e74e8bbb0b0",
+    "bytes": 20971520,
+    "sha256": "3a411bd495f9cee9791ac89be456f298552534a7984cd71a0c27b72b1772c647"
+  },
+  {
+    "path": "objects\\c7ca5417-cfb3-48e0-b7d1-11b12e5c2405",
+    "bytes": 1048576,
+    "sha256": "6a8aeb8996c0e8dbefdf7b45d4532a619aafb2b33f13646c18b33b793b4b9dc3"
+  }
+]

@@ -71,6 +71,10 @@ python -m unittest discover -s scripts/experiments -p test_experiments.py -v
 .\artifacts\liu-tools\Scripts\python.exe scripts/experiments/analyze.py --run-id <批次>
 ```
 
+已完成的续跑批次用 `--run-id 20261117-154613-c1 --context-run-id 20261117-154613` 复算。可选图表入口为 `python scripts/experiments/figures.py --run-id 20261117-154613-c1`，需要 Matplotlib/NumPy，生成 PNG 与矢量 PDF 并记录输入哈希；图表生成后再执行分析器刷新报告链接与证据索引。实际结果选择与论文引用见 [材料说明](../../docs/exp/liu-paper-notes.md)。
+
+公开数据的离线复算不要求私有 `.env`/fixtures。缺少本机凭证时，索引明确标记未执行精确敏感值对照扫描，仍保留 JWT/提取码通用模式检查；发布本批时的精确扫描在原本机执行。新环境也可用常规 Python 安装 requests 后运行分析器，不必依赖原 `.venv` 路径。
+
 分阶段入口见 `python scripts/experiments/run.py --help`。独立重跑 E3/E4 时，显式传同一私有环境和新的结果批次，不复用已有输出目录。新批次报告只能引用其实际完成的数据；分析器默认要求验收、E3 和 E4 同一批次编号。
 
 故障前基线异常时，可以用 `diagnose.py --env-file <原私有环境> --run-id <新诊断编号> --seconds 180 --rebuild` 重建带诊断日志的文件/分享服务，并执行相同的并行探测。该入口不注入故障，首次异常或到达时限后保存探测、相关请求 ID、容器快照和服务日志到 `experiments/diagnostics/`；结果不能替代 E3/E4。请求 ID 不含用户身份和分享能力，异常日志只保留固定类别、状态和阶段。

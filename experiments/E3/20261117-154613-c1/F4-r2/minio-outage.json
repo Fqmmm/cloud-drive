@@ -1,0 +1,12 @@
+{
+  "upload_http": 503,
+  "delete_http": 200,
+  "quota_before": 22021131,
+  "quota_after_failed_upload": 22021131,
+  "quota_after_delete": 22021120,
+  "pending": [
+    "c26de4d8-62df-437d-bc34-0682c44d8d6f\tFILE_DELETED\t0",
+    "cdac5b73-1360-4115-a11c-2bbddaae51de\tUNCOMMITTED_UPLOAD\t0"
+  ],
+  "passed": true
+}

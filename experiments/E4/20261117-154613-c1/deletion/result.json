@@ -1,0 +1,15 @@
+{
+  "file_id": "26",
+  "object_key": "83e15374-4c95-41cb-8896-786841cee5d4",
+  "first_delete_http": 200,
+  "repeated_delete_http": 404,
+  "quota_before": 22021120,
+  "quota_uploaded": 22021132,
+  "quota_after": 22021120,
+  "old_share_http": 404,
+  "old_share_business": "SHARE_FILE_UNAVAILABLE",
+  "active_list_absent": true,
+  "object_stat_exit": 1,
+  "object_absent": true,
+  "passed": true
+}

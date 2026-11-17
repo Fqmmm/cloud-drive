@@ -122,7 +122,19 @@ def report_e3(folder, output):
         "", "MinIO 故障轮次额外验证失败上传不增加容量，删除产生持久待清理任务；恢复后等待任务自然重试并确认对象消失。没有手工删除队列或修改重试时间。",
         "", f"原始数据：[批次目录](../../experiments/E3/{folder.name}/)。每轮 events.json、states.jsonl、docker-events.jsonl、execution.jsonl、probe.csv、容器快照、服务日志和 verification/ 为对应证据。实验结束关闭故障钩子并保存 404 验证。",
         "", "单机服务级实验不能说明宿主机或磁盘故障下的高可用性。没有观察到失败的探针按实际采样报告，不能推出零停机。", ""])
-    output.write_text("\n".join(lines), encoding="utf-8")
+    environment = read(folder / "environment/environment.json")
+    engine = environment["engine"]
+    max_lag = max(row["max_schedule_lag_ms"] for row in rows)
+    lines.extend(["## 环境与采样精度", "", f"Docker Engine {engine['ServerVersion']}，{environment['compose_version']}，Docker 可见 {engine['NCPU']} 个逻辑 CPU、{engine['MemTotal']/1024**3:.2f} GiB 内存。续跑环境记录提交 `{environment['source_commit'][:7]}`，逐轮镜像 ID 和源码文件哈希见环境快照。",
+        "", f"计划频率为 1 Hz，实际请求发出相对计划的最大滞后为 {max_lag/1000:.3f} 秒。t1 使用故障后实际发出请求的失败回包时刻，另列首次失败发出时刻；t5 使用连续三次成功 tick 中首个请求的实际发出时刻。表格保留三位小数用于复算，不表示毫秒级测量精度。", ""])
+    if (folder / "figures/availability.png").exists():
+        prefix = f"../../experiments/E3/{folder.name}/figures/"
+        lines.extend(["## 论文图表", "", f"![故障影响热图]({prefix}availability.png)", "",
+            "热图的分母是各故障从注入至稳定恢复窗口内的计划请求数。人工停服包含 30 秒保持窗口，自动退出没有这一人为停服窗口；这些百分比描述本轮故障过程。", "",
+            f"![恢复时间三次重复]({prefix}recovery-time.png)", "", "点表示单次结果，黑线表示中位数，竖线表示最小—最大范围。F1—F4 从人工启动命令计时，F5 从注入命令计时。", "",
+            "三次重复的实际发出时间线（每条竖线为一次探针，绿为成功、红为失败）：" + "、".join(f"[{fault}]({prefix}timeline-{fault}.pdf)" for fault in manifest["faults"] if fault != "F6") + "。", "",
+            f"矢量版：[影响热图 PDF]({prefix}availability.pdf)、[恢复时间 PDF]({prefix}recovery-time.pdf)。生成器、输入文件和图表哈希见 figures/provenance.json。", ""])
+    output.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def report_e4(folder, output):
@@ -136,9 +148,11 @@ def report_e4(folder, output):
             raise ValueError("Incomplete E4 round")
         before = next(r for r in read(folder / name / "before" / "containers.json") if r["service"] == result["service"])
         after = next(r for r in read(folder / name / "after" / "containers.json") if r["service"] == result["service"])
+        volume = next(m for m in before["mounts"] if m["Type"] == "volume")
         with (folder / name / "verification" / "checksums.csv").open(encoding="utf-8") as stream:
             checks = list(csv.DictReader(stream))
         rows.append(dict(service=result["service"], repeat=result["repeat"], container_before=before["id"], container_after=after["id"],
+            volume_name=volume["Name"], mount_destination=volume["Destination"],
             retained_volume=result["container_changed_volume_retained"], metadata_equal=all(result["metadata_equal"].values()),
             objects_equal=result["object_keys_sizes_equal"], downloads=len(checks),
             hashes_passed=sum(r["passed"] == "True" for r in checks),
@@ -149,6 +163,10 @@ def report_e4(folder, output):
         "| 服务 | 重复 | 容器替换且卷不变 | 元数据一致 | 对象键/大小一致 | 下载哈希通过/总数 |", "|---|---:|---|---|---|---:|"]
     for row in rows:
         lines.append(f"| {row['service']} | {row['repeat']} | {row['retained_volume']} | {row['metadata_equal']} | {row['objects_equal']} | {row['hashes_passed']}/{row['downloads']} |")
+    lines.extend(["", "## 容器与原卷对应", "", "表中容器 ID 显示前 12 位，完整 ID、卷名和挂载信息保存在逐轮快照及 persistence-summary.csv。", "",
+        "| 服务/重复 | 旧容器 → 新容器 | 原命名卷 | 挂载目标 |", "|---|---|---|---|"])
+    for row in rows:
+        lines.append(f"| {row['service']}/{row['repeat']} | `{row['container_before'][:12]}` → `{row['container_after'][:12]}` | `{row['volume_name']}` | `{row['mount_destination']}` |")
     deletion = read(folder / "deletion" / "result.json")
     lines.extend(["", f"额外文件永久删除检查：{'通过' if deletion['passed'] else '失败'}。检查重复删除、容量、旧分享、活动列表和对象最终清理。版本为一文件一对象，不启用去重。", "",
         "每轮等待被替换基础服务就绪后，按固定步骤人工重启三个业务服务、等待健康并验证 Nginx 配置后 reload；这些操作及耗时单列，不作为自动恢复能力。每轮个人及两种原分享下载全部六个样本，同时检查跨用户拒绝访问、错误提取码拒绝、桶拒绝匿名列举和直接读取对象。", "",
@@ -162,26 +180,31 @@ def report_e4(folder, output):
         lines.extend(["", "新卷备份恢复扩展未执行，不据此作出备份可恢复结论。"])
     lines.extend(["", f"原始数据：[批次目录](../../experiments/E4/{folder.name}/)。基线、每次重建前后快照、只读元数据、对象清单、权限和哈希检查、执行命令及日志均保留。", "",
         "实验只验证这些命名卷在容器替换后保留数据，不能说明卷被删除、磁盘损坏或宿主机故障时的数据安全。", ""])
-    output.write_text("\n".join(lines), encoding="utf-8")
+    output.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def audit_public(paths, private):
     from support import Context
-    ctx = Context(private / ".env")
+    ctx = Context(private / ".env") if (private / ".env").is_file() else None
     # Acceptance generated additional short-lived secrets; its public copies
     # are redacted at capture. These explicit checks cover retained credentials.
-    forbidden = [v.encode() for v in ctx.sensitive if v and len(v) >= 12]
+    forbidden = [v.encode() for v in ctx.sensitive if v and len(v) >= 12] if ctx else []
     violations = []
+    checked = 0
     for folder in paths:
         for path in folder.rglob("*"):
             if path.is_file():
+                checked += 1
                 content = path.read_bytes()
+                label = str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else path.name
                 if any(secret in content for secret in forbidden) or __import__("re").search(rb"eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+", content):
-                    violations.append(str(path.relative_to(ROOT)))
+                    violations.append(label)
                 if __import__("re").search(rb'"extractCode"\s*:\s*"[0-9]{6}"', content):
-                    violations.append(str(path.relative_to(ROOT)))
+                    violations.append(label)
     if violations:
         raise ValueError("Public evidence contains sensitive values: " + ", ".join(violations))
+    return dict(exact_secret_values_checked=ctx is not None, generic_patterns_checked=True, files_checked=checked,
+                context="local private fixtures available" if ctx else "offline recomputation without private credentials")
 
 
 def normalize_public(paths):
@@ -214,9 +237,9 @@ def main():
     paths = [e3, e4, ROOT / "experiments" / "acceptance" / context_id,
              ROOT / "experiments" / "acceptance" / (context_id + "-deployment"), ROOT / "experiments" / "datasets" / context_id]
     normalize_public(paths)
-    audit_public(paths, ROOT / "artifacts" / "liu" / context_id)
+    security_scan = audit_public(paths, ROOT / "artifacts" / "liu" / context_id)
     files = [p for folder in paths for p in folder.rglob("*") if p.is_file() and p.name != "evidence-index.json"]
-    save(e4 / "evidence-index.json", dict(generated=utc(), files=[dict(path=str(p.relative_to(ROOT)), bytes=p.stat().st_size,
+    save(e4 / "evidence-index.json", dict(generated=utc(), security_scan=security_scan, analyzer_sha256=digest(Path(__file__).read_bytes()), files=[dict(path=str(p.relative_to(ROOT)).replace("\\", "/"), bytes=p.stat().st_size,
          sha256=digest(p.read_bytes())) for p in sorted(files)]))
     print("Reports and SHA-256 evidence index generated from completed batches.")
 

@@ -1,12 +1,15 @@
 # 实验结果与论文数据入口
 
-本目录保存课程论文使用的结果报告。测试日期为 2026 年 11 月 16 日，文中时间按北京时间说明，原始日志保留 UTC 时间戳。
+本目录保存课程论文使用的结果报告。E1/E2 测试日期为 2026 年 11 月 16 日，E3/E4 为 11 月 17 日；文中时间按北京时间说明，原始日志保留 UTC 时间戳。
 
 | 报告 | 当前完成情况 | 汇总数据 |
 | --- | --- | --- |
 | [E1：性能与资源开销](E1-results.md) | 容器与非容器 P1—P4 各 36/36 轮完成；P5 本轮排除，保留历史两轮上传 | [两侧对照](../../experiments/E1/20261116-e1-native-formal-summary/comparison.csv)、[原生逐轮表](../../experiments/E1/20261116-e1-native-formal-summary/per-round.csv)、[容器逐轮表](../../experiments/E1/20261116-e1-combined-summary/per-round.csv) |
 | [E2：编排与独立部署](E2-results.md) | 首次部署、三次已有镜像启动、独立更新、双副本验证及六轮性能对照完成 | [部署表](../../experiments/E2/20261116-e2-formal/deployment-summary.csv)、[副本对照表](../../experiments/E2/20261116-e2-formal/replica-summary.csv) |
-| [刘骐语：验收、E3/E4 交接](../liu-progress.md) | 修正后 FR 再次 121/121 通过；E3 已完成九轮，F4 校验器格式误判已修正待续跑；E4 尚未开始 | [执行入口](../../scripts/experiments/README.md)、[最新验收](../../experiments/acceptance/20261117-154613/results.json)、[E3 批次](../../experiments/E3/20261117-154613/manifest.json) |
+| [E3：故障影响与恢复](E3-results.md) | F1—F5 各三轮，15/15 完成；FR 验收 121/121 通过 | [恢复汇总](../../experiments/E3/20261117-154613-c1/recovery-summary.csv)、[影响表](../../experiments/E3/20261117-154613-c1/impact.csv)、[图表](../../experiments/E3/20261117-154613-c1/figures/) |
+| [E4：持久化与文件完整性](E4-results.md) | MySQL、MinIO 各三轮保留卷替换，108/108 下载哈希通过；新卷恢复通过 | [逐轮汇总](../../experiments/E4/20261117-154613-c1/persistence-summary.csv)、[恢复结果](../../experiments/E4/20261117-154613-c1/backup-restore/result.json)、[证据索引](../../experiments/E4/20261117-154613-c1/evidence-index.json) |
+
+刘骐语部分的论文引用方法、批次来源和失败处理见 [论文材料说明](liu-paper-notes.md)及 [任务交接](../liu-progress.md)。E3 的前九轮原样继承自 `20261117-154613`，其余六轮及 E4 在 `20261117-154613-c1` 执行；报告明确区分应用版本、工具修正和原始失败记录。
 
 论文引用数值时应同时写明场景、并发数、重复次数和指标口径。报告中的三次重复汇总采用中位数与最小—最大范围；原始请求记录保留在 `experiments/`，可以通过报告末尾的命令复算。E1 对比同一六服务应用的 Docker Compose 部署与 WSL2 直接进程部署；数据盘、网络路径、历史数据和执行时间的差异在报告中说明。
 

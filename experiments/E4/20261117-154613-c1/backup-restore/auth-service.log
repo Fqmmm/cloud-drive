@@ -1,0 +1,28 @@
+auth-service-1  | 2026-11-17T08:32:47.424333182Z 
+auth-service-1  | 2026-11-17T08:32:47.424375109Z   .   ____          _            __ _ _
+auth-service-1  | 2026-11-17T08:32:47.424377149Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+auth-service-1  | 2026-11-17T08:32:47.424378057Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+auth-service-1  | 2026-11-17T08:32:47.424378953Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+auth-service-1  | 2026-11-17T08:32:47.424379831Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+auth-service-1  | 2026-11-17T08:32:47.424380874Z  =========|_|==============|___/=/_/_/_/
+auth-service-1  | 2026-11-17T08:32:47.424381804Z 
+auth-service-1  | 2026-11-17T08:32:47.424849330Z  :: Spring Boot ::               (v3.5.11)
+auth-service-1  | 2026-11-17T08:32:47.424877750Z 
+auth-service-1  | 2026-11-17T08:32:47.496692453Z 2026-11-17T08:32:47.494Z  INFO 1 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : Starting AuthApplication v0.0.1-SNAPSHOT using Java 17.0.21 with PID 1 (/app/app.jar started by root in /app)
+auth-service-1  | 2026-11-17T08:32:47.498142220Z 2026-11-17T08:32:47.497Z  INFO 1 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : No active profile set, falling back to 1 default profile: "default"
+auth-service-1  | 2026-11-17T08:32:48.632730236Z 2026-11-17T08:32:48.632Z  INFO 1 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+auth-service-1  | 2026-11-17T08:32:48.643121157Z 2026-11-17T08:32:48.642Z  INFO 1 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+auth-service-1  | 2026-11-17T08:32:48.643354963Z 2026-11-17T08:32:48.643Z  INFO 1 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.52]
+auth-service-1  | 2026-11-17T08:32:48.668089811Z 2026-11-17T08:32:48.667Z  INFO 1 --- [auth-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+auth-service-1  | 2026-11-17T08:32:48.669778062Z 2026-11-17T08:32:48.669Z  INFO 1 --- [auth-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1124 ms
+auth-service-1  | 2026-11-17T08:32:49.591537698Z 2026-11-17T08:32:49.590Z  INFO 1 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+auth-service-1  | 2026-11-17T08:32:49.610774776Z 2026-11-17T08:32:49.610Z  INFO 1 --- [auth-service] [           main] com.jiayuan.drive.auth.AuthApplication   : Started AuthApplication in 2.673 seconds (process running for 3.137)
+auth-service-1  | 2026-11-17T08:32:51.644843732Z 2026-11-17T08:32:51.644Z  INFO 1 --- [auth-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+auth-service-1  | 2026-11-17T08:32:51.645254906Z 2026-11-17T08:32:51.644Z  INFO 1 --- [auth-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+auth-service-1  | 2026-11-17T08:32:51.646604854Z 2026-11-17T08:32:51.646Z  INFO 1 --- [auth-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+auth-service-1  | 2026-11-17T08:32:52.088289722Z 2026-11-17T08:32:52.086Z  INFO 1 --- [auth-service] [nio-8080-exec-1] c.jiayuan.drive.auth.RequestObservation  : request id=813acaad-a0fa-4ecb-88c2-6fc4da811d9b category=health status=200 durationMs=437 interrupted=false instance=6e2872e8536d
+auth-service-1  | 2026-11-17T08:33:02.235072636Z 2026-11-17T08:33:02.233Z  INFO 1 --- [auth-service] [nio-8080-exec-2] c.jiayuan.drive.auth.RequestObservation  : request id=5db48241-7509-4f3c-a88b-da8f9a4a0753 category=health status=200 durationMs=3 interrupted=false instance=6e2872e8536d
+auth-service-1  | 2026-11-17T08:33:11.729569249Z 2026-11-17T08:33:11.729Z  INFO 1 --- [auth-service] [nio-8080-exec-4] c.jiayuan.drive.auth.RequestObservation  : request id=91e703b566a9053e7fe684390fb769dd category=authentication status=200 durationMs=367 interrupted=false instance=6e2872e8536d
+auth-service-1  | 2026-11-17T08:33:12.380586882Z 2026-11-17T08:33:12.379Z  INFO 1 --- [auth-service] [nio-8080-exec-5] c.jiayuan.drive.auth.RequestObservation  : request id=e349eaac-adf1-4f03-8d7c-57cf037d1945 category=health status=200 durationMs=5 interrupted=false instance=6e2872e8536d
+auth-service-1  | 2026-11-17T08:33:14.024676029Z 2026-11-17T08:33:14.024Z  INFO 1 --- [auth-service] [nio-8080-exec-7] c.jiayuan.drive.auth.RequestObservation  : request id=9acba6161ff9187cb3519d15cb14284f category=authentication status=200 durationMs=245 interrupted=false instance=6e2872e8536d
+auth-service-1  | 2026-11-17T08:33:22.513567680Z 2026-11-17T08:33:22.512Z  INFO 1 --- [auth-service] [nio-8080-exec-8] c.jiayuan.drive.auth.RequestObservation  : request id=6b91b0f8-c982-4969-95b7-9659c550f64a category=health status=200 durationMs=2 interrupted=false instance=6e2872e8536d

@@ -1,0 +1,12 @@
+mysql-1  | 2026-11-17T08:28:26.437630849Z 2026-11-17 08:28:26+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.29-1.el8 started.
+mysql-1  | 2026-11-17T08:28:26.500288106Z 2026-11-17 08:28:26+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+mysql-1  | 2026-11-17T08:28:26.511384736Z 2026-11-17 08:28:26+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.29-1.el8 started.
+mysql-1  | 2026-11-17T08:28:26.564616968Z '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+mysql-1  | 2026-11-17T08:28:26.805024960Z 2026-11-17T08:28:26.792398Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 1
+mysql-1  | 2026-11-17T08:28:26.807551262Z 2026-11-17T08:28:26.807252Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+mysql-1  | 2026-11-17T08:28:26.978963392Z 2026-11-17T08:28:26.978727Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysql-1  | 2026-11-17T08:28:27.165651492Z 2026-11-17T08:28:27.165366Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+mysql-1  | 2026-11-17T08:28:27.165671505Z 2026-11-17T08:28:27.165433Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+mysql-1  | 2026-11-17T08:28:27.177724619Z 2026-11-17T08:28:27.176021Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+mysql-1  | 2026-11-17T08:28:27.215528733Z 2026-11-17T08:28:27.215259Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+mysql-1  | 2026-11-17T08:28:27.215556942Z 2026-11-17T08:28:27.215326Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.

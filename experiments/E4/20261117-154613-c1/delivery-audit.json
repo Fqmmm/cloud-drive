@@ -1,0 +1,21 @@
+{
+  "audited_utc": "2026-11-17T10:54:16.282747+00:00",
+  "completed": true,
+  "checks": {
+    "e3_rounds": 15,
+    "e3_download_checks": 270,
+    "e3_permission_checks": 90,
+    "automatic_restarts": 3,
+    "e4_rebuilds": 6,
+    "e4_download_checks": 162,
+    "e4_permission_checks": 54,
+    "inherited_rounds_byte_identical": 9,
+    "original_sample_ids_and_hashes_retained": true,
+    "deletion_consistency": true,
+    "independent_restore": true,
+    "private_backup_hashes_verified": true,
+    "figures_verified": 14
+  },
+  "measured_service_state_as_of": "2026-11-17T08:33:29.794594+00:00",
+  "note": "Audit of archived records; does not claim a live Docker inspection at audit time"
+}

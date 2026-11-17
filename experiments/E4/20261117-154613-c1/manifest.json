@@ -1,0 +1,15 @@
+{
+  "started": "2026-11-17T08:28:08.270498+00:00",
+  "completed": [
+    "mysql-r1",
+    "mysql-r2",
+    "mysql-r3",
+    "minio-r1",
+    "minio-r2",
+    "minio-r3"
+  ],
+  "status": "complete",
+  "repeat": 3,
+  "backup_restore": true,
+  "ended": "2026-11-17T08:33:29.794594+00:00"
+}

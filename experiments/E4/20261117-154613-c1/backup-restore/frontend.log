@@ -1,0 +1,197 @@
+frontend-1  | 2026-11-17T08:32:58.732162324Z /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+frontend-1  | 2026-11-17T08:32:58.732382140Z /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+frontend-1  | 2026-11-17T08:32:58.732819298Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+frontend-1  | 2026-11-17T08:32:58.741114845Z 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+frontend-1  | 2026-11-17T08:32:58.748980961Z 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version
+frontend-1  | 2026-11-17T08:32:58.750213034Z /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+frontend-1  | 2026-11-17T08:32:58.750226835Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+frontend-1  | 2026-11-17T08:32:58.753889572Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+frontend-1  | 2026-11-17T08:32:58.754790294Z /docker-entrypoint.sh: Configuration complete; ready for start up
+frontend-1  | 2026-11-17T08:32:58.760960586Z 2026/11/17 08:32:58 [notice] 1#1: using the "epoll" event method
+frontend-1  | 2026-11-17T08:32:58.760984275Z 2026/11/17 08:32:58 [notice] 1#1: nginx/1.28.3
+frontend-1  | 2026-11-17T08:32:58.760986204Z 2026/11/17 08:32:58 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+frontend-1  | 2026-11-17T08:32:58.760987680Z 2026/11/17 08:32:58 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+frontend-1  | 2026-11-17T08:32:58.760988678Z 2026/11/17 08:32:58 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+frontend-1  | 2026-11-17T08:32:58.761071466Z 2026/11/17 08:32:58 [notice] 1#1: start worker processes
+frontend-1  | 2026-11-17T08:32:58.761291559Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 30
+frontend-1  | 2026-11-17T08:32:58.761377879Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 31
+frontend-1  | 2026-11-17T08:32:58.761464896Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 32
+frontend-1  | 2026-11-17T08:32:58.761541150Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 33
+frontend-1  | 2026-11-17T08:32:58.761637141Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 34
+frontend-1  | 2026-11-17T08:32:58.761849680Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 35
+frontend-1  | 2026-11-17T08:32:58.761856577Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 36
+frontend-1  | 2026-11-17T08:32:58.762191959Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 37
+frontend-1  | 2026-11-17T08:32:58.765468678Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 38
+frontend-1  | 2026-11-17T08:32:58.765675603Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 39
+frontend-1  | 2026-11-17T08:32:58.765818754Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 40
+frontend-1  | 2026-11-17T08:32:58.765964315Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 41
+frontend-1  | 2026-11-17T08:32:58.766472425Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 42
+frontend-1  | 2026-11-17T08:32:58.767204360Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 43
+frontend-1  | 2026-11-17T08:32:58.767390263Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 44
+frontend-1  | 2026-11-17T08:32:58.767654040Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 45
+frontend-1  | 2026-11-17T08:32:58.767824276Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 46
+frontend-1  | 2026-11-17T08:32:58.767901783Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 47
+frontend-1  | 2026-11-17T08:32:58.768044451Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 48
+frontend-1  | 2026-11-17T08:32:58.768137878Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 49
+frontend-1  | 2026-11-17T08:32:58.768230192Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 50
+frontend-1  | 2026-11-17T08:32:58.775300961Z 2026/11/17 08:32:58 [notice] 1#1: start worker process 51
+frontend-1  | 2026-11-17T08:33:09.647599531Z 2026/11/17 08:33:09 [notice] 1#1: signal 1 (SIGHUP) received from 63, reconfiguring
+frontend-1  | 2026-11-17T08:33:09.647616901Z 2026/11/17 08:33:09 [notice] 1#1: reconfiguring
+frontend-1  | 2026-11-17T08:33:09.649373110Z 2026/11/17 08:33:09 [notice] 1#1: using the "epoll" event method
+frontend-1  | 2026-11-17T08:33:09.651393725Z 2026/11/17 08:33:09 [notice] 1#1: start worker processes
+frontend-1  | 2026-11-17T08:33:09.651406154Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 69
+frontend-1  | 2026-11-17T08:33:09.651407283Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 70
+frontend-1  | 2026-11-17T08:33:09.653156279Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 71
+frontend-1  | 2026-11-17T08:33:09.653166847Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 72
+frontend-1  | 2026-11-17T08:33:09.658945454Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 73
+frontend-1  | 2026-11-17T08:33:09.658957893Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 74
+frontend-1  | 2026-11-17T08:33:09.658958921Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 75
+frontend-1  | 2026-11-17T08:33:09.658959790Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 76
+frontend-1  | 2026-11-17T08:33:09.658960649Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 77
+frontend-1  | 2026-11-17T08:33:09.659297358Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 78
+frontend-1  | 2026-11-17T08:33:09.659307621Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 79
+frontend-1  | 2026-11-17T08:33:09.659308599Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 80
+frontend-1  | 2026-11-17T08:33:09.659309552Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 81
+frontend-1  | 2026-11-17T08:33:09.659310415Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 82
+frontend-1  | 2026-11-17T08:33:09.659311393Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 83
+frontend-1  | 2026-11-17T08:33:09.659312269Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 84
+frontend-1  | 2026-11-17T08:33:09.659313143Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 85
+frontend-1  | 2026-11-17T08:33:09.660348728Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 86
+frontend-1  | 2026-11-17T08:33:09.660357249Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 87
+frontend-1  | 2026-11-17T08:33:09.660358288Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 88
+frontend-1  | 2026-11-17T08:33:09.660359143Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 89
+frontend-1  | 2026-11-17T08:33:09.660360031Z 2026/11/17 08:33:09 [notice] 1#1: start worker process 90
+frontend-1  | 2026-11-17T08:33:09.765741554Z 2026/11/17 08:33:09 [notice] 30#30: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766031287Z 2026/11/17 08:33:09 [notice] 32#32: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766034833Z 2026/11/17 08:33:09 [notice] 31#31: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766035756Z 2026/11/17 08:33:09 [notice] 30#30: exiting
+frontend-1  | 2026-11-17T08:33:09.766037533Z 2026/11/17 08:33:09 [notice] 32#32: exiting
+frontend-1  | 2026-11-17T08:33:09.766038391Z 2026/11/17 08:33:09 [notice] 31#31: exiting
+frontend-1  | 2026-11-17T08:33:09.766039274Z 2026/11/17 08:33:09 [notice] 33#33: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766040143Z 2026/11/17 08:33:09 [notice] 33#33: exiting
+frontend-1  | 2026-11-17T08:33:09.766041009Z 2026/11/17 08:33:09 [notice] 50#50: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766041867Z 2026/11/17 08:33:09 [notice] 50#50: exiting
+frontend-1  | 2026-11-17T08:33:09.766042729Z 2026/11/17 08:33:09 [notice] 30#30: exit
+frontend-1  | 2026-11-17T08:33:09.766043606Z 2026/11/17 08:33:09 [notice] 32#32: exit
+frontend-1  | 2026-11-17T08:33:09.766044459Z 2026/11/17 08:33:09 [notice] 33#33: exit
+frontend-1  | 2026-11-17T08:33:09.766045306Z 2026/11/17 08:33:09 [notice] 50#50: exit
+frontend-1  | 2026-11-17T08:33:09.766046147Z 2026/11/17 08:33:09 [notice] 34#34: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766046994Z 2026/11/17 08:33:09 [notice] 35#35: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766047837Z 2026/11/17 08:33:09 [notice] 44#44: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766048677Z 2026/11/17 08:33:09 [notice] 35#35: exiting
+frontend-1  | 2026-11-17T08:33:09.766049528Z 2026/11/17 08:33:09 [notice] 51#51: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766050401Z 2026/11/17 08:33:09 [notice] 44#44: exiting
+frontend-1  | 2026-11-17T08:33:09.766051409Z 2026/11/17 08:33:09 [notice] 36#36: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766052300Z 2026/11/17 08:33:09 [notice] 36#36: exiting
+frontend-1  | 2026-11-17T08:33:09.766053289Z 2026/11/17 08:33:09 [notice] 37#37: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766054151Z 2026/11/17 08:33:09 [notice] 38#38: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766055001Z 2026/11/17 08:33:09 [notice] 38#38: exiting
+frontend-1  | 2026-11-17T08:33:09.766055862Z 2026/11/17 08:33:09 [notice] 35#35: exit
+frontend-1  | 2026-11-17T08:33:09.766057098Z 2026/11/17 08:33:09 [notice] 44#44: exit
+frontend-1  | 2026-11-17T08:33:09.766057968Z 2026/11/17 08:33:09 [notice] 36#36: exit
+frontend-1  | 2026-11-17T08:33:09.766058828Z 2026/11/17 08:33:09 [notice] 38#38: exit
+frontend-1  | 2026-11-17T08:33:09.766059686Z 2026/11/17 08:33:09 [notice] 39#39: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766060542Z 2026/11/17 08:33:09 [notice] 39#39: exiting
+frontend-1  | 2026-11-17T08:33:09.766061403Z 2026/11/17 08:33:09 [notice] 40#40: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766062265Z 2026/11/17 08:33:09 [notice] 41#41: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766069359Z 2026/11/17 08:33:09 [notice] 42#42: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766070536Z 2026/11/17 08:33:09 [notice] 41#41: exiting
+frontend-1  | 2026-11-17T08:33:09.766071394Z 2026/11/17 08:33:09 [notice] 39#39: exit
+frontend-1  | 2026-11-17T08:33:09.766072263Z 2026/11/17 08:33:09 [notice] 42#42: exiting
+frontend-1  | 2026-11-17T08:33:09.766073179Z 2026/11/17 08:33:09 [notice] 43#43: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766074050Z 2026/11/17 08:33:09 [notice] 45#45: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766076736Z 2026/11/17 08:33:09 [notice] 46#46: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766077632Z 2026/11/17 08:33:09 [notice] 41#41: exit
+frontend-1  | 2026-11-17T08:33:09.766078589Z 2026/11/17 08:33:09 [notice] 47#47: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766079453Z 2026/11/17 08:33:09 [notice] 48#48: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766080305Z 2026/11/17 08:33:09 [notice] 47#47: exiting
+frontend-1  | 2026-11-17T08:33:09.766081178Z 2026/11/17 08:33:09 [notice] 42#42: exit
+frontend-1  | 2026-11-17T08:33:09.766082049Z 2026/11/17 08:33:09 [notice] 48#48: exiting
+frontend-1  | 2026-11-17T08:33:09.766082907Z 2026/11/17 08:33:09 [notice] 49#49: gracefully shutting down
+frontend-1  | 2026-11-17T08:33:09.766083774Z 2026/11/17 08:33:09 [notice] 48#48: exit
+frontend-1  | 2026-11-17T08:33:09.766084639Z 2026/11/17 08:33:09 [notice] 31#31: exit
+frontend-1  | 2026-11-17T08:33:09.766085493Z 2026/11/17 08:33:09 [notice] 40#40: exiting
+frontend-1  | 2026-11-17T08:33:09.766086355Z 2026/11/17 08:33:09 [notice] 37#37: exiting
+frontend-1  | 2026-11-17T08:33:09.766087214Z 2026/11/17 08:33:09 [notice] 40#40: exit
+frontend-1  | 2026-11-17T08:33:09.766088085Z 2026/11/17 08:33:09 [notice] 37#37: exit
+frontend-1  | 2026-11-17T08:33:09.766088934Z 2026/11/17 08:33:09 [notice] 43#43: exiting
+frontend-1  | 2026-11-17T08:33:09.766089798Z 2026/11/17 08:33:09 [notice] 45#45: exiting
+frontend-1  | 2026-11-17T08:33:09.766091141Z 2026/11/17 08:33:09 [notice] 43#43: exit
+frontend-1  | 2026-11-17T08:33:09.766092020Z 2026/11/17 08:33:09 [notice] 46#46: exiting
+frontend-1  | 2026-11-17T08:33:09.766093179Z 2026/11/17 08:33:09 [notice] 45#45: exit
+frontend-1  | 2026-11-17T08:33:09.766094056Z 2026/11/17 08:33:09 [notice] 49#49: exiting
+frontend-1  | 2026-11-17T08:33:09.766094931Z 2026/11/17 08:33:09 [notice] 47#47: exit
+frontend-1  | 2026-11-17T08:33:09.766095792Z 2026/11/17 08:33:09 [notice] 49#49: exit
+frontend-1  | 2026-11-17T08:33:09.766097101Z 2026/11/17 08:33:09 [notice] 34#34: exiting
+frontend-1  | 2026-11-17T08:33:09.766125970Z 2026/11/17 08:33:09 [notice] 34#34: exit
+frontend-1  | 2026-11-17T08:33:09.766685013Z 2026/11/17 08:33:09 [notice] 46#46: exit
+frontend-1  | 2026-11-17T08:33:09.767305700Z 2026/11/17 08:33:09 [notice] 51#51: exiting
+frontend-1  | 2026-11-17T08:33:09.767315396Z 2026/11/17 08:33:09 [notice] 51#51: exit
+frontend-1  | 2026-11-17T08:33:09.847543438Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+frontend-1  | 2026-11-17T08:33:09.847570516Z 2026/11/17 08:33:09 [notice] 1#1: worker process 30 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.847823488Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.857475843Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+frontend-1  | 2026-11-17T08:33:09.857491017Z 2026/11/17 08:33:09 [notice] 1#1: worker process 32 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.857499324Z 2026/11/17 08:33:09 [notice] 1#1: worker process 42 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.857500742Z 2026/11/17 08:33:09 [notice] 1#1: worker process 44 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.857502958Z 2026/11/17 08:33:09 [notice] 1#1: worker process 50 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.858250544Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.858261025Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+frontend-1  | 2026-11-17T08:33:09.858262321Z 2026/11/17 08:33:09 [notice] 1#1: worker process 37 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.858263223Z 2026/11/17 08:33:09 [notice] 1#1: worker process 47 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.858360013Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.859506507Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+frontend-1  | 2026-11-17T08:33:09.859514905Z 2026/11/17 08:33:09 [notice] 1#1: worker process 34 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.859713636Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.887541537Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+frontend-1  | 2026-11-17T08:33:09.887564459Z 2026/11/17 08:33:09 [notice] 1#1: worker process 36 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.887573327Z 2026/11/17 08:33:09 [notice] 1#1: worker process 39 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.887574336Z 2026/11/17 08:33:09 [notice] 1#1: worker process 45 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.887575218Z 2026/11/17 08:33:09 [notice] 1#1: worker process 46 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.888814954Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.888827705Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+frontend-1  | 2026-11-17T08:33:09.888829386Z 2026/11/17 08:33:09 [notice] 1#1: worker process 35 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.888830256Z 2026/11/17 08:33:09 [notice] 1#1: worker process 43 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.888831181Z 2026/11/17 08:33:09 [notice] 1#1: worker process 48 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.888832039Z 2026/11/17 08:33:09 [notice] 1#1: worker process 49 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.889593895Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.897515531Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+frontend-1  | 2026-11-17T08:33:09.897539339Z 2026/11/17 08:33:09 [notice] 1#1: worker process 33 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.897541877Z 2026/11/17 08:33:09 [notice] 1#1: worker process 31 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.897543592Z 2026/11/17 08:33:09 [notice] 1#1: worker process 40 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.897545180Z 2026/11/17 08:33:09 [notice] 1#1: worker process 41 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.897546792Z 2026/11/17 08:33:09 [notice] 1#1: worker process 51 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.898550500Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:09.898563429Z 2026/11/17 08:33:09 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+frontend-1  | 2026-11-17T08:33:09.898565066Z 2026/11/17 08:33:09 [notice] 1#1: worker process 38 exited with code 0
+frontend-1  | 2026-11-17T08:33:09.898730656Z 2026/11/17 08:33:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026-11-17T08:33:11.729772272Z 91e703b566a9053e7fe684390fb769dd POST status=200 duration=0.370 upstream=200
+frontend-1  | 2026-11-17T08:33:11.801178929Z 33df1dcb118f6ad7974b1b59f6a22f98 GET status=200 duration=0.068 upstream=200
+frontend-1  | 2026-11-17T08:33:11.812977546Z 154c0e05d7fa722e9d7bba7c13f07865 GET status=200 duration=0.009 upstream=200
+frontend-1  | 2026-11-17T08:33:11.829230233Z 1d575a5c324961673441e6e713053291 GET status=200 duration=0.013 upstream=200
+frontend-1  | 2026-11-17T08:33:11.978894437Z 4ed488a92095af845b859ba19d798865 POST status=200 duration=0.133 upstream=200
+frontend-1  | 2026-11-17T08:33:12.250231148Z 9f758ea05d76f24af0bd3ddb98f07885 POST status=200 duration=0.267 upstream=200
+frontend-1  | 2026-11-17T08:33:12.284177485Z 85c631ce7d440c76dce3e085a75411e4 GET status=200 duration=0.028 upstream=200
+frontend-1  | 2026-11-17T08:33:12.367038307Z fd3090bf404c9a13f7245f28862331ac POST status=200 duration=0.040 upstream=200
+frontend-1  | 2026-11-17T08:33:12.742562405Z 37c507af9b5878992b65eafd31a7352b POST status=200 duration=0.328 upstream=200
+frontend-1  | 2026-11-17T08:33:12.923599451Z 7ae1cbbd91e3affc24c29d53aa1f9d36 GET status=200 duration=0.147 upstream=200
+frontend-1  | 2026-11-17T08:33:13.193415802Z 6520b4698335a079a02aa29b785762a2 POST status=200 duration=0.198 upstream=200
+frontend-1  | 2026-11-17T08:33:13.694271429Z b5bc6b655dba7a8162920f658dd9312c POST status=200 duration=0.416 upstream=200
+frontend-1  | 2026-11-17T08:33:14.024872647Z 9acba6161ff9187cb3519d15cb14284f POST status=200 duration=0.248 upstream=200
+frontend-1  | 2026-11-17T08:33:14.034847933Z f2553f60aa44b8178ef6ef19be22e614 GET status=200 duration=0.007 upstream=200
+frontend-1  | 2026-11-17T08:33:14.065108627Z aa31e090e455eb928a734f9bc1c559a3 GET status=200 duration=0.005 upstream=200
+frontend-1  | 2026-11-17T08:33:14.073960688Z f715dc1ba6db6c158fad4ac2465d1d91 GET status=200 duration=0.006 upstream=200
+frontend-1  | 2026-11-17T08:33:14.107482942Z 1cb54e37466dee284a179ea5a6c24548 POST status=200 duration=0.016 upstream=200
+frontend-1  | 2026-11-17T08:33:14.378485544Z bd47dd7830a9d19693c1b0bcd4c89e5e POST status=200 duration=0.268 upstream=200
+frontend-1  | 2026-11-17T08:33:14.393739989Z 0f6685837a72fc345aeaf8beefe852c4 GET status=200 duration=0.010 upstream=200
+frontend-1  | 2026-11-17T08:33:14.451581535Z ff424ef429621c47ac5bb28c06e59599 POST status=200 duration=0.026 upstream=200
+frontend-1  | 2026-11-17T08:33:14.736793399Z 091666ccafa2094d02dd8b32f3216f2d POST status=200 duration=0.266 upstream=200
+frontend-1  | 2026-11-17T08:33:14.914129337Z 56304eeaca4834470840c470bc692a52 GET status=200 duration=0.158 upstream=200
+frontend-1  | 2026-11-17T08:33:15.101050767Z 5276481f432930a97b31ce1e32e4811d POST status=200 duration=0.125 upstream=200
+frontend-1  | 2026-11-17T08:33:15.624055776Z 444a759bde4c1be162a9121a0cee5d4a POST status=200 duration=0.477 upstream=200
+frontend-1  | 2026-11-17T08:33:15.686385468Z a06108f2642b26d98f46db2b5dbfc671 GET status=404 duration=0.007 upstream=404
+frontend-1  | 2026-11-17T08:33:15.715593852Z 450a2d15a4970b6099c40f8c3f2a963e GET status=404 duration=0.008 upstream=404
+frontend-1  | 2026-11-17T08:33:15.992800774Z 966ac3ba0f505e854aa2aae3105e6011 POST status=403 duration=0.274 upstream=403
+frontend-1  | 2026-11-17T08:33:16.016374866Z a74d26a4dff96ec8596e8d87e715a5e5 GET status=404 duration=0.005 upstream=404
+frontend-1  | 2026-11-17T08:33:16.024305494Z 46501f40dba120b48c3a793404fe93ba GET status=404 duration=0.004 upstream=404
+frontend-1  | 2026-11-17T08:33:16.310106750Z 349aefbe11f9177de1a35ac0d0a9f038 POST status=403 duration=0.265 upstream=403

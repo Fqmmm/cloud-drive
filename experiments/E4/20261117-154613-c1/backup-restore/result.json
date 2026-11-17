@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-17T08:31:56.402132+00:00",
+  "completed": true,
+  "manual_restore": true,
+  "write_pause_epoch": 1794904323.8258357,
+  "database": {
+    "file": "database.sql",
+    "bytes": 19730,
+    "sha256": "4b5b3f8ae18d4fe22dd2c20e1792534f6f40083473289aeb21d73536f52ec056",
+    "private": true
+  },
+  "backup_seconds": 1.5161640644073486,
+  "backup_bytes": 44061970,
+  "original_resumed_epoch": 1794904343.91793,
+  "restore_started_epoch": 1794904344.1859138,
+  "metadata_equal": {
+    "users": true,
+    "accounts": true,
+    "files": true,
+    "quota": true,
+    "shares": true,
+    "counts": true,
+    "cleanup": true
+  },
+  "object_keys_sizes_equal": true,
+  "new_volumes": true,
+  "restore_seconds": 57.35608386993408,
+  "ended": "2026-11-17T08:33:24.362211+00:00"
+}

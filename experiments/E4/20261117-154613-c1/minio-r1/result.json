@@ -1,0 +1,80 @@
+{
+  "service": "minio",
+  "repeat": 1,
+  "started": "2026-11-17T08:30:02.377971+00:00",
+  "completed": true,
+  "steps": [
+    {
+      "name": "before-snapshot",
+      "start_epoch": 1794904202.957707,
+      "end_epoch": 1794904204.5220609,
+      "seconds": 1.564354419708252
+    },
+    {
+      "name": "database-backup",
+      "start_epoch": 1794904204.5235934,
+      "end_epoch": 1794904204.8650172,
+      "seconds": 0.34142398834228516
+    },
+    {
+      "name": "replace-infrastructure",
+      "start_epoch": 1794904204.866436,
+      "end_epoch": 1794904205.9948506,
+      "seconds": 1.1284146308898926
+    },
+    {
+      "name": "manual-application-restart",
+      "start_epoch": 1794904211.6724727,
+      "end_epoch": 1794904213.3747392,
+      "seconds": 1.7022666931152344
+    },
+    {
+      "name": "wait-six-healthy",
+      "start_epoch": 1794904213.3771873,
+      "end_epoch": 1794904220.2463024,
+      "seconds": 6.869115352630615
+    },
+    {
+      "name": "nginx-config-test-and-reload",
+      "start_epoch": 1794904220.2477968,
+      "end_epoch": 1794904220.7325325,
+      "seconds": 0.48473572731018066
+    },
+    {
+      "name": "after-snapshot",
+      "start_epoch": 1794904220.7341478,
+      "end_epoch": 1794904222.4391043,
+      "seconds": 1.7049567699432373
+    },
+    {
+      "name": "all-downloads-and-permissions",
+      "start_epoch": 1794904222.4403472,
+      "end_epoch": 1794904227.1509166,
+      "seconds": 4.710569620132446
+    },
+    {
+      "name": "readonly-metadata-and-object-inventory",
+      "start_epoch": 1794904227.1539273,
+      "end_epoch": 1794904231.759931,
+      "seconds": 4.606003999710083
+    }
+  ],
+  "backup": {
+    "file": "E4-minio-r1.sql",
+    "bytes": 19455,
+    "sha256": "ba66f407c7a9c185fc25a1c9bf9158d9e766c899c71422096af48294543771e1",
+    "private": true
+  },
+  "container_changed_volume_retained": true,
+  "metadata_equal": {
+    "users": true,
+    "accounts": true,
+    "files": true,
+    "quota": true,
+    "shares": true,
+    "counts": true,
+    "cleanup": true
+  },
+  "object_keys_sizes_equal": true,
+  "ended": "2026-11-17T08:30:31.762556+00:00"
+}

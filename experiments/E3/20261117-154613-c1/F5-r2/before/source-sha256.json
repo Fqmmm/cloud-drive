@@ -1,0 +1,446 @@
+[
+  {
+    "path": ".env.example",
+    "sha256": "a1865c3ca3f1658e95ef31dc9d753be1a1000d3f6bb9e8336aa29f6070150047"
+  },
+  {
+    "path": "backend\\auth-service\\Dockerfile",
+    "sha256": "d92680fc70aad1b5e01c30bb2ded51c3d6e07151ea250acb341d26d9f038ff9b"
+  },
+  {
+    "path": "backend\\auth-service\\pom.xml",
+    "sha256": "01a7e99904af726a7dfe688cbc8a9497940717fd71947bdd82dd7e7c6787a172"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\AccountLogin.java",
+    "sha256": "69676a7f60fbcbf19cb6709cd5fbcbef5520a2842472e815072f6e1830ab97a8"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\AccountPasswords.java",
+    "sha256": "ca8bd5ed85b8b24dda572f92adccdc3ee89d2d5c9d9841ca39b57727667fbc19"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\AccountRegistration.java",
+    "sha256": "de68ec7b93bcbf7e37e31411632bb6ec8cd3268465ddbcc39743919ccbb25b8e"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\ApiError.java",
+    "sha256": "544bca0942a4b7f37f660d8c2e5279e8b1db6ba999532e5cd5476c0ac2b82e5c"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\ApiExceptionHandler.java",
+    "sha256": "e3fdbb47897e0a631c7d0aba23917a386930614716f9fa8d086860c75feeb0da"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\ApiResult.java",
+    "sha256": "c1a827bd97895ca95c9628fdcc0c3cb135d5506ea8c2abcfa707a4d6a859b600"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\AuthApplication.java",
+    "sha256": "0e1a44433aec40fd95cc75af74dc876be341ab60f9f4c204be81764c172041a8"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\AuthController.java",
+    "sha256": "874734a6bc8b96738391755d9ef705339641d6540eff98f1ea36cc60c8ced23d"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\HealthController.java",
+    "sha256": "2ff4d0bcbae96485d22fe51ec49285daddf35b6a439497314b3b6fba5633dccc"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\HealthProbe.java",
+    "sha256": "4e58697b6ccc3dabc0a678cd6819700f96837e6b17317c9414c467d0bc164921"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\JwtTokens.java",
+    "sha256": "471276621f3bee50416385641c0579a334e1d3617f5b98a8fe455a2b840cf756"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\Registration.java",
+    "sha256": "f08cfda28e3f2d0872b4ee37b1e2a3532ab96815d57f1865ae5993b076947052"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\java\\com\\jiayuan\\drive\\auth\\RequestObservation.java",
+    "sha256": "535cc35cfcdf357c19ebbbc5a43e5b77bd26ff4b4196e6cbc2d105824bf3b574"
+  },
+  {
+    "path": "backend\\auth-service\\src\\main\\resources\\application.yaml",
+    "sha256": "78d27cad655187be3ebc2f306d53c316668dc38f55aeb4311be61f359439cbca"
+  },
+  {
+    "path": "backend\\auth-service\\src\\test\\java\\com\\jiayuan\\drive\\auth\\AccountPasswordsTest.java",
+    "sha256": "4ae45d65c62e40e4db6d5b8b1cb0684a071e1f828376a95c709ee1f709fd0f63"
+  },
+  {
+    "path": "backend\\auth-service\\src\\test\\java\\com\\jiayuan\\drive\\auth\\HealthControllerTest.java",
+    "sha256": "e5d5f87ce40d3b1e4754a5a8006b4a40350c5f3740f341dc14bdc2db74e3b6f4"
+  },
+  {
+    "path": "backend\\auth-service\\src\\test\\java\\com\\jiayuan\\drive\\auth\\JwtTokensTest.java",
+    "sha256": "80c83d358afa2ff9f2e52a52504c152feda82cf5f20e68664bfa04b11270d002"
+  },
+  {
+    "path": "backend\\auth-service\\tests\\health-smoke.ps1",
+    "sha256": "ffa94ae1a2912cf9be177a7eecb086a327cb648f89b77c792e5800f9f98aed03"
+  },
+  {
+    "path": "backend\\docker\\maven-build.sh",
+    "sha256": "d7d55bd96abdf46c5387a8df2137cb688cb5cd8b5b6efd8bf19a4d061f26ce71"
+  },
+  {
+    "path": "backend\\file-service\\Dockerfile",
+    "sha256": "abe2005f281f64debf1a5e057fc17eb5974758719b515e2cfae45bc85320150e"
+  },
+  {
+    "path": "backend\\file-service\\pom.xml",
+    "sha256": "e4f82146cad28462a94586d92a6ef88c8e37eb32c5ea64c1043ff9c63084b976"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\AccessConfiguration.java",
+    "sha256": "70b924913892f8eb1826e216bee446174d0e52b49501e0cac07c7dab03813332"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\ApiError.java",
+    "sha256": "2b93ca656cbc82b5769eaf3f74abe582f50fb9dec80130b53fd0d0d15d348d7b"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\ApiExceptionHandler.java",
+    "sha256": "1cf58e377d5e0510252e3a5d33226fe9825266cd02338797db1db1fc82ff5d24"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\FileApplication.java",
+    "sha256": "3ee5065446c9de7a070c0beb4c4801812e027bf0c9ec27cd1a0c8e7ec0a9ccaf"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\FileCatalog.java",
+    "sha256": "c965017eeefbfeca8b7031ea13b5d5415f359f93feca45fd7d82493da419b578"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\FileController.java",
+    "sha256": "9d95702b8774cdb7022278395d467a0e84c330fc9af2dbe037ebf6b73d1892d8"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\java\\com\\jiayuan\\drive\\files\\ObjectStorage.java",
+    "sha256": "f0199df1d98c9063b5d70b24a0dec51f9e5e63360d8cf17acaa7c9c30e19553d"
+  },
+  {
+    "path": "backend\\file-service\\src\\main\\resources\\application.yaml",
+    "sha256": "c873f06f3971729aa68573f5fc0bce5ffc43823d124a2fee090f22bfcddd0f34"
+  },
+  {
+    "path": "backend\\file-service\\src\\test\\java\\com\\jiayuan\\drive\\files\\ObjectStorageTest.java",
+    "sha256": "054642aabc43b207f83e5570eaafc0ed49a3f97b92f7229e77e3521d57b4c799"
+  },
+  {
+    "path": "backend\\share-service\\Dockerfile",
+    "sha256": "9d400aeaa4217e9892bd425902ae5ecd7d632474ccb8b00cf45adf9800fe3dcf"
+  },
+  {
+    "path": "backend\\share-service\\pom.xml",
+    "sha256": "8e6b0db1dcbb42848da6c4686bff534077aa02c40b3aa669125e61f2a8aacd5c"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ApiError.java",
+    "sha256": "016f7eb103faf270a55e1adf412663b1481580086992a76911eeea1c11122ea1"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ApiExceptionHandler.java",
+    "sha256": "c064e0d1659a22b3015f65a82ad253131a2a3eeb41d6ceabedcb27a699ae6d35"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ApiResult.java",
+    "sha256": "393f55a6f757be48b92a93c3f8eaa47230caf90decd4af7503057f95dc1b4c5b"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\CodeAttempts.java",
+    "sha256": "f7a378bbd7ff08eec4689f7997e888f9dbeddcc0146ea24b4df161e6a93b26a7"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\FaultController.java",
+    "sha256": "b977e19527cb8eafb27b631e1e0728f453e4c47600f4e24aa590cfe3cfc2f0d7"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\FileClient.java",
+    "sha256": "d9d37675f9d49ab77601371dccc6d38eb6e7ec13583467f5e2097e94fa3d3e5b"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\HealthController.java",
+    "sha256": "0e8ec33b5d957684037a2111e1cb3862acb4c25e80e35a4cdd0a9d14f43e25a4"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\HealthProbe.java",
+    "sha256": "931f2028d872226c839a093f00ed3a9466e219db7e9e6564a8388b80c832c8cb"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\JwtTokens.java",
+    "sha256": "476f5b6f2028b8d678679596e0c51eb656c364be16f6574ec47601fcb4a6cd77"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\PublicShareController.java",
+    "sha256": "8a51a9ffb955a5d05a356efb3a60b6ca74db44a9c35f71c0029ad42f8488c67d"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\RequestObservation.java",
+    "sha256": "eb6162e8fcfbcf6d9756fe078bc57bc8e9e727f354d4ee7d1e328e327c202018"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ShareAccess.java",
+    "sha256": "6c9c225e9c1cc55ed54ae59644bd6471f46828dd476c7ffddc3764c61a68cb24"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ShareApplication.java",
+    "sha256": "0f5564739c0efbb268f158b6c872cae896340ff6392db15c7bd1619fc3e89452"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ShareController.java",
+    "sha256": "4ab69e87def5f424091df9751a3cafa4a332ca61b5bdd7af5377fcf6c32b64ca"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ShareManagement.java",
+    "sha256": "c2e35a99cbe22b7fa0d63e9da51a9fa4b8788297505a4456240a3bad9c47b089"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\java\\com\\jiayuan\\drive\\shares\\ShareStore.java",
+    "sha256": "f6225df0b201afe5d1dc94e912940791e94c6c33674bbb611686a9a8be958d15"
+  },
+  {
+    "path": "backend\\share-service\\src\\main\\resources\\application.yaml",
+    "sha256": "a3c0ac7da6d6b39f9d7bf8f6e3f590a0647bebb6635ed4b02e2a6e2694e79754"
+  },
+  {
+    "path": "backend\\share-service\\src\\test\\java\\com\\jiayuan\\drive\\shares\\CodeAttemptsTest.java",
+    "sha256": "f89a1fdb7899f38a9c1fd1d2c3a36a047c656db5cf467e7a3817f5b10c1b5a2c"
+  },
+  {
+    "path": "backend\\share-service\\src\\test\\java\\com\\jiayuan\\drive\\shares\\FileClientTest.java",
+    "sha256": "fa995c17b3cf9611738d72fa751df3c6785e7503233ad4784bd2234cba9d786e"
+  },
+  {
+    "path": "backend\\share-service\\src\\test\\java\\com\\jiayuan\\drive\\shares\\HealthControllerTest.java",
+    "sha256": "f494fcc154a484179b8b12127283d55e73419353ed901110b741c05bf907cd42"
+  },
+  {
+    "path": "compose.yaml",
+    "sha256": "a2b7bcccf2533c2a5a1af4edee38b0b02b437fa8ac10165a1016560653852844"
+  },
+  {
+    "path": "frontend\\Dockerfile",
+    "sha256": "2b1ea9beb3e801d20213d122fc0891c01206782d9d925afd387395c5e258a5db"
+  },
+  {
+    "path": "frontend\\nginx\\course-proxy.conf",
+    "sha256": "29acae8b25c9acefb4183aca2f1daa4b4b8548300051fa3ed887aedd9513262e"
+  },
+  {
+    "path": "frontend\\nginx\\default.conf",
+    "sha256": "0cb2637a2bd14dfa6db624c7e44714f7508c007b308abaa81845a60f327c64e9"
+  },
+  {
+    "path": "frontend\\package.json",
+    "sha256": "a2ea53c658c473a5541b01af04757e57c76694f29da7589baf6c7bcf0a40151d"
+  },
+  {
+    "path": "frontend\\pnpm-lock.yaml",
+    "sha256": "8e38b3563556d415e2c5b6b16ce9583df2e449522f2c9aaaa0ec3050d07dd6d3"
+  },
+  {
+    "path": "frontend\\src\\course\\api.ts",
+    "sha256": "24f0fe2c8fceec558304252179ad4fdfa8288b66d9514b8ccfaf0745ba00bcea"
+  },
+  {
+    "path": "frontend\\src\\course\\course.css",
+    "sha256": "97b73c530be8f039b432ba77c6db456d89dbbecba10301401300301d68605058"
+  },
+  {
+    "path": "frontend\\src\\course\\CourseApp.vue",
+    "sha256": "abec9511c28774badfe78e685706a68778cd519bb162cb81c283a538bd9d7037"
+  },
+  {
+    "path": "frontend\\src\\course\\files.ts",
+    "sha256": "0e462b9e247a5b335d09b2de9c1e0a88504e568ad0d69ad78b9476336be9ed9f"
+  },
+  {
+    "path": "frontend\\src\\course\\FilesPage.vue",
+    "sha256": "c896babf7da131c05828aeab7444d61cb50d80bfbf488b90ea3086a4c55d84a3"
+  },
+  {
+    "path": "frontend\\src\\course\\LoginPage.vue",
+    "sha256": "b57fe739ed4f879afc18033a24fc77da82e874ecd2c1a13b3ca4ee27a9e42b6f"
+  },
+  {
+    "path": "frontend\\src\\course\\PublicSharePage.vue",
+    "sha256": "f78baf38eedeeff8490e0078ceacee1aef6babea6671ee1dc16ffb6e184cca2b"
+  },
+  {
+    "path": "frontend\\src\\course\\router.ts",
+    "sha256": "a188f32c42383ead09957f92b94e70de220149ec85871a025241c077c2b8f29a"
+  },
+  {
+    "path": "frontend\\src\\course\\shares.ts",
+    "sha256": "821c7c480c7cc2ed3aa026b4639998627a6dd89bdb20deda99e2bb042e65e6f7"
+  },
+  {
+    "path": "frontend\\src\\course\\SharesPage.vue",
+    "sha256": "fd49f596234225bd7fadb516093ed23692c99e6b9d6c3f790dac0dbb260bb622"
+  },
+  {
+    "path": "scripts\\deployment\\archive_experiment_logs.py",
+    "sha256": "892de029ccd55b1e9814bdd86070a07056c5e3a003f2a1a75db8583a74a929b6"
+  },
+  {
+    "path": "scripts\\deployment\\e2.py",
+    "sha256": "8c259ef9070a4e826503781de1b4c7871837e8a594ef6ffb3a5979b1ccc28978"
+  },
+  {
+    "path": "scripts\\deployment\\e2_analyze.py",
+    "sha256": "9bda05fc568f2c648c41738841051cf6ffae836311ac91debc5ff9059ceb9f8f"
+  },
+  {
+    "path": "scripts\\deployment\\e2_basic.py",
+    "sha256": "cd1a99f372b0d9208c3dee1f7d5f7edd8f7502e70fd33098ea7e0684399deff3"
+  },
+  {
+    "path": "scripts\\deployment\\e2_scale.py",
+    "sha256": "ad102a934dc57dec0134ac9e60871292a48aa3f2e51e26f8f307cd26ec624dcc"
+  },
+  {
+    "path": "scripts\\deployment\\e2_support.py",
+    "sha256": "5c724e2cd8a94756d01300c8a0b70d9c0752ea001f1971f3ba2f11b5fd3adbd5"
+  },
+  {
+    "path": "scripts\\deployment\\reload-nginx.ps1",
+    "sha256": "d4cab9345fbb20fd01ac204fd5d46828f038cfea3f11cd4549d239088d0f631c"
+  },
+  {
+    "path": "scripts\\deployment\\start.ps1",
+    "sha256": "828a9105f55b27c4ee1ce15a26fcdca8539148dccb82dcebfee6098ce53a98d3"
+  },
+  {
+    "path": "scripts\\deployment\\test_archive_experiment_logs.py",
+    "sha256": "4af97d8f5e380f5e17f3e2efa0c6efef9cfc6bfe59078870daa0887391cade92"
+  },
+  {
+    "path": "scripts\\deployment\\test_e2_support.py",
+    "sha256": "d054a8b3e1668cad81c4e2b5da196726e63d7836b033324301b6cd0e8bf48978"
+  },
+  {
+    "path": "scripts\\experiments\\analyze.py",
+    "sha256": "be6d49f3fb118a0178b83ba5697ae7db2af3b44c0a295b945b828fb31a98d228"
+  },
+  {
+    "path": "scripts\\experiments\\continue.py",
+    "sha256": "470f82c3ccbca1f7ae87578b1a1899dd66ceb6d0c49bc3b39059102ab3fd75b4"
+  },
+  {
+    "path": "scripts\\experiments\\diagnose.py",
+    "sha256": "1a82b0ba757fe8dbda3d65d90e338eefd4fcee5cdc5dc82c60afff348f986e89"
+  },
+  {
+    "path": "scripts\\experiments\\probes.py",
+    "sha256": "5935a55d0290a06321aaeef29c5595cb0ed5d809f892f63b5515891b514e52e0"
+  },
+  {
+    "path": "scripts\\experiments\\run.ps1",
+    "sha256": "5151a44fff0b360cc8d1154449aebb176272f83412571b808a68ece82bd8f815"
+  },
+  {
+    "path": "scripts\\experiments\\run.py",
+    "sha256": "9e6dafa99fd20247b514444b94f3258e001328d150155a7490c7ab798459ea32"
+  },
+  {
+    "path": "scripts\\experiments\\support.py",
+    "sha256": "e0f9e3d5399269d4b9dda55b72cf0a952f797b9ec507ddbdf05a1ef62919b592"
+  },
+  {
+    "path": "scripts\\experiments\\test_experiments.py",
+    "sha256": "552c8b3ae8935e94ebc7e6aa6390d69b538f5fa791fcf5c7155fedc637632981"
+  },
+  {
+    "path": "scripts\\experiments\\watch.ps1",
+    "sha256": "5cd47cfa6ff2f5074b24193f29758791e20db0211f4761602811e06db49d3be8"
+  },
+  {
+    "path": "scripts\\failure\\run.py",
+    "sha256": "2afc3bccda5464d00887fc01553a8142cf2406eb9282ca0fbc3bd5960f1da68a"
+  },
+  {
+    "path": "scripts\\native\\analyze_compare.py",
+    "sha256": "f8afb9c110f1d243c7efec8fc7b42747c42d42b23325db6a312f4328605501f3"
+  },
+  {
+    "path": "scripts\\native\\capture_evidence.py",
+    "sha256": "df0aed3a2db6c33c8e512c3d8b015d1839819285cc31efee060b8c953eb1d2f6"
+  },
+  {
+    "path": "scripts\\native\\experiment.py",
+    "sha256": "038712c46a45127fcf95392019d5137f2adc27b37598ce3d8058ed886b44757f"
+  },
+  {
+    "path": "scripts\\native\\NativeSampler.java",
+    "sha256": "cb1f19bf454f05dc22733b02b5511183269c53bd994c83e099af90bfe5698900"
+  },
+  {
+    "path": "scripts\\native\\prepare.py",
+    "sha256": "f811f9c9c026b5928ab3d44ac61545302b1976dd06d25c1379c3512f44b36767"
+  },
+  {
+    "path": "scripts\\native\\runtime.py",
+    "sha256": "6109881e7f38c69dfef2e784b9bd70b9b379d2242ad4f67821ac92324d97a874"
+  },
+  {
+    "path": "scripts\\native\\sampling.py",
+    "sha256": "7c0c5a5135957cbfaca8e8af4394786f7cc537729aab2021f9c5e704a96d82e6"
+  },
+  {
+    "path": "scripts\\native\\test_runtime.py",
+    "sha256": "c2586a42fba4b20c87af23a5f998fd9be88a9610d6439b0c44a31d5bc82b121e"
+  },
+  {
+    "path": "scripts\\performance\\analyze.py",
+    "sha256": "b8a5fa3470156145070362413d8af30c83ced3cd3c2e30b979001db258907b2a"
+  },
+  {
+    "path": "scripts\\performance\\combine.py",
+    "sha256": "bd7ad0eaa8f2bc7ca34f2ef2948a800863d452a2713c08868038d2134e84cd0a"
+  },
+  {
+    "path": "scripts\\performance\\common.py",
+    "sha256": "24a0d7fbe16e91e9e9428cef2d1d6bfcd0e265b1b966a961b83d88e083a3fb80"
+  },
+  {
+    "path": "scripts\\performance\\data.py",
+    "sha256": "1179369591a1ec83ca4c2cc259eec12db74db46a0a28e969f87d88e0d3a30bc7"
+  },
+  {
+    "path": "scripts\\performance\\resources.py",
+    "sha256": "d945dc28ed89cf5516d2634dd42c0f8dd6f06f6b9f6bf17464a0c0f191185edb"
+  },
+  {
+    "path": "scripts\\performance\\run.py",
+    "sha256": "008d2a723e7300f32fe43d95873cfe0d6fc9528e79a9dada3f431dc54445ceda"
+  },
+  {
+    "path": "scripts\\performance\\test_continuation.py",
+    "sha256": "8139b4d86e7d4db8cabc7e8619ccbb85e6ab915b6bbbf44119b29974cc02f78b"
+  },
+  {
+    "path": "scripts\\performance\\test_metrics.py",
+    "sha256": "f358cfca4b1cbd7b180cbc129685e8e465dd417987a9b70dfba474d757063941"
+  },
+  {
+    "path": "scripts\\performance\\workload.py",
+    "sha256": "c4fbf5fa573635db1ac39b04f4890c6cbd5875f2d042ee32d2bf1d0f4c08b746"
+  },
+  {
+    "path": "scripts\\persistence\\run.py",
+    "sha256": "82c3d2f182dc908a430dc72e8f4f0998a9557a9ac2061a64b189c1a4f0ae621e"
+  },
+  {
+    "path": "scripts\\smoke\\functional.py",
+    "sha256": "7413305ce81d3da34ef7ab4bfbd598ade506ef3e314a1c6071a86b0c178e1501"
+  },
+  {
+    "path": "scripts\\smoke\\test_context.py",
+    "sha256": "136848ecda2672c557ea092388a5f17158d6721cc7ee73399668b66969f0f598"
+  }
+]

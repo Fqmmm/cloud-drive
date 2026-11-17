@@ -1,0 +1,920 @@
+[
+  {
+    "round": "F1-r1",
+    "source": "experiments\\E3\\20261117-154613\\F1-r1",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "6498eea38fd6d3dbecebda48e86bba693c57e66e691bc57a29cd33659c10ade1"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "1b9370da1294e0c80fc1501b9731f7f0ad566a550c9a57319f0c3c5c07e35290"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "6f582c540e38d8dee504d585d731d58452b3f026aa94e355daa94d34a61a00ea"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "f51a01a6f374d42faf166656463a65c5c05f7a1ae0154ef9a18993ce7d671d9c"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "f3fc68b955e473c7adedd5ae2e4519ae6cf808966a4a112efc2af15755801e12"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "ec02021c0cecf6529e56ca93862dfac0c60be715b9493abad3291d8b898242b3"
+      },
+      {
+        "path": "events.json",
+        "sha256": "732baf41b05d02057766a504f7f4ebe7573eee83949e1757c4e961fef7d36313"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "1a1427e3e064461fae8b992efcd4f7e35e132fe2240201a572fe9294384d088d"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "2f22e3aaf5dffdc4e4699a7bd56f9f44eadc483b270741b2333b7868efdfc3f1"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "18225dcda7b9e99c29772442ded7dd7aedd1e66364f92a8f07fbacdcd172bc9c"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "ac836dc46b4fdaa51ef4a41a417b309c7e30edecc7d856842b7f0a14e688f253"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "4c3df7369f682851650fce27e07018ee4a4754e2e9be6baa22a941ac15ff2362"
+      },
+      {
+        "path": "result.json",
+        "sha256": "85d919539dfd798d4ce00b9574d2162ecac8aef046d5f59a6f3ae3a68b7c0d36"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "15d7f37f316f918e648d3a834fe3252ce46ef3775feb265d4c641a5037f2069e"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "e3f6b3d02d2bba5134230c4138603cb24c9a44bfafaad7bf6e7eaf95779dd234"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "58f1970b693295b4e140e07c7107c372a0f6b0a0094051268802f07df08ddad2"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F1-r2",
+    "source": "experiments\\E3\\20261117-154613\\F1-r2",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "0eec0b22ab95d00efaf928cdee2f060775a6f2d30dfd746042f6517759091223"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "595010134f22fdd6be9a24dae8035867e697615cdf9bd4e6610f0723a8233694"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "44b42aff3b0353d1a66c690b7b0c3aab5991c0c95e0df92ae8c35cc3133428bf"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "6498eea38fd6d3dbecebda48e86bba693c57e66e691bc57a29cd33659c10ade1"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "b19043ad6827497b175ff132256f35c9aa2ed989fb9ddb7dcc7226838b5a8d2e"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "16afe790f9f274908ce6dd7b81dd21dbb5ed0828a524d4d7ae16f4d5b50fb238"
+      },
+      {
+        "path": "events.json",
+        "sha256": "0baf893b33e513ccf396261a981b1e398e169d083185e0458a653a72eef5747e"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "b7c1eebd08f5a921e9aef38768092d0f085a0ff8105959ecf65080ae9633bd5e"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "2f22e3aaf5dffdc4e4699a7bd56f9f44eadc483b270741b2333b7868efdfc3f1"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "a60604439e13ea3b9c002be87114bb86735949c9202e31fd2b5b560861330c07"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "3fde8f60488e127a17b9ec385bde7fadb42e1774d797f33aac23dec3309f41cf"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "bf818b37b04ea5940b87be7848c53bba49980df651b43b84df9880f15f2f6f6d"
+      },
+      {
+        "path": "result.json",
+        "sha256": "63175256eb41e65997956c215ec71e093c13da2e99c7cfb34f52de052e1dae6f"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "081477443616b0eb590aa5bfc4c86ab4ac96eb165c3fcdc3a132801ff60bf63d"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "27f0eb8464c730e6a2005db0a89148660897935e247e46f9d4f196f0f25ea408"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "d169d3e01e10eaea11e7966519e2bf345995b95cef7da6fc75096dddb125851e"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F1-r3",
+    "source": "experiments\\E3\\20261117-154613\\F1-r3",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "bea458a5110aa8eb2434bc25119d4fa3c1cea5a4659b3840831ab08bc51c915d"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "00d05a953c4dec0b9c8051eb87508b4425e84dbbba75293d063bd82689ede44e"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "01d2442b0c56df23ace2e140b89df76cbe3425f690896a262b718fc2ab4f194b"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "0eec0b22ab95d00efaf928cdee2f060775a6f2d30dfd746042f6517759091223"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "765e384dcb1a5cc602874bef9c2a8f61f161e19dc7d3e55f65ebc0b4aa788527"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "1cef1e4ca8471c91da21c90999150ed3828e89af942291fd92216ceed6de34af"
+      },
+      {
+        "path": "events.json",
+        "sha256": "382e2942f732cc94262076c04a71e3b856c76a0a1134e76bbddcef838f6c398f"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "09f9de3b6baff4c96fced2a73433747790dc09e09f2aa640a43e5660a4c0fa63"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "2f22e3aaf5dffdc4e4699a7bd56f9f44eadc483b270741b2333b7868efdfc3f1"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "ae1ddbee58b8e6463d032642c5ad9d417b224cb9f5d4d19068b48f2c8d2ad95b"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "4c0203aac45c3dbc5fd50b85a02be76a6cf2463d3789e15f9773c84aa53c13de"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "18d950c466115d8547e628b957e959cf4bf85500266ce640c4f1345740252d48"
+      },
+      {
+        "path": "result.json",
+        "sha256": "5aa07ab186e7f6c221b828f6cd8d5ec9b0e9365a9dbe2454d08910756c359b0b"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "7fe14a376f39ec279bf6fdf685b8314bff555cb39b2532c3a0e9dd49fa400b25"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "664e6c1f703f37ecff15ad922cfca83a226c723ddd38987657598488b3ff3a3e"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "5bb2f5e4aa9aa8eaa5cd3d5dac3c81123c78a47badcdf77c3d78848f65a3137d"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F2-r1",
+    "source": "experiments\\E3\\20261117-154613\\F2-r1",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "1dcef46cc5bb4936eedce8042cb70b6baa66c92ab6634b4dddba31139baa5227"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "a3098fa4c28e53ad080cc13d8bec89977531cc11664ab1e27f632a5a222acf7e"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "02f766abf6813aefb78bf4a6769f109fc9ea9cab229055db746ba10b16441477"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "bea458a5110aa8eb2434bc25119d4fa3c1cea5a4659b3840831ab08bc51c915d"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "a7a6aa0311b6eb2e2b1e631b1b2deb56bc20fdfb509022aa15947c21db29734c"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "8299a66972e08122223a1ef2bd0886d33594eeda66bd30ed560977986bfa4482"
+      },
+      {
+        "path": "events.json",
+        "sha256": "747671d5e4c0ad891528dd86371008cf384befef8da6af88fbe0eca627ee3e56"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "36f7247daaf537956ec63df725eba308462fccf898edf28d3d4bb5824f441c70"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "2f22e3aaf5dffdc4e4699a7bd56f9f44eadc483b270741b2333b7868efdfc3f1"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "bc0165ae36da0949995b98256063788876f57b734e56bebc26bde49484cf5d16"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "c75de6be71bd79d07f80c9f85c6df69d2ea9df9b70db2a03664d6e1b4fc7f9cb"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "6982691c4a8a1f5c64133d43176d53b13521e15b48c2761c40969557c79410ba"
+      },
+      {
+        "path": "result.json",
+        "sha256": "3ac8ecee5fb8d54ae2eb212fb79037d2ce6bc3392b455f296236fe44b4e623cd"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "56c1590372aed553e4bfcefcc24f22ac057b86da9de4eafbe52fa9a4ae2ff0a1"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "1c0401129bf4712bb2aac7b910ca7edaac351e6d6279f36d127f18dccbe4086d"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "cffe02af22e24ea7f692da2c092cf103ad3ed0e9a02ab72a57425c7cd1db9854"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F2-r2",
+    "source": "experiments\\E3\\20261117-154613\\F2-r2",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "bce30a18005530265e456de1ffe284e0c97f3ec2f40dc876767c0c293e2d7ce7"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "41dd6d199278bacdbebae7d820e6d5b0597cb40ce7da4cc66c215a0454b3da29"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "705dc27eb0728dd1cc8772a600fa287dbd392ef08b5bcd9fdc6cbfb9cb17adbc"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "947009434d76ed04e471bef15f79009d5ee78907b7a5b98b91c299e8397f0f95"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "2587a86b3899848154536a75cb3250b2180cdf8b9085987b6b16893509f2685a"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "e24a4568126e29fcae64c9eb32f272e479dd0cf64aac56271cdb82cbcc2cce3a"
+      },
+      {
+        "path": "events.json",
+        "sha256": "c047d09452b19e509af65a51e9c981d28092bcc4ddfa61d9947508e946fb91cf"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "98665baaafcdeb344319471c3694bd91eaa8cbf4cab174ed5cd76f40bac3c2bb"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "2f22e3aaf5dffdc4e4699a7bd56f9f44eadc483b270741b2333b7868efdfc3f1"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "dc4150fd6e16beda1c5b9480e897f861a985a98d6d7e3a2ca3279805559c5827"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "e5f21d33e181037a590891364f25876a2f3db24536d7bfe4930b15d49c2c0d3d"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "5d93c6e45e1700cb59fbd8775755e93be23dc2faca3a260fcd4b3138edda8f70"
+      },
+      {
+        "path": "result.json",
+        "sha256": "0ec0e2f8224ba41516385f29b65a7a5c304d281b8f235d5090b520a70b577717"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "b94d3eda4d811f4f09912cc5f89a3e95054978f7543fb5be8cbe7b806fe3f7c0"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "27a3a709ddea8ca77496a3a8042c2172f3cc81cee1b3902671e458c2991274b2"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "dfdce995f7df4273a432b2510f9ec35767ac62988e675fde2cdf6463a1cbc9e5"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F2-r3",
+    "source": "experiments\\E3\\20261117-154613\\F2-r3",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "e2822c533b5e2e3ed8b2c6f4f4e0c0a3e099b99ac5fa4fd346f7e3cd9d128462"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "26154f95a9111addd08006de1ffe9307fecf1c0de3eefd6781487528f5f3b659"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "5f451a3d7fa6b79b7e9557f869b9e5143c19992996f94de46e67c1a140d37a19"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "bce30a18005530265e456de1ffe284e0c97f3ec2f40dc876767c0c293e2d7ce7"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "260e78e7ca98b53b68bb667c9266d4d9aad61af70178041f76a4915d17af1994"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "b8c1e537751a7eeba0510597e1ff9e3421ca0432d00f54b678385a6f5e4e57c9"
+      },
+      {
+        "path": "events.json",
+        "sha256": "af47bc35e996831b30d7d611b561bf50b8eb958914817eed20534e9023840a1d"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "c75add07d3db4a1f59bca5a99258dc49e193020bfc8c8ba48d8bb1c3850232c8"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "2f22e3aaf5dffdc4e4699a7bd56f9f44eadc483b270741b2333b7868efdfc3f1"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "fe8c950b4b33a9c816142c96193341bbdb62618e08b2891db8f9956c031df509"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "41a275c3fa7f6d17c4a1b72341ed2996c37984a9dcf6107b5cf1fad19c1281f7"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "55b06f83f4903a0b52912023cf381b6984cd4467bd56cb417dc24df7d3c4154d"
+      },
+      {
+        "path": "result.json",
+        "sha256": "c486ab285a1989c55d705c3af84c13dc62b216ba58b7105359384e78c33193b8"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "1ba0d0ffe9790abe7a5cb9fcf40ed229686901464b35706d572a61d17b0bc108"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "3ebb0ad8607bb6656cb7213ae5e5d892fab4750d04bb3cdb7e7ac20aad56ff92"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "e8f10f5c342b3a7ad04d39204ac7b0dec943b72b45d806f62af017f4972ec89a"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F3-r1",
+    "source": "experiments\\E3\\20261117-154613\\F3-r1",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "ce6972f9b5e4517b71b4f9e6923509b04a2ca0a7ed6519b286beaf848405b7cf"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "3c8cd0a4ed867dd95c5fa0a67e638fcaeb76c6f62724bbcee3a737fcc37417e9"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "32d1f77e1289764b5369ce391004c687e3a007b7ee8e79f129127a5e9e73ebd5"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "5b16a11e5ea3328c594ff5e87335c5c603d5ba9198bb61011596c6683d52ac8f"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "c88604544a69c5fcc18364f7f5a83dabd335704e1e31b5d613ed635fe2d1510f"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "1d6989def0311775e45378993c34f84daffebd73b78f4b19e30d84a2fea85721"
+      },
+      {
+        "path": "events.json",
+        "sha256": "bc02109b6c22fb206947a28485c8bd312f4e8024f8c5239c6d3e89d46b9a3e87"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "a3bef14568ea7f332feaced15909f47277410c556d33c463aa30d00b3a010718"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "0cbd501a17bf70a2c64ba8e2d8903f6ab1ec76409445672a652d035c77f4cc36"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "7280629a078f501408e48454afa9793531d80fb951d0e3a8a8eb1d2532a675d7"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "96ad8f43f95ecbfe4a48fdfd3519a7b8c4b44dfce351d8678d7c5b60b4d478a4"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "b715c32a3dd7fd149a88fd420a6695949a78dd4d6e943713366fd65f8819c45e"
+      },
+      {
+        "path": "result.json",
+        "sha256": "cc46874946cefffaec3ceb4126361468486416036ffa48ae3f0ac5c5224de2db"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "e265bac25bf64a1a66c0d3c68946b3914f100ffa1aa5b45b592c63f9f0c0269f"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "ef4ac2888b0a6bf521a3cfd1b168ea55c9cec7d6a8986d9a437a0703b032540a"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "deda420bf494eb603e9a1ae628c74a2128ffe675ba2a8212a272ec73f7631d53"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F3-r2",
+    "source": "experiments\\E3\\20261117-154613\\F3-r2",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "d3d256985274076f80745e9336289ab636f14b95a081ce788bfdead6e7dd67fb"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "f41da78bfb3c74fbbb4111d057f7371efdae8f24bdf7b5c8d34b855c23c0ac6a"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "f4d87a13461a4159060b764a0ffe13ae28759ca95825b34f9a29e749e0ebf370"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "ce6972f9b5e4517b71b4f9e6923509b04a2ca0a7ed6519b286beaf848405b7cf"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "94ed2066c957b84dd1c63f81a0238b731f36e0505e72ac3507d2b5a5d6af093f"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "6255c4f6a1442f6c8b829058c54db6fc63fd8bb5014accf2e24391575378dff9"
+      },
+      {
+        "path": "events.json",
+        "sha256": "e5ecb81a57a924210a4a7e35be1f90f8b05719af9ff19ee8db12024cfdecc856"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "8b6f95a3b8e8a270891c903e998fdeff8496cb643ca45eb47d2e1e162f0d7af3"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "6d56039620092b90c81e1857a6a65235a24ebedf823af8c16de19f0c682fb2e6"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "c690487d2b92a4bd38172082aa84323d8809571b0e57e10bcf534c60cbec3b16"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "1d5cc5aa23654ff855c85d57a528f2648fc0e2fac8426b4415465cd015c47985"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "4b77951b7bf75c6aaf45592b8689f8a0c75d0abeb13e394cd821a388dc600f09"
+      },
+      {
+        "path": "result.json",
+        "sha256": "de1a9e9340dfc6b677bb60c795e750add10ab6b00756b42206593351c28cfb71"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "fe323ac8919571e257ec328be25696f983f3346acf4f9c4d8ed582e138d14a21"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "634ea20e5cd1c49e2e81c1b0c59000c5afa35c346a9c0d5110c94aa9a542a80d"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "7b251f4325c2271e72d6ed27fa2cb52d39c876ec9512451c783bd8597acdca2f"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  },
+  {
+    "round": "F3-r3",
+    "source": "experiments\\E3\\20261117-154613\\F3-r3",
+    "files": [
+      {
+        "path": "after/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "after/containers.json",
+        "sha256": "82a71160c2caccb38c2f00c29a7bc0ca4a67868fc1443861132c68e714900059"
+      },
+      {
+        "path": "after/environment.json",
+        "sha256": "3a7ae4d8c7bc8fd2fd0b43d89835bd730a321ed92c767fa0eda337658be33d41"
+      },
+      {
+        "path": "after/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "auth-service.log",
+        "sha256": "7d684289f0e69b4f8131181a2a761bf86d34aeadebde2697c17e6dcaf9690204"
+      },
+      {
+        "path": "before/compose.redacted.json",
+        "sha256": "047136933e48d5430f62b4fe674309f5919941ea9a83b2f2b87a7617573a01ee"
+      },
+      {
+        "path": "before/containers.json",
+        "sha256": "d3d256985274076f80745e9336289ab636f14b95a081ce788bfdead6e7dd67fb"
+      },
+      {
+        "path": "before/environment.json",
+        "sha256": "547aaa3ae37739d38957ae330f8442e602177a32af6cf045cd6cdccebb3dc0bb"
+      },
+      {
+        "path": "before/source-sha256.json",
+        "sha256": "f1f1a1f6e681405bfda2833ca52f881ea7ac45d2ed920af09099e11c60f5ca40"
+      },
+      {
+        "path": "docker-events.jsonl",
+        "sha256": "ac1685173849dac4db84f6ea4bc14ee831e02ef3ce18dec78062f16b4d77f9cd"
+      },
+      {
+        "path": "events.json",
+        "sha256": "66781af5bc79361bfdff1d90c8194a0ee0035dee29b0a8b1e76ffbc93c07b49f"
+      },
+      {
+        "path": "execution.jsonl",
+        "sha256": "5181ab18166308349387182863ec0697328fe6d03ca17330c39b132599c30504"
+      },
+      {
+        "path": "file-service.log",
+        "sha256": "0f21d485d352f2d9bac019dc47cb9dc06d6cdd9d29208bab74e02c6853f528cb"
+      },
+      {
+        "path": "frontend.log",
+        "sha256": "b363d8678d17839bacd0c4937e16dc686cabf9887a88dd982a26397f38c94c3a"
+      },
+      {
+        "path": "minio.log",
+        "sha256": "baf9f87f0a5cd4443755355ed2c16e6973b70bc929333170ba40206a64eff98a"
+      },
+      {
+        "path": "mysql.log",
+        "sha256": "e0ae434df68aaff64dd4a1cc2782544450b4c757faad4adc362d96cdae2e2437"
+      },
+      {
+        "path": "parameters.json",
+        "sha256": "fe04abadf375ae6a8336aea775ebd078fc7cfa071e4d5f60bc04a2332afdeab3"
+      },
+      {
+        "path": "probe.csv",
+        "sha256": "f6c43eeedbc8102cd19839596fcd75c46c6bd2c8e497116e5bc6f348f5fee1c6"
+      },
+      {
+        "path": "result.json",
+        "sha256": "db2817fc00c40937873493cbf6428b91c285e286480b0488a5bf4b60cc576d2d"
+      },
+      {
+        "path": "share-service.log",
+        "sha256": "d0865808f1ae50a037e57d89bac9c2430e9c76ab7b0a201e8cc49102f1270c9a"
+      },
+      {
+        "path": "states.jsonl",
+        "sha256": "15229901d44954d85a056fc4c3ffab5df4f6964b426184eca3caf238b450d84e"
+      },
+      {
+        "path": "stopped.json",
+        "sha256": "bc035f2dcfd6e70ae0a5d6a46193764b1967c32f9071e4d8758a4b2c580f430c"
+      },
+      {
+        "path": "verification/checksums.csv",
+        "sha256": "e47d315581b8662ad11fef5635234cea2aecde9a4ca1166c02293d578e34d7c1"
+      },
+      {
+        "path": "verification/permissions.json",
+        "sha256": "bfc705904eccde4b4b9aa8a076d68996879870f1872c710a1094dc99ce973b6c"
+      }
+    ]
+  }
+]

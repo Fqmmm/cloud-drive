@@ -1,0 +1,38 @@
+[
+  {
+    "case": "cross-user-download",
+    "owner": "9",
+    "http_status": 404,
+    "passed": true
+  },
+  {
+    "case": "cross-user-directory",
+    "owner": "9",
+    "http_status": 404,
+    "passed": true
+  },
+  {
+    "case": "wrong-extract-code",
+    "owner": "9",
+    "http_status": 403,
+    "passed": true
+  },
+  {
+    "case": "cross-user-download",
+    "owner": "10",
+    "http_status": 404,
+    "passed": true
+  },
+  {
+    "case": "cross-user-directory",
+    "owner": "10",
+    "http_status": 404,
+    "passed": true
+  },
+  {
+    "case": "wrong-extract-code",
+    "owner": "10",
+    "http_status": 403,
+    "passed": true
+  }
+]

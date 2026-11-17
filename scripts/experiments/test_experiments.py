@@ -18,7 +18,7 @@ from unittest.mock import patch
 
 from support import Context, SERVICES, csv_write, digest, init_env, object_is_absent, retained_volumes, run_live, sanitize, validate_project, validate_resume_environment
 from probes import execute, recovery, Scheduler
-from analyze import normalize_public, report_e3, report_e4, summarize_round
+from analyze import audit_public, normalize_public, report_e3, report_e4, summarize_round
 
 GIT_BASH = Path("C:/Program Files/Git/bin/bash.exe")
 BASH = str(GIT_BASH) if GIT_BASH.is_file() else shutil.which("bash")
@@ -91,6 +91,22 @@ class Handler(BaseHTTPRequestHandler):
 
 
 class ContextTests(unittest.TestCase):
+    def test_offline_recomputation_does_not_require_private_credentials(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)
+            (path / "metrics.json").write_text('{"median":7.0}', encoding="utf-8")
+            result = audit_public([path], path / "missing-private-context")
+            self.assertFalse(result["exact_secret_values_checked"])
+            self.assertTrue(result["generic_patterns_checked"])
+            self.assertEqual(result["files_checked"], 1)
+
+    def test_offline_scan_still_rejects_jwt_and_extraction_code_patterns(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)
+            for content in ('eyJabcdefghijk.abcdefghijklmn.abcdefghijklmn', '{"extractCode":"001234"}'):
+                (path / "bad.log").write_text(content, encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    audit_public([path], path / "missing-private-context")
     def test_mc_object_missing_accepts_the_observed_structured_error(self):
         observed = dict(status="error", error=dict(message="Unable to stat object", cause=dict(message="Object does not exist", error={})))
         self.assertTrue(object_is_absent(1, json.dumps(observed)))

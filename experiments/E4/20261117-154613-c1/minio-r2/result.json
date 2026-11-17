@@ -1,0 +1,80 @@
+{
+  "service": "minio",
+  "repeat": 2,
+  "started": "2026-11-17T08:30:33.414496+00:00",
+  "completed": true,
+  "steps": [
+    {
+      "name": "before-snapshot",
+      "start_epoch": 1794904233.9698908,
+      "end_epoch": 1794904235.698226,
+      "seconds": 1.7283351421356201
+    },
+    {
+      "name": "database-backup",
+      "start_epoch": 1794904235.6995175,
+      "end_epoch": 1794904235.9891465,
+      "seconds": 0.2896292209625244
+    },
+    {
+      "name": "replace-infrastructure",
+      "start_epoch": 1794904235.9905405,
+      "end_epoch": 1794904237.0255895,
+      "seconds": 1.0350492000579834
+    },
+    {
+      "name": "manual-application-restart",
+      "start_epoch": 1794904242.823862,
+      "end_epoch": 1794904244.249033,
+      "seconds": 1.425171136856079
+    },
+    {
+      "name": "wait-six-healthy",
+      "start_epoch": 1794904244.2505767,
+      "end_epoch": 1794904251.5275578,
+      "seconds": 7.2769811153411865
+    },
+    {
+      "name": "nginx-config-test-and-reload",
+      "start_epoch": 1794904251.5290093,
+      "end_epoch": 1794904252.1202347,
+      "seconds": 0.5912256240844727
+    },
+    {
+      "name": "after-snapshot",
+      "start_epoch": 1794904252.1220446,
+      "end_epoch": 1794904254.483931,
+      "seconds": 2.361886739730835
+    },
+    {
+      "name": "all-downloads-and-permissions",
+      "start_epoch": 1794904254.4871593,
+      "end_epoch": 1794904259.3614044,
+      "seconds": 4.8742451667785645
+    },
+    {
+      "name": "readonly-metadata-and-object-inventory",
+      "start_epoch": 1794904259.3632424,
+      "end_epoch": 1794904266.0223813,
+      "seconds": 6.659138917922974
+    }
+  ],
+  "backup": {
+    "file": "E4-minio-r2.sql",
+    "bytes": 19455,
+    "sha256": "94ec7de77fb2745f1b616f3a5f1fa2c0d20eadccfbcc5c0692fa808ccb68a59f",
+    "private": true
+  },
+  "container_changed_volume_retained": true,
+  "metadata_equal": {
+    "users": true,
+    "accounts": true,
+    "files": true,
+    "quota": true,
+    "shares": true,
+    "counts": true,
+    "cleanup": true
+  },
+  "object_keys_sizes_equal": true,
+  "ended": "2026-11-17T08:31:06.025398+00:00"
+}
