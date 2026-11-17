@@ -2,6 +2,8 @@
 
 本目录保存 E1、E2 的原始数据、执行日志、环境快照和派生图表，供课程论文追溯与复算。E1 的容器、非容器 P1—P4 各完成 36 轮，E2 的部署、独立更新和双副本实验已完成。P5 按组长安排排除，已经产生的两轮上传及暂停记录继续保留。
 
+刘骐语的端到端验收、E3/E4 新执行工具见[运行说明](../scripts/experiments/README.md)，当前交接和实测状态见[任务记录](../docs/liu-progress.md)。离线工具回归保存在 [tool-validation/20261117-liu-tools/](tool-validation/20261117-liu-tools/result.json)，不属于正式 E3/E4 测量。新批次执行时会分别创建 `acceptance/`、`datasets/`、`E3/`、`E4/` 并保留失败记录；报告仅从完整正式批次生成。
+
 先读 [E1 结果报告](../docs/exp/E1-results.md)和 [E2 结果报告](../docs/exp/E2-results.md)，再按报告中的批次查阅本目录。报告负责解释结果，这里说明证据存在哪里、怎样区分、如何引用。
 
 ## 1. 目录入口

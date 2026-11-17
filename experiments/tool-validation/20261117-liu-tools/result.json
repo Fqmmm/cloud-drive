@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-17T05:56:30.068007+00:00",
+  "command": "python -m unittest discover -s scripts/experiments -p test_experiments.py -v",
+  "PYTHONUTF8": "1",
+  "exit_code": 0,
+  "scope": "Offline tool validation with temporary synthetic HTTP fixtures; not E3/E4 measurement"
+}
