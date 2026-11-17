@@ -64,16 +64,19 @@ def main():
     parser.add_argument("--include-mysql", action="store_true")
     parser.add_argument("--restore", action="store_true")
     parser.add_argument("--npm-registry", help="HTTPS registry for a new environment; existing environments are immutable")
+    parser.add_argument("--maven-mirror", help="Optional HTTPS mirror of Maven Central for a new environment")
     args = parser.parse_args()
     if not re.fullmatch(r"[a-z0-9-]{1,24}", args.run_id) or not 1024 <= args.port <= 65535:
         parser.error("Run ID: 1..24 lower-case letters/digits/hyphens; port: 1024..65535")
     private = ROOT / "artifacts" / "liu" / args.run_id
     env = private / ".env"
     if args.command == "init" or args.command == "all" and not env.exists():
-        init_env(env, "cloud-drive-liu-" + args.run_id, args.port, npm_registry=args.npm_registry)
+        init_env(env, "cloud-drive-liu-" + args.run_id, args.port, npm_registry=args.npm_registry, maven_mirror=args.maven_mirror)
     ctx = Context(env)
     if args.npm_registry and ctx.values.get("NPM_REGISTRY", "https://registry.npmjs.org").rstrip("/") != args.npm_registry.rstrip("/"):
         parser.error("Registry differs from existing private environment; use a new run ID")
+    if args.maven_mirror and ctx.values.get("MAVEN_MIRROR_URL", "").rstrip("/") != args.maven_mirror.rstrip("/"):
+        parser.error("Maven mirror differs from existing private environment; use a new run ID")
     if args.command in ("build", "all"):
         folder = ROOT / "experiments" / "acceptance" / (args.run_id + "-deployment")
         folder.mkdir(parents=True, exist_ok=False)

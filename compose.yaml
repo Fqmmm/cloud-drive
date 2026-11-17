@@ -42,6 +42,8 @@ services:
     build:
       context: ./backend
       dockerfile: auth-service/Dockerfile
+      args:
+        MAVEN_MIRROR_URL: ${MAVEN_MIRROR_URL:-}
     restart: unless-stopped
     environment:
       AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
@@ -59,6 +61,8 @@ services:
     build:
       context: ./backend
       dockerfile: file-service/Dockerfile
+      args:
+        MAVEN_MIRROR_URL: ${MAVEN_MIRROR_URL:-}
     restart: unless-stopped
     environment:
       FILE_DB_PASSWORD: ${FILE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}
@@ -98,6 +102,7 @@ services:
       dockerfile: share-service/Dockerfile
       args:
         APP_VERSION: ${SHARE_APP_VERSION:-course-v1}
+        MAVEN_MIRROR_URL: ${MAVEN_MIRROR_URL:-}
     restart: unless-stopped
     environment:
       SHARE_DB_PASSWORD: ${SHARE_DB_PASSWORD:?run scripts/deployment/start.ps1 first}

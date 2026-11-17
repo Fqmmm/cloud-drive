@@ -26,6 +26,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\run.ps
 
 前端构建支持 `-NpmRegistry https://registry.npmmirror.com`，默认仍使用 npm 官方源；来源写入专用 `.env`、Compose 参数和环境快照。pnpm 版本和锁文件保持固定。下载增加 5 次网络重试，参数依据 [npm 配置文档](https://docs.npmjs.com/cli/v11/using-npm/config/)及 [pnpm 10 配置文档](https://github.com/pnpm/pnpm.io/blob/main/versioned_docs/version-10.x/settings.md)。更换来源时新建批次，不覆盖既有环境。
 
+后端使用共享的 BuildKit Maven 缓存，`sharing=locked` 避免三个构建并发写入同一个缓存。先以固定版本的 [go-offline 目标](https://maven.apache.org/plugins-archives/maven-dependency-plugin-3.8.1/go-offline-mojo.html)准备依赖，网络失败最多三次；然后只执行一次正式编译/测试，失败保持原退出码。下载启用 Maven 严格校验。`-MavenMirror https://maven.aliyun.com/repository/public` 可显式选择 [阿里云镜像](https://developer.aliyun.com/mirror/maven/)，默认不配置镜像；实际 URL 保存到批次环境记录。
+
+归档前把公开文本规范为 UTF-8/LF，再计算证据文件 SHA-256，避免 Windows CRLF 被 Git 转换后校验值漂移。私有备份和样本不参与这一步。
+
 需要额外查看 Docker 的当前状态时，可在第二个 PowerShell 窗口执行：
 
 ```powershell

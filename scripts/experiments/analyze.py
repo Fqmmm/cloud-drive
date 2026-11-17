@@ -176,6 +176,17 @@ def audit_public(paths, private):
         raise ValueError("Public evidence contains sensitive values: " + ", ".join(violations))
 
 
+def normalize_public(paths):
+    """Hash the same UTF-8/LF bytes that Git stores on a Windows checkout."""
+    for folder in paths:
+        for path in folder.rglob("*"):
+            if path.is_file() and path.suffix in (".csv", ".json", ".jsonl", ".log", ".md", ".txt"):
+                original = path.read_bytes()
+                canonical = original.replace(b"\r\n", b"\n")
+                if canonical != original:
+                    path.write_bytes(canonical)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
@@ -190,6 +201,7 @@ def main():
     report_e4(e4, ROOT / "docs" / "exp" / "E4-results.md")
     paths = [e3, e4, ROOT / "experiments" / "acceptance" / args.run_id,
              ROOT / "experiments" / "acceptance" / (args.run_id + "-deployment"), ROOT / "experiments" / "datasets" / args.run_id]
+    normalize_public(paths)
     audit_public(paths, ROOT / "artifacts" / "liu" / args.run_id)
     files = [p for folder in paths for p in folder.rglob("*") if p.is_file() and p.name != "evidence-index.json"]
     save(e4 / "evidence-index.json", dict(generated=utc(), files=[dict(path=str(p.relative_to(ROOT)), bytes=p.stat().st_size,

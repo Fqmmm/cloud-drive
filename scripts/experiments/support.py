@@ -223,7 +223,7 @@ class Context:
             engine={k: raw.get(k) for k in info_fields},
             compose_version=self.run(["docker", "compose", "version"]).stdout.strip(),
             parameters={k: v for k, v in self.values.items() if not any(x in k for x in ("PASSWORD", "SECRET", "TOKEN"))}))
-        source_paths = [ROOT / "compose.yaml", ROOT / ".env.example"]
+        source_paths = [ROOT / "compose.yaml", ROOT / ".env.example", ROOT / "backend/docker/maven-build.sh"]
         for directory in ("scripts", "backend/auth-service", "backend/file-service", "backend/share-service", "frontend/src/course", "frontend/nginx"):
             source_paths.extend(path for path in (ROOT / directory).rglob("*") if path.is_file()
                 and "target" not in path.parts and "__pycache__" not in path.parts
@@ -399,10 +399,12 @@ class Context:
         return dict(file=target.name, bytes=target.stat().st_size, sha256=digest(target.read_bytes()), private=True)
 
 
-def init_env(path, project, port, npm_registry=None):
+def init_env(path, project, port, npm_registry=None, maven_mirror=None):
     validate_project(project)
     if npm_registry and not re.fullmatch(r"https://[A-Za-z0-9.-]+(?::[0-9]+)?/?", npm_registry):
         raise ValueError("Use an HTTPS registry without credentials or query parameters")
+    if maven_mirror and not re.fullmatch(r"https://[A-Za-z0-9.-]+(?::[0-9]+)?(?:/[A-Za-z0-9._/-]*)?", maven_mirror):
+        raise ValueError("Use an HTTPS Maven mirror without credentials or query parameters")
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
@@ -412,6 +414,8 @@ def init_env(path, project, port, npm_registry=None):
                         APP_IMAGE_TAG="liu-e3-e4", EXPERIMENT_FAULTS_ENABLED="false")
     if npm_registry:
         replacements["NPM_REGISTRY"] = npm_registry.rstrip("/")
+    if maven_mirror:
+        replacements["MAVEN_MIRROR_URL"] = maven_mirror.rstrip("/")
     replacements.update({key: secrets.token_hex(32) for key in
         ("MYSQL_ROOT_PASSWORD", "AUTH_DB_PASSWORD", "FILE_DB_PASSWORD", "SHARE_DB_PASSWORD", "MINIO_ROOT_PASSWORD", "JWT_SECRET", "INTERNAL_API_TOKEN")})
     for key, value in replacements.items():

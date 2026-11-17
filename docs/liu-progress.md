@@ -14,7 +14,7 @@
 |---|---|---|
 | 拉取仓库、识别分工 | 已完成 | 接收基线 `321ec3a`；开发分支 `feat/liu-qiyu-e3-e4` |
 | 验收、E3/E4 执行与报告工具 | 实现完成，待六容器验证 | `scripts/experiments/`、`scripts/failure/`、`scripts/persistence/` |
-| 离线工具回归 | 首轮 15 项、实时日志修正后 18 项通过 | [首轮日志](../experiments/tool-validation/20261117-liu-tools/unittest.log)、[修正后日志](../experiments/tool-validation/20261117-liu-live-log/unittest.log) |
+| 离线工具回归 | 首轮 15 项、日志修正 18 项、Maven 修正后 23 项通过 | [首轮日志](../experiments/tool-validation/20261117-liu-tools/unittest.log)、[日志修正](../experiments/tool-validation/20261117-liu-live-log/unittest.log)、[最新回归](../experiments/tool-validation/20261117-liu-maven-retry-final/unittest.log) |
 | Python/PowerShell 语法与入口检查 | 通过 | compileall；四个入口 `--help`；PowerShell AST 无错误；已有验收上下文回归 1 项通过 |
 | FR-01—FR-12 本轮验收 | 待本机执行 | 不复用他人历史结果作为本轮验收 |
 | E3 正式 15 轮 | 待本机执行 | 完成后保存 `experiments/E3/<run-id>/` |
@@ -55,3 +55,13 @@
 另提供只读 `watch.ps1`，用于用户本机每 15 秒记录本仓库的构建和实验项目的容器状态。当前 Codex 会话的 Docker 管道和 Git 写入限制仍在，重跑与提交仍需用户本机执行。
 
 修正后的 18 项离线回归通过，用时约 11.4 秒；新增检查覆盖命令结束前的日志可见性、脱敏、非零退出保留，以及 registry 参数留痕与非法输入拒绝。Python 语法、PowerShell AST 和 Git 空白检查通过。实际前端镜像构建仍以新批次结果为准。
+
+## 2026-11-17：第二次部署与 Maven 下载中断
+
+修正工具已由用户提交/推送为 `3e75e25`，新批次 `20261117-142506` 使用 npmmirror。前端依赖安装约 8.9 秒完成，类型检查和打包通过，前端镜像成功构建；后端基础镜像下载完成，认证服务的 5 项单元测试通过。
+
+该批在北京时间 14:34:08 失败：文件服务从 Maven Central 下载 `org.bouncycastle:bcprov-jdk18on:1.78` 时只收到 6,225,838 / 8,324,427 字节，出现 `Premature end of Content-Length delimited message body`，其他构建随后取消。该批仍未开始功能验收或 E3/E4。证据见 [部署清单](../experiments/acceptance/20261117-142506-deployment/manifest.json)、同目录实时构建日志和命令记录。
+
+新增共享且串行写入的 Maven 缓存、依赖准备三次重试和可选 HTTPS 镜像；正式编译/测试仍只执行一次，不能用重试掩盖测试失败。2026-11-17 本机从阿里云镜像完整下载该依赖，HTTP 200，8,324,427 字节，SHA-256 `1bf721b09758b3f55f2a5c875b6178ec6c41dddad854b0dead4b27a236f1943a`；容器内实效以新批次为准。另修正公开证据先统一 LF 再计算哈希，确保提交后可复核。
+
+修正后 23 项离线检查通过，用时约 13.9 秒，包括真实 Shell 配合模拟 Maven 的重试、重试耗尽、编译失败不重试检查；Python、Shell、PowerShell 语法和 Git 空白检查通过。该次工具验证不代替 Docker 构建和正式实验。

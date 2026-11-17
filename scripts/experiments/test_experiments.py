@@ -5,7 +5,9 @@ Local HTTP fixtures are synthetic and are never exported to experiments/.
 import csv
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -16,7 +18,57 @@ from unittest.mock import patch
 
 from support import Context, csv_write, digest, init_env, retained_volumes, run_live, sanitize, validate_project
 from probes import execute, recovery, Scheduler
-from analyze import report_e3, report_e4, summarize_round
+from analyze import normalize_public, report_e3, report_e4, summarize_round
+
+GIT_BASH = Path("C:/Program Files/Git/bin/bash.exe")
+BASH = str(GIT_BASH) if GIT_BASH.is_file() else shutil.which("bash")
+
+
+@unittest.skipUnless(BASH, "Maven wrapper checks require Bash")
+class MavenBuildTests(unittest.TestCase):
+    def invoke(self, failures, build_exit):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "bin").mkdir()
+            (root / "bin" / "mvn").write_text('''#!/bin/sh
+case "$*" in
+  *go-offline*)
+    count=0
+    if [ -f "$CASE_DIR/count" ]; then count=$(cat "$CASE_DIR/count"); fi
+    count=$((count + 1))
+    printf '%s' "$count" > "$CASE_DIR/count"
+    echo prepare >> "$CASE_DIR/calls"
+    if [ "$count" -le "$PREP_FAILURES" ]; then exit 1; fi
+    exit 0
+    ;;
+  *) echo build >> "$CASE_DIR/calls"; exit "$BUILD_EXIT" ;;
+esac
+''', encoding="utf-8", newline="\n")
+            (root / "bin" / "sleep").write_text("#!/bin/sh\nexit 0\n", encoding="utf-8", newline="\n")
+            for path in (root / "bin").iterdir():
+                path.chmod(0o755)
+            environment = os.environ.copy()
+            environment.update(PREP_FAILURES=str(failures), BUILD_EXIT=str(build_exit), MAVEN_MIRROR_URL="https://maven.aliyun.com/repository/public")
+            script = Path(__file__).resolve().parents[2] / "backend/docker/maven-build.sh"
+            result = subprocess.run([BASH, "-c", 'export CASE_DIR="$PWD" TMPDIR="$PWD"; export PATH="$PWD/bin:$PATH"; sh "$1" verify',
+                "wrapper-test", str(script)], cwd=root, env=environment, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30)
+            calls = (root / "calls").read_text().splitlines() if (root / "calls").exists() else []
+            return result, calls
+
+    def test_dependency_download_retries_then_build_runs_once(self):
+        result, calls = self.invoke(failures=2, build_exit=0)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(calls, ["prepare", "prepare", "prepare", "build"])
+
+    def test_exhausted_dependency_retries_do_not_start_build(self):
+        result, calls = self.invoke(failures=9, build_exit=0)
+        self.assertEqual(result.returncode, 1, result.stderr)
+        self.assertEqual(calls, ["prepare", "prepare", "prepare"])
+
+    def test_compile_or_test_failure_is_returned_without_retry(self):
+        result, calls = self.invoke(failures=0, build_exit=23)
+        self.assertEqual(result.returncode, 23, result.stderr)
+        self.assertEqual(calls, ["prepare", "build"])
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -99,6 +151,15 @@ class ContextTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     init_env(Path(folder) / "new.env", "cloud-drive-liu-test", 8088, npm_registry=value)
 
+    def test_maven_mirror_is_recorded_and_xml_injection_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            env = Path(folder) / ".env"
+            init_env(env, "cloud-drive-liu-test", 8088, maven_mirror="https://maven.aliyun.com/repository/public")
+            self.assertEqual(Context(env).values["MAVEN_MIRROR_URL"], "https://maven.aliyun.com/repository/public")
+            for value in ("https://x.test/?secret=1", "https://x.test/<evil>", "http://x.test/public", "https://user:pass@x.test"):
+                with self.assertRaises(ValueError):
+                    init_env(Path(folder) / "new.env", "cloud-drive-liu-test", 8088, maven_mirror=value)
+
     def test_redaction_including_short_extraction_codes_and_jwt(self):
         text = 'code=001234 password=password-long /s/' + 'a' * 22 + ' eyJabc.abcdef.abcdef elapsed=19'
         result = sanitize(text, ["001234", "password-long"])
@@ -153,6 +214,16 @@ class ContextTests(unittest.TestCase):
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_windows_evidence_is_normalized_before_hashing(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)
+            text = "中文,sha256\r\n文件,abc\r\n".encode("utf-8")
+            (path / "checksums.csv").write_bytes(text)
+            (path / "private.bin").write_bytes(b"\x00\r\n\xff")
+            normalize_public([path])
+            self.assertEqual((path / "checksums.csv").read_bytes(), text.replace(b"\r\n", b"\n"))
+            self.assertEqual((path / "private.bin").read_bytes(), b"\x00\r\n\xff")
+
     def test_automatic_recovery_uses_die_event_and_business_probes(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder)

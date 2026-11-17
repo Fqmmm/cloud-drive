@@ -3,6 +3,7 @@ param(
     [int]$Port = 8088,
     [int]$RestorePort = 8089,
     [string]$NpmRegistry = 'https://registry.npmjs.org',
+    [string]$MavenMirror = '',
     [switch]$SkipRestore,
     [switch]$IncludeMysql
 )
@@ -36,6 +37,7 @@ try {
             '--port', "$Port", '--restore-port', "$RestorePort", '--npm-registry', $NpmRegistry)
         if (!$SkipRestore) { $arguments += '--restore' }
         if ($IncludeMysql) { $arguments += '--include-mysql' }
+        if ($MavenMirror) { $arguments += @('--maven-mirror', $MavenMirror) }
         New-Item -ItemType Directory -Path (Join-Path $repo "artifacts/liu/$RunId") -Force | Out-Null
         & $pythonExe @arguments 2>&1 | Tee-Object -FilePath (Join-Path $repo "artifacts/liu/$RunId/console.log")
         if ($LASTEXITCODE -ne 0) { throw "Run $RunId stopped. Keep this batch and share the final error; do not overwrite it." }

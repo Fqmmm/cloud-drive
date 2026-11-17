@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-17T06:44:28.919579+00:00",
+  "command": "python -m unittest discover -s scripts/experiments -p test_experiments.py -v",
+  "exit_code": 0,
+  "scope": "Offline tool, mocked Maven wrapper and canonical evidence regression; not E3/E4 data"
+}

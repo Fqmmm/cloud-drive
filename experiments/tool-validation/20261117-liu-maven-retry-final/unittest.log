@@ -1,0 +1,28 @@
+test_container_changed_and_same_volume_required (test_experiments.ContextTests.test_container_changed_and_same_volume_required) ... ok
+test_context_and_credentials_preserved (test_experiments.ContextTests.test_context_and_credentials_preserved) ... ok
+test_csv_unicode_and_exact_hash_roundtrip (test_experiments.ContextTests.test_csv_unicode_and_exact_hash_roundtrip) ... ok
+test_live_log_is_visible_before_command_exits_and_is_redacted (test_experiments.ContextTests.test_live_log_is_visible_before_command_exits_and_is_redacted) ... ok
+test_live_log_preserves_nonzero_command_exit (test_experiments.ContextTests.test_live_log_preserves_nonzero_command_exit) ... ok
+test_maven_mirror_is_recorded_and_xml_injection_rejected (test_experiments.ContextTests.test_maven_mirror_is_recorded_and_xml_injection_rejected) ... ok
+test_private_dump_not_echoed_in_audit (test_experiments.ContextTests.test_private_dump_not_echoed_in_audit) ... ok
+test_project_isolation_and_input_validation (test_experiments.ContextTests.test_project_isolation_and_input_validation) ... ok
+test_redaction_including_short_extraction_codes_and_jwt (test_experiments.ContextTests.test_redaction_including_short_extraction_codes_and_jwt) ... ok
+test_registry_is_recorded_and_rejects_credentials_or_injection (test_experiments.ContextTests.test_registry_is_recorded_and_rejects_credentials_or_injection) ... ok
+test_shell_environment_cannot_replace_private_configuration (test_experiments.ContextTests.test_shell_environment_cannot_replace_private_configuration) ... ok
+test_compile_or_test_failure_is_returned_without_retry (test_experiments.MavenBuildTests.test_compile_or_test_failure_is_returned_without_retry) ... ok
+test_dependency_download_retries_then_build_runs_once (test_experiments.MavenBuildTests.test_dependency_download_retries_then_build_runs_once) ... ok
+test_exhausted_dependency_retries_do_not_start_build (test_experiments.MavenBuildTests.test_exhausted_dependency_retries_do_not_start_build) ... ok
+test_content_corruption_not_success (test_experiments.ProbeTests.test_content_corruption_not_success) ... ok
+test_one_slow_probe_does_not_block_other_ticks (test_experiments.ProbeTests.test_one_slow_probe_does_not_block_other_ticks) ... ok
+test_wall_clock_deadline_kills_hung_worker (test_experiments.ProbeTests.test_wall_clock_deadline_kills_hung_worker) ... ok
+test_automatic_recovery_uses_die_event_and_business_probes (test_experiments.RecoveryTests.test_automatic_recovery_uses_die_event_and_business_probes) ... ok
+test_incomplete_or_pilot_e3_cannot_publish_formal_report (test_experiments.RecoveryTests.test_incomplete_or_pilot_e3_cannot_publish_formal_report) ... ok
+test_missing_e4_round_cannot_publish_formal_report (test_experiments.RecoveryTests.test_missing_e4_round_cannot_publish_formal_report) ... ok
+test_missing_probe_cannot_be_treated_as_recovered (test_experiments.RecoveryTests.test_missing_probe_cannot_be_treated_as_recovered) ... ok
+test_requires_three_consecutive_ticks_and_does_not_sort_by_completion (test_experiments.RecoveryTests.test_requires_three_consecutive_ticks_and_does_not_sort_by_completion) ... ok
+test_windows_evidence_is_normalized_before_hashing (test_experiments.RecoveryTests.test_windows_evidence_is_normalized_before_hashing) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 13.944s
+
+OK
