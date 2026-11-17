@@ -1,0 +1,6 @@
+{
+  "started": "2026-11-17T06:05:16.453774+00:00",
+  "status": "failed",
+  "error": "RuntimeError: docker exited 1; see execution.jsonl",
+  "ended": "2026-11-17T06:15:13.977542+00:00"
+}

@@ -22,6 +22,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\run.ps
 
 首次构建需要下载镜像和构建依赖；整个流程通常需要数十分钟，具体以实测日志为准。`-RunId` 可指定新批次，`-Port` / `-RestorePort` 可改端口，`-IncludeMysql` 加入 F6 三轮，`-SkipRestore` 跳过新卷扩展。该开关会在报告中注明未执行。
 
+构建期间的脱敏输出实时写入 `experiments/acceptance/<run-id>-deployment/build.live.log`，原始字节仅保存在私有 `artifacts/liu/<run-id>/command-*.raw.log`。Docker 命令结束后仍保存完整执行记录与退出码。网络错误会保留失败批次，不自动把失败算作一次成功实验。
+
+前端构建支持 `-NpmRegistry https://registry.npmmirror.com`，默认仍使用 npm 官方源；来源写入专用 `.env`、Compose 参数和环境快照。pnpm 版本和锁文件保持固定。下载增加 5 次网络重试，参数依据 [npm 配置文档](https://docs.npmjs.com/cli/v11/using-npm/config/)及 [pnpm 10 配置文档](https://github.com/pnpm/pnpm.io/blob/main/versioned_docs/version-10.x/settings.md)。更换来源时新建批次，不覆盖既有环境。
+
+需要额外查看 Docker 的当前状态时，可在第二个 PowerShell 窗口执行：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\watch.ps1 -RunId <批次>
+```
+
+该工具每 15 秒读取本仓库构建历史和实验项目容器状态，保存到私有 `live-status.json/jsonl`，不启停服务；Ctrl+C 仅停止监控。
+
 源码应先提交冻结，再采正式数据。每个环境快照保存 Git 提交和工作区状态；源码或工具变更后另建批次。失败立即停止，保存失败目录，不覆盖旧记录。不要在同一环境同时启动两套实验。收尾保留全部容器、卷和私有备份；脚本不删除卷。
 
 ## 输出与凭证

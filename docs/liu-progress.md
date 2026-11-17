@@ -14,7 +14,7 @@
 |---|---|---|
 | 拉取仓库、识别分工 | 已完成 | 接收基线 `321ec3a`；开发分支 `feat/liu-qiyu-e3-e4` |
 | 验收、E3/E4 执行与报告工具 | 实现完成，待六容器验证 | `scripts/experiments/`、`scripts/failure/`、`scripts/persistence/` |
-| 离线工具回归 | 15 项通过 | [验证日志](../experiments/tool-validation/20261117-liu-tools/unittest.log)；`python -m unittest discover -s scripts/experiments -p test_experiments.py -v`；约 8.8 秒 |
+| 离线工具回归 | 首轮 15 项、实时日志修正后 18 项通过 | [首轮日志](../experiments/tool-validation/20261117-liu-tools/unittest.log)、[修正后日志](../experiments/tool-validation/20261117-liu-live-log/unittest.log) |
 | Python/PowerShell 语法与入口检查 | 通过 | compileall；四个入口 `--help`；PowerShell AST 无错误；已有验收上下文回归 1 项通过 |
 | FR-01—FR-12 本轮验收 | 待本机执行 | 不复用他人历史结果作为本轮验收 |
 | E3 正式 15 轮 | 待本机执行 | 完成后保存 `experiments/E3/<run-id>/` |
@@ -43,3 +43,15 @@
 | FR-12 | 取消/过期/删除源文件/链接不存在的差异提示，真实文件服务及 MinIO 故障与恢复 |
 
 正式结果以本轮 `experiments/acceptance/<run-id>/results.json` 和服务日志为准。论文引用必须带批次、源码提交、实验参数、原始记录路径和统计口径。
+
+## 2026-11-17：首次本机构建失败与实时日志修正
+
+用户已提交并推送工具到 `feat/liu-qiyu-e3-e4`，提交 `b339489`。本机创建批次 `20261117-135813`，依赖和 Chromium 安装完成，Docker 连接和 Compose 配置校验通过。
+
+北京时间 14:05:16—14:15:13 的首次 `compose up --build` 用时约 597.19 秒后失败。前端的 `npm install -g pnpm@10.32.1` 请求官方源时发生 `ECONNRESET` / `network aborted`，约 323.2 秒后退出；其余后端构建被 Compose 取消。该批尚未进入功能验收与正式 E3/E4，记录在 [部署失败清单](../experiments/acceptance/20261117-135813-deployment/manifest.json)及同目录 `execution.jsonl`，保留原目录。
+
+修正工具：构建输出改为实时采集并脱敏写入 `build.live.log`；原始字节保存在忽略目录，避免长时间等待命令结束才能检查。前端构建增加网络重试，并通过 `NPM_REGISTRY` 参数选择 HTTPS 下载源，默认官方源不变；pnpm 版本、锁文件和业务源码不变。2026-11-17 本机请求官方与 npmmirror 的 pnpm 10.32.1 元数据均返回 200，容器内下载是否恢复以新批次实际构建为准。
+
+另提供只读 `watch.ps1`，用于用户本机每 15 秒记录本仓库的构建和实验项目的容器状态。当前 Codex 会话的 Docker 管道和 Git 写入限制仍在，重跑与提交仍需用户本机执行。
+
+修正后的 18 项离线回归通过，用时约 11.4 秒；新增检查覆盖命令结束前的日志可见性、脱敏、非零退出保留，以及 registry 参数留痕与非法输入拒绝。Python 语法、PowerShell AST 和 Git 空白检查通过。实际前端镜像构建仍以新批次结果为准。

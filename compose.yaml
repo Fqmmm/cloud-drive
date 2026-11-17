@@ -124,6 +124,7 @@ services:
       dockerfile: Dockerfile
       args:
         VITE_MAX_FILE_BYTES: ${MAX_FILE_BYTES:-104857600}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org}
     restart: unless-stopped
     ports:
       - "127.0.0.1:${HTTP_PORT:-8080}:80"

@@ -4,6 +4,7 @@ All Docker commands use the supplied env/project explicitly. Raw credentials,
 database dumps and sample bytes stay in ignored artifacts/, never in reports.
 """
 import base64
+import codecs
 import csv
 from datetime import datetime, timezone
 import hashlib
@@ -68,6 +69,49 @@ def retained_volumes(before, after, service):
     return left["id"] != right["id"] and bool(volumes(left)) and volumes(left) == volumes(right)
 
 
+def run_live(args, public_log, raw_log, sensitive, timeout, cwd, env=None):
+    """Spool child output without pipe backpressure; publish redacted lines live.
+
+    Raw bytes stay private. Decode incrementally so UTF-8 text and credentials
+    split across file reads are not damaged or leaked by partial redaction.
+    """
+    decoder = codecs.getincrementaldecoder("utf-8")(errors="replace")
+    pending = ""
+    deadline = time.monotonic() + timeout
+    with raw_log.open("wb") as destination, public_log.open("w", encoding="utf-8") as public:
+        process = subprocess.Popen(args, cwd=cwd, env=env, stdout=destination, stderr=subprocess.STDOUT)
+        try:
+            with raw_log.open("rb") as source:
+                while True:
+                    if process.poll() is None and time.monotonic() >= deadline:
+                        raise subprocess.TimeoutExpired(args, timeout)
+                    chunk = source.read(65536)
+                    if chunk:
+                        pending += decoder.decode(chunk).replace("\r", "\n")
+                        lines = pending.split("\n")
+                        pending = lines.pop()
+                        for line in lines:
+                            if line:
+                                public.write(sanitize(line, sensitive) + "\n")
+                        public.flush()
+                    elif process.poll() is not None:
+                        pending += decoder.decode(b"", final=True)
+                        if pending:
+                            public.write(sanitize(pending, sensitive) + "\n")
+                            public.flush()
+                        break
+                    else:
+                        if time.monotonic() >= deadline:
+                            raise subprocess.TimeoutExpired(args, timeout)
+                        time.sleep(.2)
+        finally:
+            if process.poll() is None:
+                process.kill()
+            process.wait()
+    return subprocess.CompletedProcess(args, process.returncode,
+        raw_log.read_text(encoding="utf-8", errors="replace"), "")
+
+
 class Context:
     def __init__(self, env_file):
         self.env_file = Path(env_file).resolve()
@@ -91,10 +135,16 @@ class Context:
                 for share in item.get("shares", []):
                     self.sensitive.extend([share["shareToken"], share.get("extractCode")])
 
-    def run(self, args, input_text=None, timeout=300, check=True, private_output=None, record_output=True, env=None):
+    def run(self, args, input_text=None, timeout=300, check=True, private_output=None, record_output=True, env=None, live_log=None):
         began = time.time()
-        result = subprocess.run(args, cwd=ROOT, input=input_text, capture_output=True,
-                                text=True, encoding="utf-8", errors="replace", timeout=timeout, env=env)
+        if live_log:
+            if input_text is not None:
+                raise ValueError("Live command input is not supported")
+            result = run_live(args, live_log, self.private / f"command-{time.time_ns()}.raw.log",
+                              self.sensitive, timeout, ROOT, env)
+        else:
+            result = subprocess.run(args, cwd=ROOT, input=input_text, capture_output=True,
+                                    text=True, encoding="utf-8", errors="replace", timeout=timeout, env=env)
         if private_output:
             private_output.write_text(result.stdout, encoding="utf-8")
         if self.audit:
@@ -349,8 +399,10 @@ class Context:
         return dict(file=target.name, bytes=target.stat().st_size, sha256=digest(target.read_bytes()), private=True)
 
 
-def init_env(path, project, port):
+def init_env(path, project, port, npm_registry=None):
     validate_project(project)
+    if npm_registry and not re.fullmatch(r"https://[A-Za-z0-9.-]+(?::[0-9]+)?/?", npm_registry):
+        raise ValueError("Use an HTTPS registry without credentials or query parameters")
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
@@ -358,6 +410,8 @@ def init_env(path, project, port):
     text = (ROOT / ".env.example").read_text(encoding="utf-8")
     replacements = dict(COMPOSE_PROJECT_NAME=project, HTTP_PORT=str(port), PUBLIC_BASE_URL=f"http://127.0.0.1:{port}",
                         APP_IMAGE_TAG="liu-e3-e4", EXPERIMENT_FAULTS_ENABLED="false")
+    if npm_registry:
+        replacements["NPM_REGISTRY"] = npm_registry.rstrip("/")
     replacements.update({key: secrets.token_hex(32) for key in
         ("MYSQL_ROOT_PASSWORD", "AUTH_DB_PASSWORD", "FILE_DB_PASSWORD", "SHARE_DB_PASSWORD", "MINIO_ROOT_PASSWORD", "JWT_SECRET", "INTERNAL_API_TOKEN")})
     for key, value in replacements.items():

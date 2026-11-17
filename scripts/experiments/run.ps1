@@ -2,6 +2,7 @@ param(
     [string]$RunId = (Get-Date -Format 'yyyyMMdd-HHmmss'),
     [int]$Port = 8088,
     [int]$RestorePort = 8089,
+    [string]$NpmRegistry = 'https://registry.npmjs.org',
     [switch]$SkipRestore,
     [switch]$IncludeMysql
 )
@@ -30,9 +31,9 @@ try {
         & $pythonExe -m unittest discover -s scripts/experiments -p test_experiments.py -v
         if ($LASTEXITCODE -ne 0) { throw 'Experiment-tool checks failed.' }
         Write-Host "RunId=$RunId. Building six services, then acceptance, E3 and E4. Logs are saved automatically."
-        Write-Host 'Build output is buffered into the deployment execution log; first builds may take several minutes.'
+        Write-Host "Live build log: experiments/acceptance/$RunId-deployment/build.live.log"
         $arguments = @('-u', 'scripts/experiments/run.py', 'all', '--run-id', $RunId,
-            '--port', "$Port", '--restore-port', "$RestorePort")
+            '--port', "$Port", '--restore-port', "$RestorePort", '--npm-registry', $NpmRegistry)
         if (!$SkipRestore) { $arguments += '--restore' }
         if ($IncludeMysql) { $arguments += '--include-mysql' }
         New-Item -ItemType Directory -Path (Join-Path $repo "artifacts/liu/$RunId") -Force | Out-Null

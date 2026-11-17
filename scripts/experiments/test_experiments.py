@@ -7,13 +7,14 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import threading
 import time
 import unittest
 from unittest.mock import patch
 
-from support import Context, csv_write, digest, init_env, retained_volumes, sanitize, validate_project
+from support import Context, csv_write, digest, init_env, retained_volumes, run_live, sanitize, validate_project
 from probes import execute, recovery, Scheduler
 from analyze import report_e3, report_e4, summarize_round
 
@@ -37,6 +38,35 @@ class Handler(BaseHTTPRequestHandler):
 
 
 class ContextTests(unittest.TestCase):
+    def test_live_log_is_visible_before_command_exits_and_is_redacted(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)
+            results = []
+            command = [sys.executable, "-u", "-c", "import time; print('secret-abcdef first',flush=True); time.sleep(2); print('last',flush=True)"]
+            thread = threading.Thread(target=lambda: results.append(run_live(command, path / "public.log", path / "private.log",
+                ["secret-abcdef"], 10, path)))
+            thread.start()
+            deadline = time.monotonic() + 1.5
+            while time.monotonic() < deadline:
+                if (path / "public.log").exists() and "first" in (path / "public.log").read_text():
+                    break
+                time.sleep(.05)
+            visible_while_running = thread.is_alive() and "first" in (path / "public.log").read_text()
+            thread.join()
+            self.assertTrue(visible_while_running)
+            self.assertEqual(results[0].returncode, 0)
+            self.assertNotIn("secret-abcdef", (path / "public.log").read_text())
+            self.assertIn("secret-abcdef", (path / "private.log").read_text())
+            self.assertIn("last", (path / "public.log").read_text())
+
+    def test_live_log_preserves_nonzero_command_exit(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)
+            result = run_live([sys.executable, "-c", "print('build failed'); raise SystemExit(7)"],
+                path / "public.log", path / "private.log", [], 10, path)
+            self.assertEqual(result.returncode, 7)
+            self.assertIn("build failed", (path / "public.log").read_text())
+
     def test_project_isolation_and_input_validation(self):
         for project in ("cloud-drive-course", "cloud-drive-e2-old", "x;docker", "cloud-drive-liu-../escape"):
             with self.assertRaises(ValueError):
@@ -59,6 +89,15 @@ class ContextTests(unittest.TestCase):
             for operation in (("down",), ("down", "-v"), ("rm", "mysql")):
                 with self.assertRaises(ValueError):
                     ctx.compose(*operation)
+
+    def test_registry_is_recorded_and_rejects_credentials_or_injection(self):
+        with tempfile.TemporaryDirectory() as folder:
+            env = Path(folder) / ".env"
+            init_env(env, "cloud-drive-liu-test", 8088, npm_registry="https://registry.npmmirror.com/")
+            self.assertEqual(Context(env).values["NPM_REGISTRY"], "https://registry.npmmirror.com")
+            for value in ("http://insecure.test", "https://user:password@registry.test", "https://x.test\nSECRET=value"):
+                with self.assertRaises(ValueError):
+                    init_env(Path(folder) / "new.env", "cloud-drive-liu-test", 8088, npm_registry=value)
 
     def test_redaction_including_short_extraction_codes_and_jwt(self):
         text = 'code=001234 password=password-long /s/' + 'a' * 22 + ' eyJabc.abcdef.abcdef elapsed=19'
